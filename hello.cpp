@@ -1,10 +1,11 @@
 /*hello.cpp
 programme print Hello World!*/
 
-#include "hello.h"
+
 #include <iostream>
 using namespace std;
 
-void Hello::print(){
+int main(){
 cout<<"Hello, World!"<<endl;
+return 0;
 }
