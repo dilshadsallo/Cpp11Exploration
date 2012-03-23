@@ -1,14 +1,14 @@
 // Dilshad Sallo, 18.3.2012
-//Using predefined variable __func__, which makes a function name available for use within the function.
+// Using macro __func__, which makes the function name available for use
+// within the function.
 
 #include <iostream>
 
-void myFunction() {
-  std::cout << "Entering function " << __func__ << std::endl;
-  std::cout << "Size of __func__ = " << sizeof(__func__) << std::endl;
+namespace {
+  void f() {
+    std::cout << "Entering function \"" << __func__ << "\"\n";
+    std::cout << "Size of __func__ = " << sizeof(__func__) << "\n";
+  }
 }
 
-int main () {
-  myFunction();
-
-}
+int main() { f(); }
