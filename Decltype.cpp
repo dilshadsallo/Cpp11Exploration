@@ -4,8 +4,8 @@
 
 int main() {
   int i = 7;
-  decltype(i) j = 8;
-
+  const decltype(i) j = 8;
+  // which type?
   std::cout << "The datatype of  " << j << " is integer." << std::endl;
 
 }

@@ -4,8 +4,8 @@
 #include <iostream>
 
 int main() {
-  unsigned long long ll = 140;
-
+  const unsigned long long ll = 140; // TODO: needs to be longer
+  // let C++ determine the type
   std::cout << "the datatype of " << ll << " is unsigned long long (int)." << std::endl;
   std::cout << "unsigned long long (int) takes " << sizeof(ll) << " bytes." << std::endl;
 

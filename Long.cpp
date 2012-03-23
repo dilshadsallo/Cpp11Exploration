@@ -4,7 +4,8 @@
 #include <iostream>
 
 int main() {
-  long long ll = 14;
+  const long long ll = 14; // TODO: not big enough
+  // let C++ determine the type!
   std::cout << "the datatype of " << ll << " is long long (int)." << std::endl;
   std::cout << "Long Long (int) takes " << sizeof(ll) << " bytes." << std::endl;
 
