@@ -1,4 +1,4 @@
-// Dilshad Sallo, 18.3.2012
+// Dilshad Sallo,  18.3.2012
 // Enumeration class allow to define clear underlying type and explicit scope.
 
 #include <cassert>
