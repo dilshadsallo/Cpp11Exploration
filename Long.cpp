@@ -2,11 +2,12 @@
 //  Long long (int) takes at least 8 bytes.
 
 #include <iostream>
+#include <typeinfo>
 
 int main() {
-  const long long ll = 14; // TODO: not big enough
-  // let C++ determine the type!
-  std::cout << "the datatype of " << ll << " is long long (int)." << std::endl;
+  const long long ll = 1284800371338750000;
+  
+  std::cout << "the datatype of " << ll << " is " << typeid(ll).name() << "." << std::endl;
   std::cout << "Long Long (int) takes " << sizeof(ll) << " bytes." << std::endl;
 
 }
