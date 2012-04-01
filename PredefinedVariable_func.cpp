@@ -1,4 +1,4 @@
-// Dilshad Sallo, 18.3.2012
+// Dilshad Sallo,  18.3.2012
 // Using macro __func__, which makes the function name available for use
 // within the function.
 
