@@ -12,3 +12,4 @@ public:
 int main() {
   // C c1;      error no default constructor.
   // C c2(c1);  error no default copy constructor.
+}
