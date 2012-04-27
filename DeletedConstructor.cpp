@@ -1,4 +1,4 @@
-// Dilshad Sallo, 01.04.2012
+// Dilshad Sallo , 01.04.2012
 // Defining explicit deleted constructor and copy constructor.
 
 #include<iostream>
