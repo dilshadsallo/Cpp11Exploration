@@ -4,6 +4,16 @@
 \usepackage{graphicx}
 \usepackage[hypertex]{hyperref}
 
+% For program-code:
+\usepackage{listings}
+\lstloadlanguages{C++,make}
+\newcommand{\Cpp}{\lstset{language=C++,keywordstyle=\bfseries,breaklines,breakindent=30pt}}
+\newcommand{\Make}{\lstset{language=make}}
+\newcommand{\inl}[1]{\lstinline$#1$}
+
+\Cpp
+
+
 \begin{document}
 
 \author{Dilshad Sallo\\[1ex]
@@ -426,24 +436,19 @@ To sum up, C++11 supports ordinary programmers by offers much more than (old) C+
 
 \section{MakeFile}
 \label{Makefile}
-.SUFFIXES : \\ \\
-.PHONY : all cleanall \\ \\
-source\_dir = .\\ 
-bin\_dir = bin \\ \\
-compilation\_units = \$(wildcard \$(source\_dir)/*.cpp)\\
-source\_files = \$(notdir \$(compilation\_units))\\
-programs = \$(addprefix \$(bin\_dir)/, \$(source\_files:.cpp=))\\ \\
-CXX = g++ \\
-standard\_options = -std=c++0x -Wall -pedantic \\ \\
-all : \$(programs)\\ \\
-\$(programs) : \$(bin\_dir)/\% : \%.cpp \\
-\$(CXX) -o \$@ \$(standard\_options) \$(CPPFLAGS) \$(CXXFLAGS) \$ $<$ \\
 
-cleanall : \\
-- rm \$(programs)
+\Make
 
-\section{CoreLanguage}
+\lstinputlisting{../Makefile}
+
+
+\section{Core Language}
 \label{Appendix: corelanguage}
+
+\Cpp
+
+\lstinputlisting{../UnsignedLong.cpp}
+
 \subsection{UnsignedLong.cpp}
 \label{Appendix B: unsignedLong}
 {\scriptsize unsigned long long (int) takes at least 8 bytes but minimum value is zero.}
