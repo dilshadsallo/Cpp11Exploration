@@ -4,7 +4,6 @@
 
 \title{C++11 by Examples}
 \date{}
-
 \begin{document}
 \maketitle
 
@@ -20,9 +19,8 @@ The aim of this project is to investigate these features and providing examples 
 This paper focuses on investigating  features which classify to categories\linebreak depending in which they belong to. Then, it clearly explains the project  specification and requirements which should be mentioned in order to explain how the project will be implemented in the summer. Finally, it should not be forgotten the important part of this report is the time management which assists to arrange the time in the summer.
 \end{abstract}
 
-\newpage
 \tableofcontents
-\newpage
+
 
 \chapter{Introduction}
 \section{Introduction}  
@@ -32,13 +30,12 @@ Standard C++ consists of three important parts;the core language giving all the 
 Due to complexity applications  that required in various fields and evolution of programming that  accompanied by modern technology, some limitations and bugs have discovered in C++ language that have significant impact on programmers of all backgrounds.\\
 As responsibility of C++ Standards Committee to address this issue, new standard is released dubbed C++11. It is represented by new features that added to core language, Standard  Library, and Standard Template Library. The purposes of these features are make programming easier by providing simple syntax, providing new style of programming and adding new facilities that never existed in any previous versions. These lead to support novice programmers to write robust codes using efficient style.\\
 The goal of this report is showing how these features will be investigated to support novice programmers. They represent by specification that written in formal methods, which represent some categories that  classify depending on features belong to. The report also show requirements of this project which depend on the nature of features. Finally, the report presents the plan which will be implemented in the summer, and this plan consists of stages which implement the software step by step to get in the final form.
-\newpage
 
 
 \section{The purpose of project}
 \label{section:The purpose of project}
 The aim of this project is to investigate core language  features of new standard (dubbed C++11) carefully, and presenting them as examples for ordinary programmers who have experience in C++, to understanding this new style of programming languages by using them as scientific  catalogue to develop their skills, and shift toward C++11 language.
-\newline
+
 On the completion of this project, programmers who use this project, will get confidence to understand core language of  C++11 and use it with elementary applications.
 
 \section{Objectives of project}
@@ -57,18 +54,17 @@ In order to achieve the aim of project, multiple objectives should be followed a
 \label{section: History}
 The history of C++ programming language has begun in 1979, when Bjarne Stroustrup was working on his Ph.D thesis in the Computing Laboratory of Cambridge, University of England. At that time, he had opportunity to work with a language called Simula, which is considered as the first language to support the object-oriented language paradigm. He observed that paradigm of Simula was very useful for software development\cite{StroustrupHistory}.\\
 Shortly after that, he started work on "C with Classes” to accomplish his goal, which represent adding object-oriented programming into the C language with respected all its functionality. His language included basic inheritance, inlining functions, classes, default function arguments, and strong type checking as well as including all the features of the C language\cite{StroustrupHistory}.\\
-In 1983, the name of C with Classes was change to C++. The ++ operator in the C language refer to incrementing a variable, which gives some understanding into how Stroustrup considered the language. During that time, many important new features added to the language such as  virtual functions, such as function overloading, references with the \& symbol, the const keyword, and single-line comments using two forward slashes\cite{StroustrupHistory}.\newline
-In 1985, Stroustrup's reference to the language titled The C++ Programming Language was published. C++ was carried out as a commercial product in the same year though it was not officially standardized. The language was updated again in 1989 to include protected and static members, as well as inheritance from several classes\cite{StroustrupHistory}.
-\newline
-In 1990, the Annotated C++ Reference Manual was released, at that time, Borland's Turbo C++ compiler was also released as a commercial product. Turbo C++ added some additional libraries, which could have significant impact on C++'s development\cite{StroustrupHistory}.
-\newline
-In 1998, the C++ standards committee issued the first international standard for C++ ISO/IEC 14882:1998, which would be informally known as C++98. The Annotated C++ Reference Manual has an important influence on the development of the standard.  In addition it was included the Standard Template Library which started its conceptual development in 1979. Due to multiple problems that discovered in 1998 standard, the committee revised it and changed language was dubbed C++0x in 2003\cite{CplusplusHistoryofCpp}.
-\newline
-In 2005, the C++ standards committee published a technical report (called TR1) detailing several features which expected to add to the latest C++ standard by committee. Later on, the new standard was informally called C++0x.  The first draft for formal comments was produced in September 2008 and then the Final International Draft standard unanimously approved by the ISO C++ committee in 2011. It was formally approved (dubbed C++11)\cite{CplusplusHistoryofCpp}.
-\newline
-The new C++ standard (C++11) was published in 2011. The Boost library project made a significant effect on the new standard and it also derived some of new modules from other libraries. As the result, some new features included in the new standard, such as regular expression support, atomics support, a standard threading library which never existed in both C and previous C++, a new for loop syntax with similar functionality for foreach loops in other languages, the auto keyword, new container classes and variadic templates\cite{CplusplusHistoryofCpp}. 
+In 1983, the name of C with Classes was change to C++. The ++ operator in the C language refer to incrementing a variable, which gives some understanding into how Stroustrup considered the language. During that time, many important new features added to the language such as  virtual functions, such as function overloading, references with the \& symbol, the const keyword, and single-line comments using two forward slashes\cite{StroustrupHistory}.
 
-\newpage
+In 1985, Stroustrup's reference to the language titled The C++ Programming Language was published. C++ was carried out as a commercial product in the same year though it was not officially standardized. The language was updated again in 1989 to include protected and static members, as well as inheritance from several classes\cite{StroustrupHistory}.
+
+In 1990, the Annotated C++ Reference Manual was released, at that time, Borland's Turbo C++ compiler was also released as a commercial product. Turbo C++ added some additional libraries, which could have significant impact on C++'s development\cite{StroustrupHistory}.
+
+In 1998, the C++ standards committee issued the first international standard for C++ ISO/IEC 14882:1998, which would be informally known as C++98. The Annotated C++ Reference Manual has an important influence on the development of the standard.  In addition it was included the Standard Template Library which started its conceptual development in 1979. Due to multiple problems that discovered in 1998 standard, the committee revised it and changed language was dubbed C++0x in 2003\cite{CplusplusHistoryofCpp}.
+
+In 2005, the C++ standards committee published a technical report (called TR1) detailing several features which expected to add to the latest C++ standard by committee. Later on, the new standard was informally called C++0x.  The first draft for formal comments was produced in September 2008 and then the Final International Draft standard unanimously approved by the ISO C++ committee in 2011. It was formally approved (dubbed C++11)\cite{CplusplusHistoryofCpp}.
+
+The new C++ standard (C++11) was published in 2011. The Boost library project made a significant effect on the new standard and it also derived some of new modules from other libraries. As the result, some new features included in the new standard, such as regular expression support, atomics support, a standard threading library which never existed in both C and previous C++, a new for loop syntax with similar functionality for foreach loops in other languages, the auto keyword, new container classes and variadic templates\cite{CplusplusHistoryofCpp}. 
 
 
 \chapter{Literature review}
@@ -76,23 +72,23 @@ The new C++ standard (C++11) was published in 2011. The Boost library project ma
 \section{C++}
 \label{section: C++}
 C++ is most popular language which has important role in the industry, since it use for just about everything such as building compilers and run-times for competing languages, and operating systems like Windows. In addition, it uses in many social web applications such as browse Google’s Chrome and face book \cite{ISO:2011:Cpplanguage}.
-\newline
+
 C++ bring together three separate programming categories: the procedural language, represented by C; the object-oriented language, represented by the class enhancements C++ adds to C; and generic programming, supported by C++ templates\cite{Prata:2012:Cpp}.
-\newline
+
 One reason that made c++ most popular, is that, object-oriented programming which emphasizes the data rather than procedural programming, which emphasizes algorithms, but with modern applications which use concurrent, distributed programming and complicated codes, programmers need to think differently about system design and implementation as well as using easy syntax  to create robust code.This can be achieved with new standard language C++11\cite{Stroustrup:2012:Cpp11}.
 
 \section{C++11}
 \label{section: C++11}
 C++11 is the new standard of C++ language. It was known as C++0x until mid- 2011, and then formally published as ISO/IEC 14882:2011. C++11 feels like a new language and a higher-level style of programming more efficient than before\cite{ISO:2011:Cpplanguage}. 
-\newline
+
 C++11 provide new facilities(features) which make programming more natural and efficient than before as well as helping programmers to think differently about system design and implementation \cite{Stroustrup:2012:Cpp11}. This is not just for C++ programmers but also for programmers who used to programming with modern languages in general areas. Moreover, it improves abstraction mechanisms and makes it more flexible and safely by using some features together. These features extend the powerful of traditional C++ in terms of flexibility and efficiency as well as enabling programmers to get most benefit of them to write robust codes \cite{ISO:2011:Cpplanguage}.
-\newline
+
 C++11 adds many new language features to C++ that should cover some limitation and reduce the overall verbosity of C++ as well as provide new concept, such as lambda expressions, that increase its overall expressiveness and clarity.
-\newline
+
 C++11 provides features such as auto keywords to make C++ more usable language as well as features like move semantics to improve the basic efficiency of the language, allowing programmer to write faster code, and the improvement to the template system make it much easier to write generic code\cite{Stroustrup:2005:Cpp}.
-\newline
+
 C++11 also adds new features to the standard library which never existed in any previous versions, including adding multi-threading support directly into C++ and improved smart pointers that will simplify memory management. 
-\newline
+
 In general, these features have different behaviour, since some features may make programming a little bit difficult because they replace some rules with one more general rule such as uniform initialization,  and inheriting constructors, others easier by providing more flexible features than older version such as auto, array and range-for-statement \cite{Stroustrup:2012:Cpp11}.
 
 	
@@ -105,9 +101,9 @@ The Boost C++ Libraries are free, open source libraries created by members of th
 \section{Why C++11?}
 \label{secton: Why C++11}
 The nature of C++ focus on general features (notably classes) to demonstrate its main strength, while it has main weakness that represent by specialized features (such as threads and properties) are neglected.
-\newline
+
 The main goals for C++11 are to make C++ easier to learn, teach, and understand, improve library building capabilities, and increase compatibility with the existing standard C++ and C programming language \cite{Deitel:2012:CPP}.
-\newline
+
 In addition, while traditional C++ is not only designed for Windows language or Web language but also for general purpose, C++11 will extend that and support generic programming, concurrent, parallel and distributed programming. 
 The new features can save programmers from fading into “dark corners.” and make through less error-prone language features and through more supportive libraries.
 
@@ -135,7 +131,7 @@ knowing the syntax of C++11 language is not enough to learn and understand the c
 \item \textbf{Predeclared identifier:} C++11 adds a predeclared identifier which is used to capture function names as string literals , as well as makes a function name available for use within the function. It is meaningful only in the context of a function\cite{Gregorie:professionalcpp}.
 
 \item \textbf{Rvalue Reference:} In C++, Ivalue can be represented by single variable or persistent object that located on the left- hand side of an   assignment operator. All variables including (const) variables are Ivalue. On the other hand, rvalue defined as anything is not Ivalue, such as temporary object or value and constant value. Normal, an rvalue is on the right- hand side of an assignment operator. 
-\newline
+
 C++11 brings new concept called, an rvalue reference, which is used as reference to an rvalue. The purpose of an rvalue, is that, allows some methods (copy constructor and operator = ) can be chosen when a temporary object is involved. Rvalue reference parameter is specified in methods by using \&\& as part of the parameter specification\cite{Gregorie:professionalcpp}. See example RvalueReference1 in Appendix A. 
 \end{enumerate}
  
@@ -145,13 +141,13 @@ C++11 brings new concept called, an rvalue reference, which is used as reference
 \section{How does the project achieve?}
 \label{secton: how does the project achieve?}
 Representing core language features of C++11 can be done by four stages; firstly, understanding the definition of features correctly, secondly, showing complete examples for all features and covering all cases of each feature, thirdly, presenting examples as simple as possible that allow programmers to understand  features easier, and finally, complete and presenting organised catalogue.
-\newline
+
 Presenting  examples in this way will  demonstrate the benefit of these features, and what new facilities they offer, as well as showing how these new features solve important problems and how they support ordinary programmers.
-\newline
+
 After all features will be shown as examples, they need to be compiled and linked. As the number of files in project grows, the process of compiling and recompiling becomes a real problem, since changing one small file, leading to recompile all programs in project and this may spend few hours.
-\newline
+
 UNIX provides significant utility called make. The make utility essentially is used to update targets (exe or object files) according to the dependency instructions, typically present in a file called makefile. The program automatically can link dependent modules and also decide which files are to be (re)compiled by looking at the object code timestamps. Essentially make allows the compilation process to be a breeze.
-\newline
+
 Therefore, specific Makefile is used to compile examples in this project. It contains all the dependency information required for compiling examples in this project.
 
 
@@ -263,11 +259,11 @@ C++11 standards is represented by many new features that included in traditional
 \section{The structure of achievement  the project}
 \label{section:The structure of achievement  the project}
 Due to existence many new features, this project will not cover all features, instead, it will investigate features that belong to the core language, because they are widely used by ordinary programmers.  Moreover, these features offers new facilities such simple syntax and make programming easier, which help programmers to write robust elementary applications.
-\newline
+
 At present, there is no compiler to support all new C++11 features. Therefore, most of features can be compiled in Microsoft Visual C++2010 and GCC compiler.At the moment,  GCC 4.5.3  compiler will be used to investigate features and later GCC 4.7.0 will be used to do that, because it supports more features than previous version does.
-\newline
+
 The core language features can be classified into four general sections, in terms of investigation, namely; run-time performance enhancements, build-time performance enhancements, usability enhancements, and functionality improvements. Some features may have more than one cases and this project will cover as many as possible according to their importance.
-\newline
+
 
 \subsection{Core language time performance enhancements}
 \begin{enumerate}
@@ -338,7 +334,7 @@ to lvalues, and are declared with two ampersands rather than one. This can be re
 \label{section: plan}
 
 This section will show the time management of the project to ensure that the aims of project will do correctly.  Because of many features need to investigate in specific time, a plan should be used to manage the time in effective way in order to fulfil the purpose of the project without losing time.
-\newline
+
 Investigating some cases of some features have been done. Therefore, time management for project period in summer for investigating the rest of features will begin from 15-06-2012 to 30-09-2012 and the investigation will commence from easiest to hardest as follow:
 
 \begin{enumerate}
@@ -389,7 +385,7 @@ Investigating some cases of some features have been done. Therefore, time manage
 \item \textbf{Writing dissertation:} After core language features will be investigated. Thirty  days  will be used to write dissertation. Beginning with abstract, aims and objectives, and then body which describe purpose of each example and how it reflects that. Finally, writing conclusion to summarise project.
 
 \item \textbf{Test project:} last 14 days, the project will be tested by ordinary programmer to show how much it useful for them. Then, the feedback will  be taken in account to improve it.
-\newline
+
 \end{enumerate}
 
 
@@ -398,7 +394,6 @@ Investigating some cases of some features have been done. Therefore, time manage
 \label{section: summary}
 
 To sum up, C++11 supports ordinary programmers by offers much more than (old) C++  and  providing new features which have significant role to enhance memory performance, provide flexibility to solve important problems and make C++ language easier to understand. It also not introduce new holes and  ensure to avoiding unsafe facilities that existed in previous version.
-\newpage
 
 
 %References
@@ -407,7 +402,6 @@ To sum up, C++11 supports ordinary programmers by offers much more than (old) C+
 \bibliographystyle{alpha}
 \bibliography{Bibliography}	
 
-\newpage
 
 \appendix
 \chapter{Appendix A}
@@ -425,7 +419,7 @@ standard\_options = -std=c++0x -Wall -pedantic \\ \\
 all : \$(programs)\\ \\
 \$(programs) : \$(bin\_dir)/\% : \%.cpp \\
 \$(CXX) -o \$@ \$(standard\_options) \$(CPPFLAGS) \$(CXXFLAGS) \$ $<$ \\
-\newline
+
 cleanall : \\
 - rm \$(programs)
 
@@ -434,31 +428,31 @@ cleanall : \\
 \subsection{UnsignedLong.cpp}
 \label{Appendix B: unsignedLong}
 {\scriptsize unsigned long long (int) takes at least 8 bytes but minimum value is zero.}
-\newline
+
 {\scriptsize
 \#include $<$iostream$>$ \\
 \#include $<$typeinfo$>$ \\
-\newline
+
 int main() $\lbrace$\\
   unsigned long long ll = 3316757944182080000;\\
-\newline
+
   std::cout $<<$ "the datatype of " $<<$ ll $<<$ " is " $<<$ typeid(ll).name() $<<$ "." $ <<$ std::endl;
-\newline
+
   std::cout $<<$ "unsigned long long (int) takes " $<<$ sizeof(ll) $<<$ " bytes." $<<$ std::endl;
-\newline
+
 $\rbrace$
 }
 \subsection{Long.cpp}
 \label{LongLong}
 {\scriptsize Long long (int) takes at least 8 bytes.}
-\newline
+
 {\scriptsize
 \#include $<$iostream$>$\\
 \#include $<$typeinfo$>$\\
-\newline
+
 int main() $\lbrace$\\
   const long long ll = 1284800371338750000;\\
-\newline
+
 std::cout $<<$ "the datatype of " $<<$ ll $<<$ " is " $<<$ typeid(ll).name() $<<$ "." $ <<$ std::endl;\\
 std::cout $<<$ "Long Long (int) takes " $<<$ sizeof(ll) $<<$ " bytes." $<<$ std::endl;\\
 $\rbrace$
@@ -467,51 +461,51 @@ $\rbrace$
 \subsection{Auto.cpp}
 \label{Auto}
 {\scriptsize Using the auto keyword to deduce the type of a variable from its initializer expression.}
-\newline
+
 {\scriptsize
 \#include $<$iostream$>$\\
 \#include $<$typeinfo$>$\\
-\newline
+
 int main() $\lbrace$\\
   const auto i = 7;\\
   const auto j = 7.5;\\
-\newline
+
   std::cout $<<$ "The datatype of  " $<<$ i $<<$ " is " $<<$ typeid(i).name() $<<$ "." $<<$ std::endl;\\
   std::cout $<<$ "The datatype of  " $<<$ j $<<$ " is " $<<$ typeid(j).name() $<<$ "." $<<$ std::endl;
-\newline
+
 $\rbrace$
 }
 
 \subsection{Decltype.cpp}
 \label{Decltype}
 {\scriptsize decltype(exp) will define variable j as the same as exp type.
-\newline
+
 \#include $<$iostream$>$\\
 \#include $<$typeinfo$>$\\
-\newline
+
 int main() $\lbrace$\\
   const int i = 7;\\
   const decltype(i) j = 8;\\
-\newline
+
   std::cout $<<$ "The datatype of  " $<<$ j $<<$ " is " $<<$ typeid(j).name() $<<$ "." $<<$ std::endl;
-\newline
+
 $\rbrace$
 }
 \subsection{Enumeration.cpp}
 \label{Enumeration}
 {\scriptsize 
 Enumeration class allow to define clear underlying type and explicit scope.\\
-\newline
+
 \#include $<$cassert$>$\\
-\newline
+
 enum class Enum : unsigned long $\lbrace$\\
   e1,\\
   e2 = 10,\\
   e3\\
 $\rbrace$;\\
-\newline
+
 int main() $\lbrace$\\
-\newline
+
  assert(Enum::e1 == (Enum) 0);\\
  assert(Enum::e2 == (Enum) 10);\\
  assert(Enum::e3 == (Enum) 11);\\
@@ -521,22 +515,22 @@ $\rbrace$
 \label{DefaultConstructor}
 {\scriptsize
 Defining explicit default constructor and copy constructor.\\
-\newline
+
 \#include$<$iostream$>$\\
-\newline
+
 class C $\lbrace$\\
   int i;\\
 public:\\
   C() = default; // Explicit default constructor\\
   C(int j);\\
-\newline
+
   C(const C\& c) = default; // Explicit Default copy constructor\\
 $\rbrace$;\\
-\newline
+
 C::C(int j) $\lbrace$\\
  i = j;\\
 $\rbrace$\\
-\newline
+
 int main() $\lbrace$\\
   C c1;\\
   C c2(c1);\\
@@ -547,35 +541,35 @@ $\rbrace$\\
 \label{DeletedConstructor}
 {\scriptsize
 Defining explicit deleted constructor and copy constructor.\\
-\newline
+
 \#include$<$iostream$>$\\
-\newline
+
 class C $\lbrace$\\
 public:\\
   C() = delete; // Explicit deleted constructor.\\
   C(const C\& c) = delete; // Explicit deleted copy constructor.\\
 $\rbrace$;\\
-\newline
+
 int main() $\lbrace$\\
   // C c1;      error no default constructor.\\
   // C c2(c1);  error no default copy constructor.\\
-\newline
+
 $\rbrace$\\
 }
 \subsection{PredefinedVariable\_func.cpp}
 {\scriptsize
 Using macro \_\_func\_\_, which makes the function name available for use\\
 within the function.\\
-\newline
+
 \#include $<$iostream$>$\\
-\newline
+
 namespace $\lbrace$\\
   void f() $\lbrace$\\
     std::cout $<<$ "Entering function \"" $<<$ \_\_func\_\_ $<<$ "$\backslash$n";\\
     std::cout $<<$ "Size of \_\_func\_\_ = " $<<$ sizeof(\_\_func\_\_) $<<$ "$\backslash$n";\\
   $\rbrace$\\
 $\rbrace$\\
-\newline
+
 int main() $\lbrace$ f(); $\rbrace$\\
 }
 %---------------------------
