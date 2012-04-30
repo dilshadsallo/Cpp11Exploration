@@ -22,9 +22,10 @@
 
 \begin{abstract}
 
-C++11 is new standard that released by C++ committee standard representing the effort of most expert in the world. This version includes new features that addresses some limitations that exist in traditional C++ as well as providing new features that never existed in any previous versions. These features support a core language and some libraries and  provide new facilities  to make programming easier than before.\\
-The aim of this project is to investigate these features and providing examples to get most out of them and show them as guide to support  novices of all backgrounds.\\
-This paper focuses on investigating  features which classify to categories\linebreak depending in which they belong to. Then, it clearly explains the project  specification and requirements which should be mentioned in order to explain how the project will be implemented in the summer. Finally, it should not be forgotten the important part of this report is the time management which assists to arrange the time in the summer.
+C++11 is new standard that released by C++ committee standard representing the effort of most expert in the world. This version includes new features that addresses some limitations that exist in traditional C++ as well as providing new features that never existed in any previous versions. These features support a core language and some libraries and  provide new facilities  to make programming easier than before.
+
+The aim of this project is to investigate these features and providing examples to get most out of them and show them as guide to support  novices of all backgrounds.
+This paper focuses on investigating  features which classify to categories depending in which they belong to. Then, it clearly explains the project  specification and requirements which should be mentioned in order to explain how the project will be implemented in the summer. Finally, it should not be forgotten the important part of this report is the time management which assists to arrange the time in the summer.
 \end{abstract}
 
 \tableofcontents
@@ -33,10 +34,15 @@ This paper focuses on investigating  features which classify to categories\lineb
 \chapter{Introduction}
 \section{Introduction}  
 \label{section: intorduction}
-C++ is a general-purpose language that is in widespread use for systems and embedded programming. It is a high-level programming language that allows a programmer to efficiently communicate with a computer. C++ fully supports object-oriented programming, including the four pillars of object-oriented development, namely Encapsulation, Data hiding, Inheritance and Polymorphism.\\
-Standard C++ consists of three important parts;the core language giving all the building blocks including variables, data types and literals,the C++ Standard Library giving a rich set of functions manipulating files, strings, and the Standard Template Library (STL) giving a rich set of methods manipulating data structures.\\
-Due to complexity applications  that required in various fields and evolution of programming that  accompanied by modern technology, some limitations and bugs have discovered in C++ language that have significant impact on programmers of all backgrounds.\\
-As responsibility of C++ Standards Committee to address this issue, new standard is released dubbed C++11. It is represented by new features that added to core language, Standard  Library, and Standard Template Library. The purposes of these features are make programming easier by providing simple syntax, providing new style of programming and adding new facilities that never existed in any previous versions. These lead to support novice programmers to write robust codes using efficient style.\\
+
+C++ is a general-purpose language that is in widespread use for systems and embedded programming. It is a high-level programming language that allows a programmer to efficiently communicate with a computer. C++ fully supports object-oriented programming, including the four pillars of object-oriented development, namely Encapsulation, Data hiding, Inheritance and Polymorphism.
+
+Standard C++ consists of three important parts;the core language giving all the building blocks including variables, data types and literals,the C++ Standard Library giving a rich set of functions manipulating files, strings, and the Standard Template Library (STL) giving a rich set of methods manipulating data structures.
+
+Due to complexity applications  that required in various fields and evolution of programming that  accompanied by modern technology, some limitations and bugs have discovered in C++ language that have significant impact on programmers of all backgrounds.
+
+As responsibility of C++ Standards Committee to address this issue, new standard is released dubbed C++11. It is represented by new features that added to core language, Standard  Library, and Standard Template Library. The purposes of these features are make programming easier by providing simple syntax, providing new style of programming and adding new facilities that never existed in any previous versions. These lead to support novice programmers to write robust codes using efficient style.
+
 The goal of this report is showing how these features will be investigated to support novice programmers. They represent by specification that written in formal methods, which represent some categories that  classify depending on features belong to. The report also show requirements of this project which depend on the nature of features. Finally, the report presents the plan which will be implemented in the summer, and this plan consists of stages which implement the software step by step to get in the final form.
 
 
@@ -60,8 +66,10 @@ In order to achieve the aim of project, multiple objectives should be followed a
   
 \section{History}
 \label{section: History}
-The history of C++ programming language has begun in 1979, when Bjarne Stroustrup was working on his Ph.D thesis in the Computing Laboratory of Cambridge, University of England. At that time, he had opportunity to work with a language called Simula, which is considered as the first language to support the object-oriented language paradigm. He observed that paradigm of Simula was very useful for software development\cite{StroustrupHistory}.\\
-Shortly after that, he started work on "C with Classes” to accomplish his goal, which represent adding object-oriented programming into the C language with respected all its functionality. His language included basic inheritance, inlining functions, classes, default function arguments, and strong type checking as well as including all the features of the C language\cite{StroustrupHistory}.\\
+The history of C++ programming language has begun in 1979, when Bjarne Stroustrup was working on his Ph.D thesis in the Computing Laboratory of Cambridge, University of England. At that time, he had opportunity to work with a language called Simula, which is considered as the first language to support the object-oriented language paradigm. He observed that paradigm of Simula was very useful for software development\cite{StroustrupHistory}.
+
+Shortly after that, he started work on "C with Classes” to accomplish his goal, which represent adding object-oriented programming into the C language with respected all its functionality. His language included basic inheritance, inlining functions, classes, default function arguments, and strong type checking as well as including all the features of the C language\cite{StroustrupHistory}.
+
 In 1983, the name of C with Classes was change to C++. The ++ operator in the C language refer to incrementing a variable, which gives some understanding into how Stroustrup considered the language. During that time, many important new features added to the language such as  virtual functions, such as function overloading, references with the \& symbol, the const keyword, and single-line comments using two forward slashes\cite{StroustrupHistory}.
 
 In 1985, Stroustrup's reference to the language titled The C++ Programming Language was published. C++ was carried out as a commercial product in the same year though it was not officially standardized. The language was updated again in 1989 to include protected and static members, as well as inheritance from several classes\cite{StroustrupHistory}.
