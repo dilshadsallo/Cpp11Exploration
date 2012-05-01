@@ -32,10 +32,11 @@
 
 \begin{abstract}
 
-C++11 is new standard that released by C++ committee standard representing the effort of most expert in the world. This version includes new features that addresses some limitations that exist in traditional C++ as well as providing new features that never existed in any previous versions. These features support a core language and some libraries and  provide new facilities  to make programming easier than before.
+C++11 is new standard that released by C++ committee standard \linebreak representing the effort of most expert in the world. This version includes new features that addresses some limitations exist in traditional C++ as well as \linebreak providing new features that never existed in any previous versions. These \linebreak features support a core language and some libraries and  provide new facilities  to make programming easier than before.
 
-The aim of this project is to investigate these features and providing examples to get most out of them and show them as guide to support  novices of all backgrounds.
-This paper focuses on investigating  features which classify to categories depending in which they belong to. Then, it clearly explains the project  specification and requirements which should be mentioned in order to explain how the project will be implemented in the summer. Finally, it should not be forgotten the important part of this report is the time management which assists to arrange the time in the summer.
+The aim of this project is to investigate some of these features (core \linebreak language features) and providing examples to get most out of them and show them as scientific catalogue to support  ordinary programmers.
+
+This paper focuses on investigating core language features which classify to categories depending in which they belong to. Then, it clearly explains the structure  and  approach of achievement the project which should be\linebreak mentioned in order to explain how the project will be implemented in the \linebreak summer. Finally, it should not be forgotten the important part of this \linebreak report is the time management which  I use it to arrange the time in the summer to reach the purpose of project.
 \end{abstract}
 
 \tableofcontents
@@ -47,31 +48,31 @@ This paper focuses on investigating  features which classify to categories depen
 \section{Introduction}  
 \label{section: intorduction}
 
-C++ is a general-purpose language that is in widespread use for systems and embedded programming. It is a high-level programming language that allows a programmer to efficiently communicate with a computer. C++ fully supports object-oriented programming, including the four pillars of object-oriented development, namely Encapsulation, Data hiding, Inheritance and Polymorphism.
+C++ is a general-purpose language that is in widespread use for systems and embedded programming. It is a high-level programming language that \linebreak allows a programmer to efficiently communicate with a computer. C++ fully \linebreak supports object-oriented programming, including the four pillars of \linebreak object-oriented development, namely Encapsulation, Data hiding, Inheritance and Polymorphism.
 
-Standard C++ consists of three important parts;the core language giving all the building blocks including variables, data types and literals,the C++ Standard Library giving a rich set of functions manipulating files, strings, and the Standard Template Library (STL) giving a rich set of methods manipulating data structures.
+Standard C++ consists of three important parts; the core language giving all the building blocks including variables, data types and literals, the C++ Standard Library giving a rich set of functions manipulating files, strings, and the Standard Template Library (STL) giving a rich set of methods manipulating data structures.
 
-Due to complexity applications  that required in various fields and evolution of programming that  accompanied by modern technology, some limitations and bugs have discovered in C++ language that have significant impact on programmers of all backgrounds.
+Due to complexity applications  that required in various fields and evolution of programming that  accompanied by modern technology, some limitations and bugs have discovered in C++ language that have significant impact on \linebreak programmers of all backgrounds.
 
-As responsibility of C++ Standards Committee to address this issue, new standard is released dubbed C++11. It is represented by new features that added to core language, Standard  Library, and Standard Template Library. The purposes of these features are make programming easier by providing simple syntax, providing new style of programming and adding new facilities that never existed in any previous versions. These lead to support novice programmers to write robust codes using efficient style.
+As responsibility of C++ Standards Committee to address this issue, new standard is released dubbed C++11. It is represented by new features that added to core language, Standard  Library, and Standard Template Library. The purposes of these features are make programming easier by providing simple syntax, providing new style of programming and adding new facilities that never existed in any previous versions. These lead to support ordinary programmers to write robust codes using efficient style.
 
-The goal of this report is showing how these features will be investigated to support novice programmers. They represent by specification that written in formal methods, which represent some categories that  classify depending on features belong to. The report also show requirements of this project which depend on the nature of features. Finally, the report presents the plan which will be implemented in the summer, and this plan consists of stages which implement the software step by step to get in the final form.
+The goal of this report is showing how core language features will be \linebreak investigated to support ordinary  programmers. They represent by clear \linebreak structure of achievement that written in formal methods, which represent some categories that  classify depending on features belong to. The report also show how does the project achieve  which depend on the nature of features. Finally, the report presents the plan which will be implemented in the summer, and this plan has divided to days  which implement the features step by step to get in the final form.
 
 
-\section{The purpose of project}
+\section{The Purpose of Project}
 \label{section:The purpose of project}
-The aim of this project is to investigate core language  features of new standard (dubbed C++11) carefully, and presenting them as examples for ordinary programmers who have experience in C++, to understanding this new style of programming languages by using them as scientific  catalogue to develop their skills, and shift toward C++11 language.
+The aim of this project is to investigate core language  features of new \linebreak standard (dubbed C++11) carefully, and presenting them as examples for \linebreak ordinary programmers who have experience in C++, to understanding this new style of programming languages by using them as scientific  catalogue to develop their skills, and shift toward C++11 language.
 
-On the completion of this project, programmers who use this project, will get confidence to understand core language of  C++11 and use it with elementary applications.
+On the completion of this project, programmers who use this project, will get confidence to understand core language of  C++11 and use it with \linebreak elementary applications.
 
-\section{Objectives of project}
+\section{Objectives of Project}
 \label{section:objectives of project}
 In order to achieve the aim of project, multiple objectives should be followed and done correctly,they are:-
  \begin{enumerate}
    \item Complete a search about core language features and their definitions.
    \item Identify cases of usage for each feature  to know its functionality.
    \item Presenting each case by simple example to make understanding of \linebreak programmers easier.
-   \item Show all examples as nice catalogue to support ordinary \linebreak programmers.
+   \item Show all examples as scientific catalogue to support ordinary \linebreak programmers.
    \item Complete final report.
  \end{enumerate}       
  
@@ -82,34 +83,34 @@ The history of C++ programming language has begun in 1979, when Bjarne Stroustru
 
 Shortly after that, he started work on "C with Classes” to accomplish his goal, which represent adding object-oriented programming into the C language with respected all its functionality. His language included basic inheritance, inlining functions, classes, default function arguments, and strong type checking as well as including all the features of the C language\cite{StroustrupHistory}.
 
-In 1983, the name of C with Classes was change to C++. The ++ operator in the C language refer to incrementing a variable, which gives some understanding into how Stroustrup considered the language. During that time, many important new features added to the language such as  virtual functions, such as function overloading, references with the \& symbol, the const keyword, and single-line comments using two forward slashes\cite{StroustrupHistory}.
+In 1983, the name of C with Classes was change to C++. \linebreak The ++ operator in the C language refer to incrementing a variable, which gives some understanding into how Stroustrup considered the language.  \linebreak During that time, many important new features added to the language such as  virtual functions, such as function overloading, references with the \& symbol, the const keyword, and single-line comments using two forward slashes\cite{StroustrupHistory}.
 
-In 1985, Stroustrup's reference to the language titled The C++ Programming Language was published. C++ was carried out as a commercial product in the same year though it was not officially standardized. The language was updated again in 1989 to include protected and static members, as well as inheritance from several classes\cite{StroustrupHistory}.
+In 1985, Stroustrup's reference to the language titled The C++ \linebreak Programming Language was published. C++ was carried out as a \linebreak commercial product in the same year though it was not officially \linebreak standardized. The language was updated again in 1989 to include protected and static members, as well as inheritance from several classes\cite{StroustrupHistory}.
 
-In 1990, the Annotated C++ Reference Manual was released, at that time, Borland's Turbo C++ compiler was also released as a commercial product. Turbo C++ added some additional libraries, which could have significant impact on C++'s development\cite{StroustrupHistory}.
+In 1990, the Annotated C++ Reference Manual was released, at that time, Borland's Turbo C++ compiler was also released as a commercial product. Turbo C++ added some additional libraries, which could have significant \linebreak impact on C++'s development\cite{StroustrupHistory}.
 
-In 1998, the C++ standards committee issued the first international standard for C++ ISO/IEC 14882:1998, which would be informally known as C++98. The Annotated C++ Reference Manual has an important influence on the development of the standard.  In addition it was included the Standard Template Library which started its conceptual development in 1979. Due to multiple problems that discovered in 1998 standard, the committee revised it and changed language was dubbed C++0x in 2003\cite{CplusplusHistoryofCpp}.
+In 1998, the C++ standards committee issued the first international \linebreak standard for C++ ISO/IEC 14882:1998, which would be informally known as C++98. The Annotated C++ Reference Manual has an important influence on the development of the standard.  In addition it was included the Standard Template Library which started its conceptual development in 1979. Due to multiple problems that discovered in 1998 standard, the committee revised it and changed language was dubbed C++0x in 2003\cite{CplusplusHistoryofCpp}.
 
-In 2005, the C++ standards committee published a technical report (called TR1) detailing several features which expected to add to the latest C++ standard by committee. Later on, the new standard was informally called C++0x.  The first draft for formal comments was produced in September 2008 and then the Final International Draft standard unanimously approved by the ISO C++ committee in 2011. It was formally approved (dubbed C++11)\cite{CplusplusHistoryofCpp}.
+In 2005, the C++ standards committee published a technical report (called TR1) detailing several features which expected to add to the latest C++ \linebreak standard by committee. Later on, the new standard was informally called C++0x.  The first draft for formal comments was produced in September 2008 and then the Final International Draft standard unanimously approved by the ISO C++ committee in 2011. It was formally approved (dubbed C++11)\cite{CplusplusHistoryofCpp}.
 
-The new C++ standard (C++11) was published in 2011. The Boost library project made a significant effect on the new standard and it also derived some of new modules from other libraries. As the result, some new features included in the new standard, such as regular expression support, atomics support, a standard threading library which never existed in both C and previous C++, a new for loop syntax with similar functionality for foreach loops in other languages, the auto keyword, new container classes and variadic templates\cite{CplusplusHistoryofCpp}. 
+The new C++ standard (C++11) was published in 2011. The Boost library project made a significant effect on the new standard and it also derived some of new modules from other libraries. As the result, some new features included in the new standard, such as regular expression support, atomics support,\linebreak a standard threading library which never existed in both C and previous C++, a new for loop syntax with similar functionality for foreach loops in other \linebreak languages, the auto keyword, new container classes and variadic templates\cite{CplusplusHistoryofCpp}. 
 
 
-\chapter{Literature review}
+\chapter{Literature Review}
 
 \section{C++}
 \label{section: C++}
-C++ is most popular language which has important role in the industry, since it use for just about everything such as building compilers and run-times for competing languages, and operating systems like Windows. In addition, it uses in many social web applications such as browse Google’s Chrome and face book \cite{ISO:2011:Cpplanguage}.
+C++ is most popular language which has important role in the industry, since it use for just about everything such as building compilers and run-times for competing languages, and operating systems like Windows. In addition, it uses in many social web applications such as browse Google Chrome and face book \cite{ISO:2011:Cpplanguage}.
 
 C++ bring together three separate programming categories: the procedural language, represented by C; the object-oriented language, represented by the class enhancements C++ adds to C; and generic programming, supported by C++ templates\cite{Prata:2012:Cpp}.
 
-One reason that made c++ most popular, is that, object-oriented programming which emphasizes the data rather than procedural programming, which emphasizes algorithms, but with modern applications which use concurrent, distributed programming and complicated codes, programmers need to think differently about system design and implementation as well as using easy syntax  to create robust code.This can be achieved with new standard language C++11\cite{Stroustrup:2012:Cpp11}.
+One reason that made C++ most popular, is that, object-oriented \linebreak programming which emphasizes the data rather than procedural programming, which emphasizes algorithms, but with modern applications which use \linebreak concurrent, distributed programming and complicated codes, programmers need to think differently about system design and implementation as well as using easy syntax  to create robust code.This can be achieved with new standard \linebreak language C++11\cite{Stroustrup:2012:Cpp11}.
 
 \section{C++11}
 \label{section: C++11}
 C++11 is the new standard of C++ language. It was known as C++0x until mid- 2011, and then formally published as ISO/IEC 14882:2011. C++11 feels like a new language and a higher-level style of programming more efficient than before\cite{ISO:2011:Cpplanguage}. 
 
-C++11 provide new facilities(features) which make programming more natural and efficient than before as well as helping programmers to think differently about system design and implementation \cite{Stroustrup:2012:Cpp11}. This is not just for C++ programmers but also for programmers who used to programming with modern languages in general areas. Moreover, it improves abstraction mechanisms and makes it more flexible and safely by using some features together. These features extend the powerful of traditional C++ in terms of flexibility and efficiency as well as enabling programmers to get most benefit of them to write robust codes \cite{ISO:2011:Cpplanguage}.
+C++11 provide new facilities(features) which make programming more \linebreak natural and efficient than before as well as helping programmers to think \linebreak differently about system design and implementation \cite{Stroustrup:2012:Cpp11}. This is not just for C++ programmers but also for programmers who used to programming with modern languages in general areas. Moreover, it improves abstraction \linebreak mechanisms and makes it more flexible and safely by using some features \linebreak together. These features extend the powerful of traditional C++ in terms of flexibility and efficiency as well as enabling programmers to get most benefit of them to write robust codes \cite{ISO:2011:Cpplanguage}.
 
 C++11 adds many new language features to C++ that should cover some limitation and reduce the overall verbosity of C++ as well as provide new concept, such as lambda expressions, that increase its overall expressiveness and clarity.
 
@@ -121,9 +122,9 @@ In general, these features have different behaviour, since some features may mak
 
 	
 
-\section{Boost library}
-\label{section: Boost library}
-The Boost C++ Libraries are free, open source libraries created by members of the C++ community. Boost provides useful, well-designed libraries that work well with the existing C++ Standard Library. Boost can be used on many platforms with many different compilers. Ten Boost libraries are included in the C++ Standards Committee's Library Technical Report (TR1). These libraries add useful functionality to C++.  C++11 also includes several more Boost libraries in addition to those from TR1, namely, Boost.Array, Boost.Bind, Boost.Function, Boost.Random, Boost.Regex, Boost.Smart\_ptr, Boost.Tuple and Boost.Type\_traits. These libraries consider a part of C++11 and they provide many facilities that support programmers\cite{Deitel:2012:CPP}.
+\section{Boost Library}
+\label{section: Boost Library}
+The Boost C++ Libraries are free, open source libraries created by members of the C++ community. Boost provides useful, well-designed libraries that work well with the existing C++ Standard Library. Boost can be used on many platforms with many different compilers. Ten Boost libraries are included in the C++ Standards Committee's Library Technical Report (TR1). These \linebreak libraries add useful functionality to C++.  C++11 also includes several more Boost libraries in addition to those from TR1, namely, boost.array, boost.bind, boost.function, boost.random, boost.regex, boost.smart\_ptr, boost.tuple and boost.type\_traits. These libraries consider a part of C++11 and they provide many facilities that support programmers\cite{Deitel:2012:CPP}.
 
 
 \section{Why C++11?}
@@ -132,57 +133,59 @@ The nature of C++ focus on general features (notably classes) to demonstrate its
 
 The main goals for C++11 are to make C++ easier to learn, teach, and understand, improve library building capabilities, and increase compatibility with the existing standard C++ and C programming language \cite{Deitel:2012:CPP}.
 
-In addition, while traditional C++ is not only designed for Windows language or Web language but also for general purpose, C++11 will extend that and support generic programming, concurrent, parallel and distributed programming. 
-The new features can save programmers from fading into “dark corners.” and make through less error-prone language features and through more supportive libraries.
+In addition, while traditional C++ is not only designed for Windows \linebreak language or Web language but also for general purpose, C++11 will extend that and support generic programming, concurrent, parallel and distributed programming. 
+The new features can save programmers from fading into  dark corners  and make through less error-prone language features and through more supportive libraries.
 
 
-\section{Why small and many programs?}
-\label{section: why small and many programs}
+\section{Why Small and Many Programs?}
+\label{section: why Small and Many programs}
 knowing the syntax of C++11 language is not enough to learn and understand the correct way to use the language, unless providing  simple  programs that give idea to programmers from first glance. This can be achieved by small and many programs that represent features and their usages.
 
 
 \section{Core Language}
 \label{section: core language}
+
+As yet some cases of some features were investigated by simple examples and the rest will handling in summer. The examples of features below are listed in Appendix A respectively.
  \begin{enumerate}
-\item \textbf{Unsigned long long (int) and long long (int):} in C++, the largest integral type is long int which guarantee to have at least as many  usable bits as int. This type could have 32 or 64 bits, depending on compiler type. The new C++ standard (C++11) introduces the types long long and  unsigned long long to address this issue. They guarantee at least as same range as long int with 64 bits, with any compiler\cite{Gregorie:professionalcpp}.
+\item \textbf{Unsigned long long (int) and long long (int):} In C++, the largest integral type is long int which guarantee to have at least as many  usable bits as int. This type could have 32 or 64 bits, depending on compiler type. The new C++ standard (C++11) introduces the types long long and  unsigned long long to address this issue. They guarantee at least as same range as long int with 64 bits, with any compiler\cite{Gregorie:professionalcpp}.
 
-\item \textbf{keyword Auto:} many programming languages such Java, C and C++ obligate a programmer to specify data type of variables, before initialize  and using them in a program. This not easy to express sometimes, especially, with defined return value of a function or with template. C++11 adds significant feature called auto keyword, which allows a compiler to deduces the type of variables or return value of a function automatically during compile-time. This makes easier to work with other features\cite{Prata:2012:Cpp}.
+\item \textbf{keyword Auto:} Many programming languages such Java, C and C++ obligate a programmer to specify data type of variables, before initialize  and using them in a program. This not easy to express sometimes, especially, with defined return value of a function or with template. C++11 adds significant feature called auto keyword, which allows a compiler to deduces the type of variables or return value of a function automatically during compile-time. This makes easier to work with other features\cite{Prata:2012:Cpp}.
 
-\item \textbf{Decltype (expr):} C++11 adds the keyword decltype which can be used to determine the type of an expression at compile-time. The decltype specifier is useful mainly to developers who would to write template libraries\cite{Gregorie:professionalcpp}.
+\item \textbf{Decltype (expr):} C++11 adds the keyword decltype which can be used to determine the type of an expression at compile-time.\linebreak The decltype specifier is useful mainly to developers who would to write template libraries\cite{Gregorie:professionalcpp}.
 
-\item  \textbf{Enumeration Class:} enumerations in C++ are not type-safe, and causing many problems such as assigning one enumeration type to another is not allowed directly and there is no implicit conversion from an integer value to an enumeration type. In addition, they are not strongly scoped because when two enumerations in the same scope have enumerators with same name, this is illegal. C++11 adds strong type enumeration called enum class which covers these issues. This type does not conflict with any existing enum and also do not support implicit conversation to from integer. The underlying type of enum class is clearly specified, by default is integer, and a programmer can be specify another type by writing type following the enumeration name. Moreover, enum class has the same scope as class to access its own variables\cite{Gregorie:professionalcpp}.
-  
-\item \textbf{Default method:} using class in a program may leads to some difficulty for a novice programmer, particularly, dealing with constructor. When the programmer does not specify any constructor and he creates object without arguments. A program still works because compiler will write one that does not take any arguments, but defining constructor that takes arguments without define default constructor leads to compiler-error, because default constructor is not defined explicitly. C++11 adds keyword default that allows the programmer to define explicit default constructor and without writing the body of it. This handles this issue and this keyword can also be used with copy constructor and an assignment operator\cite{Gregorie:professionalcpp}. 
+\item  \textbf{Enumeration Class:} Enumerations in C++ are not type-safe,\linebreak and causing many problems such as assigning one enumeration type to another is not allowed directly and there is no implicit conversion from an integer value to an enumeration type. In addition, they are not strongly scoped because when two enumerations in the same scope have \linebreak enumerators with same name, this is illegal. C++11 adds strong type enumeration called enum class which covers these issues. This type does not conflict with any existing enum and also do not support implicit \linebreak conversation to from integer. The underlying type of enum class is clearly specified, by default is integer, and a programmer can be specify another type by writing type following the enumeration name. Moreover, enum class has the same scope as class to access its own variables\cite{Gregorie:professionalcpp}.
+\newpage
+\item \textbf{Default method:} Using class in a program may leads to some \linebreak difficulty for a ordinary programmer, particularly, dealing with \linebreak constructor. When the programmer does not specify any constructor and he creates object without arguments. A program still works \linebreak because compiler will write one that does not take any arguments, but \linebreak defining \linebreak constructor that takes arguments without define default constructor leads to compiler-error, because default constructor is not defined explicitly. C++11 adds keyword default that allows the programmer to define \linebreak explicit default constructor and without writing the body of it. This \linebreak handles this issue and this keyword can also be used with copy \linebreak constructor and an assignment operator\cite{Gregorie:professionalcpp}. 
 
-\item \textbf{Delete method:} C++11 also supports the concept of explicitly deleted constructors.  A programmer can define classes without any constructors and also prevent compiler to generate default constructor by using keyword delete.  It can also be used to explicitly delete overloaded methods, for instance, suppose that programmer define function called f(), which takes integer value. When calling this function with double value, the compiler will convert the double value to an integer value and then call function f() but it will execute this implicit conversion. To avoid this issue, the keyword delete can be followed a double instance of function f() and then a compiler will be flagged as an error by calling f() with double value\cite{Gregorie:professionalcpp}.
+\item \textbf{Delete method:} C++11 also supports the concept of explicitly deleted constructors. A programmer can define classes without any \linebreak constructors and also prevent compiler to generate default constructor by using keyword delete.  It can also be used to explicitly delete \linebreak overloaded methods, for instance, suppose that programmer define \linebreak function called f(), which takes integer value. When calling this \linebreak function with double value, the compiler will convert the double value to an integer value and then call function f() but it will execute this \linebreak implicit conversion. To avoid this issue, the keyword delete can be \linebreak followed a double instance of function f() and then a compiler will be flagged as an error by calling f() with double value\cite{Gregorie:professionalcpp}.
   
 \item \textbf{Predeclared identifier:} C++11 adds a predeclared identifier which is used to capture function names as string literals , as well as makes a function name available for use within the function. It is meaningful only in the context of a function\cite{Gregorie:professionalcpp}.
 
-\item \textbf{Rvalue Reference:} In C++, Ivalue can be represented by single variable or persistent object that located on the left- hand side of an   assignment operator. All variables including (const) variables are Ivalue. On the other hand, rvalue defined as anything is not Ivalue, such as temporary object or value and constant value. Normal, an rvalue is on the right- hand side of an assignment operator. 
+\item \textbf{Rvalue Reference:} In C++, Ivalue can be represented by single variable or persistent object that located on the left- hand side of an   assignment operator. All variables including (const) variables are Ivalue. On the other hand, rvalue defined as anything is not Ivalue, such as temporary object or value and constant value. Normal, an rvalue is on the  right-hand side of an assignment operator. 
 
-C++11 brings new concept called, an rvalue reference, which is used as reference to an rvalue. The purpose of an rvalue, is that, allows some methods (copy constructor and operator = ) can be chosen when a temporary object is involved. Rvalue reference parameter is specified in methods by using \&\& as part of the parameter specification\cite{Gregorie:professionalcpp}. See example RvalueReference1 in Appendix A. 
+C++11 brings new concept called, an rvalue reference, which is used as reference to an rvalue. The purpose of an rvalue, is that, allows some methods (copy constructor and operator = ) can be chosen when \linebreak a temporary object is involved. Rvalue reference parameter is specified in methods by using \&\& as part of the parameter specification\cite{Gregorie:professionalcpp}. 
 \end{enumerate}
  
   
  
-\chapter{The approach of project}
-\section{How does the project achieve?}
+\chapter{The Approach of Project}
+\section{How does the Project Achieve?}
 \label{secton: how does the project achieve?}
-Representing core language features of C++11 can be done by four stages; firstly, understanding the definition of features correctly, secondly, showing complete examples for all features and covering all cases of each feature, thirdly, presenting examples as simple as possible that allow programmers to understand  features easier, and finally, complete and presenting organised catalogue.
+Representing core language features of C++11 can be done by four stages; firstly, understanding the definition of features correctly, secondly, showing \linebreak complete examples for all features and covering all cases of each feature, thirdly, presenting examples as simple as possible that allow programmers to understand  features easier, and finally, complete and presenting organised catalogue.
 
-Presenting  examples in this way will  demonstrate the benefit of these features, and what new facilities they offer, as well as showing how these new features solve important problems and how they support ordinary programmers.
+Presenting  examples in this way will  demonstrate the benefit of these \linebreak features, and what new facilities they offer, as well as showing how these new features solve important problems and how they support ordinary programmers.
 
 After all features will be shown as examples, they need to be compiled and linked. As the number of files in project grows, the process of compiling and recompiling becomes a real problem, since changing one small file, leading to recompile all programs in project and this may spend few hours.
 
-UNIX provides significant utility called make. The make utility essentially is used to update targets (exe or object files) according to the dependency instructions, typically present in a file called makefile. The program automatically can link dependent modules and also decide which files are to be (re)compiled by looking at the object code timestamps. Essentially make allows the compilation process to be a breeze.
+UNIX provides significant utility called make. The make utility essentially is used to update targets (exe or object files) according to the \linebreak dependency instructions, typically present in a file called makefile.\linebreak The program automatically can link dependent modules and also decide which files are to be (re)compiled by looking at the object code timestamps.\linebreak Essentially make allows the compilation process to be a breeze.
 
-Therefore, specific Makefile is used to compile examples in this project. It contains all the dependency information required for compiling examples in this project.
+Therefore, specific Makefile is used to compile examples in this project. It contains all the dependency information required for compiling examples in this project. See section 1 in Appendix A.
 
 
 
-\section{Classification of features}
+\section{Classification of Features}
 \label{subsection: overview of features}
-C++11 standards is represented by many new features that included in traditional C++ by the committee standard as effort of most expert in the world. These features added  to core language, Standard Library and Standard Template Library. In addition, C++11 includes additional library that added by Boost library and thread library. The list below represent all features which arranged according to standard C++ :-
+C++11 standards is represented by many new features that included in \linebreak traditional C++ by the committee standard as effort of most expert in the world. These features added  to core language, Standard Library and Standard Template Library. In addition, C++11 includes additional library that added by Boost library and Thread library. The list below represent all features which arranged according to standard C++ :-
 
 \subsection{Core Language}
 \label{sub-section: Core language}
@@ -223,7 +226,7 @@ C++11 standards is represented by many new features that included in traditional
 \end{enumerate}
 
 
-\subsection{Language support library }
+\subsection{Language Support Library }
 \label{Language support library }
 \begin{enumerate}
 \item Initializer\_list.
@@ -231,7 +234,7 @@ C++11 standards is represented by many new features that included in traditional
 
 
 
-\subsection{General utilities library}
+\subsection{General Utilities Library}
 \label{sub-section:General utilities library}
 \begin{enumerate}
 \item Pairs $<$utility$>$.
@@ -245,7 +248,7 @@ C++11 standards is represented by many new features that included in traditional
 
 
 
-\subsection{Containers library}
+\subsection{Containers Library}
 \label{sub-section:Containers library}
 \begin{enumerate}
 \item Sequence containers $<$array$>$.
@@ -256,19 +259,19 @@ C++11 standards is represented by many new features that included in traditional
 \item Unordered associative containers $<$unordered\_set$>$. 
 \end{enumerate}
 
-\subsection{Numerics library}
+\subsection{Numerics Library}
 \label{sub-section: Numerics library}
 \begin{enumerate}
 \item Random number generation $<$random$>$.
 \end{enumerate}
 
-\subsection{Regular expressions library}
+\subsection{Regular Expressions Library}
 \label{sub-section: Regular expressions library}
 \begin{enumerate}
 \item Regular expression template $<$regex$>$.
 \end{enumerate}
 
-\subsection{Atomic operations library}
+\subsection{Atomic Operations Library}
 \label{sub-section:	Atomic operations library}
 \begin{enumerate}
 \item Atomic Types $<$atomic$>$.
@@ -284,65 +287,65 @@ C++11 standards is represented by many new features that included in traditional
 \end{enumerate}
 
 
-\section{The structure of achievement  the project}
+\section{The Structure of Achievement the Project}
 \label{section:The structure of achievement  the project}
 Due to existence many new features, this project will not cover all features, instead, it will investigate features that belong to the core language, because they are widely used by ordinary programmers.  Moreover, these features offers new facilities such simple syntax and make programming easier, which help programmers to write robust elementary applications.
 
-At present, there is no compiler to support all new C++11 features. Therefore, most of features can be compiled in Microsoft Visual C++2010 and GCC compiler.At the moment,  GCC 4.5.3  compiler will be used to investigate features and later GCC 4.7.0 will be used to do that, because it supports more features than previous version does.
+At present, there is no compiler to support all new C++11 features.\linebreak Therefore, most of features can be compiled in Microsoft Visual C++2010 and GCC compiler. At the moment,  GCC 4.5.3  compiler will be used to investigate features and later GCC 4.7.0 will be used to do that, because it supports more features than previous version does.
 
-The core language features can be classified into four general sections, in terms of investigation, namely; run-time performance enhancements, build-time performance enhancements, usability enhancements, and functionality improvements. Some features may have more than one cases and this project will cover as many as possible according to their importance.
+The core language features can be classified into four general sections, in terms of investigation, namely; run-time performance enhancements, build-time performance enhancements, usability enhancements, and functionality \linebreak improvements. Some features may have more than one cases and this project will cover as many as possible according to their importance.
 
 
-\subsection{Core language time performance enhancements}
+\subsection{Core Language Run-Time Performance Enhancements}
 \begin{enumerate}
 
 \item \textbf{Rvalue reference:} C++11 Standard introduces rvalue references, which bind only to rvalues, not
 to lvalues, and are declared with two ampersands rather than one. This can be referenced to const and temporary. It can be also used with move semantic. Programs should show how this concept apply with constant and temporary object as well as using it with move semantic.
 
-\item \textbf{Move semantic:} C++11 includes a new concept called move semantics, which requires a move constructor and move assignment operator. It also uses to force compiler to convert from Ivalue to rvalue. These concepts should be demonstrated by simple examples to make them easier to understand.
+\item \textbf{Move semantic:} C++11 includes a new concept called move \linebreak semantics, which requires a move constructor and move assignment \linebreak operator. It also uses to force compiler to convert from Ivalue to rvalue. These concepts should be demonstrated by simple examples to make them easier to understand.
 
 \item \textbf{constexpr:} C++11 introduced the keyword constexpr. The benefit of using constexpr is that the compiler can optimize your code much better during the compilation process. Program should show how a function declare as constexpr and how it can  be applied to objects.
 \end{enumerate}
 
 
-\subsection{Core language build-time performance enhancement}
+\subsection{Core Language Build-Time Performance Enhancement}
 \begin{enumerate}
 
-\item \textbf{Extern template}:  C++11 introduced extern template declarations, analogous to extern data declarations and this enhance build-time performance. Program should show how this concept use with simple form by using template.
+\item \textbf{Extern template}:  C++11 introduced extern template declarations, analogous to extern data declarations and this enhance build-time \linebreak performance. Program should show how this concept use with simple form by using template.
 \end{enumerate}
 
 
-\subsection{Core language usability enhancements}
+\subsection{Core Language Usability Enhancements}
 \begin{enumerate}
 \item \textbf{Uniform initialization}: C++11 provides a syntax that allows for fully uniform type initialization that works on any object. This concept can be applied as examples with class and function to show its benefit.
 
 \item \textbf{Auto:} It allows a compiler to deduces the type of variables or return value of a function automatically during compiler-time. This feature can be used with template, alternative function, variables and expression. Programs should demonstrate these all cases.
 
-\item \textbf{Decltype:} C++11 adds decltype keyword which can be used to determine the type of an expression at compiler time. This feature can be used with template, expression and variables. Programs should present this cases.
+\item \textbf{Decltype:} C++11 adds decltype keyword which can be used to \linebreak determine the type of an expression at compiler time. This feature can be used with template, expression and variables. Programs should present this cases.
 
 \item \textbf{Range-based for-loop:} The range-based for loop is a fourth way of looping which has been added to the C++11 standard. It allows for easy iteration over elements of a list. Programs should show how this feature work using auto feature.
 
-\item \textbf{Lambda functions:} It allows programmers to write anonymous functions inline. Programs should show lambda expressions as return type, lambda expressions as parameters and lambda with template.
+\item \textbf{Lambda functions:} It allows programmers to write anonymous \linebreak functions inline. Programs should show lambda expressions as return type, lambda expressions as parameters and lambda with template.
 
-\item \textbf{Alternative function syntax:} It is new concept of function that introduced by C++11. This feature can be represented by simple example to show syntax of this function as well as using it with template.
+\item \textbf{Alternative function syntax:} It is new concept of function that \linebreak introduced by C++11. This feature can be represented by simple example to show syntax of this function as well as using it with template.
 
-\item \textbf{Delegation constructor: } This allows constructors to utilize another constructor's behavior with a minimum of added code. This can be showed by simple example contains two classes.
+\item \textbf{Delegation constructor: } This allows constructors to utilize another constructor's behavior with a minimum of added code. This can be showed by  simple example contains two classes.
 
-\item \textbf{Explicit overrides and final:} C++11 adds these features which are used to prevent inheriting and overriding. They can be applied by examples that contain classes to show their functionality.
+\item \textbf{Explicit overrides and final:} C++11 adds these features which are used to prevent inheriting and overriding. They can be applied by \linebreak examples that contain classes to show their functionality.
 
-\item \textbf{Enumeration class:} This type does not conflict with any existing enumeration and also do not support implicit conversation to from integer. Program should clearly show how does not conflict and how does not support implicit conversation.
+\item \textbf{Enumeration class:} This type does not conflict with any existing \linebreak enumeration and also do not support implicit conversation to from \linebreak integer. Program should clearly show how does not conflict and how does not support implicit conversation.
 
 \item \textbf{Explicit conversion operators:} With C++11, a programmer can use the explicit keyword to prevent the compiler from performing the implicit conversion and this can be showed with simple program that contains class.
 
-\item \textbf{Alias templates:} C++11 adds a new mechanism for creating type aliases, which is easier to understand than the old typedefs in certain situations. Programs should show this concept with template and without it.
+\item \textbf{Alias templates:} C++11 adds a new mechanism for creating type aliases, which is easier to understand than the old typedefs in certain \linebreak situations. Programs should show this concept with  template and \linebreak without it.
 \end{enumerate}
 
 
-\subsection{Core language functionality improvements}
+\subsection{Core Language Functionality Improvements}
 \begin{enumerate}
-\item \textbf{Unsigned long long (int) and long long (int):} These types are guaranteed to be at least as large as a long int, and have no fewer than 64 bits. Program should show that they having size of 8 bytes on implementations.
+\item \textbf{Unsigned long long (int) and long long (int):} These types are \linebreak guaranteed to be at least as large as a long int, and have no fewer than 64 bits. Program should show that they having size of 8 bytes on \linebreak implementations.
 
-\item \textbf{char16\_t and char32\_t:} These are designed to store UTF-16 and UTF-32 respectively. Program should demonstrate how they store character literals such as u' c-char-sequence', U' c-char-sequence' and string literals as well as escape sequences.
+\item \textbf{char16\_t and char32\_t:} These are designed to store UTF-16 and \linebreak UTF-32 respectively. Program should demonstrate how they \linebreak store character literals such as u' c-char-sequence', U' c-char-sequence' and string literals as well as escape sequences.
 
 \item \textbf{User-defined literals:} This gives to the user, the ability to create new custom literal modifiers and  user defined literals should start with an underscore and are implemented by writing literal operators. A literal operator can work in raw or cooked mode. Program should show how literal operator will receive a sequence of characters, and cooked mode literal operator will receive a specific interpreted type.
 
@@ -366,11 +369,11 @@ This section will show the time management of the project to ensure that the aim
 Investigating some cases of some features have been done. Therefore, time management for project period in summer for investigating the rest of features will begin from 15-06-2012 to 30-09-2012 and the investigation will commence from easiest to hardest as follow:
 
 \begin{enumerate}
-\item \textbf{Unsigned long long and long long:} One day to understand the definition of these features and write examples for them.
+\item \textbf{Unsigned long long and long long:} One day to understand the \linebreak definition of these features and write examples for them.
 
 \item \textbf{Char16\_t and char32\_t:} One day to understand the concept of these features and identify their cases. Then, one day to write program that should show character literals, string literals  and escape sequences.
 
-\item \textbf{User-defined literals:} One day to understand the definition of user-defined literals and its usage. Then one day to write programs for a literal operator in raw mode  and cooked mode.
+\item \textbf{User-defined literals:} One day to understand the definition of \linebreak user-defined literals and its usage. Then one day to write programs for a literal operator in raw mode  and cooked mode.
 
 \item \textbf{Delete and default keywords:} One day to understanding the definition and presenting examples to constructor, copy constructor and overloading operator.
 
@@ -390,7 +393,7 @@ Investigating some cases of some features have been done. Therefore, time manage
 
 \item \textbf{Enumeration class:} Once day to show how this concept prevent conflict.
 
-\item \textbf{Explicit conversion operators:} Two days to understand the definition of explicit conversion operators, and present this concept by suitable example.
+\item \textbf{Explicit conversion operators:} Two days to understand the \linebreak definition of explicit conversion operators, and present this concept by suitable example.
 
 \item \textbf{Type alias: } One day to understand this concept. Then, two days to write programs using type alias with and without template.
 
@@ -404,15 +407,15 @@ Investigating some cases of some features have been done. Therefore, time manage
 
 \item \textbf{decltype:} Two day to understand the concept of decltype. Then, three days to write program using it with variables, expressions and template.
 
-\item \textbf{Extern template:} Two days to understand the concept and write program for it.
+\item \textbf{Extern template:} Two days to understand the concept and write \linebreak program for it.
 
 \item \textbf{variadic templates: } Two days to understand the definition of variadic template. Then, four days to write programs using it with function and present example with variables as arguments.
 
 \item \textbf{Move semantic:} One day to understand the definition and two days to present it with constructor and operator.
 
-\item \textbf{Writing dissertation:} After core language features will be investigated. Thirty  days  will be used to write dissertation. Beginning with abstract, aims and objectives, and then body which describe purpose of each example and how it reflects that. Finally, writing conclusion to summarise project.
+\item \textbf{Writing dissertation:} After core language features will be \linebreak investigated. Thirty  days  will be used to write dissertation. Beginning with abstract, aims and objectives, and then body which describe purpose of each example and how it reflects that. Finally, writing conclusion to summarise project.
 
-\item \textbf{Test project:} last 14 days, the project will be tested by ordinary programmer to show how much it useful for them. Then, the feedback will  be taken in account to improve it.
+\item \textbf{Test project:} last 14 days, the project will be tested by ordinary \linebreak programmer to show how much it useful for them. Then, the feedback will  be taken in account to improve it.
 
 \end{enumerate}
 
@@ -423,14 +426,14 @@ Investigating some cases of some features have been done. Therefore, time manage
 
 To sum up, C++11 supports ordinary programmers by offers much more than (old) C++  and  providing new features which have significant role to enhance memory performance, provide flexibility to solve important problems and make C++ language easier to understand. It also not introduce new holes and  ensure to avoiding unsafe facilities that existed in previous version.
 
-
+\addcontentsline{toc}{section}{Bibliography}
 \bibliographystyle{alpha}
 \bibliography{Bibliography}	
 
 
 \begin{appendix}
 
-\chapter{Program code}
+\chapter{Program Code}
 \label{cha:Programcode}
 
 
@@ -439,165 +442,56 @@ To sum up, C++11 supports ordinary programmers by offers much more than (old) C+
 
 \Make
 
-\lstinputlisting{../Makefile}
-
+\lstinputlisting{Makefile.}
+\newpage
 
 \section{Core Language}
 \label{Appendix: corelanguage}
 
 \Cpp
 
+\subsection{UnsignedLong.cpp}
+\label{sub:UnsignedLong.cpp}
 \lstinputlisting{../UnsignedLong.cpp}
 
-\subsection{UnsignedLong.cpp}
-\label{Appendix B: unsignedLong}
-{\scriptsize unsigned long long (int) takes at least 8 bytes but minimum value is zero.}
-
-{\scriptsize
-\#include $<$iostream$>$ \\
-\#include $<$typeinfo$>$ \\
-
-int main() $\lbrace$\\
-  unsigned long long ll = 3316757944182080000;\\
-
-  std::cout $<<$ "the datatype of " $<<$ ll $<<$ " is " $<<$ typeid(ll).name() $<<$ "." $ <<$ std::endl;
-
-  std::cout $<<$ "unsigned long long (int) takes " $<<$ sizeof(ll) $<<$ " bytes." $<<$ std::endl;
-
-$\rbrace$
-}
 \subsection{Long.cpp}
-\label{LongLong}
-{\scriptsize Long long (int) takes at least 8 bytes.}
-
-{\scriptsize
-\#include $<$iostream$>$\\
-\#include $<$typeinfo$>$\\
-
-int main() $\lbrace$\\
-  const long long ll = 1284800371338750000;\\
-
-std::cout $<<$ "the datatype of " $<<$ ll $<<$ " is " $<<$ typeid(ll).name() $<<$ "." $ <<$ std::endl;\\
-std::cout $<<$ "Long Long (int) takes " $<<$ sizeof(ll) $<<$ " bytes." $<<$ std::endl;\\
-$\rbrace$
-}
+\label{sub:LongLong}
+\lstinputlisting{../Long.cpp}
+\newpage
 
 \subsection{Auto.cpp}
-\label{Auto}
-{\scriptsize Using the auto keyword to deduce the type of a variable from its initializer expression.}
-
-{\scriptsize
-\#include $<$iostream$>$\\
-\#include $<$typeinfo$>$\\
-
-int main() $\lbrace$\\
-  const auto i = 7;\\
-  const auto j = 7.5;\\
-
-  std::cout $<<$ "The datatype of  " $<<$ i $<<$ " is " $<<$ typeid(i).name() $<<$ "." $<<$ std::endl;\\
-  std::cout $<<$ "The datatype of  " $<<$ j $<<$ " is " $<<$ typeid(j).name() $<<$ "." $<<$ std::endl;
-
-$\rbrace$
-}
+\label{sub:Auto}
+\lstinputlisting{../Auto.cpp}
 
 \subsection{Decltype.cpp}
-\label{Decltype}
-{\scriptsize decltype(exp) will define variable j as the same as exp type.
+\label{sub:Decltype}
+\lstinputlisting{../Decltype.cpp}
+\newpage
 
-\#include $<$iostream$>$\\
-\#include $<$typeinfo$>$\\
-
-int main() $\lbrace$\\
-  const int i = 7;\\
-  const decltype(i) j = 8;\\
-
-  std::cout $<<$ "The datatype of  " $<<$ j $<<$ " is " $<<$ typeid(j).name() $<<$ "." $<<$ std::endl;
-
-$\rbrace$
-}
 \subsection{Enumeration.cpp}
-\label{Enumeration}
-{\scriptsize 
-Enumeration class allow to define clear underlying type and explicit scope.\\
+\label{sub:Enumeration}
+\lstinputlisting{../Enumeration.cpp}
 
-\#include $<$cassert$>$\\
-
-enum class Enum : unsigned long $\lbrace$\\
-  e1,\\
-  e2 = 10,\\
-  e3\\
-$\rbrace$;\\
-
-int main() $\lbrace$\\
-
- assert(Enum::e1 == (Enum) 0);\\
- assert(Enum::e2 == (Enum) 10);\\
- assert(Enum::e3 == (Enum) 11);\\
-$\rbrace$
-}
 \subsection{DefaultConstructor.cpp}
-\label{DefaultConstructor}
-{\scriptsize
-Defining explicit default constructor and copy constructor.\\
+\label{sub:DefaultConstructor}
+\lstinputlisting{../DefaultConstructor.cpp}
 
-\#include$<$iostream$>$\\
-
-class C $\lbrace$\\
-  int i;\\
-public:\\
-  C() = default; // Explicit default constructor\\
-  C(int j);\\
-
-  C(const C\& c) = default; // Explicit Default copy constructor\\
-$\rbrace$;\\
-
-C::C(int j) $\lbrace$\\
- i = j;\\
-$\rbrace$\\
-
-int main() $\lbrace$\\
-  C c1;\\
-  C c2(c1);\\
-$\rbrace$\\
-
-}
 \subsection{DeletedConstructor.cpp}
-\label{DeletedConstructor}
-{\scriptsize
-Defining explicit deleted constructor and copy constructor.\\
+\label{sub:DeletedConstructor}
+\lstinputlisting{../DeletedConstructor.cpp}
 
-\#include$<$iostream$>$\\
+\subsection{OverloadedMethod.cpp}
+\label{sub:OverloadedMethod.cpp}
+\lstinputlisting{../OverloadedMethod.cpp}
 
-class C $\lbrace$\\
-public:\\
-  C() = delete; // Explicit deleted constructor.\\
-  C(const C\& c) = delete; // Explicit deleted copy constructor.\\
-$\rbrace$;\\
 
-int main() $\lbrace$\\
-  // C c1;      error no default constructor.\\
-  // C c2(c1);  error no default copy constructor.\\
-
-$\rbrace$\\
-}
 \subsection{PredefinedVariable\_func.cpp}
-{\scriptsize
-Using macro \_\_func\_\_, which makes the function name available for use\\
-within the function.\\
+\label{sub:PredefinedVariable_func}
+\lstinputlisting{../PredefinedVariable_func.cpp}
 
-\#include $<$iostream$>$\\
-
-namespace $\lbrace$\\
-  void f() $\lbrace$\\
-    std::cout $<<$ "Entering function \"" $<<$ \_\_func\_\_ $<<$ "$\backslash$n";\\
-    std::cout $<<$ "Size of \_\_func\_\_ = " $<<$ sizeof(\_\_func\_\_) $<<$ "$\backslash$n";\\
-  $\rbrace$\\
-$\rbrace$\\
-
-int main() $\lbrace$ f(); $\rbrace$\\
-}
-%---------------------------
-
+\subsection{RvalueReference1.cpp}
+\label{sub:RvalueReference1.cpp}
+\lstinputlisting{../RvalueReference1.cpp}
 
 \end{appendix}
 
