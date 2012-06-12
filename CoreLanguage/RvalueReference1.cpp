@@ -1,25 +1,42 @@
 // Dilshad Sallo, 24.04.2012
-// Using Rvalue reference to solve some problems in C++.
+// Using rvalue-reference to make non-const references to temporary values.
 
 #include <iostream>
+#include <cassert>
 
-void f(int& value) {
-  --value;
-  std::cout << "Decrement with Ivalue reference. " << std::endl;
-}
+namespace {
 
-void f(int&& value) {
-  --value;
-  std::cout << "Decrement with rvalue reference. " << std::endl;
+  // lvalue reference:
+  inline void dec(int& value) {
+    const int store = value;
+    --value;
+    assert(value == store-1);
+  }
+
+  // rvalue reference:
+  inline int dec(int&& value) {
+    const int store = value;
+    dec(value);
+    assert(value == store-1);
+    return value;
+  }
+
 }
 
 int main() {
-  int&& a = 10;   // Legal, a is an rvalue reference: reference to a constant.
+  const int&& a = 10;
   int i = 2;
-  int j = 3;
-  int&& b = i + j; // Legal, (i+j) is an rvalue reference: reference to a temporary.
-  
-  f(i);   // Decrement value using Ivalue reference.
-  f(a+b); // Decrement expression using rvalue reference.
-  f(3);   // Decrement value using rvalue reference.
+  const int j = 3;
+  const int&& b = i + j;
+  assert(b == 5);
+
+  assert(i == 2);
+  dec(i);
+  assert(i == 1);
+
+  assert(a+b == 15);
+  assert(dec(a+b) == 14);
+  assert(a+b == 15);
+
+  assert(dec(3) == 2);
 }
