@@ -1,8 +1,8 @@
-\documentclass[11pt]{report}
+\documentclass[11pt,]{report}
 
 \usepackage{a4}
 \usepackage{graphicx}
-\usepackage[hypertex]{hyperref}
+\usepackage{hyperref}
 
 % For program-code:
 \usepackage{listings}
@@ -442,7 +442,7 @@ To sum up, C++11 supports ordinary programmers by offers much more than (old) C+
 
 \Make
 
-\lstinputlisting{../Makefile}
+\lstinputlisting{../Makefile.}
 \newpage
 
 \section{Core Language}
@@ -450,48 +450,58 @@ To sum up, C++11 supports ordinary programmers by offers much more than (old) C+
 
 \Cpp
 
-\subsection{UnsignedLong.cpp}
-\label{sub:UnsignedLong.cpp}
-\lstinputlisting{../UnsignedLong.cpp}
 
-\subsection{Long.cpp}
-\label{sub:LongLong}
-\lstinputlisting{../Long.cpp}
-\newpage
+\subsection{Run-Time Performance Enhancements}
+\label{subsection:Run-Time}
 
-\subsection{Auto.cpp}
+\subsubsection{RvalueReference1.cpp}
+\label{sub:RvalueReference1.cpp}
+\lstinputlisting{../CoreLanguage/RunTime/RvalueReference1.cpp}
+
+\subsection{Build-Time Performance Enhancements}
+\label{subsection:Build-Time}
+
+\subsection{Usability Enhancements}
+\label{subsection:Usability}
+
+\subsubsection{Auto.cpp}
 \label{sub:Auto}
-\lstinputlisting{../Auto.cpp}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/Auto.cpp}
 
-\subsection{Decltype.cpp}
+\subsubsection{Decltype.cpp}
 \label{sub:Decltype}
-\lstinputlisting{../Decltype.cpp}
-\newpage
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/Decltype.cpp}
 
-\subsection{Enumeration.cpp}
+\subsubsection{Enumeration.cpp}
 \label{sub:Enumeration}
-\lstinputlisting{../Enumeration.cpp}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/Enumeration.cpp}
 
-\subsection{DefaultConstructor.cpp}
-\label{sub:DefaultConstructor}
-\lstinputlisting{../DefaultConstructor.cpp}
-
-\subsection{DeletedConstructor.cpp}
-\label{sub:DeletedConstructor}
-\lstinputlisting{../DeletedConstructor.cpp}
-
-% \subsection{OverloadedMethod.cpp}
-% \label{sub:OverloadedMethod.cpp}
-% \lstinputlisting{../OverloadedMethod.cpp}
-
-
-\subsection{PredefinedVariable\_func.cpp}
+\subsubsection{PredefinedVariable\_func.cpp}
 \label{sub:PredefinedVariable_func}
-\lstinputlisting{../PredefinedVariable_func.cpp}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/PredefinedVariable_func.cpp}
 
-% \subsection{RvalueReference1.cpp}
-% \label{sub:RvalueReference1.cpp}
-% \lstinputlisting{../RvalueReference1.cpp}
+\subsection{Functionality Improvements}
+\label{subsection:Functionality}
+
+\subsubsection{UnsignedLong.cpp}
+\label{sub:UnsignedLong.cpp}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/UnsignedLong.cpp}
+
+\subsubsection{Long.cpp}
+\label{sub:LongLong}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/Long.cpp}
+
+\subsubsection{DefaultConstructor.cpp}
+\label{sub:DefaultConstructor}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/DefaultConstructor.cpp}
+
+\subsubsection{DeletedConstructor.cpp}
+\label{sub:DeletedConstructor}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/DeletedConstructor.cpp}
+
+\subsubsection{OverloadedMethod.cpp}
+\label{sub:OverloadedMethod.cpp}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/OverloadedMethod.cpp}
 
 \end{appendix}
 
