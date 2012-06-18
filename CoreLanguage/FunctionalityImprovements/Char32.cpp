@@ -8,6 +8,7 @@ int main() {
   const char32_t c1 = U'\U00000061';
   const char32_t c2 = U'a';
 
+  assert(c1 == c2);
   assert(sizeof(c1) == 4);
   assert(sizeof(c2) == 4);
 
