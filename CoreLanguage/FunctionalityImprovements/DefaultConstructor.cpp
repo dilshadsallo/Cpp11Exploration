@@ -2,7 +2,7 @@
 // Defining explicit default constructor.
 
 #include<iostream>
-
+ 
 class C {
 private:
   int i;
