@@ -1,7 +1,8 @@
 // Dilshad Sallo, 24.04.2012
-// explicit deleting  overloading method.
+// using delete keyword to explicit deleting overloading method.
 
 #include <iostream>
+#include <typeinfo>
 
 class C {
   public:
@@ -10,11 +11,12 @@ class C {
 };
 
 void C::f(int i) {
-  std::cout << i << std::endl;
+  std::cout << "The datatype of  " << i << " is " << typeid(i).name() << "." << std::endl;
 }
 
 int main() {
   C c1;
   c1.f(123);
 //c1.f(12.3);
+  
 }
