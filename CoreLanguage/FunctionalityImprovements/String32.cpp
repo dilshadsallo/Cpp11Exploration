@@ -15,7 +15,6 @@ int main() {
  
   assert (st1 == st5 && st2 == st5);
   assert (st3 == st5 && st4 == st5);
-  assert (st1 == st2);
   assert (sizeof (s32) == 20);
  
 }
