@@ -10,12 +10,7 @@ protected:
   ~A() = default;
 };
 
-class B : public A {
-public:
-  B();
-};
-
-B::B() : A() {}
+class B : public A {};
 
 int main() {
   B b1;
