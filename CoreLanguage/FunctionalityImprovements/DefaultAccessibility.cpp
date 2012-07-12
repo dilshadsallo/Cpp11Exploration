@@ -3,15 +3,16 @@
 
 class A {
 public:
-  A(const A& s) = default;
-  A& operator=(const A& s) = default;
+  A(const A& s) = default; // not needed
+  A& operator=(const A& s) = default; // not needed
+  ~A() = default; // not needed
 protected:
   A() = default;
-  ~A() = default;
 };
 
-class B : public A {};
+class B : A {};
 
 int main() {
-  B b1;
+  // A a; // not possible
+  B b;
 }
