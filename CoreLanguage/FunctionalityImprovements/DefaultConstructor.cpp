@@ -1,23 +1,20 @@
 // Dilshad Sallo, 01.04.2012
 // Defining explicit default constructor.
 
-#include<iostream>
- 
+#include <cassert>
+
 class C {
 private:
-  int i;
+  const int i;
 public:
   C() = default; // Explicit default constructor
-  C(int j);
-
+  C(const int i) i(i) {}
+  int val() const { return i; }
 };
-
-C::C(int j) : i(j) {
-  
-}
 
 int main() {
   C c1;
+  assert(c1.val() == 0);
   C c2(5);
 }
 
