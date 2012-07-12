@@ -9,7 +9,7 @@ public:
   A& operator=(const A& s) = default;
 protected:
   A() = default;
-  virtual ~A() = default;
+  ~A() = default;
 };
 
 class B : public A {
