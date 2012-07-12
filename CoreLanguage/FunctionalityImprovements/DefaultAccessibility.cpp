@@ -1,8 +1,6 @@
 // Dilshad Sallo, 27.06.2012
 // Using "default" keyword to change accessibility of special member functions.
 
-#include <iostream>
-
 class A {
 public:
   A(const A& s) = default;
