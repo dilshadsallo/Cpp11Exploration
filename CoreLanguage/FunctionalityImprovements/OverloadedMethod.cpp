@@ -1,5 +1,5 @@
 // Dilshad Sallo, 24.04.2012
-// using delete keyword to explicit deleting overloading method.
+// using "delete" keyword to explicit deleting overloading method.
 
 #include <iostream>
 #include <typeinfo>
@@ -17,6 +17,6 @@ void C::f(int i) {
 int main() {
   C c1;
   c1.f(123);
-//c1.f(12.3);
+  //c1.f(12.3); // conversion to int is not allowed
   
 }
