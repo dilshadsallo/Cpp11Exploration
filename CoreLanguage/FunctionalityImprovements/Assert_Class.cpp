@@ -6,16 +6,15 @@
 
 template <class T>
 class C {
-private:
-  static_assert(std::is_integral<T>::value," type of T is not int.");
-  static_assert(std::is_unsigned<T>::value," type of T is signed.");
-
-  T seconds;
-  T minutes;
-  T hours;
 public:
   C(const T&, const T&, const T&);
   void print();
+private:
+  static_assert(std::is_integral<T>::value," type of T is not int.");
+  static_assert(std::is_unsigned<T>::value," type of T is signed.");
+  T seconds;
+  T minutes;
+  T hours;
 };
 
 template <class T>
