@@ -4,12 +4,12 @@
 #include <cassert>
 
 class C {
-private:
-  int i;
 public:
   C() = default; // Explicit default constructor
   C(const int i) : i(i) {}
   int val() const { return i; }
+private:
+  int i;
 };
 
 int main() {
