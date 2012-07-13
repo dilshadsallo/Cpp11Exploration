@@ -1,5 +1,5 @@
 // Dilshad Sallo, 1.7.2012
-// Using static_assert to assert template parameter before using inside class.
+// Using "static_assert" to assert template parameter before using inside class.
 
 #include <iostream>
 #include <type_traits>
@@ -9,14 +9,13 @@ class C {
 private:
   static_assert(std::is_integral<T>::value," type of T is not int.");
   static_assert(std::is_unsigned<T>::value," type of T is signed.");
-    
+
   T seconds;
   T minutes;
   T hours;
 public:
   C(const T&, const T&, const T&);
   void print();
-  
 };
 
 template <class T>
