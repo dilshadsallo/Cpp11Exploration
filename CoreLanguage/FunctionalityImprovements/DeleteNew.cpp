@@ -1,5 +1,5 @@
 // Dilshad Sallo  27.6.2012
-// Using delete keyword to prevent compiler 
+// Using "delete" keyword to prevent compiler 
 // from using operator new.
 
 #include <iostream>
