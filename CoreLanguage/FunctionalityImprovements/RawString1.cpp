@@ -9,10 +9,9 @@
 int main() {
   const char *s = R"(ab""c
 de""f)";                       
+  assert (strcmp (s, "ab\"\"c\nde\"\"f") == 0); 
 
   const char *s1 = R"(\t, \r, \a  and \n are not processed a escape sequences.)";
-
-  assert (strcmp (s, "ab\"\"c\nde\"\"f") == 0); 
   std::cout << s1 << std::endl;
 
 }
