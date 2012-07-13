@@ -5,11 +5,11 @@
 
 class A {};
 
-class A1: public A {};
+class A1: A {};
 
 class B {};
 
-class B1 : public B {};
+class B1 : B {};
 
 template<class T1, class T2>
 void same(const T1& t1, const T2& t2) {
