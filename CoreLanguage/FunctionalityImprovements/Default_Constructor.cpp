@@ -5,10 +5,10 @@
 
 class C {
 private:
-  const int i;
+  int i;
 public:
   C() = default; // Explicit default constructor
-  C(const int i) i(i) {}
+  C(const int i) : i(i) {}
   int val() const { return i; }
 };
 
@@ -17,4 +17,3 @@ int main() {
   assert(c1.val() == 0);
   C c2(5);
 }
-
