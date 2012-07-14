@@ -9,14 +9,12 @@ long int  operator"" _D(const char* s) {
   int dec = atoi(s);
   int rem, i = 1, sum = 0;
   
-  do
-  {
+  do{
     rem = dec % 2;
     sum = sum + (i * rem);
     dec = dec / 2;
     i = i * 10;
   } while (dec > 0);
-  
   return sum;
 }
 
@@ -26,13 +24,11 @@ long int operator"" _B(const char* c) {
   int convert = 0;
   int base = 1;
   
-  for (int i = length - 1; i >= 0; i--)
-  {
-    convert = (c[i]- '0' ) ; 
-    sum += (convert * base); 
+  for (int i = length - 1; i >= 0; i--){
+    convert = (c[i]- '0' ) ;
+    sum += (convert * base);
     base *= 2;
   }
-  
   return sum;
 }
 
