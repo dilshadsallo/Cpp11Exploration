@@ -6,9 +6,9 @@
 #include <cassert>
 
 int main() {
-  unsigned long long ll = 3316757944182080000ULL;
+  unsigned long long ull = 3316757944182080000ULL;
 
-  std::cout << "the datatype of " << ll << " is " << typeid(ll).name() << "." << std::endl;
-  assert(sizeof(ll) >= 8);
+  std::cout << "the datatype of " << ull << " is " << typeid(ull).name() << "." << std::endl;
+  assert(sizeof(ull) >= 8);
 
 }
