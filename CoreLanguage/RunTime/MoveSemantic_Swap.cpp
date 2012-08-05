@@ -9,7 +9,7 @@ void f(int a[], const int size) {
     for(int j = 0; j < size-1; j ++) {
       if (a[i] < a[j]) {
         int temp (std::move(a[i])); // one copy of a[i]
-        a[i] = std::move(a[j]);     // one copy of a[j]
+        a[i] = (std::move(a[j]));     // one copy of a[j]
         a[j] = std::move(temp);    // one copy of temp
       }
     } i++;
