@@ -1,5 +1,6 @@
 // Dilshad Sallo, 19.6.2012
-// Storing the contents of raw string in 16 and 32 bits. 
+// Using raw string literals with unicode literal Prefixes ("u" and "U")
+// to store the content of raw string in 16 and 32 bits.
 
 #include <cassert>
 
