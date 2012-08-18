@@ -21,18 +21,18 @@ private:
   const int i;
 };
 
-class Base {
+class C {
 public:
-  Base(const int i) : i(i) {}
-  int Base_get() const {return i;}
+  C(const int i) : i(i) {}
+  int C_get() const {return i;}
 private:
   const int i;
 };
 
 template<typename T>
-class Derived : public T{
+class D : public T{
 public:
-  Derived(const T& t) : T(t) {}
+  D(const T& t) : T(t) {}
 };
 
 // variadic template
@@ -50,11 +50,11 @@ int main() {
   assert(ab.A_get() == 2);
   assert(ab.B_get() == 2);
 
-  Generic<Derived<Base>> db(Base(3));
-  assert(db.Base_get() == 3);
+  Generic<D<C>> dc(C(3));
+  assert(dc.C_get() == 3);
 
-  Generic<Derived<Base>,A,B> all(Base(4),A(5),B(6));
-  assert(all.Base_get() == 4);
-  assert(all.A_get() == 5);
+  Generic<D<A>,C,B> all(A(4),C(5),B(6));
+  assert(all.A_get() == 4);
+  assert(all.C_get() == 5);
   assert(all.B_get() == 6);
 }
