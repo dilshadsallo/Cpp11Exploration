@@ -6,10 +6,10 @@
 
 int main() {
   int array[4] = {1, 2, 3, 4};
-  
+
   for(int& i : array) {
-    i+=2;  
-  } 
+    i+=2;
+  }
 
   assert( array[0] == 3);
   assert( array[1] == 4);
