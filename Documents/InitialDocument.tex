@@ -145,65 +145,44 @@ knowing the syntax of C++11 language is not enough to learn and understand the c
 \section{Core Language}
 \label{section: core language}
 
-\subsection{Core Language Run-Time Performance Enhancements}
+\subsection{Core Language Runtime Performance Enhancements}
 \begin{enumerate}
-
-\item \textbf{Rvalue reference:} C++11 Standard introduces rvalue references, which bind only to rvalues, not
-to lvalues, and are declared with two ampersands rather than one. This can be referenced to const and temporary. It can be also used with move semantic. Programs should show how this concept apply with constant and temporary object as well as using it with move semantic.
-
-\item \textbf{Move semantic:} C++11 includes a new concept called move semantics, which requires a move constructor and move assignment  operator. It also uses to force compiler to convert from Ivalue to rvalue. These concepts should be demonstrated by simple examples to make them easier to understand.
-
-\item \textbf{constexpr:} C++11 introduced the keyword constexpr. The benefit of using constexpr is that the compiler can optimize your code much better during the compilation process. Program should show how a function declare as constexpr and how it can  be applied to objects.
-\end{enumerate}
-
-
-\subsection{Core Language Build-Time Performance Enhancement}
-\begin{enumerate}
-
-\item \textbf{Extern template}:  C++11 introduced extern template declarations, analogous to extern data declarations and this enhance build-time \linebreak performance. Program should show how this concept use with simple form by using template.
+\item \textbf{Rvalue references:} 
+\item \textbf{Move semantic:}
+\item \textbf{Generalized constant expressions- constexpr keyword:} 
+\item \textbf{Modification of the definition of plain old data}
 \end{enumerate}
 
 
 \subsection{Core Language Usability Enhancements}
 \begin{enumerate}
-\item \textbf{Uniform initialization}: C++11 provides a syntax that allows for fully uniform type initialization that works on any object. This concept can be applied as examples with class and function to show its benefit.
-
-\item \textbf{Auto:} It allows a compiler to deduces the type of variables or return value of a function automatically during compiler-time. This feature can be used with template, alternative function, variables and expression. Programs should demonstrate these all cases.
-
-\item \textbf{Decltype:} C++11 adds decltype keyword which can be used to \linebreak determine the type of an expression at compiler time. This feature can be used with template, expression and variables. Programs should present this cases.
-
-\item \textbf{Range-based for-loop:} The range-based for loop is a fourth way of looping which has been added to the C++11 standard. It allows for easy iteration over elements of a list. Programs should show how this feature work using auto feature.
-
-\item \textbf{Lambda functions:} It allows programmers to write anonymous functions inline. Programs should show lambda expressions as return type, lambda expressions as parameters and lambda with template.
-
-\item \textbf{Alternative function syntax:} It is new concept of function that introduced by C++11. This feature can be represented by simple example to show syntax of this function as well as using it with template.
-
-\item \textbf{Delegation constructor: } This allows constructors to utilize another constructor's behavior with a minimum of added code. This can be showed by  simple example contains two classes.
-
-\item \textbf{Explicit overrides and final:} C++11 adds these features which are used to prevent inheriting and overriding. They can be applied by \linebreak examples that contain classes to show their functionality.
-
-\item \textbf{Enumeration class:} This type does not conflict with any existing \linebreak enumeration and also do not support implicit conversation to from \linebreak integer. Program should clearly show how does not conflict and how does not support implicit conversation.
-
-\item \textbf{Explicit conversion operators:} With C++11, a programmer can use the explicit keyword to prevent the compiler from performing the implicit conversion and this can be showed with simple program that contains class.
-
-\item \textbf{Alias templates:} C++11 adds a new mechanism for creating type aliases, which is easier to understand than the old typedefs in certain \linebreak situations. Programs should show this concept with  template and \linebreak without it.
+\item \textbf{Uniform initialization:}
+\item \textbf{Initializer lists:}
+\item \textbf{Type inference - Auto keyword:} 
+\item \textbf{Type inference – Decltype keyword:} 
+\item \textbf{Range-based for statement:} 
+\item \textbf{Alternative function syntax:}
+\item \textbf{Lambda functions:} 
+\item \textbf{Alternative function syntax:}
+\item \textbf{Delegating constructors: }
+\item \textbf{Override keyword:}
+\item \textbf{Final keyword:}
+\item \textbf{Null pointer constant:}
+\item \textbf{Strongly typed enumerations:}
+\item \textbf{Alias templates:}
 \end{enumerate}
 
 
 \subsection{Core Language Functionality Improvements}
 \begin{enumerate}
-\item \textbf{Unsigned long long (int) and long long (int):} These types are \linebreak guaranteed to be at least as large as a long int, and have no fewer than 64 bits. Program should show that they having size of 8 bytes on \linebreak implementations.
-
-\item \textbf{char16\_t and char32\_t:} These are designed to store UTF-16 and  UTF-32 respectively. Program should demonstrate how they store character literals such as u' c-char-sequence', U' c-char-sequence' and string literals as well as escape sequences.
-
-\item \textbf{User-defined literals:} This gives to the user, the ability to create new custom literal modifiers and  user defined literals should start with an underscore and are implemented by writing literal operators. A literal operator can work in raw or cooked mode. Program should show how literal operator will receive a sequence of characters, and cooked mode literal operator will receive a specific interpreted type.
-
-\item \textbf{Explicitly defaulted and deleted:} These keywords give control to a programmer to define default or delete constructor, copy constructor and overloaded operator, Programs should show all these cases.
-
-\item \textbf{Static assertion:} which is an assert that is evaluated at compile time, instead of run time. A program should present by using template.
-
-
-\item \textbf{Variadic template:} Templates which take a variable number of template parameters. Programs should use this concept with function and variable to present its purpose.
+\item \textbf{New character types : char16\_t and char32\_t}
+\item \textbf{Raw string literals:}
+\item \textbf{User-defined literals:}
+\item \textbf{Explicitly Defaulted special member functions:}
+\item \textbf{Explicitly Deleted special member functions:}
+\item \textbf{Unsigned long long (int) and long long (int):} 
+\item \textbf{Static assertion:}
+\item \textbf{Variadic template:}
 \end{enumerate}
 
 
@@ -232,10 +211,38 @@ To sum up, C++11 supports ordinary programmers by offers much more than (old) C+
 \lstinputlisting{../Makefile.}
 \newpage
 
-\section{Core Language}
-\label{Appendix: corelanguage}
+% Core language Runtime Performance Enhancements
+\section{Core Language Runtime Performance Enhancements}
+\label{Appendix: corelanguage runtime performance}
 
 \Cpp
+
+\subsection{RvalueReference\_Basic.cpp}
+\label{sub:RvalueReference_Basic}
+\lstinputlisting{../CoreLanguage/RunTime/RvalueReference_Basic.cpp}
+
+
+% Core Language Usability Enhancements
+\section{Core Language Usability Enhancements}
+\label{Appendix: corelanguage usabiliy enhancements}
+
+\Cpp
+
+\subsection{}
+\label{}
+%\lstinputlisting{../CoreLanguage/UsabilityEnhancements/}
+
+
+% Core Language Functionality Improvements
+\section{Core Language Functionality Improvements}
+\label{Appendix: corelanguage functionality improvements}
+
+\Cpp
+
+
+\subsection{}
+\label{}
+%\lstinputlisting{../CoreLanguage/FunctionalityImprovements/
 
 
 \end{appendix}
