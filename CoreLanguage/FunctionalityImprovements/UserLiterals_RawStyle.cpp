@@ -8,7 +8,7 @@
 long int  operator"" _D(const char* s) {
   int dec = atoi(s);
   int rem, i = 1, sum = 0;
-  
+
   do{
     rem = dec % 2;
     sum = sum + (i * rem);
@@ -23,7 +23,7 @@ long int operator"" _B(const char* c) {
   int sum = 0;
   int convert = 0;
   int base = 1;
-  
+
   for (int i = length - 1; i >= 0; i--){
     convert = (c[i]- '0' ) ;
     sum += (convert * base);
@@ -35,7 +35,7 @@ long int operator"" _B(const char* c) {
 int main() {
   long int binary = 23_D;
   assert (binary == 10111);
-  
+
   long int decimal = 10111_B;
   assert (decimal == 23);
 }
