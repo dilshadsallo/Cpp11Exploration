@@ -1,4 +1,4 @@
-// Dilshad Sallo, 3.7.2012 
+// Dilshad Sallo, 3.7.2012
 // Using uniform initialization (brace-initialization) to initialize dynamically allocated arrays.
 
 #include <cassert>
