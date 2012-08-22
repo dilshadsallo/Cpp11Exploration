@@ -18,5 +18,4 @@ int main() {
   C c1;
   c1.f(123);
   //c1.f(12.3); // conversion to int is not allowed
-  
 }
