@@ -5,11 +5,11 @@
 #include <cassert>
 
 int main() {
-  const char16_t st[] = u8R"(\"'() Store in 8-bits)";
+  const char st[] = u8R"(\"'() Store in 8-bits)";
   const char16_t st1[] = uR"(\"'() Store in 16-bits)";
   const char32_t st2[] = UR"(\"'() Store in 32-bits)";
 
-  assert(sizeof(st)== 23);
+  assert(sizeof(st)== 22);
   assert(sizeof (st1) == 46);
   assert(sizeof (st2) == 92);
 }
