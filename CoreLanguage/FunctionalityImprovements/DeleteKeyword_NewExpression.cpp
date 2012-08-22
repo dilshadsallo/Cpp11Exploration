@@ -2,6 +2,8 @@
 // Using "delete" keyword to prevent compiler
 // from using operator new.
 
+#include <iostream>
+
 class C {
 public :
   void *operator new(std::size_t) = delete;
