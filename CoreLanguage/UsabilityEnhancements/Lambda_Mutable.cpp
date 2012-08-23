@@ -1,6 +1,6 @@
 // Dilshad Sallo, 26.7.2012
 // Using lambda expression with mutable option,
-// which allows to modify values that are captured by enclosing scope.
+// which allows to modify values that are captured by value from enclosing scope.
 
 #include <cassert>
 #include <functional>
@@ -12,7 +12,7 @@ std::function<int(void)> m1(int x) {
 std::function<int(void)> m2(int x) {
   return [=]
   { //return  ++x; // error: x can not be changed
-  return x;}; 
+  return x;};
 }
 
 int main() {
