@@ -241,21 +241,124 @@ Using lambda expression as parameters has significant impact over Standard Libra
 
 As a result, lambda expression is significant step forward, and improves code clarity and makes programming easier.
 
+% Delegating Constructors
+\item \textbf{Delegating constructors:} C++ does not furnish a mechanism by which one constructor is able to delegate another constructor in the same class.  As a consequence, the default arguments cannot be used by class's constructor (s) for initializing class members. Therefore, classes should provide multiple constructors, each with a distinct parameter(s). Those constructors may often execute similar initialization operations, and this leads to force a programmer to duplicate same pieces of code in each constructor as well as duplication in object level \cite{Overland:2011:CWF}.
+\newline
 
-\item \textbf{Delegating constructors: }
+In addition to that, Other Object Oriented languages, such as Java, permit constructor to delegate another of the class's constructor(s).  As Java is often used as educational and basic language, increasing C++ newcomers with prior experience of Java are often find substantial differences between these languages. Hence, huge mistake could happen when attempting to write C++ code as same as Java's behaviour \cite{Overland:2011:CWF}.
+\newline
+
+C++11 provide mechanism of delegating constructor, which permit constructor to call another constructor from the same class. This feature allows a programmer to define general and desirable initializations in one constructor dubbed target constructor, which can be called by delegating constructor to do the initialization. Delegating and target constructor are presented in the same interface as other constructors do. Target constructors do not require particular treating to become the target of a delegating constructor. In fact, they are chosen by overload resolution \cite{Overland:2011:CWF}.
+\newline
+
+When the execution of target constructor is completed, controls get back to the delegating constructor. A delegating constructor can also be used as the target constructor for one or more delegating constructors but a programmer should be aware about a recursive chain of delegation which could lead to compiler error \cite{Overland:2011:CWF}.
+\newline
+
+Delegating constructors makes writing overloaded constructors easier and without duplicating the common code. It also makes programs more readable and maintainable that may lead to decrease the chance of error \ref{DelegatingConstructor} \cite{Overland:2011:CWF}.
+
 \item \textbf{Override keyword:}
 \item \textbf{Final keyword:}
-\item \textbf{Null pointer constant:}
-\item \textbf{Strongly typed enumerations:}
-\item \textbf{Alias templates:}
+
+% Null pointer constatn
+\item \textbf{Null pointer constant:} C++ language has the pre-processor macro called NULL, which was used with a pointer to refer that it is not pointing to anywhere. The problem with NULL is that, underneath it is just a plain 0. 
+\newline
+
+This raise some problems, for instance, consider a situation when a programmer defines two functions with the same name and one has int argument and other has a pointer argument. Then, calling the function with NULL parameter cause cease a program, because it cannot decide if NULL is actually a pointer (because it is a 0) or an integer (because NULL is a 0). Thus, this ambiguity causes a compiler error \cite{Cppreference:2012:Cpp11}.
+\newline
+
+C++11 solves this problem by introducing nullptr keyword, which is a null pointer constant that unambiguously represents a pointer pointing to nowhere; no zero at all. It considers a strongly typed null pointer and can be passed as a null pointer to a function without ambiguity \ref{NullPointer} \cite{Cppreference:2012:Cpp11}. 
+
+
+% Enumerations
+\item \textbf{Strongly typed enumerations:} Enumerations of traditional C++ are not type-safe, and have some problems may cause catastrophic when used in life-critical software. One of these problems is implicit conversion between types. Although enumerations in C++ have some type safety features including preventing directly assign from one enumeration type to another and not implicit conversion from an integer to enumeration type, but the value or object of an enumerator is allowed to convert implicitly to integer.
+\newline
+
+Another problem is that, the underlying type of an enum cannot be specified explicitly by programmers. Therefore, it cannot be determined how much space will be used by the representation of an enumeration variable. Finally, enumerations in C++ are not strongly scoped and could raise some issues such as conflict can happen when two enumerations have enumerators with the same name in the same cope\cite{Stroustrup:2012:Cpp11}.
+\newline
+
+C++11 provides a new form of enumeration which combining enum with class and is declared by using keyword enum class and is used to handle the problems that existed in traditional C++.  Implicit conversions to or from an integer is not allowed in this type and any attempt doing that cause a compiler-error \ref{EnumerationClass_Implicit} \cite{Overland:2011:CWF}.
+\newline
+
+The underlying type of enum class is clearly specified, by default is integer.  A programmer can explicitly specify another type by writing type following the enumeration name \ref{EnumerationClass_Explicit}. C++11 Enumerations have class scope for their enumerators. This eliminates a possible source of name conflicts between enumerators from different enum definitions \ref{EnumerationClass_Conflict} \cite{Josuttis:2012:CppStandard Library}.
+
+\item \textbf{Explicit Conversion Operators:}
+
+% Alias templates:
+\item \textbf{Alias templates:} The type alias is mechanism that allows a programmer to create an alias, or synonym, for an existing data type, without creating new type.  This technique is useful to simplify declarations that could be widely used in a program and documenting it.
+\newline
+
+Traditional C++ supports this technique by using typedef keyword, which has syntax as follows:
+\begin{center}
+ typedef $<$the real data type$>$ $<$the alias identifier name$>$
+\end{center}
+
+The typedef keyword is pretty useful to provide suitable names when the real type declarations become complex to express. This could happen when dealing with Standard Library containers and templates. Thus, it reduces the amount of code necessary \cite{Gregorie:professionalcpp}.
+\newline
+
+However, using typedef keyword with template require specifying concrete types for each template type and this restricts a programmer to specify each parameter type explicitly in a program. Otherwise, it is not valid. In addition, using typedef keyword becomes complicated with function pointers and makes a code hard to read by ordinary programmer \ref{TypeAlias_FunctionPointer} \cite{Gregorie:professionalcpp}.
+\newline
+
+C++11 introduces a new mechanism for declaring type aliases called template aliases, that is applied by "using" keyword.  Template aliases make writing the code easier than the old typedef, and less error prone. They have straightforward syntax as follows that make a program easier to understand.
+
+\begin{center}
+using $<$the alias identifier name$>$ = $<$the real data type$>$
+\end{center}
+
+Template aliases can be used as the same as the typedef to create type aliases for variables \ref{TypeAlias_Varialbe}. They can also be declared as a pointer to function with a straightforward syntax, instead of declaring a pointer in the middle of syntax as exist in the old style \ref{TypeAlias_FunctionPointer} \cite{Gregorie:professionalcpp}.
+\newline
+
+Template aliases remove the limitations that exist with the old typedef in terms of dealing with templates. They allow a programmer to define type aliases for templates without concrete types, and give flexibility to the programmer to specify the type when an object is declared \ref{TypeAlias_Template} \cite{Gregorie:professionalcpp}.
+\newline
+
+Hence, type aliases are useful to make a code easier to read by having simple syntax and also provide flexibility to deal with a code.
+
+% end Usability Enhancements
 \end{enumerate}
 
-
+% Functionalit Improvements
 \subsection{Core Language Functionality Improvements}
 \label{subsection: Functionality Improvements}
+
 \begin{enumerate}
-\item \textbf{New character types : char16\_t and char32\_t}
-\item \textbf{Raw string literals:}
+\item \textbf{New character types : char16\_t and char32\_t:} The C++ language has extended a support character set over the last years. This included wide character (wchar\_t), which is a significant step forward because it has led to raise the amount of space usable to define a single character. In wide character sets, available space is used exactly as ASCII, each a number represents a special glyph, but the difference is that each number does not represent in 8 bits. The form of characters to numbers (now dubbed code points) is larger than it was, because it deals with lots of different sets in addition to the characters that are familiar by native English programmers \cite{Gregorie:professionalcpp}.
+\newline
+
+Both of Unicode Consortium and the Universal Character Set (UCS) that defined by the International Standard ISO10646, are standardized sets of characters. They include approximately 100000 abstract characters, and each defined by special name and an integer number named its code point. Both standards contain the same characters and their associated numbers and have particular encodings that could use by programmers. For instance, UTF-8 (which is stands for Unicode Transformation Format -8) is an example of a Unicode encoding, which use 8-bit blocks to encode a character. The number of blocks required to encode a character varies from one to four bits.  UTF-16 and UTF-32 encoded Unicode characters as one or two 16-bit values, and as exactly 32 bits, respectively \cite{Gregorie:professionalcpp}.
+\newline
+
+Different encodings could be used by different applications. Unfortunately, wide character (wchar\_t) that introduced by C++, was not enough, because the size of wchar\_t can change from one implementation to another. For example, on Windows it is 16 bits, whereas on other operating system could be 32 bits \cite{Gregorie:professionalcpp}. 
+\newline
+
+To address this issue, C++11 comes with two new types char16\_t and char32\_t, which use to store 16 and 32 bits respectively. They can be used as the basic building block for UTF-16 and UTF-32 encoded Unicode characters \cite{Josuttis:2012:CppStandardLibrary}.
+\newline
+
+C++11 use the “u” prefix to represent a character literal of type char16\_t and ensuring its value equal to its ISO 10646 (and Universal Character Set) code point value, that is represented in a single 16-bits \ref{NewCharacterType_char16}. It also uses the same prefix to represent string constants in 16-bits form \ref{NewCharacterType_String16} \cite{Josuttis2012:CppStandardLibrary}.
+\newline
+
+Similarly, the "U" prefix is used to represent a character literal \ref{NewCharacterType_char32} and string constants in 32-bits form \ref{NewCharacterType_String32}.  Supporting for Unicode by C++11 is not only limited over these two types. The UTF-8 is also supported and can be represented by using the “u8” prefix in front of string, indicating that the contents of string are stored in UTF-8 \ref{NewCharacterType_UTF-8} \cite{Josuttis:2012:CppStandardLibrary}.
+\newline
+
+Unicode Characters for universal languages are also supported in these new characters types. Thus, it is possible to writing a string, for example, in Arabic language because each character has unique name and number \ref{NewCharacterType_Languages} \cite{Josuttis:2012:CppStandardLibrary}.
+\newline
+
+In these types of strings, adjacent string literals concatenate if they have the same encoding-prefix and thus, leading to a single concatenated string literal with that encoding-prefix. This can be also applied when on string literal has not encoding-prefix, it handle as a string literal of the same encoding-prefix as the other operand \ref{NewCharacterType_String16}, \ref{NewCharacterType_String32}, \ref{NewCharacterType_UTF-8} \cite{ ISO:2011:Cpplanguage}.
+
+
+% Raw string literals
+\item \textbf{Raw string literals:} Recently, C++ gained popularity by dealing with markup languages including XML and HTML as well as regular expressions that added by C++11 to the Standard Library to express patterns to be matched against strings. However, this has raised several problems for programmers including a difficulty to writing plethora of backslashes correctly and impenetrable to read, because the same backslash escape sequence is used by regular expressions and C++ in string literals. Additionally, quotation marks and newlines are widely used by mark-up languages, leading escape sequences in string literals are difficult to process, error-prone and cumbersome as well as breaking a string into multiple lines of code is not allowed in C++ \cite{ISO:2011:Cpplanguage}.
+\newline
+
+C++11 comes with new concept called raw string literals that does not process escape sequences like $\backslash$t and $\backslash$n as C++ does, instead, as normal text. Raw literal is a string literal with R prefix and has format R "d-char-sequence(r-char-sequence) d-char-sequence". Meaning that, d-char-sequence (delimiter sequence) could be any symbol such as (-, “(), ~) or text (delimiter) and it is considered optionally. Delimiter sequence must be the same at the starting and at the end of the raw string and can be up to 16 characters. The r-char-sequence is the actual raw string, which can represent text, symbols, escape sequences and quotation marks easily \cite{Gregorie:professionalcpp}.
+\newline
+
+Raw string is significantly useful in terms of regular expressions. It offers sophisticated and easy way to represent backslashes and other symbols that could use to express specific patterns against sequences of characters \ref{RawString_Backslash}.
+\newline
+
+Raw string is also used to represent easily quotation marks and escape sequence, which are massively used by XML and HTML languages \ref{RawString_EscapeSequence}. Thus, it allows for much more sophisticated string handling with less error-prone such as representing whole code of HTML, without any restriction \ref{RawString_HTML}.
+\newline
+
+Raw string literals can be combined with Unicode literal prefixes  (“u8”,"u" and "U") to represent the content of raw string in 16 and 32-bits \ref{RawString_UnicodeliteralPrefix} \cite{Gregorie:professionalcpp}.
+
 \item \textbf{User-defined literals:}
 \item \textbf{Explicitly Defaulted special member functions:}
 \item \textbf{Explicitly Deleted special member functions:}
@@ -420,17 +523,91 @@ As a result, lambda expression is significant step forward, and improves code cl
 \label{Lambda_Sort}
 \lstinputlisting{../CoreLanguage/UsabilityEnhancements/Lambda_Sort.cpp}
 
+% Delegating Constructors
+\subsection{DelegatingConstructor.cpp}
+\label{DelegatingConstructor}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/DelegatingConstructor.cpp}
+
+% Null pointer constant
+\subsection{NullPointer.cpp}
+\label{NullPointer}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/NullPointer.cpp}
+
+% Strongly Typed Enumerations
+\subsection{EnumerationClass\_Implicit.cpp}
+\label{EnumerationClass_Implicit}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/EnumerationClass_Implicit.cpp}
+
+\subsection{EnumerationClass\_Explicit.cpp}
+\label{EnumerationClass_Explicit}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/EnumerationClass_Explicit.cpp}
+
+\subsection{EnumerationClass\_Conflict.cpp}
+\label{EnumerationClass_Conflict}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/EnumerationClass_Conflict.cpp}
+
+% Alias Template
+\subsection{TypeAlias\_FunctionPointer.cpp}
+\label{TypeAlias_FunctionPointer}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/TypeAlias_FunctionPointer.cpp}
+
+\subsection{TypeAlias\_Varialbe.cpp}
+\label{TypeAlias_Varialbe}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/TypeAlias_Variable.cpp}
+
+\subsection{TypeAlias\_Template.cpp}
+\label{TypeAlias_Template}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/TypeAlias_Template.cpp}
+
+
+
 % Core Language Functionality Improvements
 \section{Core Language Functionality Improvements}
 \label{Appendix: corelanguage functionality improvements}
 
 \Cpp
 
-\subsection{}
-\label{}
-%\lstinputlisting{../CoreLanguage/FunctionalityImprovements/
+% NewCharacterType - char16 and char32
+\subsection{NewCharacterType\_char16.cpp}
+\label{NewCharacterType_char16}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/NewCharacterType_char16.cpp}
 
+\subsection{NewCharacterType\_String16.cpp}
+\label{NewCharacterType_String16}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/NewCharacterType_String16.cpp}
 
+\subsection{NewCharacterType\_char32.cpp}
+\label{NewCharacterType_char32}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/NewCharacterType_char32.cpp}
+
+\subsection{NewCharacterType\_String32.cpp}
+\label{NewCharacterType_String32}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/NewCharacterType_String32.cpp}
+
+\subsection{NewCharacterType\_UTF-8.cpp}
+\label{NewCharacterType_UTF-8}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/NewCharacterType_UTF-8.cpp}
+
+\subsection{NewCharacterType\_Languages.cpp}
+\label{NewCharacterType_Languages}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/NewCharacterType_Languages.cpp}
+
+% Raw string literals
+\subsection{RawString\_Backslash.cpp}
+\label{RawString_Backslash}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/RawString_Backslash.cpp}
+
+\subsection{RawString\_EscapeSequence.cpp}
+\label{RawString_EscapeSequence}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/RawString_EscapeSequence.cpp}
+
+\subsection{RawString\_HTML.cpp}
+\label{RawString_HTML}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/RawString_HTML.cpp}
+
+\subsection{RawString\_UnicodeliteralPrefix.cpp}
+\label{RawString_UnicodeliteralPrefix}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/RawString_UnicodeliteralPrefix.cpp}
 
 \end{appendix}
 
