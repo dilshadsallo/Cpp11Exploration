@@ -45,6 +45,9 @@ This paper focuses on investigating core language features which classify to cat
 \chapter{Core Language Runtime Performance Enhancements}
 \label{chapter: Runtime Performance Enhancements}
 
+\section{Introduction}
+\label{section: Introduction}
+
 \section{Rvalue references:}
 \label{section: Rvalue references:}
 
@@ -57,10 +60,16 @@ This paper focuses on investigating core language features which classify to cat
 \section{Modification of the definition of plain old data:}
 \label{section: Modification of the definition of plain old data:}
 
+\section{Conclusion}
+\label{section: conclusion}
+
 
 % chapter Core Language Usability Enhancements
 \chapter{Core Language Usability Enhancements}
 \label{chapter: Usability Enhancements}
+
+\section{Introduction}
+\label{section: Introduction}
 
 \section{Uniform initialization:}
 \label{section:Uniform initialization}
@@ -164,7 +173,7 @@ The benefit of alternative function syntax can be gained here by allowing the re
 alternative function syntax is not mainly about templates and type deduction, but also about the scope.  With this new syntax, when the scope is written to define function within class, there is no need to add it again to return type because return type goes at the end of the function. Thus, a compiler can reach the return value as it already knows the function is part of class \ref{AlternativeFunction_Scope} \cite{Allain:2011:FutureCpp}.
 
 % Range-based for statement
-\chapter{Range-based for statement:}
+\section{Range-based for statement:}
 \label{section: Range-based for statement}
 C++ supports three types of looping structures namely while loop, do while loop and for loop. In some cases, such iterating over the elements of Standard Library containers including vector and map requires a lot of codes to accomplish iteration properly. Because using these types require create a new variable to store the iterators, and then dereference the iterators using the * operator to get the actual value, as well as initializing the beginning and ending conditions in these forms of loops \cite{Horstmann:2008:BC}.
 \newline
@@ -345,13 +354,20 @@ Template aliases remove the limitations that exist with the old typedef in terms
 
 Hence, type aliases are useful to make a code easier to read by having simple syntax and also provide flexibility to deal with a code.
 
+\section{Conclusion}
+\label{section: conclusion}
+
 
 % Functionalit Improvements
-\subsection{Core Language Functionality Improvements}
-\label{subsection: Functionality Improvements}
+\chapter{Core Language Functionality Improvements}
+\label{chapter: Functionality Improvements}
 
-\begin{enumerate}
-\item \textbf{New character types : char16\_t and char32\_t:} The C++ language has extended a support character set over the last years. This included wide character (wchar\_t), which is a significant step forward because it has led to raise the amount of space usable to define a single character. In wide character sets, available space is used exactly as ASCII, each a number represents a special glyph, but the difference is that each number does not represent in 8 bits. The form of characters to numbers (now dubbed code points) is larger than it was, because it deals with lots of different sets in addition to the characters that are familiar by native English programmers \cite{Gregorie:professionalcpp}.
+\section{Introduction}
+\label{section: Introduction}
+
+\section{New character types : char16\_t and char32\_t:}
+\label{section: char16_t and char32_t:}
+The C++ language has extended a support character set over the last years. This included wide character (wchar\_t), which is a significant step forward because it has led to raise the amount of space usable to define a single character. In wide character sets, available space is used exactly as ASCII, each a number represents a special glyph, but the difference is that each number does not represent in 8 bits. The form of characters to numbers (now dubbed code points) is larger than it was, because it deals with lots of different sets in addition to the characters that are familiar by native English programmers \cite{Gregorie:professionalcpp}.
 \newline
 
 Both of Unicode Consortium and the Universal Character Set (UCS) that defined by the International Standard ISO10646, are standardized sets of characters. They include approximately 100000 abstract characters, and each defined by special name and an integer number named its code point. Both standards contain the same characters and their associated numbers and have particular encodings that could use by programmers. For instance, UTF-8 (which is stands for Unicode Transformation Format -8) is an example of a Unicode encoding, which use 8-bit blocks to encode a character. The number of blocks required to encode a character varies from one to four bits.  UTF-16 and UTF-32 encoded Unicode characters as one or two 16-bit values, and as exactly 32 bits, respectively \cite{Gregorie:professionalcpp}.
@@ -376,7 +392,9 @@ In these types of strings, adjacent string literals concatenate if they have the
 
 
 % Raw string literals
-\item \textbf{Raw string literals:} Recently, C++ gained popularity by dealing with markup languages including XML and HTML as well as regular expressions that added by C++11 to the Standard Library to express patterns to be matched against strings. However, this has raised several problems for programmers including a difficulty to writing plethora of backslashes correctly and impenetrable to read, because the same backslash escape sequence is used by regular expressions and C++ in string literals. Additionally, quotation marks and newlines are widely used by mark-up languages, leading escape sequences in string literals are difficult to process, error-prone and cumbersome as well as breaking a string into multiple lines of code is not allowed in C++ \cite{ISO:2011:Cpplanguage}.
+\section{Raw string literals:}
+\label{section: Raw string literals}
+Recently, C++ gained popularity by dealing with markup languages including XML and HTML as well as regular expressions that added by C++11 to the Standard Library to express patterns to be matched against strings. However, this has raised several problems for programmers including a difficulty to writing plethora of backslashes correctly and impenetrable to read, because the same backslash escape sequence is used by regular expressions and C++ in string literals. Additionally, quotation marks and newlines are widely used by mark-up languages, leading escape sequences in string literals are difficult to process, error-prone and cumbersome as well as breaking a string into multiple lines of code is not allowed in C++ \cite{ISO:2011:Cpplanguage}.
 \newline
 
 C++11 comes with new concept called raw string literals that does not process escape sequences like $\backslash$t and $\backslash$n as C++ does, instead, as normal text. Raw literal is a string literal with R prefix and has format R "d-char-sequence(r-char-sequence) d-char-sequence". Meaning that, d-char-sequence (delimiter sequence) could be any symbol such as (-, “(), ~) or text (delimiter) and it is considered optionally. Delimiter sequence must be the same at the starting and at the end of the raw string and can be up to 16 characters. The r-char-sequence is the actual raw string, which can represent text, symbols, escape sequences and quotation marks easily \cite{Gregorie:professionalcpp}.
@@ -390,16 +408,28 @@ Raw string is also used to represent easily quotation marks and escape sequence,
 
 Raw string literals can be combined with Unicode literal prefixes  (“u8”,"u" and "U") to represent the content of raw string in 16 and 32-bits \ref{RawString_UnicodeliteralPrefix} \cite{Gregorie:professionalcpp}.
 
-\item \textbf{User-defined literals:}
-\item \textbf{Explicitly Defaulted special member functions:}
-\item \textbf{Explicitly Deleted special member functions:}
-\item \textbf{Unsigned long long (int) and long long (int):} 
-\item \textbf{Static assertion:}
-\item \textbf{Variadic template:}
-\end{enumerate}
+\section{User-defined literals:}
+\label{section: User-defined literals}
 
+\section{Explicitly Defaulted special member functions:}
+\label{section: Defaulted special member functions}
 
+\section{Explicitly Deleted special member functions:}
+\label{section: Deleted special member functions}
 
+\section{Unsigned long long (int) and long long (int):}
+\label{section: Unsigned and long long (int):}
+
+\section{Static assertion:}
+\label{section: Static assertion}
+
+\section{Variadic template:}
+\label{section: Variadic template}
+
+\section{Conclusion}
+\label{section: conclusion}
+
+% References
 \addcontentsline{toc}{section}{Bibliography}
 \bibliographystyle{alpha}
 \bibliography{Bibliography}	
