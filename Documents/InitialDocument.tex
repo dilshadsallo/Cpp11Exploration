@@ -41,31 +41,38 @@ This paper focuses on investigating core language features which classify to cat
 
 \tableofcontents
 
-% chapter core language
-\chapter{Core Language}
+% chapter Core Language Runtime Performance Enhancements
+\chapter{Core Language Runtime Performance Enhancements}
+\label{chapter: Runtime Performance Enhancements}
 
-\section{Core Language}
-\label{section: core language}
+\section{Rvalue references:}
+\label{section: Rvalue references:}
 
-\subsection{Core Language Runtime Performance Enhancements}
-\label{subsection: Runtime performance}
-\begin{enumerate}
-\item \textbf{Rvalue references:} 
-\item \textbf{Move semantic:}
-\item \textbf{Generalized constant expressions - constexpr keyword:} 
-\item \textbf{Modification of the definition of plain old data}
-\end{enumerate}
+\section{Move semantic:}
+\label{section: Move semantic:}
+
+\section{Generalized constant expressions:}
+\label{section: Generalized constant expressions:}
+
+\section{Modification of the definition of plain old data:}
+\label{section: Modification of the definition of plain old data:}
 
 
-\subsection{Core Language Usability Enhancements}
-\label{subsection: Usability Enhancements}
+% chapter Core Language Usability Enhancements
+\chapter{Core Language Usability Enhancements}
+\label{chapter: Usability Enhancements}
 
-\begin{enumerate}
-\item \textbf{Uniform initialization:}
-\item \textbf{Initializer lists:}
+\section{Uniform initialization:}
+\label{section:Uniform initialization}
+
+\section{Initializer lists:}
+\label{section: Initializer lists}
+
 
 % Auto keyword
-\item \textbf{Type inference - Auto keyword:} Many programming languages such Java, C and traditional C++ obligate a programmer to specify data type of variables before initializing and using them in a program. However, with the advent of template types and meta-programming techniques, type names become extremely long and complicated, especially, determining return value of function that used with template classes or using specified names for iterators combined with template classes \cite{Horstmann:2008:BC}.
+\section{Type inference - Auto keyword:}
+\label{section: Auto keyword}
+Many programming languages such Java, C and traditional C++ obligate a programmer to specify data type of variables before initializing and using them in a program. However, with the advent of template types and meta-programming techniques, type names become extremely long and complicated, especially, determining return value of function that used with template classes or using specified names for iterators combined with template classes \cite{Horstmann:2008:BC}.
 \newline
 
 In these cases, the data types required for these declarations become complex, ambiguous, and cannot be easily determined by an ordinary programmer.
@@ -109,7 +116,9 @@ The auto keyword has another different usage when it appears with alternative fu
 The auto keyword is widely used with lambda function, which also added by C++11. As return type of lambda functions is not specified int many cases, the auto keyword uses to deduce return type of function properly, depending on expression that used as return type \ref{Lambda_ImplicitReturn} \cite{Gregorie:professionalcpp}.
 
 % Decltype
-\item \textbf{Type inference – Decltype keyword:} C++11 introduces another new type inference called decltype (declared type), which is used to determine the type of an expression at compile-time. The decltype keyword takes as argument an expression, and returns the type associated with that expression \cite{Stroustrup:2012:Cpp11}. 
+\section{Type inference – Decltype keyword:}
+\label{section: Decltype keyword}
+C++11 introduces another new type inference called decltype (declared type), which is used to determine the type of an expression at compile-time. The decltype keyword takes as argument an expression, and returns the type associated with that expression \cite{Stroustrup:2012:Cpp11}. 
 \newline
 
 The decltype keyword can be used to create different data types depending on an expression that has been used as argument.  If expression is a variable without parenthesized, then the data type will be the same as the expression type \ref{DecltypeKeyword_Variable}. If expression is lvalue (which mean that variable with parenthesized), then the data type will be a reference to that expression type \ref{DecltypeKeyword_lvalue}. Finally, if expression is function call, the data type will be the same as function return type \ref{DecltypeKeyword_Function} \cite{Prata:2012:Cpp}.
@@ -121,7 +130,9 @@ The decltype keyword is pretty useful to deduce type for combination of expressi
 The benefit of decltype keyword can also be shown, when it uses as return type for alternative function syntax (which added by C++11) because a return type is not specified in this type of function within templates. Thus, decltype is used as return type to deduce the type from the context of expression \ref{AlternativeFunction_Template} \cite{Gregorie:professionalcpp}. 
 
 % alternative function
-\item \textbf{Alternative function syntax:} A function syntax that was designed for C language, is yet using by traditional C++. This old syntax raises some problems and cannot be quite enough for new functionality that has been added to C++11, including deducing return type in the context of declaration \cite{Gregorie:professionalcpp}.
+\section{Alternative function syntax:}
+\label{section: Alternative function syntax}
+A function syntax that was designed for C language, is yet using by traditional C++. This old syntax raises some problems and cannot be quite enough for new functionality that has been added to C++11, including deducing return type in the context of declaration \cite{Gregorie:professionalcpp}.
 \newline
 
 C++11 introduces a new syntax for declaring functions using a different method to the one that is traditional in C and C++. This notation is known as alternative function syntax, and involves placing the return type at the end of the function signature instead of at the start. Additionally, the auto keyword is placed at the start for the name of the return type, indicating that the prototype is using the alternative function syntax \ref{AlternativeFunction_Syntax} \cite{Gregorie:professionalcpp}.
@@ -153,7 +164,9 @@ The benefit of alternative function syntax can be gained here by allowing the re
 alternative function syntax is not mainly about templates and type deduction, but also about the scope.  With this new syntax, when the scope is written to define function within class, there is no need to add it again to return type because return type goes at the end of the function. Thus, a compiler can reach the return value as it already knows the function is part of class \ref{AlternativeFunction_Scope} \cite{Allain:2011:FutureCpp}.
 
 % Range-based for statement
-\item \textbf{Range-based for statement:} C++ supports three types of looping structures namely while loop, do while loop and for loop. In some cases, such iterating over the elements of Standard Library containers including vector and map requires a lot of codes to accomplish iteration properly. Because using these types require create a new variable to store the iterators, and then dereference the iterators using the * operator to get the actual value, as well as initializing the beginning and ending conditions in these forms of loops \cite{Horstmann:2008:BC}.
+\chapter{Range-based for statement:}
+\label{section: Range-based for statement}
+C++ supports three types of looping structures namely while loop, do while loop and for loop. In some cases, such iterating over the elements of Standard Library containers including vector and map requires a lot of codes to accomplish iteration properly. Because using these types require create a new variable to store the iterators, and then dereference the iterators using the * operator to get the actual value, as well as initializing the beginning and ending conditions in these forms of loops \cite{Horstmann:2008:BC}.
 \newline
 
 C++11 adds a fourth way of looping called the range-based for statement that allows for easy iteration over elements of a list. Range based-for statement is useful technique for writing less code and getting less errors, and can be used with C-style arrays \ref{RangeFor_Array}, initializer lists \ref{RangeFor_InitializerList} and Standard Library containers, that have begin () and end () functions such vector \ref{RangeFor_Vector}. 
@@ -178,7 +191,9 @@ This uses reference to be able for modifying the contents of list \ref{RangeFor_
 The range-based for statement also supports the notion of uniform initialization, for instance, a programmer can simply print a lot of numbers by using this form of loop with brace-initialization. \ref{RangeFor_UniformInitialization} \cite{Overland:2011:CWF}.
 
 % Lambda Expression
-\item \textbf{Lambda Expressions:} Traditional C++ includes useful generic functions such as std::for\_each and std::transform, which can be very handy to deal with Standard Library algorithms.  Unfortunately, they can also be quite cumbersome to use, particularly if a functor (functors also called function object, are objects that can be handled though they are a function or function pointer, they are declared by defining member function operator () in class), that would be used as predicates for STL algorithms, are unique to the particular function, because using functor once in specific place seems overkill to be writing whole class just do something trivial and one off \cite{Allain:2011:FutureCpp}. 
+\section{Lambda Expressions:}
+\label{section: Lambda Expressions}
+Traditional C++ includes useful generic functions such as std::for\_each and std::transform, which can be very handy to deal with Standard Library algorithms.  Unfortunately, they can also be quite cumbersome to use, particularly if a functor (functors also called function object, are objects that can be handled though they are a function or function pointer, they are declared by defining member function operator () in class), that would be used as predicates for STL algorithms, are unique to the particular function, because using functor once in specific place seems overkill to be writing whole class just do something trivial and one off \cite{Allain:2011:FutureCpp}. 
 \newline
 
 Another reason is that, the function that used by C++ programmers, has C style that  allow each function name to do specific purpose in a program, meaning it must be written separately for each various usage.
@@ -227,13 +242,17 @@ As a result, a program may not include all these options because they are primar
 The lambda expression can be used to print simple string without having any parameters and return type. This can be achieved by parentheses () at the end of the lambda body, which causes to execute the lambda expression immediately \ref{Lambda_Invocation}. It is also possible to store pointer to lambda expression and execute it by the function pointer \ref{Lambda_PointerFunction} \cite{Gregorie:professionalcpp}.
 \newline
 
-\textbf{Lambda Expressions as Return Type:} Std::function$<>$ class template, defined in the <functional>, is polymorphic function object wrapper and is considered one of the great new features that introduced by C++11, due to its ability to wrap to callable objects ( function pointers, function object and lambdas) as long as there is compatibility in terms of argument  and return type with those of the wrapper.
+\subsection{Lambda Expressions as Return Type:}
+\label{subsection: Lambda Expressions as Return Type}
+Std::function$<>$ class template, defined in the <functional>, is polymorphic function object wrapper and is considered one of the great new features that introduced by C++11, due to its ability to wrap to callable objects ( function pointers, function object and lambdas) as long as there is compatibility in terms of argument  and return type with those of the wrapper.
 \newline
 
 Therefore, the new std::function is an extremely useful way for passing around lambda functions as return values and by doing that, lambda expressions can be returned from ordinary functions. \ref{Lambda_FunctionReturnType} \cite {Josuttis:2012:CppStandard Library}.
 \newline
 
-\textbf{Lambda Expressions as Parameters:} The std::function can be also used to pass around lambda expression as parameters. Thus, it is possible to defining ordinary functions that take lambda expression as parameter to implement callback functions \ref{Lambda_FunctionParameter} \cite{Allain:2011:FutureCpp}.
+\subsection{Lambda Expressions as Parameters:}
+\label{subsection: Lambda Expressions as Parameters}
+The std::function can be also used to pass around lambda expression as parameters. Thus, it is possible to defining ordinary functions that take lambda expression as parameter to implement callback functions \ref{Lambda_FunctionParameter} \cite{Allain:2011:FutureCpp}.
 \newline
 
 Using lambda expression as parameters has significant impact over Standard Library algorithm and without doubt, it is the biggest beneficiaries of lambda expressions, because previously, using algorithms such as std::sort and std::for\_each require writing separate code to accomplish their purposes. But now, lambda can be placed as third parameter to achieve the same purpose, without writing separate functions \ref{Lambda_Foreach}, \ref{Lambda_Sort} \cite {Gregorie:professionalcpp}.
@@ -242,7 +261,9 @@ Using lambda expression as parameters has significant impact over Standard Libra
 As a result, lambda expression is significant step forward, and improves code clarity and makes programming easier.
 
 % Delegating Constructors
-\item \textbf{Delegating constructors:} C++ does not furnish a mechanism by which one constructor is able to delegate another constructor in the same class.  As a consequence, the default arguments cannot be used by class's constructor (s) for initializing class members. Therefore, classes should provide multiple constructors, each with a distinct parameter(s). Those constructors may often execute similar initialization operations, and this leads to force a programmer to duplicate same pieces of code in each constructor as well as duplication in object level \cite{Overland:2011:CWF}.
+\section{Delegating constructors:}
+\label{section: Delegating constructors}
+C++ does not furnish a mechanism by which one constructor is able to delegate another constructor in the same class.  As a consequence, the default arguments cannot be used by class's constructor (s) for initializing class members. Therefore, classes should provide multiple constructors, each with a distinct parameter(s). Those constructors may often execute similar initialization operations, and this leads to force a programmer to duplicate same pieces of code in each constructor as well as duplication in object level \cite{Overland:2011:CWF}.
 \newline
 
 In addition to that, Other Object Oriented languages, such as Java, permit constructor to delegate another of the class's constructor(s).  As Java is often used as educational and basic language, increasing C++ newcomers with prior experience of Java are often find substantial differences between these languages. Hence, huge mistake could happen when attempting to write C++ code as same as Java's behaviour \cite{Overland:2011:CWF}.
@@ -256,11 +277,17 @@ When the execution of target constructor is completed, controls get back to the 
 
 Delegating constructors makes writing overloaded constructors easier and without duplicating the common code. It also makes programs more readable and maintainable that may lead to decrease the chance of error \ref{DelegatingConstructor} \cite{Overland:2011:CWF}.
 
-\item \textbf{Override keyword:}
-\item \textbf{Final keyword:}
+\section{Override keyword:}
+\label{section: Override keyword}
+
+\section{Final keyword:}
+\label{section: Final keyword}
+
 
 % Null pointer constatn
-\item \textbf{Null pointer constant:} C++ language has the pre-processor macro called NULL, which was used with a pointer to refer that it is not pointing to anywhere. The problem with NULL is that, underneath it is just a plain 0. 
+\section{Null pointer constant:}
+\label{section: Null pointer constant}
+C++ language has the pre-processor macro called NULL, which was used with a pointer to refer that it is not pointing to anywhere. The problem with NULL is that, underneath it is just a plain 0. 
 \newline
 
 This raise some problems, for instance, consider a situation when a programmer defines two functions with the same name and one has int argument and other has a pointer argument. Then, calling the function with NULL parameter cause cease a program, because it cannot decide if NULL is actually a pointer (because it is a 0) or an integer (because NULL is a 0). Thus, this ambiguity causes a compiler error \cite{Cppreference:2012:Cpp11}.
@@ -270,7 +297,9 @@ C++11 solves this problem by introducing nullptr keyword, which is a null pointe
 
 
 % Enumerations
-\item \textbf{Strongly typed enumerations:} Enumerations of traditional C++ are not type-safe, and have some problems may cause catastrophic when used in life-critical software. One of these problems is implicit conversion between types. Although enumerations in C++ have some type safety features including preventing directly assign from one enumeration type to another and not implicit conversion from an integer to enumeration type, but the value or object of an enumerator is allowed to convert implicitly to integer.
+\section{Strongly typed enumerations:}
+\label{section: Strongly typed enumerations}
+Enumerations of traditional C++ are not type-safe, and have some problems may cause catastrophic when used in life-critical software. One of these problems is implicit conversion between types. Although enumerations in C++ have some type safety features including preventing directly assign from one enumeration type to another and not implicit conversion from an integer to enumeration type, but the value or object of an enumerator is allowed to convert implicitly to integer.
 \newline
 
 Another problem is that, the underlying type of an enum cannot be specified explicitly by programmers. Therefore, it cannot be determined how much space will be used by the representation of an enumeration variable. Finally, enumerations in C++ are not strongly scoped and could raise some issues such as conflict can happen when two enumerations have enumerators with the same name in the same cope\cite{Stroustrup:2012:Cpp11}.
@@ -281,10 +310,14 @@ C++11 provides a new form of enumeration which combining enum with class and is 
 
 The underlying type of enum class is clearly specified, by default is integer.  A programmer can explicitly specify another type by writing type following the enumeration name \ref{EnumerationClass_Explicit}. C++11 Enumerations have class scope for their enumerators. This eliminates a possible source of name conflicts between enumerators from different enum definitions \ref{EnumerationClass_Conflict} \cite{Josuttis:2012:CppStandard Library}.
 
-\item \textbf{Explicit Conversion Operators:}
+
+\section{Explicit Conversion Operators:}
+\label{section: Explicit Conversion Operators}
 
 % Alias templates:
-\item \textbf{Alias templates:} The type alias is mechanism that allows a programmer to create an alias, or synonym, for an existing data type, without creating new type.  This technique is useful to simplify declarations that could be widely used in a program and documenting it.
+\section{Alias templates:}
+\label{section: Alias templates}
+The type alias is mechanism that allows a programmer to create an alias, or synonym, for an existing data type, without creating new type.  This technique is useful to simplify declarations that could be widely used in a program and documenting it.
 \newline
 
 Traditional C++ supports this technique by using typedef keyword, which has syntax as follows:
@@ -312,8 +345,6 @@ Template aliases remove the limitations that exist with the old typedef in terms
 
 Hence, type aliases are useful to make a code easier to read by having simple syntax and also provide flexibility to deal with a code.
 
-% end Usability Enhancements
-\end{enumerate}
 
 % Functionalit Improvements
 \subsection{Core Language Functionality Improvements}
