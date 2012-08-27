@@ -14,7 +14,7 @@ private:
 class Derived1 : Base {
 public:
   Derived1() : y(2) {}
-  virtual int f(int i) override { return i + y;} // explicit override
+  int f(int i) override { return i + y;} // explicit override
 private:
   const int y;
 };
@@ -22,7 +22,7 @@ private:
 class Derived2 : Base {
 public:
   Derived2() : z(3) {}
-  virtual int f(int i) override { return i+z; } // explicit override
+  int f(int i) override { return i+z; } // explicit override
 private:
   const int z;
 };
