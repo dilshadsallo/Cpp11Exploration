@@ -48,17 +48,17 @@ This paper focuses on investigating core language features which classify to cat
 \section{Introduction}
 \label{section: Introduction}
 
-\section{Rvalue references:}
-\label{section: Rvalue references:}
+\section{Rvalue references}
+\label{section: Rvalue references}
 
-\section{Move semantic:}
-\label{section: Move semantic:}
+\section{Move semantic}
+\label{section: Move semantic}
 
-\section{Generalized constant expressions:}
-\label{section: Generalized constant expressions:}
+\section{Generalized constant expressions}
+\label{section: Generalized constant expressions}
 
-\section{Modification of the definition of plain old data:}
-\label{section: Modification of the definition of plain old data:}
+\section{Modification of the definition of plain old data}
+\label{section: Modification of the definition of plain old data}
 
 \section{Conclusion}
 \label{section: conclusion}
@@ -71,15 +71,15 @@ This paper focuses on investigating core language features which classify to cat
 \section{Introduction}
 \label{section: Introduction}
 
-\section{Uniform initialization:}
+\section{Uniform initialization}
 \label{section:Uniform initialization}
 
-\section{Initializer lists:}
+\section{Initializer lists}
 \label{section: Initializer lists}
 
 
 % Auto keyword
-\section{Type inference - Auto keyword:}
+\section{Type inference - Auto keyword}
 \label{section: Auto keyword}
 Many programming languages such Java, C and traditional C++ obligate a programmer to specify data type of variables before initializing and using them in a program. However, with the advent of template types and meta-programming techniques, type names become extremely long and complicated, especially, determining return value of function that used with template classes or using specified names for iterators combined with template classes \cite{Horstmann:2008:BC}.
 \newline
@@ -125,7 +125,7 @@ The auto keyword has another different usage when it appears with alternative fu
 The auto keyword is widely used with lambda function, which also added by C++11. As return type of lambda functions is not specified int many cases, the auto keyword uses to deduce return type of function properly, depending on expression that used as return type \ref{Lambda_ImplicitReturn} \cite{Gregorie:professionalcpp}.
 
 % Decltype
-\section{Type inference – Decltype keyword:}
+\section{Type inference – Decltype keyword}
 \label{section: Decltype keyword}
 C++11 introduces another new type inference called decltype (declared type), which is used to determine the type of an expression at compile-time. The decltype keyword takes as argument an expression, and returns the type associated with that expression \cite{Stroustrup:2012:Cpp11}. 
 \newline
@@ -139,7 +139,7 @@ The decltype keyword is pretty useful to deduce type for combination of expressi
 The benefit of decltype keyword can also be shown, when it uses as return type for alternative function syntax (which added by C++11) because a return type is not specified in this type of function within templates. Thus, decltype is used as return type to deduce the type from the context of expression \ref{AlternativeFunction_Template} \cite{Gregorie:professionalcpp}. 
 
 % alternative function
-\section{Alternative function syntax:}
+\section{Alternative function syntax}
 \label{section: Alternative function syntax}
 A function syntax that was designed for C language, is yet using by traditional C++. This old syntax raises some problems and cannot be quite enough for new functionality that has been added to C++11, including deducing return type in the context of declaration \cite{Gregorie:professionalcpp}.
 \newline
@@ -173,7 +173,7 @@ The benefit of alternative function syntax can be gained here by allowing the re
 alternative function syntax is not mainly about templates and type deduction, but also about the scope.  With this new syntax, when the scope is written to define function within class, there is no need to add it again to return type because return type goes at the end of the function. Thus, a compiler can reach the return value as it already knows the function is part of class \ref{AlternativeFunction_Scope} \cite{Allain:2011:FutureCpp}.
 
 % Range-based for statement
-\section{Range-based for statement:}
+\section{Range-based for statement}
 \label{section: Range-based for statement}
 C++ supports three types of looping structures namely while loop, do while loop and for loop. In some cases, such iterating over the elements of Standard Library containers including vector and map requires a lot of codes to accomplish iteration properly. Because using these types require create a new variable to store the iterators, and then dereference the iterators using the * operator to get the actual value, as well as initializing the beginning and ending conditions in these forms of loops \cite{Horstmann:2008:BC}.
 \newline
@@ -200,7 +200,7 @@ This uses reference to be able for modifying the contents of list \ref{RangeFor_
 The range-based for statement also supports the notion of uniform initialization, for instance, a programmer can simply print a lot of numbers by using this form of loop with brace-initialization. \ref{RangeFor_UniformInitialization} \cite{Overland:2011:CWF}.
 
 % Lambda Expression
-\section{Lambda Expressions:}
+\section{Lambda Expressions}
 \label{section: Lambda Expressions}
 Traditional C++ includes useful generic functions such as std::for\_each and std::transform, which can be very handy to deal with Standard Library algorithms.  Unfortunately, they can also be quite cumbersome to use, particularly if a functor (functors also called function object, are objects that can be handled though they are a function or function pointer, they are declared by defining member function operator () in class), that would be used as predicates for STL algorithms, are unique to the particular function, because using functor once in specific place seems overkill to be writing whole class just do something trivial and one off \cite{Allain:2011:FutureCpp}. 
 \newline
@@ -251,7 +251,7 @@ As a result, a program may not include all these options because they are primar
 The lambda expression can be used to print simple string without having any parameters and return type. This can be achieved by parentheses () at the end of the lambda body, which causes to execute the lambda expression immediately \ref{Lambda_Invocation}. It is also possible to store pointer to lambda expression and execute it by the function pointer \ref{Lambda_PointerFunction} \cite{Gregorie:professionalcpp}.
 \newline
 
-\subsection{Lambda Expressions as Return Type:}
+\subsection{Lambda Expressions as Return Type}
 \label{subsection: Lambda Expressions as Return Type}
 Std::function$<>$ class template, defined in the <functional>, is polymorphic function object wrapper and is considered one of the great new features that introduced by C++11, due to its ability to wrap to callable objects ( function pointers, function object and lambdas) as long as there is compatibility in terms of argument  and return type with those of the wrapper.
 \newline
@@ -259,7 +259,7 @@ Std::function$<>$ class template, defined in the <functional>, is polymorphic fu
 Therefore, the new std::function is an extremely useful way for passing around lambda functions as return values and by doing that, lambda expressions can be returned from ordinary functions. \ref{Lambda_FunctionReturnType} \cite {Josuttis:2012:CppStandard Library}.
 \newline
 
-\subsection{Lambda Expressions as Parameters:}
+\subsection{Lambda Expressions as Parameters}
 \label{subsection: Lambda Expressions as Parameters}
 The std::function can be also used to pass around lambda expression as parameters. Thus, it is possible to defining ordinary functions that take lambda expression as parameter to implement callback functions \ref{Lambda_FunctionParameter} \cite{Allain:2011:FutureCpp}.
 \newline
@@ -270,7 +270,7 @@ Using lambda expression as parameters has significant impact over Standard Libra
 As a result, lambda expression is significant step forward, and improves code clarity and makes programming easier.
 
 % Delegating Constructors
-\section{Delegating constructors:}
+\section{Delegating constructors}
 \label{section: Delegating constructors}
 C++ does not furnish a mechanism by which one constructor is able to delegate another constructor in the same class.  As a consequence, the default arguments cannot be used by class's constructor (s) for initializing class members. Therefore, classes should provide multiple constructors, each with a distinct parameter(s). Those constructors may often execute similar initialization operations, and this leads to force a programmer to duplicate same pieces of code in each constructor as well as duplication in object level \cite{Overland:2011:CWF}.
 \newline
@@ -286,15 +286,15 @@ When the execution of target constructor is completed, controls get back to the 
 
 Delegating constructors makes writing overloaded constructors easier and without duplicating the common code. It also makes programs more readable and maintainable that may lead to decrease the chance of error \ref{DelegatingConstructor} \cite{Overland:2011:CWF}.
 
-\section{Override keyword:}
+\section{Override keyword}
 \label{section: Override keyword}
 
-\section{Final keyword:}
+\section{Final keyword}
 \label{section: Final keyword}
 
 
 % Null pointer constatn
-\section{Null pointer constant:}
+\section{Null pointer constant}
 \label{section: Null pointer constant}
 C++ language has the pre-processor macro called NULL, which was used with a pointer to refer that it is not pointing to anywhere. The problem with NULL is that, underneath it is just a plain 0. 
 \newline
@@ -306,7 +306,7 @@ C++11 solves this problem by introducing nullptr keyword, which is a null pointe
 
 
 % Enumerations
-\section{Strongly typed enumerations:}
+\section{Strongly typed enumerations}
 \label{section: Strongly typed enumerations}
 Enumerations of traditional C++ are not type-safe, and have some problems may cause catastrophic when used in life-critical software. One of these problems is implicit conversion between types. Although enumerations in C++ have some type safety features including preventing directly assign from one enumeration type to another and not implicit conversion from an integer to enumeration type, but the value or object of an enumerator is allowed to convert implicitly to integer.
 \newline
@@ -320,11 +320,11 @@ C++11 provides a new form of enumeration which combining enum with class and is 
 The underlying type of enum class is clearly specified, by default is integer.  A programmer can explicitly specify another type by writing type following the enumeration name \ref{EnumerationClass_Explicit}. C++11 Enumerations have class scope for their enumerators. This eliminates a possible source of name conflicts between enumerators from different enum definitions \ref{EnumerationClass_Conflict} \cite{Josuttis:2012:CppStandard Library}.
 
 
-\section{Explicit Conversion Operators:}
+\section{Explicit Conversion Operators}
 \label{section: Explicit Conversion Operators}
 
 % Alias templates:
-\section{Alias templates:}
+\section{Alias templates}
 \label{section: Alias templates}
 The type alias is mechanism that allows a programmer to create an alias, or synonym, for an existing data type, without creating new type.  This technique is useful to simplify declarations that could be widely used in a program and documenting it.
 \newline
@@ -365,8 +365,8 @@ Hence, type aliases are useful to make a code easier to read by having simple sy
 \section{Introduction}
 \label{section: Introduction}
 
-\section{New character types : char16\_t and char32\_t:}
-\label{section: char16_t and char32_t:}
+\section{New character types : char16\_t and char32\_t}
+\label{section: char16_t and char32_t}
 The C++ language has extended a support character set over the last years. This included wide character (wchar\_t), which is a significant step forward because it has led to raise the amount of space usable to define a single character. In wide character sets, available space is used exactly as ASCII, each a number represents a special glyph, but the difference is that each number does not represent in 8 bits. The form of characters to numbers (now dubbed code points) is larger than it was, because it deals with lots of different sets in addition to the characters that are familiar by native English programmers \cite{Gregorie:professionalcpp}.
 \newline
 
@@ -392,7 +392,7 @@ In these types of strings, adjacent string literals concatenate if they have the
 
 
 % Raw string literals
-\section{Raw string literals:}
+\section{Raw string literals}
 \label{section: Raw string literals}
 Recently, C++ gained popularity by dealing with markup languages including XML and HTML as well as regular expressions that added by C++11 to the Standard Library to express patterns to be matched against strings. However, this has raised several problems for programmers including a difficulty to writing plethora of backslashes correctly and impenetrable to read, because the same backslash escape sequence is used by regular expressions and C++ in string literals. Additionally, quotation marks and newlines are widely used by mark-up languages, leading escape sequences in string literals are difficult to process, error-prone and cumbersome as well as breaking a string into multiple lines of code is not allowed in C++ \cite{ISO:2011:Cpplanguage}.
 \newline
@@ -408,22 +408,22 @@ Raw string is also used to represent easily quotation marks and escape sequence,
 
 Raw string literals can be combined with Unicode literal prefixes  (“u8”,"u" and "U") to represent the content of raw string in 16 and 32-bits \ref{RawString_UnicodeliteralPrefix} \cite{Gregorie:professionalcpp}.
 
-\section{User-defined literals:}
+\section{User-defined literals}
 \label{section: User-defined literals}
 
-\section{Explicitly Defaulted special member functions:}
+\section{Explicitly Defaulted special member functions}
 \label{section: Defaulted special member functions}
 
-\section{Explicitly Deleted special member functions:}
+\section{Explicitly Deleted special member functions}
 \label{section: Deleted special member functions}
 
-\section{Unsigned long long (int) and long long (int):}
-\label{section: Unsigned and long long (int):}
+\section{Unsigned long long (int) and long long (int)}
+\label{section: Unsigned and long long (int)}
 
-\section{Static assertion:}
+\section{Static assertion}
 \label{section: Static assertion}
 
-\section{Variadic template:}
+\section{Variadic template}
 \label{section: Variadic template}
 
 \section{Conclusion}
