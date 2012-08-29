@@ -1,0 +1,25 @@
+var annotated =
+[
+    [ "@17", null, null ],
+    [ "@24", null, null ],
+    [ "@44", null, null ],
+    [ "@57", null, null ],
+    [ "@80", null, null ],
+    [ "@83", null, null ],
+    [ "@92", null, null ],
+    [ "A", "class_a.html", "class_a" ],
+    [ "A1", "class_a1.html", null ],
+    [ "B", "class_b.html", "class_b" ],
+    [ "B1", "class_b1.html", null ],
+    [ "Base", "class_base.html", "class_base" ],
+    [ "C", "class_c.html", "class_c" ],
+    [ "D", "class_d.html", "class_d" ],
+    [ "Derived", "class_derived.html", "class_derived" ],
+    [ "Derived1", "class_derived1.html", "class_derived1" ],
+    [ "Derived2", "class_derived2.html", "class_derived2" ],
+    [ "Generic", "class_generic.html", "class_generic" ],
+    [ "Rectangle", "class_rectangle.html", "class_rectangle" ],
+    [ "S", "struct_s.html", "struct_s" ],
+    [ "Student", "class_student.html", "class_student" ],
+    [ "T", "class_t.html", "class_t" ]
+];
