@@ -247,9 +247,48 @@ By separating trivial and standard-layout concepts, it becomes possible to give 
 
 \section{Uniform initialization}
 \label{section:Uniform initialization}
+C++ provides various ways to initialize objects (built-in types and user-defined types) depending on their types and the initialization context. Fundamental types such as variables and pointers can be initialized by using the equal sign. Initialization of data members in classes, which have user-defined constructor require a constructor's member initialization list for their data members, and initialization of objects are included in parentheses in the objects declaration. Finally, Initialization of aggregates types require braces, except string literals that may also need a pair of double quotes to be initialized. Meaning that there is no general way to initialize every type exists in C++ \cite{Stroustrup:2012:Cpp11}
+\newline
 
+Therefore, It is difficult for ordinary programmers to remember the rules for initialization and to choose the appropriate way according to data types, because when misused could leads to the error messages vague.
+\newline
+
+In addition, there is no proper way to initialize arrays that are member of a class, nor dynamically allocated arrays. And finally, there is no convenient form to initialize the elements of a Standard Library container \cite{Stroustrup:2012:Cpp11}.
+\newline
+
+C++11 introduces a universal initialization notations { }, called brace-initialization, which is used to address the problems of initialization in traditional C++. Brace-initialization can be used to initialize every types in the same way, whether built-in types or user-defined types (that is, class objects), and using equal sign to accomplish the initialization is considered optional. Usage of Brace-initialization offers new facilities that make initialization of objects easier and more efficient as well as making code shorter and obvious \cite{Reddy:2011:API}.
+\newline
+
+Brace-initialization is used to initialize all build-in -types including variables, strings and pointers and this initialization can be applied directly to the class members. Additionally, default initialization is applied when pair of braces is empty such as variables initialize to zero and pointers to null \ref{UniformInitialization_ClassMembers} \cite{Reddy:2011:API}. It can also be used to initialize arrays that are members of a class via the constructor initializer \ref{UniformInitialization_Array}.
+\newline
+
+Brace-initialization is not only limited to these cases, but also it is applied with new expressions to initialize dynamically allocated arrays directly when arrays are declared \ref{UniformInitialization_DynamicArray} \cite{Reddy:2011:API}.
+
+Notion of brace-Initialization is pretty useful in terms of class objects; it provides efficient and easy way to initialize the objects by replacing parenthesized list with brace-Initialization and then invoking a constructor to achieve that. Moreover, initializing object return can be achieved implicitly by using this notion \ref{UniformInitialization_ObjectReturn} \cite{Gregorie:professionalcpp}.
+\newline
+
+In traditional C++, narrowing can be performed implicitly, for example, assigning a double value to integer value is possible. However, using brace- initialization provides protection against narrowing, and doing such assigning above causes compiler error, because this type of conversions is disallowed to accomplish by a compiler \ref{UniformInitialization_Narrowing} \cite{Gregorie:professionalcpp}.
+\newline
+
+The notion of uniform initialization can be effectively used to initialize the Standard Library containers and user-defined constructors. This can be done via a new template class that added by C++11 called std::initializer\_list, the next topic in this chapter.
+
+
+% Initializer lists
 \section{Initializer lists}
 \label{section: Initializer lists}
+C++ has partial support for initializer lists that can be applied for simple aggregate data types such C-style arrays and structs. However, this concept cannot be used to initialize classes that have user-defined constructors. Furthermore, Standard library containers are not allowed to be initialized by using this partial initialize lists \cite{Reddy:2011:API}.
+\newline
+
+C++11 extends initializer lists that can work perfectly with all classes that have user-defined constructors \ref{InitializerList_Constructor}. This can be done via new template class called std::initializer\_list, which is a part of $<$initializer\_list$>$ header file.
+\newline
+
+This class in somehow associated with uniform initialization when they use to initialize container classes, because Standard Library classes in C++11 have been updated with a new constructor type called std::initializer\_list.
+\newline
+
+When a compiler finds a declaration with an initialization similar to this form \{1, 2, 3, 4\}, it looks for a constructor that receives std::initializer\_list as argument. If it is found, the compiler will create an instance of the initializer\_list class with the arguments inside the brace-initialization and then, will invoke the constructor found \ref{InitializerList_Vector} \cite{Reddy:2011:API}. 
+\newline
+
+The initializer lists can be also used explicitly with function, which take it as a single argument and then can be invoked by uniform initialization to do specific purpose \ref{InitializerList_Function} \cite{Reddy:2011:API}.
 
 
 % Auto keyword
@@ -460,12 +499,27 @@ When the execution of target constructor is completed, controls get back to the 
 
 Delegating constructors makes writing overloaded constructors easier and without duplicating the common code. It also makes programs more readable and maintainable that may lead to decrease the chance of error \ref{DelegatingConstructor} \cite{Overland:2011:CWF}.
 
+% Override keyword
 \section{Override keyword}
 \label{section: Override keyword}
+C++ Inheritance is one of the most significant mechanisms, which allows defining a class in terms of another class. Thus, it allows derived classes to reuse functions and data members that exist in base classes. The functions that will be used by derived classes must declare as virtual functions, to prevent a compiler from creating new versions of these functions. Then, specific implementation of functions can be added or replaced by derived class to become appropriate for doing particular purpose \cite{Stroustrup:2012:Cpp11}.
+\newline
 
+However, sometimes, when working with derived classes, it is possible to inadvertently create a new virtual function rather than overriding a function from the base class. This could occur when the function prototype is not properly matched with the one in base class or when adding a new parameters to a function in base class but forget to update the version in derived class \cite{Stroustrup:2012:Cpp11}.
+\newline
+
+This is very costly and not expresses programmer intent. In addition, these types of problems can be hard to find.
+\newline
+
+C++11 adds a new keyword called override that allows a programmer to explicitly mark virtual functions that will be overridden. Override keyword lets the programmer to be more explicit about overriding, and if function is not override or has wrong signature, the compiler will complain about that. Thus, this provides more control over functions and help to prevent inadvertent errors \ref{OverrideKeyword} \cite{Gregorie:professionalcpp}.
+
+% Final keyword
 \section{Final keyword}
 \label{section: Final keyword}
+There are occasionally times when a programmer may wants to prevent virtual function from being overridden. This feature is not supported by C++ because derived classes will inherit all functionality that is possible from base classes \cite{Stroustrup:2012:Cpp11}.
+\newline
 
+C++11 introduces the ability to prevent inheriting from classes and then functions cannot be overridden in derived classes. This can be achieved by marking a function with final keyword to make it non-override-able. This can also be applied to class to prevent it from being inherited \ref{FinalKeyword}.  Thus, any attempt to override final functions or class will result in a compiler error  \cite{Gregorie:professionalcpp}.
 
 % Null pointer constatn
 \section{Null pointer constant}
@@ -571,7 +625,7 @@ In these types of strings, adjacent string literals concatenate if they have the
 Recently, C++ gained popularity by dealing with markup languages including XML and HTML as well as regular expressions that added by C++11 to the Standard Library to express patterns to be matched against strings. However, this has raised several problems for programmers including a difficulty to writing plethora of backslashes correctly and impenetrable to read, because the same backslash escape sequence is used by regular expressions and C++ in string literals. Additionally, quotation marks and newlines are widely used by mark-up languages, leading escape sequences in string literals are difficult to process, error-prone and cumbersome as well as breaking a string into multiple lines of code is not allowed in C++ \cite{ISO:2011:Cpplanguage}.
 \newline
 
-C++11 comes with new concept called raw string literals that does not process escape sequences like $\backslash$t and $\backslash$n as C++ does, instead, as normal text. Raw literal is a string literal with R prefix and has format R "d-char-sequence(r-char-sequence) d-char-sequence". Meaning that, d-char-sequence (delimiter sequence) could be any symbol such as (-, “(), ~) or text (delimiter) and it is considered optionally. Delimiter sequence must be the same at the starting and at the end of the raw string and can be up to 16 characters. The r-char-sequence is the actual raw string, which can represent text, symbols, escape sequences and quotation marks easily \cite{Gregorie:professionalcpp}.
+C++11 comes with new concept called raw string literals that does not process escape sequences like $\backslash$t and $\backslash$n as C++ does, instead, as normal text. Raw literal is a string literal with R prefix and has format R "d-char-sequence(r-char-sequence) d-char-sequence". Meaning that, d-char-sequence (delimiter sequence) could be any symbol such as (-, "(), \~) or text (delimiter) and it is considered optionally. Delimiter sequence must be the same at the starting and at the end of the raw string and can be up to 16 characters. The r-char-sequence is the actual raw string, which can represent text, symbols, escape sequences and quotation marks easily \cite{Gregorie:professionalcpp}.
 \newline
 
 Raw string is significantly useful in terms of regular expressions. It offers sophisticated and easy way to represent backslashes and other symbols that could use to express specific patterns against sequences of characters \ref{RawString_Backslash}.
@@ -582,9 +636,39 @@ Raw string is also used to represent easily quotation marks and escape sequence,
 
 Raw string literals can be combined with Unicode literal prefixes  (“u8”,"u" and "U") to represent the content of raw string in 16 and 32-bits \ref{RawString_UnicodeliteralPrefix} \cite{Gregorie:professionalcpp}.
 
+% user-defined literals
 \section{User-defined literals}
 \label{section: User-defined literals}
+C++ has a number of standard literals such as hexadecimal (0xabc), floating point value (3.14f) and string literals (zero-terminated array of character in C-style string), which can be used to achieve specific purpose by a user. For example, literal "f" in "12.2f" is used to converts the double value to float. 
+\newline
 
+The problem is that, these literals are not very flexible to manipulate, on the contrary, they fairly fixed because they are built-in types in C++. Therefore, the user cannot change them to other ones or create new ones to achieve everything that he wants \cite{Overland:2011:CWF}.
+\newline
+
+C++11 overcomes this situation by introducing new concept called "user-defined literals", which gives the user the ability to create new custom literal modifiers. User defined literals should start with an underscore to specify a fixed value and are implemented by the compiler according to literal operators.
+\newline
+
+Literals operators are restricted with these types namely, char const*, unsigned long long, long double, (char const*, std::size\_t), (wchar\_t const*, std::size\_t), ( char16\_t const*, std::size\_t), and (char32\_t const*, std::size\_t). Literals operators can be used to invoke functions when a program contains more than one user-defined literal with same fixed value \ref{UserLiterals_LiteralOperators} \cite{Gregorie:professionalcpp}.
+\newline
+
+Literal operators can be classified to raw or cooked style. In raw style, literal operator receives data as a sequence of characters for processing, for instance , C++ literal 345 will receive as a sequence of characters '3', '4', '5', which can be only represented by type of  const char*. Raw style has the syntax:
+\begin{center}
+Return\_type  operator " " \_ suffix (const char *)
+\end{center}
+
+Return\_type is used to determine the return type of user-defined literal and suffix is used to specify the fixed value that defines by user. Raw style uses this syntax to deal with data and producing new types that correspond to user purpose.  Thus, it offers flexibility to the user to create, for example, literals that convert from binary to decimal and vice versa \ref{UserLiterals_RawStyle} \cite{Gregorie:professionalcpp}.
+\newline
+
+Cooked style, on the other hand, literal operator receives a specific interpreted type such as 345 as representing to C++ literal above. Cooked style has the same syntax as raw style except a literal operator can be either one parameter or two parameters. One parameter can be represented by either unsigned long long or long double. This type could be used to receive one of these types and return other types depending on user purpose, for example, the user can write literals that receive kilometre and mile as long long type and return the equivalent as int \ref{UserLiterals_CookedStyle1} \cite{Gregorie:professionalcpp}.
+\newline
+
+On the other hand, literal operator could be two parameters, where the first is a character array and the second is the length of the character array and the second representing the length of that array. This type is usually used to deal with strings. For example, the user can gain benefit of these type by representing a literal operator as const char* (C-style string), and then convert it to std::string (C++ string) as a return type \ref{UserLiterals_CookedStyle2} \cite{Gregorie:professionalcpp}.
+\newline
+
+The user-defined literals can create either built-in type (e.g.  Float and int) or user-define types (e.g. classes), and the reality that they could be pretty useful is an effect that they can return objects instead of only primitives \ref{UserLiterals_CookedObject} \cite{Gregorie:professionalcpp}.
+
+
+% default keyword
 \section{Explicitly Defaulted special member functions}
 \label{section: Defaulted special member functions}
 
@@ -703,6 +787,40 @@ Raw string literals can be combined with Unicode literal prefixes  (“u8”,"u"
 \label{Appendix: corelanguage usabiliy enhancements}
 
 \Cpp
+
+% Uniform initialization
+\subsection{UniformInitialization\_ClassMembers.cpp}
+\label{UniformInitialization_ClassMembers}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/UniformInitialization_ClassMembers.cpp}
+
+\subsection{UniformInitialization\_Array.cpp}
+\label{UniformInitialization_Array}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/UniformInitialization_Array.cpp}
+
+\subsection{UniformInitialization\_DynamicArray.cpp}
+\label{UniformInitialization_DynamicArray}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/UniformInitialization_DynamicArray.cpp}
+
+\subsection{UniformInitialization\_ObjectReturn.cpp}
+\label{UniformInitialization_ObjectReturn}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/UniformInitialization_ObjectReturn.cpp}
+
+\subsection{UniformInitialization\_Narrowing.cpp}
+\label{UniformInitialization_Narrowing}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/UniformInitialization_Narrowing.cpp}
+
+% Initializer list
+\subsection{InitializerList\_Constructor.cpp}
+\label{InitializerList_Constructor}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/InitializerList_Constructor.cpp}
+
+\subsection{InitializerList\_Vector.cpp}
+\label{InitializerList_Vector}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/InitializerList_Vector.cpp}
+
+\subsection{InitializerList\_Function.cpp}
+\label{InitializerList_Function}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/InitializerList_Function.cpp}
 
 % Auto keyword
 \subsection{AutoKeyword\_Variable.cpp}
@@ -826,6 +944,16 @@ Raw string literals can be combined with Unicode literal prefixes  (“u8”,"u"
 \label{DelegatingConstructor}
 \lstinputlisting{../CoreLanguage/UsabilityEnhancements/DelegatingConstructor.cpp}
 
+% Override keyword
+\subsection{OverrideKeyword.cpp}
+\label{OverrideKeyword}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/OverrideKeyword.cpp}
+
+% Final keyword
+\subsection{FinalKeyword.cpp}
+\label{FinalKeyword}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/FinalKeyword.cpp}
+
 % Null pointer constant
 \subsection{NullPointer.cpp}
 \label{NullPointer}
@@ -906,6 +1034,28 @@ Raw string literals can be combined with Unicode literal prefixes  (“u8”,"u"
 \subsection{RawString\_UnicodeliteralPrefix.cpp}
 \label{RawString_UnicodeliteralPrefix}
 \lstinputlisting{../CoreLanguage/FunctionalityImprovements/RawString_UnicodeliteralPrefix.cpp}
+
+% User-defined literals
+\subsection{UserLiterals\_LiteralOperators.cpp}
+\label{UserLiterals_LiteralOperators}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/UserLiterals_LiteralOperators.cpp}
+
+\subsection{UserLiterals\_RawStyle.cpp}
+\label{UserLiterals_RawStyle}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/UserLiterals_RawStyle.cpp}
+
+\subsection{UserLiterals\_CookedStyle1.cpp}
+\label{UserLiterals_CookedStyle1}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/UserLiterals_CookedStyle1.cpp}
+
+\subsection{UserLiterals\_CookedStyle2.cpp}
+\label{UserLiterals_CookedStyle2}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/UserLiterals_CookedStyle2.cpp}
+
+\subsection{UserLiterals\_CookedObject.cpp}
+\label{UserLiterals_CookedObject}
+\lstinputlisting{../CoreLanguage/FunctionalityImprovements/UserLiterals_CookedObject.cpp}
+
 
 \end{appendix}
 
