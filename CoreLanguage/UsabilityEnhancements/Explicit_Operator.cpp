@@ -14,7 +14,7 @@ protected:
 class B : A {
 public:
   B(int i) :  A(i) {}
-  explicit operator int() const { return x;}
+  explicit operator int() const { return x;} // prevent implicit conversion
 };
 
 int main() {
@@ -23,8 +23,7 @@ int main() {
 
   int i = a;// Implicit conversion from object to int
   assert( i == 1);
-
-  // i = b; // Error: no implicit conversion
+  // i = b; // Error: implicit conversion is not allowed
   i = static_cast<int> (b);
   assert(i == 2);
 }
