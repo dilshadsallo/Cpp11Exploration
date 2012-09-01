@@ -1,5 +1,12 @@
-// Dilshad Sallo, 4.7.2012
-// Using "initializer-list" explicitly within function.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/4
+ * \brief Using "initializer-list" explicitly within function.
+ *
+ * This program defines function called av that takes template
+ * class "initializer_list" to receive a sequence of numbers and
+ * return a average of them.
+ */
 
 #include <cassert>
 #include <initializer_list>
