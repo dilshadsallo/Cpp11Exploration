@@ -1,5 +1,12 @@
-// Dilshad Sallo, 4.7.2012
-// Using initializer-list explicitly within constructor to initialize class.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/4
+ * \class C
+ * \brief Using "initializer-list" explicitly within constructor.
+ *
+ * This class has user-defined constructor that takes template
+ * class "initializer_list" to initializer data members (array) of class C.
+ */
 
 #include <cassert>
 #include <initializer_list>
