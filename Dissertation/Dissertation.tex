@@ -84,6 +84,10 @@ XXX
 \section{Why C++?}
 \label{sec: why C++}
 
+\section{Why small and many programs?}
+\label{sec:small and many programs}
+knowing the syntax of C++11 language is not enough to learn and understand the correct way to use the language efficiently, unless providing  simple  programs that give idea to programmers from first glance.  These programs represent features of core language, which could also contain many cases. Providing small and many programs to represent these cases making the syntax of C++11 much easier to understand.
+
 \section{A Brief History of C++}
 \label{sec: History of C++}
 The history of C++ programming language has begun in 1979, when Bjarne Stroustrup was working on his Ph.D thesis in the Computing Laboratory of Cambridge, University of England \cite{StroustrupHistory}. At that time, he had opportunity to work with a language called Simula, which was considered as the first language that supports the object-oriented language paradigm. He observed that Simula had very useful features for developing great software, but it was extremely slow in terms of practicality \cite{Stroustrup:2012:Cpp11}.
@@ -130,31 +134,134 @@ As a result, the current C++11 Standard libraries include several more Boost lib
 XXX
 
 \section{Git}
-\label{sec: git}
-XXX
+\label{sec: Git}
+Git is “ a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency [website].”  Working with Git requires a server where it stores files and the meta-data for a project. However, this server is treated separately from Git.  Git is used to create database (repository) through server called Github that used to check the stages of existing files and give a control to a user to manage these data efficiently. Git offers simple way to track and deal with a collection of files through plenty command sets that give full access to internals. Git is available to install as a free version from  \url{http://git-scm.com/}.
+
+
+\subsection{Command for using Git}
+\label{subsec: Command for using Git}
+Managing this project required some Git commands that made handling a source code much easier and more efficient. Here are as follows:
+
+\textbf{Push} Push files and any changes related to the project  to a remote repository.
+\begin{verbatim}
+git push  [remote-name] [branch-name]
+\end{verbatim}
+
+\textbf{Fetch} Get files (the project) from a remote repository.
+\begin{verbatim}
+git fetch [remote-name]
+\end{verbatim}
+
+\textbf{Remote} It is used to add and delete a  references(short names) for remote Git repository . If "-v" option is included, it show all remotes that exists for this repository.
+\begin{verbatim}
+git remote [option]
+git remote add [short-name] [url]
+git remote rm [short-name]
+\end{verbatim}
+
+\textbf{Pull} pull and merge changes from individuals repositories to current branch.
+\begin{verbatim}
+git pull [remote-name] [branch-name]
+\end{verbatim}
+
+\textbf{GUI} Open a graphical commit tools in Git.
+\begin{verbatim}
+git gui
+\end{verbatim}
+
 
 \subsection{Git Gui}
-\label{subsec: gui}
-XXX
+\label{subsec: gitgui}
+GUI is graphical tools that used for keeping track of changes that could be done to files in specific repository as well as used to visualize history of repository. When modifications over files have been done, a user must follow some instructions to deal with. Firstly, a user must go to git GUI and use scan to show those modifications ( ). Secondly, writing appropriate command to report the modification (). Thirdly, stage the modification (). Finally, commit the modification to be ready for pushing to repository (). Therefore, these steps must be taken by the user to handles any changes and making a history clear.
+
 
 \subsection{Why is Git used?}
 \label{subsec: why git}
-XXX
+Developing such the large project requires a great tool for managing source code efficiently as well as allowed other contributors to work on project simultaneously to being developed faster. Git offers such mechanism that making contributions possible on repositories. Therefore, Git is used by Dr.Kullmann and I to follow this project over period of allowed time. It was very helpful to me to get correction and guidance from Dr. Kullmann about what should I do to finish this project.
 
 \section{Make Utility}
 \label{sec: Make}
+The traditional mechanics of compiling the source file into an executable file that used by several programmers could be useful, when program is fairly simple. However, the situation is not when a program contains a lot of small pieces of programs and need to be compiled because programmers face difficult to deal with modification of files when are done to fix the bug.
 
-XXX
+Handling many files need great tools that offer facilities to create executable file in such easy way as well as compiling only modified files instead of all source files.
+
+The make utility is " a tool automatically determines which pieces of a large program need to be recompiled, and issues commands to recompile them " \cite{Stallman:2000:GnuMake}. Make is designed to allow programmers to efficiently compile large complex programs with many components easily. It provides mechanism to compile and turn source code into executable program with minimum effort. This is done by writing only "make" command in the UNIX shell.  
+
+Make utility is especially helpful to manage and organizing projects that comprised of many source files and it reduces the probability of human error and difficulty of compilation.
 
 \subsection{How does make work?}
 \label{subsec: how make work}
+In UNIX, when "make" command is typed; the operating system looks at file called "makefile" which residents in the directory of where programs reside. Makefile contains a series of directives and knowledge that tell "make" how to compile source files and in what order. 
 
-XXX
+Make goes through a makefile commencing with the target which going to create and it also looks at dependencies  of each target to find whether they are also considered as targets.  Make traces the chain of dependencies till it attains the end of the chain, at that time, it starts returning out to execute the commands that have been found in each target's rule. Building executable files by make, commences with building object files from the source files, and then links those objects files to create executable files. if any of source files is modified, the make utility compile only its object file and then linked into executable file, rather than recompiling all the source files. 
+
+Therefore, running make utility is only possible if Makefile is provided within same directory and its contain all descriptions are required for directing make.
 
 \subsection{Makefile}
 \label{subsec: makefile}
+Makefile contains full directive of the commands that used by make to decide how to build and execute the programs. It specifies the relationships between the component and target files of project by listing the needed files for each target file.
 
-XXX
+In general, Makefile contains at least basic components macros and rules and both are included in the Makefile that used in this project.
+
+\begin{enumerate}
+\item \textbf{Macro} Basically macro is a name or alias that is used to represent a string or instruction which could use frequently within the Makefile.  It is considered a very helpful way to simplify contains of Makefile.
+
+Macro is defined in Makefile by a programmer through using (=) operator just like variables in C++. Convert a macro into its value in a target that is used for, require enclosing it within \$ ( ). However, there are internal macros that predefined in make to do specific purpose. These internal macros are very helpful to avoid code duplication.
+
+Macros that used by programmer in Makefile for this project are:
+\begin{verbatim}
+CXX = g++ 
+\end{verbatim}
+Assign g++ compiler to macro called CXX to compile all C++ programs.
+
+\begin{verbatim}
+standard\_options = -std=c++11 -Wall -pedantic
+\end{verbatim}
+Assign several options together such as (-Wall) that enable all warning during compiling process, and add the command-line parameter -std = c++11 to support C++11 features.
+
+\begin{verbatim}
+source\_dir = .
+\end{verbatim}
+Assign directory, which used to find all files that have extension (such as cpp files)  to macro called source\_dir.
+
+\begin{verbatim}
+bin\_dir = bin
+\end{verbatim}
+Assign directory called bin which contains all executable programs that produced by make, to macro called bin\_dir.
+
+\begin{verbatim}
+compilation\_units = $(wildcard $(source\_dir)/*.cpp)
+\end{verbatim}
+Assign wildcard function that used to get a list of all cpp files from (runtime and core time and source direct) to macro called compilation\_units.
+
+\begin{verbatim}
+source\_files = $(notdir $(compilation\_units))
+\end{verbatim}
+Assign notdir function that used extract all files from (compilation\_units) which contains all files to macro called source\_files.
+
+\begin{verbatim}
+programs = $(addprefix $(bin\_dir)/, $(source\_files:.cpp=))
+\end{verbatim}
+assign addprefix function that takes (source\_files:cpp) as a series of files and (bin\_dir) as directory to build lists of source files, to macro program.
+
+\item \textbf{Rules} Rule is very crucial in make utility, since it tells make utility when and how to remake files. In general, its syntax looks like follows:
+\begin{verbatim}
+target ... : Prerequisites....
+<tap>        command ...
+             command ...
+\end{verbatim}
+
+\begin{enumerate}
+\item \textbf{Targets} Targets are the core of what a Makefile does. They represent the name of required files that must be generated by a program such as executable or object files (see section executable). They can also represent the name of an action to accomplish for example "clean" (see section").
+
+\item \textbf{Prerequisites} Prerequisites (also called dependence) are files that are used as input to generate the targets.
+
+\item \textbf{Commands} Commands are action that will generate the targets from the prerequisites. The rule may contain more than command and each has its own line as showed above.
+
+\end{enumerate}
+
+\end{enumerate}
+
 
 % chapter Core Language Runtime Performance Enhancements
 \chapter{Core Language Runtime Performance Enhancements}
@@ -942,6 +1049,10 @@ As a result, variadic template offers new facilities that have significant impac
 
 \section{Summary}
 \label{section1: Summary}
+
+% conclsion
+\chapter{Conclusion}
+\label{sec: conclusion}
 
 % References
 \addcontentsline{toc}{section}{Bibliography}
