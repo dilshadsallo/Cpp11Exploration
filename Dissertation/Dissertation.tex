@@ -81,8 +81,15 @@ September 2012.
 
 XXX
 
+\section{C++11}
+\label{sec: C++11}
+
+XXX
+
 \section{Why C++?}
 \label{sec: why C++}
+
+XXX
 
 \section{Why small and many programs?}
 \label{sec:small and many programs}
@@ -215,32 +222,39 @@ CXX = g++
 Assign g++ compiler to macro called CXX to compile all C++ programs.
 
 \begin{verbatim}
-standard\_options = -std=c++11 -Wall -pedantic
+standard_options = -std=c++11 -Wall -pedantic
 \end{verbatim}
 Assign several options together such as (-Wall) that enable all warning during compiling process, and add the command-line parameter -std = c++11 to support C++11 features.
 
 \begin{verbatim}
-source\_dir = .
+source_dir = .
 \end{verbatim}
 Assign directory, which used to find all files that have extension (such as cpp files)  to macro called source\_dir.
 
 \begin{verbatim}
-bin\_dir = bin
+bin_dir = bin
 \end{verbatim}
 Assign directory called bin which contains all executable programs that produced by make, to macro called bin\_dir.
 
 \begin{verbatim}
-compilation\_units = $(wildcard $(source\_dir)/*.cpp)
+core_runtime = CoreLanguage/RunTime
+core_functionality = CoreLanguage/FunctionalityImprovements
+core_usability = CoreLanguage/UsabilityEnhancements
 \end{verbatim}
-Assign wildcard function that used to get a list of all cpp files from (runtime and core time and source direct) to macro called compilation\_units.
+Assign path of directories, to macros core\_runtime, core\_functionality and core\_usability.
 
 \begin{verbatim}
-source\_files = $(notdir $(compilation\_units))
+compilation_units = $(wildcard $(source_dir)/*.cpp)
+\end{verbatim}
+Assign wildcard function that used to get a list of all cpp files from directories (core\_runtime, core\_functionality and core\_usability), to macro called compilation\_units.
+
+\begin{verbatim}
+source_files = $(notdir $(compilation_units))
 \end{verbatim}
 Assign notdir function that used extract all files from (compilation\_units) which contains all files to macro called source\_files.
 
 \begin{verbatim}
-programs = $(addprefix $(bin\_dir)/, $(source\_files:.cpp=))
+programs = $(addprefix $(bin_dir)/, $(source_files:.cpp=))
 \end{verbatim}
 assign addprefix function that takes (source\_files:cpp) as a series of files and (bin\_dir) as directory to build lists of source files, to macro program.
 
@@ -257,9 +271,40 @@ target ... : Prerequisites....
 \item \textbf{Prerequisites} Prerequisites (also called dependence) are files that are used as input to generate the targets.
 
 \item \textbf{Commands} Commands are action that will generate the targets from the prerequisites. The rule may contain more than command and each has its own line as showed above.
-
 \end{enumerate}
 
+Rules can be classified into explicit and implicit rules. 
+\begin{enumerate}
+\item \textbf{Explicit rules} are used to specify particular files as targets and prerequisites. In this type, a specific target will be updated whenever it is out of date, regarding to any of its prerequisites.
+
+Explicit rules are used in our Makefile to do some purposes as follows:
+
+\begin{verbatim}
+.PHONY : all cleanall
+\end{verbatim}
+A phony is explicit target that used to avoid a conflict with a file of the same name, and to improve performance. Phony target is not really the name of file but it just use as recipe to be executed when there is an explicit request. By using phony target in this Makefile, make will run (all cleanall) regardless of whether there are files named (all cleanall).
+
+\begin{verbatim}
+cleanall :
+\end{verbatim}
+cleanall is explicit target that used to delete all the object files and executable files but here it defined in the beginning as phony target.
+
+\item \textbf{Implicit rules} are general rule that tell make utility when and how to build files that has specific file extensions. Implicit rules begin with either a period or path and can be either suffix rules or pattern rules. Suffix rules are built into make and used as default rules to deal with C language.  Pattern rules are defined by using \% character and are used for matching common targets and prerequisites. They also built into make.
+
+Implicit rules are used in our Makefile to achieve specific purpose:
+
+\begin{verbatim}
+.SUFFIXES :
+\end{verbatim}
+
+this used to delete all defaults suffix rules, and allowing us to define new rules that deal with C++ language.
+
+\begin{verbatim}
+$(programs) : $(bin_dir)/% : %.cpp
+\end{verbatim}
+Pattern rules are used for match specific files. Thus, we build our pattern rules which take any cpp file (\% .cpp) and put it in bin\_dir, and assign them to \$(programs). 
+
+\end{enumerate}
 \end{enumerate}
 
 
