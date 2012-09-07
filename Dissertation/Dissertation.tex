@@ -95,6 +95,18 @@ XXX
 \label{sec:small and many programs}
 knowing the syntax of C++11 language is not enough to learn and understand the correct way to use the language efficiently, unless providing  simple  programs that give idea to programmers from first glance.  These programs represent features of core language, which could also contain many cases. Providing small and many programs to represent these cases making the syntax of C++11 much easier to understand.
 
+% Boost 
+\section{Boost C++ Libraries}
+\label{sec: Boost}
+The Boost C++ libraries are collection of libraries that created by the very same developers who designed and build the C++ standard libraries \cite{Schaling:2011:BoostCppLibraries}. They are designed to extend the functionality of C++ language in an efficient and commercial-grade, universally applicable style \cite{Boost:2007:Cpp} and they considered free and open source libraries \cite{Deitel:2012:CPP}.
+
+Boost C++ libraries introduces helpful and well-designed libraries that regard compatible with C++ Standard Library \cite{Deitel:2012:CPP} and majority of which have been accepted in the C++ Standards Committee's Library Technical Report (TR1) \cite{Boost:2007:Cpp}.
+
+In addition, parts of Boost library are currently being accepted into the Standard library for C++11 \cite{Boost:2007:Cpp} and they are regarded as one of the top libraries with a high industry acceptance. These libraries are Boost.Array, Boost.Bind, Boost.Function, Boost.Random, Boost.Regex, Boost.Smart\_ptr, Boost.Tuple and Boost.Type\_traits \cite{Deitel:2012:CPP}.
+
+As a result, the current C++11 Standard libraries include several more Boost libraries in addition to those from TR1 and they provide many features that making Standard Library powerful and more effective in both industrial and educational fields.
+
+
 \section{A Brief History of C++}
 \label{sec: History of C++}
 The history of C++ programming language has begun in 1979, when Bjarne Stroustrup was working on his Ph.D thesis in the Computing Laboratory of Cambridge, University of England \cite{StroustrupHistory}. At that time, he had opportunity to work with a language called Simula, which was considered as the first language that supports the object-oriented language paradigm. He observed that Simula had very useful features for developing great software, but it was extremely slow in terms of practicality \cite{Stroustrup:2012:Cpp11}.
@@ -119,16 +131,6 @@ In 2011, C++0x was officially approved as C++11 and published as the second stan
 
 C++11 came with new features that have substantial improvement over the core language and library. C++11 provided new facilities that make life easier for programmers of all backgrounds as well as introducing new programming style  that make the language more easier to learn and understand.
 
-% Boost 
-\section{Boost C++ Libraries}
-\label{sec: Boost}
-The Boost C++ libraries are collection of libraries that created by the very same developers who designed and build the C++ standard libraries \cite{Schaling:2011:BoostCppLibraries}. They are designed to extend the functionality of C++ language in an efficient and commercial-grade, universally applicable style \cite{Boost:2007:Cpp} and they considered free and open source libraries \cite{Deitel:2012:CPP}.
-
-Boost C++ libraries introduces helpful and well-designed libraries that regard compatible with C++ Standard Library \cite{Deitel:2012:CPP} and majority of which have been accepted in the C++ Standards Committee's Library Technical Report (TR1) \cite{Boost:2007:Cpp}.
-
-In addition, parts of Boost library are currently being accepted into the Standard library for C++11 \cite{Boost:2007:Cpp} and they are regarded as one of the top libraries with a high industry acceptance. These libraries are Boost.Array, Boost.Bind, Boost.Function, Boost.Random, Boost.Regex, Boost.Smart\_ptr, Boost.Tuple and Boost.Type\_traits \cite{Deitel:2012:CPP}.
-
-As a result, the current C++11 Standard libraries include several more Boost libraries in addition to those from TR1 and they provide many features that making Standard Library powerful and more effective in both industrial and educational fields.
 
 % overview
 \section{Overview}
@@ -326,34 +328,36 @@ Pattern rules are used for match specific files. Thus, we build our pattern rule
 % chapter Core Language Runtime Performance Enhancements
 \chapter{Core Language Runtime Performance Enhancements}
 \label{chapter: Runtime Performance Enhancements}
+C++ is one of the most powerful programming languages that use to create reliable and robust large scale applications. It is widely used in application that requires high performance due to its nature to create software that is efficient in time and space.
 
-XXX
+However, there are some aspects which have substantial effect every time a program is run and leading to slow the performance of entire program. This happen when needing to create deep copy of temporary object that use to copy from source object to target object. Thus, two exactly copies of object are existed at a runtime.
+
+Another reason is that, all initialization of objects and built-in types are took place at runtime, and if any computation is happened during compile-time, is also repeated at run time. This leads to slow performance of program and make it costly.
+
+To overcome these issues, C++11 introduces several features that have significant impact over runtime performance and they provide control to a programmer to increase a runtime performance.  These features can be used to move temporary objects instead of creating deep copies of them. Moreover, they offer mechanism to make initialization of object and fundamental types at compile time rather that runtime as well as perform some computation at compile, without repetition at runtime.
+
+Therefore, these features provide new facilities that increase the performance of program when they used properly. 
+
+The topics of this chapter include rvalue references, move semantic, generalized constant expressions and Modification of the definition of plain old data.
+\newpage
 
 \section{Rvalue references}
 \label{section: Rvalue references}
-A reference in C++ is an alias or alternative name for an existing object, and any modification could be done through this reference, will affect the original. Traditional C++ supports lvalue references, which are used to reference to lvalues. L values can be represented by single variable or persistent object that located on the left-hand side of an assignment operator. All variables, including (const) variables are Ivalue \cite{Gregorie:professionalcpp}.
+A reference in C++ is an alias or alternative name for an existing object, and any modification could be done through this reference, will affect the original (\cite{Gregorie:professionalcpp}). Traditional C++ supports lvalue references, which are used to reference to lvalues. L values can be represented by single variable or persistent object that located on the left-hand side of an assignment operator(\cite{Gregorie:professionalcpp}). All variables, including (const) variables are Ivalue.
 
+On the other hand, rvalue defined as anything is not lvalue, such as temporary object and constant value that appeared on the right- hand side of an assignment operator (\cite{Gregorie:professionalcpp}).  Lvalues can be used as rvalues, but not vice versa.
 
-On the other hand, rvalue defined as anything is not lvalue, such as temporary object and constant value that appeared on the right- hand side of an assignment operator.  Lvalues can be used as rvalues, but not vice versa \cite{Gregorie:professionalcpp}.
+In traditional C++, non-const references can bind to lvalues, and const references can bind to either lvalues or rvalues. However, there is nothing that can bind to a non-const rvalue (\cite{Stroustrup:2012:Cpp11}). Therefore, a reference to a temporary and a constant are not supported in traditional C++.
 
-
-In traditional C++, non-const references can bind to lvalues, and const references can bind to either lvalues or rvalues. However, there is nothing that can bind to a non-const rvalue. Thus, a reference to a temporary and a constant are not supported in traditional C++ \cite{Stroustrup:2012:Cpp11}.
-
-
-C++11 brings new concept called an rvalue reference, which bind only to rvalues but not to lvalues. Rvalue references use two ampersands (\&\&) rather than one (\&), and can be const and non-const (\ref{RvalueReference_Basic}), the same as lvalue references \cite{Gregorie:professionalcpp}.
-
+C++11 brings new concept called an rvalue reference, which bind only to rvalues but not to lvalues (\cite{Gregorie:professionalcpp}). Rvalue references use two ampersands (\&\&) rather than one (\&), and can be const and non-const (\ref{RvalueReference_Basic}), the same as lvalue references.
 
 Rvalue references can be used as a parameter to function by using two ampersands as part of the parameter specification such as type \&\& name. Then, this function can be invoked when a parameter is a temporary object or constant value. Otherwise, function that takes lvalue references will be invoked by lvalue (\ref{RvalueReference_Parameter}).
 
+However, while rvalue reference will never be bound to an lvalue, it is possible by a programmer to force a compiler to convert an lvalue into an rvalue. This can be done by using new feature called std::move () (\cite{Gregorie:professionalcpp}), which added by C++11 (\ref{RvalueReference_Move}).
 
-However, while rvalue reference will never be bound to an lvalue, it is possible by a programmer to force a compiler to convert an lvalue into an rvalue. This can be done by using new feature called std::move (), which added by C++11 (\ref{RvalueReference_Move}) \cite{Gregorie:professionalcpp}.
+Rvalue can also be used as a parameter to a function template but with nuance in terms of implementation. Calling the function with rvalue, leading the type parameter is deduced to be value (\cite{Williams:2012:CCA}). However, if an lvalue is passed to the function, then the type parameter is deduced to be an lvalue reference (\cite{Williams:2012:CCA}). Due to the function parameter is declared as rvalue reference (type \&\& name), that is, it treats as a reference to a reference for original reference type. Thus, a single function is able to accept both rvalue and lvalue parameters (\ref{RvalueReference_Template}).
 
-
-Rvalue can also be used as a parameter to a function template but with nuance in terms of implementation. Calling the function with rvalue, leading the type parameter is deduced to be value. However, if an lvalue is passed to the function, then the type parameter is deduced to be an lvalue reference. Due to the function parameter is declared as rvalue reference (type \&\& name), that is, it treats as a reference to a reference for original reference type. Thus, a single function is able to accept both rvalue and lvalue parameters (\ref{RvalueReference_Template}) \cite{Williams:2012:CCA}.
-
-
-This is pretty useful to execute perfect forwarding, which means that a function template able to pass its arguments by to another functions while keeping the rvalue and lvalue nature of the function arguments.  This avoids excessive copying and avoids the template author having to write multiple overloads for rvalue and lvalue references. Therefore, this concept is essential for library features such as std::thread and std::function which pass arguments to another function (\ref{RvalueReference_Forwarding}) \cite{Williams:2012:CCA}.
-
+This is pretty useful to execute perfect forwarding, which means that a function template able to pass its arguments by to another functions while keeping the rvalue and lvalue nature of the function arguments (\cite{Williams:2012:CCA}). This avoids excessive copying and avoids the template author having to write multiple overloads for rvalue and lvalue references. Therefore, this concept is essential for library features such as std::thread and std::function which pass arguments to another function (\ref{RvalueReference_Forwarding}).
 
 One of the main reasons for introducing the rvalue reference is to implement move semantics, the next topic in this chapter.
 
@@ -362,26 +366,19 @@ One of the main reasons for introducing the rvalue reference is to implement mov
 \label{section: Move semantic}
 C++ is always used to create fast and robust programs that be trusted in different areas.  However, one of the cases that lead to slow down performance of many C++ programs is the creation of temporary objects.
 
+Usually, these temporary objects are created by copy constructor and assignment operator because a second object should be equal to the original to accomplish operation; therefore, once the operation is done a program has two objects with the same value that resulting in expensive object copies.
 
-Usually, these temporary objects are created by copy constructor and assignment operator because a second object should be equal to the original to accomplish operation; therefore, once the operation is done a program has two objects with the same value that resulting in expensive object copies \cite{Stroustrup:2005:Cpp}.
-
-
-C++11 introduces the concept of move semantic, which allows an object to be implemented by a move constructor and a move assignment operator. These functions are used by a compiler when the second object is temporary object and is going to be destroyed after the copy or assignment. Both the move constructor and the move assignment operator transfers resources such as variables and pointers from the source object that is temporary object, to the new object (target object) and then reset the variables and pointers of the source object to null values. This would be similar to moving a file from one directory to another. By doing this, the ownership of the memory will be move from the source object (temporary object) to the new object (target object).
-
+C++11 introduces the concept of move semantic, which allows an object to be implemented by a move constructor and a move assignment operator (\cite{Gregorie:professionalcpp}). These concepts are used by a compiler when the second object is temporary object and is going to be destroyed after the copy or assignment. Both the move constructor and the move assignment operator transfers resources such as variables and pointers from the source object that is temporary object, to the new object (target object) and then reset the variables and pointers of the source object to null values. This would be similar to moving a file from one directory to another. By doing this, the ownership of the memory will be move from the source object (temporary object) to the new object (target object).
 
 In fact, move constructor and move assignment operator do a shallow copy of the resources and switch ownership of allocated memory to prevent memory leaks or dangling pointers \cite{Gregorie:professionalcpp}.
 
-
 Thus, move semantic is a significant concept to increase the performance of programs by avoiding unnecessary copies that used in temporary objects.
-
 
 The implementation of move semantics is supported by rvalue references, which should be added to class to implement move constructor and move assignment operator.
 
-
 Move constructor is pretty useful, and its purpose is to steal as many resources as it can from the original object, as fast as possible, because the original does not need to have a meaningful value any more, because it is going to be destroyed. 
 
-
-Move constructor can be tested with class C that contains move constructor (\ref{MoveSemantic_Constructor}). If move constructor exists, it will be used by a compiler to move the objects instead of copy them and without needing for any deep copy \cite{MSDN:2012:CppModern}. The move constructor will be invoked by a vector to move old vector to the new one and bigger vector. The output of class C will be as follows:
+Move constructor can be tested with class C that contains move constructor (\ref{MoveSemantic_Constructor}). If move constructor exists, it will be used by a compiler to move the objects instead of copy them and without needing for any deep copy \cite{MSDN:2012:CppModern}. The move constructor will be invoked by a vector to move old vector to the new one and bigger vecto as it shown in (\ref{MoveSemantic_Constructor}). The output of class C will be as follows:
 
 \begin{enumerate}
 \item Constructor called.
@@ -401,15 +398,14 @@ Then, a new C object is created by invoking the normal constructor (1); after th
 v.push\_back(C(20));
 \end{center}
 
-A second C object is also created by calling the normal constructor (3). At this point, the vector can store one element, so once again it is resized to accommodate a second object. When the resizing is done by the vector, the objects that previously have added require to be moved from the old vector to the new and larger vector, so this will require invoking the move constructor for objects that previously have added (4). And then, the new C object is moved into the vector by invoke move constructor (5). As a result, the move semantics is efficiently performed the insertion operation for vector by moving the elements rather than copying them \cite{MSDN:2012:CppModern}.
+A second C object is also created by calling the normal constructor (3). At this point, the vector can store one element, so once again it is resized to accommodate a second object. When the resizing is done by the vector, the objects that previously have added require to be moved from the old vector to the new and larger vector, so this will require invoking the move constructor for objects that previously have added (4). And then, the new C object is moved into the vector by invoke move constructor (5). As a result, the move semantics is efficiently performed the insertion operation for vector by moving the elements rather than copying them.
 
-
-The move assignment operator can also be tested by another class C (\ref{MoveSemantic_AssignmentOperator}), which has function called createObject() that create temporary C object ( as a return type is always rvalue) and assign it to another object called c1  (c1 = createObject()), resulting to invoke the move assignment operator. The move assignment operator is also invoked by using std::move () (which converts from lvalue to rvalue) to assign one object that consider temporary object to a target object (\ref{MoveSemantic_AssignmentOperator}) \cite{MSDN:2012:CppModern}.
+The move assignment operator can also be tested by another class C (\ref{MoveSemantic_AssignmentOperator}), which has function called createObject() that create temporary C object ( as a return type is always rvalue) and assign it to another object called c1  (c1 = createObject()), resulting to invoke the move assignment operator (\cite{Gregorie:professionalcpp}). The move assignment operator is also invoked by using std::move () (which converts from lvalue to rvalue) to assign one object that consider temporary object to a target object (\ref{MoveSemantic_AssignmentOperator}).
 
 On the other hand, the assignment (c3 = c1) will invoke the copy assignment operator because the object c1 is not temporary object, but a named object.
 
 
-Another situation that uses move semantic to increase the performance, when swap of elements are required. This can be done by using std::move (), which is the C++11 way to use move semantics explicitly and can be used to transfer the content of an object somewhere else, without doing a copy. This will lead to raise the performance of programs that require a lot of swaps (\ref{MoveSemantic_Swap}) \cite{Gregorie:professionalcpp}.
+Another situation that uses move semantic to increase the performance, when swap of elements are required. This can be done by using std::move (), which is the C++11 way to use move semantics explicitly and can be used to transfer the content of an object somewhere else, without doing a copy (\cite{Gregorie:professionalcpp}). This will lead to raise the performance of programs that require a lot of swaps (\ref{MoveSemantic_Swap}).
 
 
 % Generalized constant expressions
@@ -417,23 +413,19 @@ Another situation that uses move semantic to increase the performance, when swap
 \label{section: Generalized constant expressions}
 C++ had the notion of constant expressions such as 1+2, that always yield the same results at compile-time and at run-time. Such these expressions are improvement opportunities for a compiler to execute them at compile-time and gain the results in a program rapidly. Constant expressions required in some circumstance that should meet C++ specification, including enumeration values and specifying the bounds of an array. Currently, they can be expressed in C++ by using the keyword const, which could appear with variables, indicating that cannot be altered.
 
+However, the C++ rules concerning constant expressions are overly restrictive. They obligate some usage such as macros or template meta-programming instead of inline functions to guarantee the compile-time evaluation of constant expressions(\cite{Stroustrup:2012:Cpp11}). This could happen when using, for example, std::numeric\_limit$<>$:: max  class template.  Seemingly, they should be used as an integral constant but in fact it is functionally equivalent to the macro INT\_MAX. Thus, they are not integral constant. This encourages users to favour macros when values require to be known at compile time.
 
-However, the C++ rules concerning constant expressions are overly restrictive. They obligate some usage such as macros or template meta-programming instead of inline functions to guarantee the compile-time evaluation of constant expressions. This could happen when using, for example, std::numeric\_limit$<>$:: max  class template.  Seemingly, they should be used as an integral constant but in fact it is functionally equivalent to the macro INT\_MAX. Thus, they are not integral constant. This encourages users to favour macros when values require to be known at compile time.
+Another restriction could be found in C++, when return type of function is used for specifying the bounds of an array (\cite{Stroustrup:2012:Cpp11}). This causes compilation error because a compiler has no way of knowing the return function will be constant at runtime.
 
-
-Another restriction could be found in C++, when return type of function is used for specifying the bounds of an array. This causes compilation error because a compiler has no way of knowing the return function will be constant at runtime \cite{Stroustrup:2012:Cpp11}. 
-
-
-Due to these restriction, C++11 has extended the constant expressions by introducing the constexpr keyword that dubbed generalized constant expression. The constexpr keyword allows certain computations happen at compile-time instead of run-time, when the program itself is run.  This has apparent benefit in terms of performance, due to anything could be done at a compiler-time, will be done once, and instead of every time the program runs. Hence, a program takes the advantage of compile-time, and leading to increase performance of a program \cite{Williams:2012:CCA}.
+Due to these restriction, C++11 has extended the constant expressions by introducing the "constexpr" keyword that dubbed generalized constant expression (\cite{Williams:2012:CCA}). The constexpr keyword allows certain computations happen at compile-time instead of run-time, when the program itself is run (\cite{Williams:2012:CCA}). This has apparent benefit in terms of performance, due to anything could be done at a compiler-time, will be done once, and instead of every time the program runs. Hence, a program takes the advantage of compile-time, and leading to increase performance of a program.
 
 \subsection{Constant-expression data}
 \label{subsection: constant-expression data}
-The constexpr keyword can be applied to variables and data members.  Variables or data members that are declared with this keyword are named a constant-expression value, and they only allowed initializing with constant expressions. Variables and data members that declared with constexpr keyword have the same behaviour as if they were declared const. However, there is one difference namely, they need initialization before they are used and should be a constant-expression to guarantee that constexpr variables and data members can always be used as a constant expression (\ref{Constexpr_Data}) \cite{Williams:2012:CCA}.
-
+The constexpr keyword can be applied to variables and data members.  Variables or data members that are declared with this keyword are named a constant-expression value, and they only allowed initializing with constant expressions (\cite{Williams:2012:CCA}). Variables and data members that declared with constexpr keyword have the same behaviour as if they were declared const. However, there is one difference namely, they need initialization before they are used and should be a constant-expression to guarantee that constexpr variables and data members can always be used as a constant expression (\ref{Constexpr_Data}). 
 
 \subsection{Constant Expression Functions}
 \label{Constant Expression Functions}
-A constant expression function is a function that can be performed at compile time by means of inlining and assessing the result at compile-time. Declaring a function as constexpr enforces a few requirements that must be followed regarding as a constant-expression function; otherwise, declaring it constexpr is a compilation error.  The requirement necessary for a constexpr function are as follows:
+A constant expression function is a function that can be performed at compile time by means of inlining and assessing the result at compile-time. Declaring a function as constexpr enforces a few requirements that must be followed regarding as a constant-expression function ( \cite{Gregorie:professionalcpp}); otherwise, declaring it constexpr is a compilation error. The requirement necessary for a constexpr function are as follows:
 
 \begin{enumerate}
 \item The body of function must consist of single return statement and must be in form {return expression ;} where expression must evaluate to a constant expression after substitution.
@@ -447,16 +439,15 @@ A constant expression function is a function that can be performed at compile ti
 \item If the constexpr function is defined as member of a class, the function cannot be virtual.
 \end{enumerate}
 
-Applying these requirement enable a compiler to evaluate a constexpr function at compile time. Thus, it becomes possible to use the return type of constexpr function to specifying the size of an array (\ref{Constexpr_ArraySize}) \cite{Gregorie:professionalcpp}.
+Applying these requirement enable a compiler to evaluate a constexpr function at compile time. Thus, it becomes possible to use the return type of constexpr function to specifying the size of an array (\ref{Constexpr_ArraySize}).
 
-However, recursion in this type of function is not restricted. It can be applied by using the ternary operator (? :) as a single return statement. Hence, a compiler can optimize away the call and make the computation all at runtime. In this case, by permitting more complex computation, constexpr acts differently than a just in-line function, because an inline recursive function is not possible, lead to consider function argument is itself a constexpr and be computed at compile time (\ref{Constexpr_Recursion}) \cite{Allain:2011:FutureCpp}.
+However, recursion in this type of function is not restricted. It can be applied by using the ternary operator (? :) as a single return statement. Hence, a compiler can optimize away the call and make the computation all at runtime ( \cite{Allain:2011:FutureCpp}). In this case, by permitting more complex computation, constexpr acts differently than a just in-line function, because an inline recursive function is not possible, lead to consider function argument is itself a constexpr and be computed at compile time (\ref{Constexpr_Recursion}).
 
-
-Constexpr function can also be involved at runtime. This can be done when the arguments to the function are declared as non-constant. Therefore, there is not required for creating separate functions to be executed at compile time and run time as long as it offers a convenient way to define function that work at compile time as well as runtime (\ref{Constexpr_FunctionRuntime}) \cite{Allain:2011:FutureCpp}.
+Lanst but not least, constexpr function can also be involved at runtime. This can be done when the arguments to the function are declared as non-constant (\cite{Allain:2011:FutureCpp}). Therefore, there is not required for creating separate functions to be executed at compile time and run time as long as it offers a convenient way to define function that work at compile time as well as runtime (\ref{Constexpr_FunctionRuntime}).
 
 \subsection{Constant Expression Constructors}
 \label{subsection: Constant Expression Constructors}
-A constant expression constructor allows creating user-defined types (such class) as constant expression. This can be done by defining a constructor with constexpr keyword. Defining constexpr constructor must also meet following criteria:
+A constant expression constructor allows creating user-defined types (such class) as constant expression. This can be done by defining a constructor with constexpr keyword (\cite{Gregorie:professionalcpp}). Defining constexpr constructor must also meet following criteria:
 
 \begin{enumerate}
 \item	The body of constructor must be empty.
@@ -466,31 +457,22 @@ A constant expression constructor allows creating user-defined types (such class
 \item	All data members must be initialized with constant expressions.
 \end{enumerate}
 
-The constant expression evaluation happens in the member initializations which must fit the requirement (arguments must be constants) to evaluate as constants. An object that construct with a constant-expression constructor and constant expression arguments, is named as user-defined literal. Thus, it can be used at compile time (\ref{Constexpr_ConstantConstructor}) \cite{Gregorie:professionalcpp}.
+The constant expression evaluation happens in the member initializations which must fit the requirement (arguments must be constants) to evaluate as constants. An object that construct with a constant-expression constructor and constant expression arguments, is named as user-defined literal (\ref{Constexpr_ConstantConstructor}). Thus, it can be used at compile time.
 
-
-As a result, the constexpr improve type-safety and portability for code requiring compile time evaluation, which can be pretty useful for supporting generic programming and library building.
 
 % modification of the definition of POD
 \section{Modification of the definition of plain old data}
 \label{section: Modification of the definition of plain old data}
-Plain old data (POD) is a data structure that represented with fundamental types, without using the object oriented features, to suggest areas of essential compatibility between comparable data types in C and C++.
+Plain old data (POD) is a data structure that represented with fundamental types, without using the object oriented features, to suggest areas of essential compatibility between comparable data types in C and C++ (\cite{Stroustrup:2012:Cpp11}).
 
+A POD type in C++ is classified as either a scalar type or a POD class. The scalar type collectively refers to the fundamental types of C++ such integral types (int, char), floating types (float, double), enumeration types and pointer types (\cite{Stroustrup:2012:Cpp11}). Whereas the POD class has no non-static data (including arrays) of any pointer-to-member type, no non-static data (including arrays) of any non-POD class type, no user-defined copy assignment operator, nor user-defined destructor. In addition, a POD class has to be an aggregate, meaning it has no private or protected not static data members, no user-declared constructors, no base classes and no virtual functions \cite{Kalev:1999:ACP}.
 
-A POD type in C++ is classified as either a scalar type or a POD class. The scalar type collectively refers to the fundamental types of C++ such integral types (int, char), floating types (float, double), enumeration types and pointer types. Whereas the POD class has no non-static data (including arrays) of any pointer-to-member type, no non-static data (including arrays) of any non-POD class type, no user-defined copy assignment operator, nor user-defined destructor.
-
-
-In addition, a POD class has to be an aggregate, meaning it has no private or protected not static data members, no user-declared constructors, no base classes and no virtual functions \cite{Kalev:1999:ACP}.
-
-
-Therefore, in the traditional C++, the actual definition of POD is based on a set of restrictions that should be satisfied for defining POD class or structure, otherwise, it is not POD type. As a result, C++ able to distinguish between POD types and non-POD types. However, in some situations, this distinction is limited, because some non-POD types have similar properties as POD types. Thus, they have the same behaviour.
-
+In the traditional C++, the actual definition of POD is based on a set of restrictions that should be satisfied for defining POD class or structure, otherwise, it is not POD type. As a result, C++ able to distinguish between POD types and non-POD types. However, in some situations, this distinction is limited, because some non-POD types have similar properties as POD types. Thus, they have the same behaviour.
 
 C++11 relaxed some of the POD rules by dividing the POD concept into new type categories: trivial classes and standard layout classes and their definition no longer depends on the definition of aggregate \cite{MSDN:2012:CppModern}.
 
-
-A trivial class can be statically initialized and can be copied via memcpy, instead of having to use a copy constructor. The lifetime of a trivial type begins when its storage is defined, not when a constructor completes. The trivial class is a class that:
-
+A trivial class can be statically initialized and can be copied via memcpy, instead of having to use a copy constructor. The lifetime of a trivial type begins when its storage is defined, not when a constructor completes. 
+The trivial class is a class that:
 \begin{enumerate}
 \item	Has a trivial default constructor. 
 \item	Has a trivial copy and move constructor.
@@ -500,7 +482,7 @@ A trivial class can be statically initialized and can be copied via memcpy, inst
 
 Additionally, trivial class has no virtual member functions of the class and no virtual base classes. Hence, it can have user-defined constructors as long as above requirements are available (\ref{POD_TrivialClass}) \cite{ISO:2011:Cpplanguage}.
 
-Standard layout is intended to capture the first intent by creating something with a layout the same as getting in C. A standard layout class is a class that:
+Standard layout is intended to capture the first intent by creating something with a layout the same as getting in C. A standard layout class is a class that has follows requirements (\cite{ISO:2011:Cpplanguage}):
 
 \begin{enumerate}
 \item	Has no virtual functions and no virtual base classes.
@@ -509,15 +491,13 @@ Standard layout is intended to capture the first intent by creating something wi
 \item	It has no base classes of the same type as the first defined non-static data member (\ref{POD_StandardLayoutClass}).
 \end{enumerate}
 
-A class or structure is considered POD type if it is trivial, standard-layout, and all of its non-static data members and base classes are PODs (\ref{POD_StandardLayoutandTrivialClass}) \cite {ISO:2011:Cpplanguage}.
-
+A class or structure is considered POD type if it is trivial, standard-layout, and all of its non-static data members and base classes are PODs (\ref{POD_StandardLayoutandTrivialClass}).
 
 By separating trivial and standard-layout concepts, it becomes possible to give up one without omitting other. A class that has copy  and move constructors could not be trivial, but it may be may be standard-layout and hence interrupt with C. Likewise, a class that has  public and private non-static data members may not be standard-layout, but it could be trivial and hence, can be copied via memcpy.
 
-
 \section{Summary}
 \label{sec: Summary}
-
+This chapter explained how a runtime can be improved by using several features that added by C++11.  These features provide new mechanism that make program faster than before through avoiding duplicate copies and providing new concepts that allows some concepts to be done in compile time instead of runtime.
 
 % chapter Core Language Usability Enhancements
 \chapter{Core Language Usability Enhancements}
