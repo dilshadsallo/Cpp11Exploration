@@ -2,6 +2,7 @@
 \usepackage{a4}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{subfigure}
 
 % For program-code:
 \usepackage{listings}
@@ -79,7 +80,26 @@ September 2012.
 \chapter{Introduction}
 \label{cha:intro}
 
-XXX
+\subsection{Git GUI}
+\label{sec:gui}
+When a change has been done, then go to git GUI, firstly scan the change (see Figure \ref{fig:gitscan}), write a command to describe the change (see Figure \ref{fig:gitcommand}, and stage the change (see Figure \ref{fig:gitstage}), then commit the change (see Figure \ref{fig:gitcommit}) in the end to record a change.
+\begin{figure}[h]
+\begin{center}
+\subfigure[Scan the change.]{
+\includegraphics[scale=0.28]{GitScan.jpg}
+\label{fig:gitscan}}
+\subfigure[Write a command for the change.]{
+\includegraphics[scale=0.28]{GitCommand.jpg}
+\label{fig:gitcommand}}
+\subfigure[Stage changed.]{
+\includegraphics[scale=0.28]{GitStage.jpg}
+\label{fig:gitstage}}
+\subfigure[Admit the commitment.]{
+\includegraphics[scale=0.28]{GitCommit.jpg}
+\label{fig:gitcommit}}
+\end{center}
+\end{figure}
+
 
 \section{C++11}
 \label{sec: C++11}
@@ -137,8 +157,7 @@ As a result, the current C++11 Standard libraries include several more Boost lib
 % chapter Tools
 \chapter{Basic Tools for the Project Development}
 \label{cha: tools}
-
-XXX
+Managing such project, requires powerful software tools that able to organize and compile all pieces of programs efficiently. Therefore, two helpful tools are used to accomplish this project successfully namely, Git and Make. Git is a tool that used to keep track of developing project and record every change over project's files. Make is significant tool that allow programmers to compile source files in easy way as well as allowing compiling files that have been only changed, instead of compiling all source files. Make is not work without file called Makefile, which says make what to do. This file contains all instructions that are needed by make to compile all pieces of small programs that exist in this project.
 
 \section{Git}
 \label{sec: Git}
@@ -206,9 +225,9 @@ Therefore, running make utility is only possible if Makefile is provided within 
 
 \subsection{Makefile}
 \label{subsec: makefile}
-Makefile contains full directive of the commands that used by make to decide how to build and execute the programs. It specifies the relationships between the component and target files of project by listing the needed files for each target file.
+Makefile is file that contains full directive of the commands used by make to decide how to build and execute the programs. It specifies the relationships between the component and target files of project by listing the needed files for each target file.
 
-In general, Makefile contains at least basic components macros and rules and both are included in the Makefile that used in this project.
+In general, Makefile contains at least basic components macros and rules and both are included in the Makefile that used in this project(\ref{Makefile}).
 
 \begin{enumerate}
 \item \textbf{Macro} Basically macro is a name or alias that is used to represent a string or instruction which could use frequently within the Makefile.  It is considered a very helpful way to simplify contains of Makefile.
@@ -1116,7 +1135,7 @@ As a result, variadic template offers new facilities that have significant impac
 
 \Make
 
-%\lstinputlisting{../Makefile}
+\lstinputlisting{../Makefile.}
 \newpage
 
 
