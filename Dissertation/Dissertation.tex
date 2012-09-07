@@ -828,6 +828,12 @@ The underlying type of enum class is clearly specified, by default is integer.  
 
 \section{Explicit Conversion Operators}
 \label{section: Explicit Conversion Operators}
+C++ introduced the explicit keyword to inhibit single argument constructors from being applied implicitly as conversion operators (\cite{Gregorie:professionalcpp}). Thus, C++ supports implicit and explicit constructor, which give the author of class to control over constructors conversion (\ref{Explicit_Constructor}).
+
+However, a constructor is not the only mechanism for performing an implicit conversion; conversion operator cans also run this implicit conversion(\cite{Gregorie:professionalcpp}). This can be done when assigning object to variable. Thus, the variable will gain the value of that object(\ref{Explicit_Operator}). It is obvious that C++ has no explicit way to inhibit implicit conversion that can happen by conversion operator.
+
+C++11 extends the semantics of explicit keyword to be used for all conversion operators(\cite{Stroustrup:2012:Cpp11}). Therefore, a conversion operator that marks explicitly will not do any implicit conversion, and performing such that will cause a compile-error (\ref{Explicit_Operator}). The explicit conversion operators have are used to prevent implicit conversions which could happen accidentally.
+
 
 % Alias templates:
 \section{Alias templates}
@@ -1395,6 +1401,15 @@ As a result, variadic template offers new facilities that have significant impac
 \subsection{EnumerationClass\_Conflict.cpp}
 \label{EnumerationClass_Conflict}
 \lstinputlisting{../CoreLanguage/UsabilityEnhancements/EnumerationClass_Conflict.cpp}
+
+% Explicit conversion
+\subsection{Explicit\_Constructor.cpp}
+\label{Explicit_Constructor}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/Explicit_Constructor.cpp}
+
+\subsection{Explicit\_Operator.cpp}
+\label{Explicit_Operator}
+\lstinputlisting{../CoreLanguage/UsabilityEnhancements/Explicit_Operator.cpp}
 
 % Alias Template
 \subsection{TypeAlias\_FunctionPointer.cpp}
