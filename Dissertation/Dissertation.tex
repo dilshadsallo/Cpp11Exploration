@@ -144,13 +144,13 @@ In 1985, Stroustrup's reference to the language titled The C++ Programming Langu
 
 In 1990, the Annotated C++ Reference Manual was released, which became as basis for the future standard. At that time, many significant features were added to C++ included namespaces, new casts, exceptions, Boolean type and template \cite{StroustrupHistory}.
 
-In 1998, the standardization of C++ published the first international standard for C++ under official title; Information Technology -- Programming Languages -- C++ \cite{Josuttis:2012:CppStandardLibrary}. This standard would be known as C++98 and has document number is ISO/IEC 14882:1998. The Annotated C++ Reference Manual has an important influence on the development of the standard.  In addition it was included the Standard Template Library which started its conceptual development in 1979 \cite{CplusplusHistoryofCpp}.  
+In 1998, the standardization of C++ published the first international standard for C++ under official title; Information Technology -- Programming Languages -- C++ \cite{Josuttis:2012:CppStandard}. This standard would be known as C++98 and has document number is ISO/IEC 14882:1998. The Annotated C++ Reference Manual has an important influence on the development of the standard.  In addition it was included the Standard Template Library which started its conceptual development in 1979 \cite{CplusplusHistoryofCpp}.  
 
-Due to multiple problems and bugs have discovered in C++98, the standardization of C++ revised it accordingly, and release revision standard in 2003 to ensure greater portability and consistency, dubbed C++03, which has document number ISO/IEC 14882:2003 \cite{Josuttis:2012:CppStandardLibrary}.
+Due to multiple problems and bugs have discovered in C++98, the standardization of C++ revised it accordingly, and release revision standard in 2003 to ensure greater portability and consistency, dubbed C++03, which has document number ISO/IEC 14882:2003 \cite{Josuttis:2012:CppStandard}.
 
-In 2005, the standardization of C++ issued a Technical Report 1 that contains library extensions for the latest C++ standard \cite{Josuttis:2012:CppStandardLibrary}. The proposed changes for new standard was informally dubbed C++0x, which considered as working name for the next standard of C++. Its first draft for formal comments was produced in September 2008 \cite{CplusplusHistoryofCpp}. 
+In 2005, the standardization of C++ issued a Technical Report 1 that contains library extensions for the latest C++ standard \cite{Josuttis:2012:CppStandard}. The proposed changes for new standard was informally dubbed C++0x, which considered as working name for the next standard of C++. Its first draft for formal comments was produced in September 2008 \cite{CplusplusHistoryofCpp}. 
 
-In 2011, C++0x was officially approved as C++11 and published as the second standard [C++ library ]. This standard has officially entitled as "Information Technology — Programming Languages — C++" and its document number is ISO/IEC 14882:2011 \cite{Josuttis:2012:CppStandardLibrary}.According to Bjarne \cite{Stroustrup:2012:Cpp11}, the 11 in the name of new standards refers to the year of publication that release in.
+In 2011, C++0x was officially approved as C++11 and published as the second standard [C++ library ]. This standard has officially entitled as "Information Technology — Programming Languages — C++" and its document number is ISO/IEC 14882:2011 \cite{Josuttis:2012:CppStandard}.According to Bjarne \cite{Stroustrup:2012:Cpp11}, the 11 in the name of new standards refers to the year of publication that release in.
 
 C++11 came with new features that have substantial improvement over the core language and library. C++11 provided new facilities that make life easier for programmers of all backgrounds as well as introducing new programming style  that make the language more easier to learn and understand.
 
@@ -589,7 +589,7 @@ The lambda expression can be used to print simple string without having any para
 Std::function$<>$ class template, defined in the <functional>, is polymorphic function object wrapper and is considered one of the great new features that introduced by C++11, due to its ability to wrap to callable objects ( function pointers, function object and lambdas) as long as there is compatibility in terms of argument  and return type with those of the wrapper.
 
 
-Therefore, the new std::function is an extremely useful way for passing around lambda functions as return values and by doing that, lambda expressions can be returned from ordinary functions. (\ref{Lambda_FunctionReturnType}) \cite {Josuttis:2012:CppStandard Library}.
+Therefore, the new std::function is an extremely useful way for passing around lambda functions as return values and by doing that, lambda expressions can be returned from ordinary functions. (\ref{Lambda_FunctionReturnType}) \cite{Josuttis:2012:CppStandard}.
 
 
 \subsection{Lambda Expressions as Parameters}
@@ -663,7 +663,7 @@ Another problem is that, the underlying type of an enum cannot be specified expl
 C++11 provides a new form of enumeration which combining enum with class and is declared by using keyword enum class and is used to handle the problems that existed in traditional C++.  Implicit conversions to or from an integer is not allowed in this type and any attempt doing that cause a compiler-error (\ref{EnumerationClass_Implicit}) \cite{Overland:2011:CWF}.
 
 
-The underlying type of enum class is clearly specified, by default is integer.  A programmer can explicitly specify another type by writing type following the enumeration name (\ref{EnumerationClass_Explicit}). C++11 Enumerations have class scope for their enumerators. This eliminates a possible source of name conflicts between enumerators from different enum definitions (\ref{EnumerationClass_Conflict}) \cite{Josuttis:2012:CppStandardLibrary}.
+The underlying type of enum class is clearly specified, by default is integer.  A programmer can explicitly specify another type by writing type following the enumeration name (\ref{EnumerationClass_Explicit}). C++11 Enumerations have class scope for their enumerators. This eliminates a possible source of name conflicts between enumerators from different enum definitions (\ref{EnumerationClass_Conflict}) \cite{Josuttis:2012:CppStandard}.
 
 
 \section{Explicit Conversion Operators}
@@ -733,16 +733,16 @@ Both of Unicode Consortium and the Universal Character Set (UCS) that defined by
 Different encodings could be used by different applications. Unfortunately, wide character (wchar\_t) that introduced by C++, was not enough, because the size of wchar\_t can change from one implementation to another. For example, on Windows it is 16 bits, whereas on other operating system could be 32 bits \cite{Gregorie:professionalcpp}. 
 
 
-To address this issue, C++11 comes with two new types char16\_t and char32\_t, which use to store 16 and 32 bits respectively. They can be used as the basic building block for UTF-16 and UTF-32 encoded Unicode characters \cite{Josuttis:2012:CppStandardLibrary}.
+To address this issue, C++11 comes with two new types char16\_t and char32\_t, which use to store 16 and 32 bits respectively. They can be used as the basic building block for UTF-16 and UTF-32 encoded Unicode characters \cite{Josuttis:2012:CppStandard}.
 
 
-C++11 use the “u” prefix to represent a character literal of type char16\_t and ensuring its value equal to its ISO 10646 (and Universal Character Set) code point value, that is represented in a single 16-bits (\ref{NewCharacterType_char16}). It also uses the same prefix to represent string constants in 16-bits form (\ref{NewCharacterType_String16}) \cite{Josuttis2012:CppStandardLibrary}.
+C++11 use the “u” prefix to represent a character literal of type char16\_t and ensuring its value equal to its ISO 10646 (and Universal Character Set) code point value, that is represented in a single 16-bits (\ref{NewCharacterType_char16}). It also uses the same prefix to represent string constants in 16-bits form (\ref{NewCharacterType_String16}) \cite{Josuttis:2012:CppStandard}.
 
 
-Similarly, the "U" prefix is used to represent a character literal (\ref{NewCharacterType_char32}) and string constants in 32-bits form (\ref{NewCharacterType_String32}).  Supporting for Unicode by C++11 is not only limited over these two types. The UTF-8 is also supported and can be represented by using the "u8" prefix in front of string, indicating that the contents of string are stored in UTF-8 (\ref{NewCharacterType_UTF-8}) \cite{Josuttis:2012:CppStandardLibrary}.
+Similarly, the "U" prefix is used to represent a character literal (\ref{NewCharacterType_char32}) and string constants in 32-bits form (\ref{NewCharacterType_String32}).  Supporting for Unicode by C++11 is not only limited over these two types. The UTF-8 is also supported and can be represented by using the "u8" prefix in front of string, indicating that the contents of string are stored in UTF-8 (\ref{NewCharacterType_UTF-8}) \cite{Josuttis:2012:CppStandard}.
 
 
-Unicode Characters for universal languages are also supported in these new characters types. Thus, it is possible to writing a string, for example, in Arabic language because each character has unique name and number (\ref{NewCharacterType_Languages}) \cite{Josuttis:2012:CppStandardLibrary}.
+Unicode Characters for universal languages are also supported in these new characters types. Thus, it is possible to writing a string, for example, in Arabic language because each character has unique name and number (\ref{NewCharacterType_Languages}) \cite{Josuttis:2012:CppStandard}.
 
 
 In these types of strings, adjacent string literals concatenate if they have the same encoding-prefix and thus, leading to a single concatenated string literal with that encoding-prefix. This can be also applied when on string literal has not encoding-prefix, it handle as a string literal of the same encoding-prefix as the other operand (\ref{NewCharacterType_String16}), (\ref{NewCharacterType_String32}), (\ref{NewCharacterType_UTF-8}) \cite{ ISO:2011:Cpplanguage}.
@@ -1175,7 +1175,7 @@ Developing this project successfully overcame three major challenges.  Each of w
 Overall this project has given me unique chance to learn new style of programming with new language that could change the world. It has also provided me the opportunity to practice my knowledge in C++ and discover strength and weakness of it. Furthermore, I learnt Git and Make tools that make me able to manage and evolve large projects in near future. My greatest achievement during developing this project was knowing the possibility of each feature and when should be applied to write elegant and efficient code. I have learnt many worthwhile skills from this project which will have significant influence over my future.
 
 % References
-\addcontentsline{toc}{section}{Bibliography}
+
 \bibliographystyle{alpha}
 \bibliography{Bibliography}	
 
