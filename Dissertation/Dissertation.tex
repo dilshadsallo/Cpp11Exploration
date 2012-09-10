@@ -364,10 +364,7 @@ The topics of this chapter include uniform initialization, initializer lists, au
 
 \section{Uniform initialization}
 \label{section:Uniform initialization}
-C++ provides various ways to initialize objects (built-in types and user-defined types) depending on their types and the initialization context. Fundamental types such as variables and pointers can be initialized by using the equal sign. Initialization of data members in classes, which have user-defined constructor require a constructor's member initialization list for their data members, and initialization of objects are included in parentheses in the objects declaration. Finally, Initialization of aggregates types require braces, except string literals that may also need a pair of double quotes to be initialized. Meaning that there is no general way to initialize every type exists in C++ \cite{Stroustrup:2012:Cpp11}
-
-
-Therefore, It is difficult for ordinary programmers to remember the rules for initialization and to choose the appropriate way according to data types, because when misused could leads to the error messages vague.
+C++ provides various ways to initialize objects (built-in types and user-defined types) depending on their types and the initialization context. Fundamental types such as variables and pointers can be initialized by using the equal sign. Initialization of data members in classes, which have user-defined constructor require a constructor's member initialization list for their data members, and initialization of objects are included in parentheses in the objects declaration. Finally, Initialization of aggregates types require braces, except string literals that may also need a pair of double quotes to be initialized. Meaning that there is no general way to initialize every type exists in C++ \cite{Stroustrup:2012:Cpp11}. Therefore, it is difficult for ordinary programmers to remember the rules for initialization and to choose the appropriate way according to data types, because when misused could leads to the error messages vague.
 
 
 In addition, there is no proper way to initialize arrays that are member of a class, nor dynamically allocated arrays. And finally, there is no convenient form to initialize the elements of a Standard Library container \cite{Stroustrup:2012:Cpp11}.
