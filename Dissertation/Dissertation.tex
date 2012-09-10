@@ -1022,7 +1022,7 @@ The traditional mechanics of compiling the source file into an executable file t
 
 Handling many files need great tools that offer facilities to create executable file in such easy way as well as compiling only modified files instead of all source files.
 
-The make utility is " a tool automatically determines which pieces of a large program need to be recompiled, and issues commands to recompile them " \cite{Stallman:2000:GnuMake}. Make is designed to allow programmers to efficiently compile large complex programs with many components easily. It provides mechanism to compile and turn source code into executable program with minimum effort. This is done by writing only "make" command in the UNIX shell.  
+The make utility is " a tool automatically determines which pieces of a large program need to be recompiled, and issues commands to recompile them " (\cite{Stallman:2000:GnuMake}). Make is designed to allow programmers to efficiently compile large complex programs with many components easily. It provides mechanism to compile and turn source code into executable program with minimum effort. This is done by writing only "make" command in the UNIX shell.  
 
 Make utility is especially helpful to manage and organizing projects that comprised of many source files and it reduces the probability of human error and difficulty of compilation.
 
@@ -1144,18 +1144,21 @@ Pattern rules are used for match specific files. Thus, we build our pattern rule
 
 \section{Summary}
 \label{se : summary}
+This project has investigated the features that introduced to core language by C++11, which offers much more than (old) C++. C++11 provide new style of programming that able to avoid inherently vulnerable facilities. It also offers significant features that improve the performance of programs in real-time.
 
-XXX
+C++11 simplify the syntax of language and make it more usable and much easier to understand. This has positive influence to bring newcomers programmers from both traditional C++ and other languages. Furthermore, it brings new facilities that able to do something extraordinary with little effort.  C++11 furnish new features that existed in most modern language and allows programmers to achieve what they expected to achieve with other languages.
+
+However, C++11 is not able to cover all limitations of traditional C++, but will not bring new loopholes that making programming unsafe.
 
 \section{Future Work}
 \label{sec: future work}
-
-XXX
+Development of this project was only restricted on investigation of core language which has been classified according to features that belong to. This project can be extended to become holistic by investigating features that added to libraries such as Standard Library (including thread library), and STL container, STL algorithms and Boost library, and present them as reference library to support programmers who have knowledge in C++ and want to program in  C++11 style. Doing that, will give programmers an idea of the aims of the ISO C++ standards effort and actual capability of C++11 in real-time.
 
 \section{Personal Experience}
 \label{sec: personal experience}
+Developing this project successfully overcame three major challenges.  Each of which raised some difficulties during investigating of this project.  The first challenge was finding resource related to this project, due to that fact that the project was commencing in the early  2012 and new standard C++11 was released in late  2011. The second challenge was dealing with unfamiliar functionality and syntax that existed in some features such as variadic template and lambda expression. Because of my experience is only restricted in C++, nor do other modern languages and seeing such things extraordinary require thinking in depth. The final challenge was demonstrating all cases of each feature in simple way to become understandable for programmer from first glance, this require to make program neglects some aspect and focus on the others.
 
-XXX
+Overall this project has given me unique chance to learn new style of programming with new language that could change the world. It has also provided me the opportunity to practice my knowledge in C++ and discover strength and weakness of it. Furthermore, I learnt Git and Make tools that make me able to manage and evolve large projects in near future. My greatest achievement during developing this project was knowing the possibility of each feature and when should be applied to write elegant and efficient code. I have learnt many worthwhile skills from this project which will have significant influence over my future.
 
 % References
 \addcontentsline{toc}{section}{Bibliography}
@@ -1174,7 +1177,7 @@ XXX
 
 \Make
 
-\lstinputlisting{../Makefile.}
+%\lstinputlisting{../Makefile}
 \newpage
 
 
