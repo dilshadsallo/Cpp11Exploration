@@ -60,6 +60,7 @@ September 2012.
 \end{flushright}
 
 \tableofcontents
+\listoffigures
 
 \chapter{Introduction}
 \label{cha:intro}
@@ -69,7 +70,7 @@ As responsibility of the ISO C++ standards committee to address these issues, ne
 
 The aim  of this project is to investigate new language features that introduced by C++11 to core language and demonstrate them with suitable examples representing all cases of each features to be as scientific catalogue for supporting programmers who have sufficient programming knowledge in C++. These features are classified into three sections namely; runtime performance, usability enhancement and functionality improvement, and investigating core language properly require investigating into features that belong to these sections.
 
-Features  that belong to runtime performance section has primarily existed to increase performance of overall programs through, for example, avoiding duplicated copies that are take place when temporary objects are required to accomplish specific purpose.  Features that have introduced to usability enhancement section has substantial role of making language easier and safer to use by simplify the syntax and minimize code repetition through , for instance, using alternative mechanism that making code simpler and  much easier to learn and understand.  Finally, features that have added to functionality improvement section provide extraordinary capabilities that were previously impossible or extremely verbose such as allowing programmers to create their own literals which can be used to accomplish specific purpose. 
+Features that belong to runtime performance section have primarily existed to increase performance of overall programs through, for example, avoiding duplicated copies that are take place when temporary objects are required to accomplish specific purpose.  Features that have introduced to usability enhancement section has substantial role of making language easier and safer to use by simplify the syntax and minimize code repetition through , for instance, using alternative mechanism that making code simpler and  much easier to learn and understand.  Finally, features that have added to functionality improvement section provide extraordinary capabilities that were previously impossible or extremely verbose such as allowing programmers to create their own literals which can be used to accomplish specific purpose. 
 
 Core language features have been investigated and managed by using Git and Make tools which had significant role to achieve this project successfully. Git tool is used to keep tracking the modifications of programs that contributed in this project and manage them efficiently, while Make tool is used to compile and recompile the pieces of programs easily with helping file named Makefile, which contains all instruction that tell Make how to do work. 
 
@@ -91,18 +92,18 @@ C++ is almost becoming favourite language for expert programmers to build sophis
 
 The key to robust and sophisticated code is type safety using an appropriate type system (\cite{Stroustrup:2005:Cpp}), which ensures that errors are not propagated within programs. C++ does not consider completely a type safe system, because many implicit conversions and narrowing conversions could happen during some operations that lead to incorrect behaviour of programs. C++11 cannot make C++ entirely type safe, but it will not bring new loopholes that make system unsafe. In addition, it introduces new facilities that used to inhibit ambiguity behaviour by alternative mechanism to current insecure practices.
 
-\section{Why Small and Many Programs?}
+\section{Why small and many programs?}
 \label{sec:small and many programs}
 knowing the syntax of C++11 language is not enough to learn and understand the correct way to use the language efficiently, unless providing  simple  programs that give idea to programmers from first glance. These programs represent features of core language and their cases which could differ from usage to other. As C++11 provides capabilities and new style of programming, it become much easier to represent each feature in real example and give elementary idea to programmers to become able to build complex software as final target.
 
 % Boost 
-\section{Boost C++ Libraries}
+\section{Boost C++ libraries}
 \label{sec: Boost}
 The Boost C++ libraries "are free, open-source libraries" (\cite{Deitel:2012:CPP},~p.~31) created by the very same developers who designed and build the C++ standard libraries (\cite{Schaling:2011:BoostCppLibraries}). They are designed to extend the functionality of C++ language in an efficient and commercial-grade, universally applicable style. Boost C++ libraries introduces helpful and well-designed libraries that regard compatible with C++ Standard Library [\cite{Deitel:2012:CPP},~p.~937] and majority of which have been accepted in the C++ Standards Committee's Library Technical Report (TR1). In addition, parts of Boost library are currently being accepted into the Standard library for C++11 (\cite{Boost:2007:Cpp}) and they are regarded as one of the top libraries with a high industry acceptance (\cite{Deitel:2012:CPP},~p.~939). These libraries are Boost.Array, Boost.Bind, Boost.Function, Boost.Random, Boost.Regex, Boost.Smart\_ptr, Boost.Tuple and Boost.Type\_traits.
 
 As a result, the current C++11 Standard libraries include several more Boost libraries in addition to those from TR1 and they provide many features that making Standard Library powerful and more effective in both industrial and educational fields.
 
-\section{A Brief History of C++}
+\section{A brief history of C++}
 \label{sec: History of C++}
 The history of C++ programming language has begun in 1979, when Bjarne Stroustrup was working on his Ph.D thesis in the Computing Laboratory of Cambridge, University of England (\cite{StroustrupHistory}). At that time, he had opportunity to work with a language called Simula (\cite{Stroustrup:2012:Cpp11}), which was considered as the first language that supports the object-oriented language paradigm. He observed that Simula had very useful features for developing great software, but it was extremely slow in terms of practicality.Shortly thereafter, Bjarne Stroustrup commenced working on a new language dubbed "C with Classes" (\cite{StroustrupHistory}), which represented improvement version of C language. This enhancement was done by adding a number of new features that borrowed from the esoteric language Simula. The most notable of which were classes that have capability for supporting object-oriented programming . 
 
@@ -138,25 +139,57 @@ In this chapter we explain how C++11 able to increase the performance of overall
 The topics of this chapter include rvalue references, move semantic, generalized constant expressions and Modification of the definition of plain old data.
 
 
-\section{Rvalue References}
+\section{Rvalue references}
 \label{section: Rvalue references}
-A reference in C++ is an alias or alternative name for an existing object, and any modification could be done through this reference (\cite{Gregorie:professionalcpp},~p.~286), will affect the original. Traditional C++ supports lvalue references, which are used to reference to lvalues. Lvalues can be represented by single variable or persistent object that located on the left-hand side of an assignment operator (\cite{Gregorie:professionalcpp},~p.~286). All variables, including~(const) variables are Ivalue. On the other hand, rvalue defined as anything is not lvalue, such as temporary object and constant value that appeared on the right- hand side of an assignment operator (\cite{Gregorie:professionalcpp},~p.~277). Lvalues can be used as rvalues, but not vice versa. In traditional C++, non-const references can bind to lvalues, and const references can bind to either lvalues or rvalues. However, there is nothing that can bind to a non-const rvalue \cite{Stroustrup:2012:Cpp11}. Therefore, a reference to a temporary and a constant are not supported in traditional C++.
+A reference in C++ is an alias or alternative name for an existing object, and any modification could be done through this reference, will affect the original (for addition information see~\cite{Gregorie:professionalcpp},~p.~286). Traditional C++ supports lvalue references, which are used to reference to lvalues. Lvalues can be represented by single variable or persistent object that located on the left-hand side of an assignment operator. All variables, including~(const) variables are Ivalue. On the other hand, rvalue defined as anything is not lvalue, such as temporary object and constant value that appeared on the right- hand side of an assignment operator (for further information see~\cite{Gregorie:professionalcpp},~p.~277). Lvalues can be used as rvalues, but not vice versa. In traditional C++, non-const references can bind to lvalues, and const references can bind to either lvalues or rvalues. However, there is nothing that can bind to a non-const rvalue (see~\cite{Stroustrup:2012:Cpp11} for more details). Therefore, a reference to a temporary and a constant are not supported in traditional C++.
 
-C++11 brings new concept called an rvalue reference, which bind only to rvalues (\cite{Gregorie:professionalcpp},~p.~277) but not to lvalues. Rvalue references use two ampersands (\&\&) rather than one (\&), and can be const and non-const (see~\ref{RvalueReference_Basic}), the same as lvalue references. Rvalue references can be used as a parameter to function by using two ampersands as part of the parameter specification such as type \&\& name. Then, this function can be only invoked when a parameter is a temporary object or constant value (see~\cite{Gregorie:professionalcpp},~p.~277). Otherwise, function that takes lvalue references will be invoked by lvalue (see~\ref{RvalueReference_Parameter}). However, while rvalue reference will never be bound to an lvalue, it is possible by a programmer to force a compiler to convert an lvalue into an rvalue (\cite{Gregorie:professionalcpp},~p.~278). This can be done by using new feature called \texttt{std::move()}, which added by C++11 (see~\ref{RvalueReference_Move}).
+C++11 brings new concept called an rvalue reference, which bind only to rvalues but not to lvalues. Rvalue references use two ampersands (\&\&) rather than one (\&), and can be const and non-const (see~\ref{RvalueReference_Basic}), the same as lvalue references  (for main information see~\cite{Gregorie:professionalcpp},~p.~277). Rvalue references can be used as a parameter to function by using two ampersands as part of the parameter specification such as type \&\& name. Then, this function can be only invoked when a parameter is a temporary object or constant value (more information can be found in~\cite{Gregorie:professionalcpp},~p.~277). Otherwise, function that takes lvalue references will be invoked by lvalue (see~\ref{RvalueReference_Parameter}). However, while rvalue reference will never be bound to an lvalue, it is possible by a programmer to force a compiler to convert an lvalue into an rvalue (see~\cite{Gregorie:professionalcpp},~p.~278). This can be done by using new feature called \texttt{std::move()}, which added by C++11 (see~\ref{RvalueReference_Move}).
 
-Rvalue references can also be used as a parameter to a function template but with nuance in terms of implementation. Calling the function with rvalue, leading the type parameter is deduced to be value (\cite{Williams:2012:CCA},~p.~318). However, if an lvalue is passed to the function, then the type parameter is deduced to be an lvalue reference (\cite{Williams:2012:CCA},~p.~318). Due to the function parameter is declared as rvalue reference (type \&\& name), that is, it treats as a reference to a reference for original reference type. Thus, a single function is able to accept both rvalue and lvalue parameters (see~\ref{RvalueReference_Template}). This is pretty useful to execute perfect forwarding, which means that a function template able to pass its arguments by to another functions while keeping the rvalue and lvalue nature of the function arguments (\cite{Williams:2012:CCA},~p.~319). This avoids excessive copying and avoids the template author having to write multiple overloads for rvalue and lvalue references. Therefore, this concept is essential for library features such as std::thread and std::function which pass arguments to another function (see~\ref{RvalueReference_Forwarding}).
+Rvalue references can also be used as a parameter to a function template but with nuance in terms of implementation. Calling the function with rvalue, leading the type parameter is deduced to be value. However, if an lvalue is passed to the function, then the type parameter is deduced to be an lvalue reference (for more details see~\cite{Williams:2012:CCA},~p.~318). Due to the function parameter is declared as rvalue reference (type \&\& name), that is, it treats as a reference to a reference for original reference type. Thus, a single function is able to accept both rvalue and lvalue parameters (see~\ref{RvalueReference_Template}). This is pretty useful to execute perfect forwarding, which means that a function template able to pass its arguments by to another functions while keeping the rvalue and lvalue nature of the function arguments (see\cite{Williams:2012:CCA},~p.~319 for more information). This avoids excessive copying and avoids the template author having to write multiple overloads for rvalue and lvalue references. Therefore, this concept is essential for library features such as \texttt{std::thread} and \texttt{std::function} which pass arguments to another function (see~\ref{RvalueReference_Forwarding}).
 
 One of the main reasons for introducing the rvalue reference is to implement move semantics, the next topic in this chapter.
 
 % Move semantic
-\section{Move Semantic}
+\section{Move semantic}
 \label{section: Move semantic}
-C++ is always used to create fast and robust programs that be trusted in different areas. However, one of the cases that lead to slow down the performance of many C++ programs is the creation of temporary objects. Usually, these temporary objects are created by copy constructor and assignment operator because they need a second object (temporary object) that should be equal to the original to accomplish operation; therefore, once the operation is done a program has two objects with the same value that resulting in expensive object copies.
+C++ is always used to create fast and robust programs that be trusted in different areas. However, one of the cases that lead to slow down the performance of many C++ programs is the creation of temporary objects. Usually, these temporary objects are created by copy constructor and assignment operator because they need a second object (temporary object) that should be equal to the original to accomplish operation (for addition information see~\cite{Stroustrup:2012:Cpp11}); therefore, once the operation is done a program has two objects with the same value that resulting in expensive object copies.
 
-C++11 introduces the concept of move semantic, which allows an object to be implemented by a move constructor and a move assignment operator (see \cite{Gregorie:professionalcpp},~p.~278). These concepts are used by a compiler when the second object is temporary object and is going to be destroyed after the copy or assignment. Both the move constructor and the move assignment operator transfers resources such as variables and pointers from the source object that is temporary object, to the new object (target object) and then reset the variables and pointers of the source object to null values. This would be similar to moving a file from one directory to another. By doing this, the ownership of the memory will be move from the source object (temporary object) to the new object (target object). In fact, move constructor and move assignment operator do a shallow copy of the resources and switch ownership of allocated memory (\cite{Gregorie:professionalcpp},~p.~280) to prevent memory leaks or dangling pointers. Thus, move semantic is a significant concept to increase the performance of programs by avoiding unnecessary copies that used in temporary objects.
+C++11 introduces the concept of move semantic, which allows an object to be implemented by a move constructor and a move assignment operator (see~\cite{Gregorie:professionalcpp},~p.~278). These concepts are used by a compiler when the second object is temporary object and is going to be destroyed after the copy or assignment. Both the move constructor and the move assignment operator transfers resources such as variables and pointers from the source object that is temporary object, to the new object (target object) and then reset the variables and pointers of the source object to null values. This would be similar to moving a file from one directory to another. By doing this, the ownership of the memory will be move from the source object (temporary object) to the new object (target object). In fact, move constructor and move assignment operator do a shallow copy of the resources and switch ownership of allocated memory (for more details see~\cite{Gregorie:professionalcpp},~p.~280) to prevent memory leaks or dangling pointers. Thus, move semantic is a significant concept to increase the performance of programs by avoiding unnecessary copies that used in temporary objects.
 
-The implementation of move semantics is supported by rvalue references, which should be added to class to implement move constructor and move assignment operator. Move constructor is pretty useful, and its purpose is to steal as many resources as it can from the original object, as fast as possible, because the original does not need to have a meaningful value any more, because it is going to be destroyed. Move constructor can be tested with class C that contains move constructor (see~\ref{MoveSemantic_Constructor}). If move constructor exists, it will be used by a compiler to move the objects instead of copy them and without needing for any deep copy (\cite{MSDN:2012:CppModern}). The move constructor will be invoked by a vector to move old vector to the new one and bigger vector as it shown in (see~\ref{MoveSemantic_Constructor}). The output of class C will be as follows:
+The implementation of move semantics is supported by rvalue references, which should be added to class to implement move constructor and move assignment operator. Move constructor is pretty useful, and its purpose is to steal as many resources as it can from the original object, as fast as possible, because the original does not need to have a meaningful value any more. Thus, it is going to be destroyed. Move constructor can be tested with class C that contains copy constructor and move constructor as follows:
 
+\begin{lstlisting}
+class C {
+public:
+  C(int);
+  C(C&& c);
+  // Remaining code omitted for brevity
+}
+\end{lstlisting}
+When move constructor exists, it will be used by a compiler to move the temporary objects instead of copy them and without needing for any deep copy. The implementation of move constructor and move assignment are as follows:
+\begin{lstlisting}
+C::C(int i) : n(i), p(new int[i]) {
+  std::cout << "Normal Constructor." << std::endl;
+}
+C::C(C&& c) : n(c.n), p(c.p)  {
+  std::cout << "Move constructor." <<std::endl;
+
+  //Reset the source object
+  c.n = 0;
+  c.p = nullptr;
+}
+\end{lstlisting}
+
+The move constructor will be invoked by a vector to move old vector to the new one and bigger vector as follows:
+\begin{lstlisting}
+int main() {
+  std::vector<C> v;
+  v.push_back(C(10));
+  v.push_back(C(20));
+}
+\end{lstlisting}
+
+Therefore, the output of class C will be as follows:
 \begin{enumerate}
 \item Constructor called.
 \item Move constructor called.
@@ -170,37 +203,73 @@ In the beginning, the vector is created and still empty, until first line of cod
 v.push_back(C(10));
 \end{lstlisting}
 
-Then, a new C object is created by invoking the normal constructor (1); after that, a vector will resize itself to accommodate a new object, which is going to push in. The C object that created will move into the vector by calling the move constructor (2). When the second line of code is executed:
+Then, a new C object is created by invoking the normal constructor~(1); after that, a vector will resize itself to accommodate a new object, which is going to push in. The C object that created will move into the vector by calling the move constructor~(2). When the second line of code is executed:
 \begin{lstlisting}
 v.push_back(C(20));
 \end{lstlisting}
 
-A second C object is also created by calling the normal constructor (3). At this point, the vector can store one element, so once again it is resized to accommodate a second object. When the resizing is done by the vector, the objects that previously have added require to be moved from the old vector to the new and larger vector, so this will require invoking the move constructor for objects that previously have added (4). And then, the new C object is moved into the vector by invoke move constructor (5)(for current example see \cite{Gregorie:professionalcpp},~p.~281). As a result, the move semantics is efficiently performed the insertion operation for vector by moving the elements rather than copying them.
+A second C object is also created by calling the normal constructor~(3). At this point, the vector can store one element, so once again it is resized to accommodate a second object. When the resizing is done by the vector, the objects that previously have added require to be moved from the old vector to the new and larger vector, so this will require invoking the move constructor for objects that previously have added~(4). And then, the new C object is moved into the vector by invoke move constructor~(5) (see~\ref{MoveSemantic_Constructor} for complete example)(for main information see~\cite{Gregorie:professionalcpp},~p.~281). As a result, the move semantics is efficiently performed the insertion operation for vector by moving the elements rather than copying them.
 
-The move assignment operator can also be tested by another class C (see~\ref{MoveSemantic_AssignmentOperator}), which has function called createObject() that create temporary C object (as a return type is always rvalue) and assign it to another object called c1.
+The move assignment operator can also be tested by another class C which contains copy assignment and move assignment as follows:
+\begin{lstlisting}
+class C {
+public:
+  C& operator=(const C&) { 
+  std::cout << "Copy assignment Operator." << std::endl; return *this; 
+}
+ C& operator=(C&& c) {
+  std::cout << "Move assignment operator." << std::endl;
+  if(this == &c) {    //check for self-assignment
+    return *this;
+  } else {
+   delete [] p; // Free the existing resource.
+
+  i = c.i;    // shallow copy of data
+  p = c.p;    // shallow copy of data
+
+  c.i = 0;  //Reset the source object
+  c.p = 0;  //Reset the source object
+  }
+  
+  return *this; 
+}
+C createObject() {
+  return C(1);
+}
+ // Remaining code omitted for brevity
+}
+\end{lstlisting}
+
+Class C has function called createObject() that create temporary C object ("as a return type is always rvalue") and assign it to another object called c1 as follows:
 \begin{lstlisting}
 c1 = createObject();
 \end{lstlisting}
-Resulting to invoke the move assignment operator (for more details see \cite{Gregorie:professionalcpp},~p.~282). The move assignment operator is also invoked by using \texttt{std::move()} (which converts from lvalue to rvalue) to assign one object that consider temporary object to a target object. On the other hand, the assignment \texttt{(c3 = c1)} will invoke the copy assignment operator because the object c1 is not temporary object, but a named object (see~\ref{MoveSemantic_AssignmentOperator}).
 
-Another situation that uses move semantic to increase the performance, when swap of elements are required. This can be done by using \texttt{std::move()}, which is the C++11 way to use move semantics explicitly and can be used to transfer the content of an object somewhere else, without doing a copy (\cite{Gregorie:professionalcpp},~p.~282). This will lead to raise the performance of programs that require a lot of swaps (see~\ref{MoveSemantic_Swap}).
+Resulting to invoke the move assignment operator (for more details see \cite{Gregorie:professionalcpp},~p.~282). The move assignment operator is also invoked by using \texttt{std::move()} ("which converts from lvalue to rvalue") to assign one object that consider temporary object to a target object, as follow:
+\begin{lstlisting}
+c2 = (std::move(c1)); // call move assignment operator
+\end{lstlisting}
+
+On the other hand, the assignment \texttt{(c3 = c1)} will invoke the copy assignment operator because the object c1 is not temporary object, but a named object (see~\ref{MoveSemantic_AssignmentOperator} for complete example).
+
+Another situation that uses move semantic to increase the performance, when swap of elements are required. This can be done by using \texttt{std::move()}, which is the C++11 way to use move semantics explicitly and can be used to transfer the content of an object somewhere else, without doing a copy (for addition information see~\cite{Gregorie:professionalcpp},~p.~282). This will lead to raise the performance of programs that require a lot of swaps (see~\ref{MoveSemantic_Swap}).
 
 % Generalized constant expressions
-\section{Generalized Constant Expressions}
+\section{Generalized constant expressions}
 \label{section: Generalized constant expressions}
 C++ had the notion of constant expressions such as 1+2, that always yield the same results at compile-time and at run-time. Such these expressions are improvement opportunities for a compiler to execute them at compile-time and gain the results in a program rapidly. Constant expressions required in some circumstance that should meet C++ specification, including enumeration values and specifying the bounds of an array. Currently, they can be expressed in C++ by using the keyword const, which could appear with variables, indicating that cannot be altered.
 
-However, the C++ rules concerning constant expressions are overly restrictive. They obligate some usage such as macros or template meta-programming instead of inline functions to guarantee the compile-time evaluation of constant expressions (\cite{Stroustrup:2012:Cpp11}). This could happen for example when using class template \texttt{std::numeric\_limit<>::max}. Seemingly, they should be used as an integral constant but in fact it is functionally equivalent to the macro INT\_MAX. Thus, they are not integral constant. This encourages users to favour macros when values require to be known at compile time. Another restriction could be found in C++, when return type of function is used for specifying the bounds of an array (\cite{Stroustrup:2012:Cpp11}). This causes compilation error because a compiler has no way of knowing the return function will be constant at runtime.
+However, the C++ rules concerning constant expressions are overly restrictive. They obligate some usage such as macros or template meta-programming instead of inline functions to guarantee the compile-time evaluation of constant expressions (for more details see~\cite{Stroustrup:2012:Cpp11}). This could happen for example when using class template \texttt{std::numeric\_limit<>::max}. Seemingly, they should be used as an integral constant but in fact it is functionally equivalent to the macro INT\_MAX. Thus, they are not integral constant. Therefore, this encourages users to favour macros when values require to be known at compile time. Another restriction could be found in C++, when return type of function is used for specifying the bounds of an array (for further information see~\cite{Stroustrup:2012:Cpp11}). This causes compilation error because a compiler has no way of knowing the return function will be constant at runtime.
 
-Due to these restriction, C++11 has extended the constant expressions by introducing the "constexpr" keyword that dubbed generalized constant expression (\cite{Williams:2012:CCA},~p.~324). The constexpr keyword allows certain computations happen at compile-time instead of run-time when the program itself is run. This has apparent benefit in terms of performance, due to anything could be done at a compiler-time, will be done once, and instead of every time the program runs. Hence, a program takes the advantage of compile-time, and leading to increase performance of a program.
+Due to these restriction, C++11 has extended the constant expressions by introducing the "constexpr" keyword that dubbed generalized constant expression. The constexpr keyword allows certain computations happen at compile-time instead of run-time when the program itself is run (for addition information see~\cite{Williams:2012:CCA},~p.~324). This has apparent benefit in terms of performance, due to anything could be done at a compiler-time, will be done once, and instead of every time the program runs. Hence, a program takes the advantage of compile-time, and leading to increase performance of a program.
 
-\subsection{Constant-Expression Data}
+\subsection{Constant-expression data}
 \label{subsection: constant-expression data}
-The constexpr keyword can be applied to variables and data members. Variables or data members that are declared with this keyword are named a constant-expression value (\cite{Williams:2012:CCA},~p.~324), and they only allowed initializing with constant expressions. Variables and data members that declared with constexpr keyword have the same behaviour as if they were declared const. However, there is one difference namely, they need initialization before they are used and should be a constant-expression to guarantee that constexpr variables and data members can always be used as a constant expression (see~\ref{Constexpr_Data}). 
+The constexpr keyword can be applied to variables and data members. Variables or data members that are declared with this keyword are named a constant-expression value, and they only allowed initializing with constant expressions (for main information see~\cite{Williams:2012:CCA},~p.~324). Variables and data members that declared with constexpr keyword have the same behaviour as if they were declared const. However, there is one difference namely, they need initialization before they are used and should be a constant-expression to guarantee that constexpr variables and data members can always be used as a constant expression (see~\ref{Constexpr_Data}). 
 
-\subsection{Constant-Expression Functions}
+\subsection{Constant-expression functions}
 \label{Constant Expression Functions}
-A constant expression function is a function that can be performed at compile time by means of inlining and assessing the result at compile-time. Declaring a function as constexpr enforces a few requirements that must be followed regarding as a constant-expression function (\cite{Gregorie:professionalcpp},~p.~287); otherwise, declaring it constexpr is a compilation error. The requirement necessary for a constexpr function are as follows:
+A constant expression function is a function that can be performed at compile time by means of inlining and assessing the result at compile-time. Declaring a function as constexpr enforces a few requirements that must be followed regarding as a constant-expression function (see~\cite{Gregorie:professionalcpp},~p.~287 for further information); otherwise, declaring it constexpr is a compilation error. The requirement necessary for a constexpr function are as follows:
 
 \begin{enumerate}
 \item The body of function must consist of single return statement and must be in form {return expression ;} where expression must evaluate to a constant expression after substitution.
@@ -214,12 +283,38 @@ A constant expression function is a function that can be performed at compile ti
 \item If the constexpr function is defined as member of a class, the function cannot be virtual.
 \end{enumerate}
 
-Applying these requirement enable a compiler to evaluate a constexpr function at compile time. Thus, it becomes possible to use the return type of constexpr function to specifying the size of an array (see~\ref{Constexpr_ArraySize}). However, recursion in this type of function is not restricted and can be applied by using the ternary operator (? :) as a single return statement (\cite{Allain:2011:FutureCpp}). Hence, a compiler can optimize away the call and make the computation all at runtime. In this case, by permitting more complex computation, constexpr acts differently than a just in-line function, because an in-line recursive function is not possible, lead to consider function argument is itself a constexpr and be computed at compile time (see~\ref{Constexpr_Recursion}). Last but not least, constexpr function can also be involved at runtime (\cite{Allain:2011:FutureCpp}). This can be done when the arguments to the function are declared as non-constant. Therefore, there is not required for creating separate functions to be executed at compile time and run time as long as it offers a convenient way to define function that work at compile time as well as runtime (see~\ref{Constexpr_FunctionRuntime}).
+Applying these requirement enable a compiler to evaluate a constexpr function at compile time. Thus, it becomes possible as follows to use the return type of constexpr function to specifying the size of an array (see~\ref{Constexpr_ArraySize} for complete example).
+\begin{lstlisting}
+constexpr int getsize (int i) { return i * i;}
+int main() {
+  int array[getsize(3) + 6] = {0};
+  // Remaining code omitted for brevity
+}
+\end{lstlisting}
 
-\subsection{Constant-Expression Constructors}
+However, recursion in this type of function is not restricted and can be applied ("evaluate at compile-time") by using the ternary operator (? :)(for main information see~\cite{Allain:2011:FutureCpp}) as a single return statement as follows:
+\begin{lstlisting}
+constexpr int fact (int n) {
+  return n > 0 ? n * fact( n - 1 ) : 1; // recursion function
+}
+\end{lstlisting}
+
+Hence, a compiler can optimize away the call and make the computation all at runtime. In this case, by permitting more complex computation, constexpr acts differently than a just in-line function, because an in-line recursive function is not possible, lead to consider function argument is itself a constexpr and be computed at compile time (see~\ref{Constexpr_Recursion} for complete example). Last but not least, constexpr function can also be involved at runtime (for further information see~\cite{Allain:2011:FutureCpp}). This can be done when the arguments to the function are declared as non-constant. Therefore, there is not required for creating separate functions to be executed at compile time and run time as long as it offers a convenient way to define function that work at compile time as well as runtime (see~\ref{Constexpr_FunctionRuntime}).
+
+\subsection{Constant-expression constructors}
 \label{subsection: Constant Expression Constructors}
-A constant expression constructor allows creating user-defined types (such class) as constant expression (\cite{Gregorie:professionalcpp},~p.~287). This can be done by defining a constructor with constexpr keyword. Defining constexpr constructor must also meet following criteria:
+A constant expression constructor allows creating user-defined types (such class) as constant expression (\cite{Gregorie:professionalcpp},~p.~287). This can be done by defining a constructor with constexpr keyword as follows:
+\begin{lstlisting}
+class Rectangle {
+public:
+  constexpr Rectangle(int i, int j) : width(i), height(j) {}
+  constexpr int get_width() { return width;}
+  constexpr int get_height() { return height;}
+  // Remaining code omitted for brevity
+}
+\end{lstlisting}
 
+ Defining constexpr constructor must also meet following criteria:
 \begin{enumerate}
 \item	The body of constructor must be empty.
 \item	All arguments of constructor must be literal types or references to literal types.
@@ -228,16 +323,21 @@ A constant expression constructor allows creating user-defined types (such class
 \item	All data members must be initialized with constant expressions.
 \end{enumerate}
 
-The constant expression evaluation happens in the member initializations which must fit the requirement (arguments must be constants) to evaluate as constants. An object that construct with a constant-expression constructor and constant expression arguments, is named as user-defined literal (see~\ref{Constexpr_ConstantConstructor}). Thus, it can be used at compile time.
+The constant expression evaluation happens in the member initializations which must fit the requirement ("arguments must be constants") to evaluate as constants. An object that construct with a constant-expression constructor and constant expression arguments, is named as user-defined literal and can be used at compile time to specify the bound of array via its methods as follows:
+\begin{lstlisting}
+constexpr Rectangle rect(2,3);
+constexpr int multidimensional[rect.get_width()][rect.get_height()] = {{0}};
+\end{lstlisting}
+For complete example about constant expression constructors (see~\ref{Constexpr_ConstantConstructor}).
 
 % modification of the definition of POD
-\section{Modification of the Definition of Plain Old Data}
+\section{Modification of the definition of plain old data}
 \label{section: Modification of the definition of plain old data}
-Plain old data~(POD) is a data structure that represented with fundamental types, without using the object oriented features (\cite{Stroustrup:2012:Cpp11}), to suggest areas of essential compatibility between comparable data types in C and C++. A POD type in C++ is classified as either a scalar type or a POD class. The scalar type collectively refers to the fundamental types of C++ such integral types (int, char), floating types (float, double), enumeration types and pointer types (\cite{Stroustrup:2012:Cpp11}). Whereas the POD class has no non-static data (including arrays) of any pointer-to-member type, no non-static data~(including arrays) of any non-POD class type, no user-defined copy assignment operator, nor user-defined destructor (\cite{MSDN:2012:CppModern}). In addition, a POD class has to be an aggregate, meaning it has no private or protected not static data members, no user-declared constructors, no base classes and no virtual functions.
+Plain old data~(POD) is a data structure that represented with fundamental types, without using the object oriented features, to suggest areas of essential compatibility between comparable data types in C and C++ (for addition information see~\cite{Stroustrup:2012:Cpp11}). A POD type in C++ is classified as either a scalar type or a POD class. The scalar type collectively refers to the fundamental types of C++ such integral types (int, char), floating types (float, double), enumeration types and pointer types. Whereas the POD class has no non-static data (including arrays) of any pointer-to-member type, no non-static data~(including arrays) of any non-POD class type, no user-defined copy assignment operator, nor user-defined destructor (see~\cite{MSDN:2012:CppModern} for more details). In addition, a POD class has to be an aggregate, meaning it has no private or protected not static data members, no user-declared constructors, no base classes and no virtual functions.
 
 In the traditional C++, the actual definition of POD is based on a set of restrictions that should be satisfied for defining POD class or structure; otherwise, it is not POD type. Therefore, C++ able to distinguish between POD types and non-POD types. However, in some situations, this distinction is limited, because some non-POD types have similar properties as POD types. Thus, they have the same behaviour.
 
-C++11 relaxed some of the POD rules by dividing the POD concept into new type categories: trivial classes and standard layout classes (\cite{MSDN:2012:CppModern}) and their definition no longer depends on the definition of aggregate. A trivial class can be statically initialized and can be copied via \texttt{memcpy()}, instead of having to use a copy constructor. The lifetime of a trivial type begins when its storage is defined, not when a constructor completes. The trivial class is a class that:
+C++11 relaxed some of the POD rules by dividing the POD concept into new type categories: trivial classes and standard layout classes and their definition no longer depends on the definition of aggregate (for more information see~\cite{MSDN:2012:CppModern}). A trivial class can be statically initialized and can be copied via \texttt{memcpy()}, instead of having to use a copy constructor. The lifetime of a trivial type begins when its storage is defined, not when a constructor completes. The trivial class is a class that:
 \begin{enumerate}
 \item	Has a trivial default constructor. 
 \item	Has a trivial copy and move constructor.
@@ -245,9 +345,9 @@ C++11 relaxed some of the POD rules by dividing the POD concept into new type ca
 \item	Has a trivial destructor.
 \end{enumerate}
 
-Additionally, trivial class has no virtual member functions of the class and no virtual base classes (\cite{ISO:2011:Cpplanguage},~p.~215). Hence, it can have user-defined constructors as long as above requirements are available (see~\ref{POD_TrivialClass}).
+Additionally, trivial class has no virtual member functions of the class and no virtual base classes (see \cite{ISO:2011:Cpplanguage},~p.~215 for further information). Hence, it can have user-defined constructors as long as above requirements are available (see~\ref{POD_TrivialClass}).
 
-Standard layout is intended to capture the first intent by creating something with a layout the same as getting in C. A standard layout class is a class (\cite{ISO:2011:Cpplanguage},~p.~216) that has follows requirements:
+Standard layout is intended to capture the first intent by creating something with a layout the same as getting in C. A standard layout class is a class (for more information\cite{ISO:2011:Cpplanguage},~p.~216) that has follows requirements:
 
 \begin{enumerate}
 \item	Has no virtual functions and no virtual base classes.
@@ -256,11 +356,11 @@ Standard layout is intended to capture the first intent by creating something wi
 \item	It has no base classes of the same type as the first defined non-static data member (see~\ref{POD_StandardLayoutClass}).
 \end{enumerate}
 
-A class or structure is considered POD type if it is trivial, standard-layout, and all of its non-static data members and base classes are PODs (see~\ref{POD_StandardLayoutandTrivialClass}). By separating trivial and standard-layout concepts, it becomes possible to give up one without omitting other. A class that has copy  and move constructors could not be trivial, but it may be may be standard-layout and hence interrupt with C. Likewise, a class that has  public and private non-static data members may not be standard-layout, but it could be trivial and hence, can be copied via \texttt{memcpy()}.
+A class or structure is considered POD type if it is trivial, standard-layout, and all of its non-static data members and base classes are PODs (see~\ref{POD_StandardLayoutandTrivialClass}). By separating trivial and standard-layout concepts, it becomes possible to give up one without omitting other (see~\cite{Stroustrup:2012:Cpp11} for more details). A class that has copy  and move constructors could not be trivial, but it may be may be standard-layout and hence interrupt with C. Likewise, a class that has  public and private non-static data members may not be standard-layout, but it could be trivial and hence, can be copied via \texttt{memcpy()}.
 
 \section{Summary}
 \label{sec: Summary}
-This chapter explained how a runtime can be improved by using several features that added by C++11.  These features provide new mechanism that make program faster than before through avoiding duplicate copies, providing new concepts that allows some computation and initialization to be done in compile time rather than runtime and using new POD structure to allocate memory efficiently.
+This chapter explained how a runtime can be improved by using several features that added by C++11.  These features provide new mechanism that make program faster than before through avoiding duplicate copies, providing new concepts that allows some computation and initialization to be done in compile time rather than runtime and using new POD structure to allocate memory efficiently.Providing such features make the language suitable for applications that require high performance and running operations fast.
 
 % chapter Core Language Usability Enhancements
 \chapter{Core Language Usability Enhancements}
@@ -271,7 +371,7 @@ C++11 adds a lot of new features that make programming more comprehensible and u
 
 The topics of this chapter include uniform initialization, initializer lists, auto keyword, decltype keyword, alternative function syntax, range-based for statement, lambda expression, delegating constructors, override keyword, final keyword, null pointer constant, strongly typed enumerations, explicit conversion operators and template alias.
 
-\section{Uniform Initialization}
+\section{Uniform initialization}
 \label{section:Uniform initialization}
 C++ provides various ways to initialize objects (built-in types and user-defined types) depending on their types and the initialization context. The fundamental types such as variables and pointers can be initialized by using the equal sign. Initialization of data members in classes, which have user-defined constructor require a constructor's member initialization list for their data members, and initialization of objects are included in parentheses in the objects declaration. Finally, initialization of aggregates types require braces, except string literals that may also need a pair of double quotes to be initialized  (\cite{Stroustrup:2012:Cpp11}). Meaning that there is no general way to initialize every type exists in C++. Therefore, It is difficult for ordinary programmers to remember the rules for initialization and to choose the appropriate way according to data types, because when misused could leads to the error messages vague. Furthermore, there is no proper way to initialize arrays that are member of a class, nor dynamically allocated arrays (\cite{Stroustrup:2012:Cpp11}). And finally, there is no convenient form to initialize the elements of a standard library container.
 
@@ -285,7 +385,7 @@ In traditional C++, narrowing can be performed implicitly, for example, assignin
 The notion of uniform initialization can be effectively used to initialize the standard library containers and user-defined constructors. This can be done via a new template class that added by C++11 called std::initializer\_list, the next topic in this chapter.
 
 % Initializer lists
-\section{Initializer Lists}
+\section{Initializer lists}
 \label{section: Initializer lists}
 C++ has partial support for initializer lists that can be applied for simple aggregate data types such C-style arrays and structs. However, this concept cannot be used to initialize classes that have user-defined constructors (\cite{Stroustrup:2012:Cpp11}). Furthermore, standard library containers are not allowed to be initialized by using this partial initialize lists.
 
@@ -294,7 +394,7 @@ C++11 extends initializer lists that can work perfectly with all classes that ha
 The initializer lists can be also used explicitly with function (\cite{Reddy:2011:API},~p.~16), which take it as a single argument and then can be invoked by uniform initialization to do specific purpose (see~\ref{InitializerList_Function}).
 
 % Auto keyword
-\section{Type Inference-Auto Keyword}
+\section{Type inference-auto keyword}
 \label{section: Auto keyword}
 Many programming languages such Java, C and traditional C++ obligate a programmer to specify data type of variables before initializing and using them in a program. However, with the advent of template types and meta-programming techniques, type names become extremely long and complicated (\cite{Stroustrup:2012:Cpp11}), especially, determining return value of function that used with template classes or using specified names for iterators combined with template classes. In these cases, the data types required for these declarations become complex, ambiguous, and cannot be easily determined by programmers.
 
@@ -325,14 +425,14 @@ Code of achieving that can be shorter and more robust when a programmer use auto
 The use of keyword has significant role to support generic programming, particularly, template classes. It deduces the type of a variable  during compile-time that depends critically on template argument (\cite{Stroustrup:2012:Cpp11}) in such easy way that could not be figure out by a programmer (see~\ref{AutoKeyword_Template}). The auto keyword has another different usage when it appears with alternative function syntax, which added by C++11. It indicates that function prototype is using alternative function syntax (see~\ref{AlternativeFunction_Syntax}) (\cite{Gregorie:professionalcpp},~p.~710). It could also be served as a place holder for the return type that is deduced or provided later by the alternative function syntax (see~\ref{AlternativeFunction_Template}). The auto keyword is widely used with lambda function, which also added by C++11. As return type of lambda functions is not specified in many cases, the auto keyword uses to deduce return type of function properly (\cite{Gregorie:professionalcpp},~p.~464), depending on expression that used as return type (see~\ref{Lambda_ImplicitReturn}).
 
 % Decltype
-\section{Type Inference–Decltype Keyword}
+\section{Type inference–decltype keyword}
 \label{section: Decltype keyword}
 C++11 introduces another new type inference called decltype (declared type) (\cite{Stroustrup:2012:Cpp11}), which is used to determine the type of an expression at compile-time. The decltype keyword takes as argument an expression, and returns the type associated with that expression. The decltype keyword can be used to create different data types depending on an expression that has been used as argument (\cite{Prata:2012:Cpp},~p.~439). If expression is a variable without parenthesized, then the data type will be the same as the expression type (see~\ref{DecltypeKeyword_Variable}). If expression is lvalue (which mean that variable with parenthesized), then the data type will be a reference to that expression type (see~\ref{DecltypeKeyword_lvalue}). Finally, if expression is function call (\cite{Prata:2012:Cpp}, p.439), the data type will be the same as function return type (see~\ref{DecltypeKeyword_Function}).
 
 The decltype keyword is pretty useful to deduce type for combination of expressions that could not known by a programmer. This could happen in generic programming, particularly, template classes because the data type is not defined until compile-time (\cite{Stroustrup:2012:Cpp11}). Thus, the decltype keyword allows compiler to go through a check-list to determine the type of expression (see~\ref{DecltypeKeyword_Template}). The benefit of decltype keyword can also be shown, when it uses as return type for alternative function syntax (which added by C++11) because a return type is not specified in this type of function within templates (\cite{Gregorie:professionalcpp},~p.~709). Thus, decltype is used as return type to deduce the type from the context of expression (see~\ref{AlternativeFunction_Template}). 
 
 % alternative function
-\section{Alternative Function Syntax}
+\section{Alternative function syntax}
 \label{section: Alternative function syntax}
 A function syntax that was designed for C language, is yet using by traditional C++ (\cite{Gregorie:professionalcpp},~p.~304). This old syntax raises some problems and cannot be quite enough for new functionality that has been added to C++11, including deducing return type in the context of declaration. C++11 introduces a new syntax for declaring functions using a different method to the one that is traditional in C and C++. This notation is known as alternative function syntax, and involves placing the return type at the end of the function signature instead of at the start (\cite{Gregorie:professionalcpp},~p.~304). Additionally, the auto keyword is placed at the start for the name of the return type, indicating that the prototype is using the alternative function syntax (see~\ref{AlternativeFunction_Syntax}).
 
@@ -351,7 +451,7 @@ template <class T1, class T2>  decltype( x + y ) add(T x, U y)
 The benefit of alternative function syntax can be gained here by allowing the return type \texttt{decltype(x + y)} is specified after the parameter list (\cite{Stroustrup:2012:Cpp11}). Hence, x and y are in the scope and can be used by decltype to deduce return type (see~\ref{AlternativeFunction_Template}). As a result, alternative function syntax and decltype keyword are very useful in the context of specifying the return type of template functions, when a return type is not well known by a programmer. Alternative function syntax is not mainly about templates and type deduction, but also about the scope. With this new syntax, when the scope is written to define function within class, there is no need to add it again to return type because return type goes at the end of the function (\cite{Allain:2011:FutureCpp}). Thus, a compiler can reach the return value as it already knows the function is part of class (see~\ref{AlternativeFunction_Scope}).
 
 % Range-based for statement
-\section{Range-Based for Statement}
+\section{Range-based for statement}
 \label{section: Range-based for statement}
 C++ supports three types of looping structures namely while loop, do while loop and for loop (\cite{Gregorie:professionalcpp},~p.~20). In some cases, such iterating over the elements of standard library containers including vector and map requires a lot of codes to accomplish iteration properly. Because using these types require create a new variable to store the iterators, and then dereference the iterators using the * operator to get the actual value (\cite{Horstmann:2008:BC},~p.~809), as well as initializing the beginning and ending conditions in these forms of loops.
 
@@ -370,7 +470,7 @@ For(base_type & variable : container)
 This style uses reference to be able for modifying the contents of list (see~\ref{RangeFor_Array}). The range-based for statement also supports the notion of uniform initialization (\cite{Prata:2012:Cpp},~p.~233), for instance, a programmer can simply print a lot of numbers by using this form of loop with brace-initialization. (see~\ref{RangeFor_UniformInitialization}).
 
 % Lambda Expression
-\section{Lambda Expressions}
+\section{Lambda expressions}
 \label{section: Lambda Expressions}
 Traditional C++ includes useful generic functions such as std::for\_each and std::transform, which can be very handy to deal with standard library algorithms. Unfortunately, they can also be quite cumbersome to use, particularly if a functor (\emph{functors also called function object, are objects that can be handled though they are a function or function pointer, they are declared by defining member function operator() in class}), that would be used as predicates for STL algorithms, are unique to the particular function (\cite{Allain:2011:FutureCpp}), because using functor once in specific place seems overkill to be writing whole class just do something trivial and one off. Another reason is that, the function that used by C++ programmers, has C style that allow each function name to do specific purpose in a program (\cite{Cppreference:2012:Cpp11}), meaning that it must be written separately for each various usage.
 
@@ -411,56 +511,55 @@ As a result, a program may not include all these options because they are primar
 
 The lambda expression can be used to print simple string without having any parameters and return type (\cite{Gregorie:professionalcpp},~p.~464). This can be achieved by parentheses\texttt{()} at the end of the lambda body, which causes to execute the lambda expression immediately (see~\ref{Lambda_Invocation}). It is also possible to store pointer to lambda expression and execute it by the function pointer (see~\ref{Lambda_PointerFunction}).
 
-\subsection{Lambda Expressions as Return Type}
+\subsection{Lambda expressions as return type}
 \label{subsection: Lambda Expressions as Return Type}
 \texttt{Std::function$<>$} class template, defined in the \texttt{$<$functional$>$}, is polymorphic function object wrapper and is considered one of the great new features that introduced by C++11 (\cite{Gregorie:professionalcpp},~p.~569), due to its ability to wrap to callable objects (function pointers, function object and lambdas) as long as there is compatibility in terms of argument and return type with those of the wrapper. Therefore, the new \texttt{std::function} is an extremely useful way for passing around lambda functions as return values (\cite{Josuttis:2012:CppStandard},~p.~31) and by doing that, lambda expressions can be returned from ordinary functions (see~\ref{Lambda_FunctionReturnType}).
 
-\subsection{Lambda Expressions as Parameters}
+\subsection{Lambda expressions as parameters}
 \label{subsection: Lambda Expressions as Parameters}
 The \texttt{std::function} can be also used to pass around lambda expression as parameters. Thus, it is possible to defining ordinary functions that take lambda expression as parameter to implement callback functions (see~\ref{Lambda_FunctionParameter}) (\cite{Allain:2011:FutureCpp}). Using lambda expression as parameters has significant impact over standard library algorithm and without doubt, it is the biggest beneficiaries of lambda expressions, because previously, using algorithms such as \texttt{std::sort} and \linebreak \texttt{std::for\_each} require writing separate code to accomplish their purposes. But now, lambda can be placed as third parameter to achieve the same purpose (\cite{Gregorie:professionalcpp},~p.~467) without writing separate functions (see~\ref{Lambda_Foreach}), (see~\ref{Lambda_Sort}). Thus, lambda expression is significant step forward, and improves code clarity and makes programming easier.
 
 % Delegating Constructors
-\section{Delegating Constructors}
+\section{Delegating constructors}
 \label{section: Delegating constructors}
-C++ does not furnish a mechanism by which one constructor is able to delegate another constructor in the same class.  As a consequence, the default arguments cannot be used by class's constructor(s) for initializing class members (\cite{Stroustrup:2012:Cpp11}). Therefore, classes should provide multiple constructors, each with a distinct parameter(s). Those constructors may often execute similar initialization operations, and this leads to force a programmer to duplicate same pieces of code in each constructor as well as duplication in object level. In addition to that, other object oriented languages, such as Java, permit constructor to delegate another of the class's constructor(s). As Java is often used as educational and basic language, increasing C++ newcomers with prior experience of Java are often find substantial differences between these languages (\cite{Stroustrup:2012:Cpp11}). Hence, huge mistake could happen when attempting to write C++ code as same as Java's behaviour.
+C++ does not furnish a mechanism by which one constructor is able to delegate another constructor in the same class.  As a consequence, the default arguments cannot be used by class's constructor(s) for initializing class members (see~\cite{Stroustrup:2012:Cpp11}). Therefore, classes should provide multiple constructors, each with a distinct parameter(s). Those constructors may often execute similar initialization operations, and this leads to force a programmer to duplicate same pieces of code in each constructor as well as duplication in object level. In addition to that, other object oriented languages, such as Java, permit constructor to delegate another of the class's constructor(s). As Java is often used as educational and basic language, increasing C++ newcomers with prior experience of Java are often find substantial differences between these languages (for more information see~\cite{Stroustrup:2012:Cpp11}). Hence, huge mistake could happen when attempting to write C++ code as same as Java's behaviour.
 
-C++11 provide mechanism of delegating constructor, which permit constructor to call another constructor from the same class (\cite{Gregorie:professionalcpp}, p.159). This feature allows a programmer to define general and desirable initializations in one constructor dubbed target constructor, which can be called by delegating constructor to do the initialization. Delegating and target constructor are presented in the same interface as other constructors do. Target constructors do not require particular treating to become the target of a delegating constructor. In fact, they are chosen by overload resolution. When the execution of target constructor is completed, controls get back to the delegating constructor (\cite{Overland:2011:CWF},~p.~313). A delegating constructor can also be used as the target constructor for one or more delegating constructors but a programmer should be aware about a recursive chain of delegation which could lead to compiler error. Delegating constructors makes writing overloaded constructors easier and without duplicating the common code (\cite{Gregorie:professionalcpp},~p.~159). It also makes programs more readable and maintainable that may lead to decrease the chance of error (see~\ref{DelegatingConstructor}).
+C++11 provide mechanism of delegating constructor, which permit constructor to call another constructor from the same class. This feature allows a programmer to define general and desirable initializations in one constructor dubbed target constructor, which can be called by delegating constructor to do the initialization (for further information see~\cite{Gregorie:professionalcpp}, p.159). Delegating and target constructor are presented in the same interface as other constructors do. Target constructors do not require particular treating to become the target of a delegating constructor. In fact, they are chosen by overload resolution. When the execution of target constructor is completed, controls get back to the delegating constructor (for addition information see~\cite{Overland:2011:CWF},~p.~313). A delegating constructor can also be used as the target constructor for one or more delegating constructors but a programmer should be aware about a recursive chain of delegation which could lead to compiler error. Delegating constructors makes writing overloaded constructors easier and without duplicating the common code. It also makes programs more readable and maintainable that may lead to decrease the chance of error (see~\ref{DelegatingConstructor}).
 
 % Override keyword
-\section{Override Keyword}
+\section{Override keyword}
 \label{section: Override keyword}
-C++ Inheritance is one of the most significant mechanisms that allows defining a class in terms of another class. Thus, it allows derived classes to reuse functions and data members that exist in base classes. The functions that will be used by derived classes must declare as virtual functions, to prevent a compiler from creating new versions of these functions (\cite{Stroustrup:2012:Cpp11}). Then, specific implementation of functions can be added or replaced by derived class to become appropriate for doing particular purpose. However, sometimes, when working with derived classes, it is possible to inadvertently create a new virtual function rather than overriding a function from the base class. This could occur when the function prototype is not properly matched with the one in base class or when adding a new parameters to a function in base class but forget to update the version in derived class (\cite{Stroustrup:2012:Cpp11}). This is very costly and not expresses programmer's intent. Furthermore these types of problems can be hard to find by many programmers.
+C++ Inheritance is one of the most significant mechanisms that allows defining a class in terms of another class. Thus, it allows derived classes to reuse functions and data members that exist in base classes. The functions that will be used by derived classes must declare as virtual functions, to prevent a compiler from creating new versions of these functions. Then, specific implementation of functions can be added or replaced by derived class to become appropriate for doing particular purpose. However, sometimes, when working with derived classes, it is possible to inadvertently create a new virtual function rather than overriding a function from the base class. This could occur when the function prototype is not properly matched with the one in base class or when adding a new parameters to a function in base class but forget to update the version in derived class (see~\cite{Stroustrup:2012:Cpp11} for more information). This is very costly and not expresses programmer's intent. Furthermore these types of problems can be hard to find by many programmers.
 
-C++11 adds a new keyword called override that allows a programmer to explicitly mark virtual functions that will be overridden. Override keyword lets the programmer to be more explicit about overriding, and if function is not override or has wrong signature, the compiler will complain about that (\cite{Gregorie:professionalcpp},~p.~246). Thus, this provides more control over functions and help to prevent inadvertent errors (see~\ref{OverrideKeyword}).
+C++11 adds a new keyword called override that allows a programmer to explicitly mark virtual functions that will be overridden. Override keyword lets the programmer to be more explicit about overriding, and if function is not override or has wrong signature, the compiler will complain about that (for main infromation see~\cite{Gregorie:professionalcpp},~p.~246). Thus, this provides more control over functions and help to prevent inadvertent errors (see~\ref{OverrideKeyword}).
 
 % Final keyword
-\section{Final Keyword}
+\section{Final keyword}
 \label{section: Final keyword}
-There are occasionally times when a programmer may wants to prevent virtual function from being overridden. This feature is not supported by C++ because derived classes will inherit all functionality that is possible from base classes (\cite{Stroustrup:2012:Cpp11}). C++11 introduces the ability to prevent inheriting from classes and then functions cannot be overridden in derived classes (\cite{Gregorie:professionalcpp},~p.~219). This can be achieved by marking a function with final keyword to make it non-override-able. This can also be applied to class to prevent it from being inherited (see~\ref{FinalKeyword}). Thus, any attempt to override final functions or class will result in a compiler error.
+There are occasionally times when a programmer may wants to prevent virtual function from being overridden. This feature is not supported by C++ because derived classes will inherit all functionality that is possible from base classes (see~\cite{Stroustrup:2012:Cpp11} for further information). C++11 introduces the ability to prevent inheriting from classes and then functions cannot be overridden in derived classes (for addition information see~\cite{Gregorie:professionalcpp},~p.~219). This can be achieved by marking a function with final keyword to make it non-override-able. This can also be applied to class to prevent it from being inherited (see~\ref{FinalKeyword}). Thus, any attempt to override final functions or class will result in a compiler error.
 
 % Null pointer constatn
-\section{Null Pointer Constant}
+\section{Null pointer constant}
 \label{section: Null pointer constant}
-C++ language has the pre-processor macro called NULL, which was used with a pointer to refer that it is not pointing to anywhere. The problem with NULL is that, underneath it is just a plain 0. This raise some problems, for instance, consider a situation when a programmer defines two functions with the same name and one has int argument and other has a pointer argument. Then, calling the function with NULL parameter cause cease a program, because it cannot decide if NULL is actually a pointer (because it is a 0) or an integer (because NULL is a 0) (\cite{Gregorie:professionalcpp}, p.304). Thus, this ambiguity causes a compiler error.
+C++ language has the pre-processor macro called NULL, which was used with a pointer to refer that it is not pointing to anywhere. The problem with NULL is that, underneath it is just a plain 0. This raise some problems, for instance, consider a situation when a programmer defines two functions with the same name and one has int argument and other has a pointer argument. Then, calling the function with NULL parameter cause cease a program, because it cannot decide if NULL is actually a pointer (because it is a 0) or an integer (because NULL is a 0) (see~\cite{Gregorie:professionalcpp}, p.304 for more details). Thus, this ambiguity causes a compiler error.
 
-C++11 solves this problem by introducing "nullptr" keyword, which is a null pointer constant that unambiguously represents a pointer pointing to nowhere (\cite{Gregorie:professionalcpp},~p.~305); no zero at all. It considers a strongly typed null pointer and can be passed as a null pointer to a function without ambiguity (see~\ref{NullPointer}). 
+C++11 solves this problem by introducing "nullptr" keyword, which is a null pointer constant that unambiguously represents a pointer pointing to nowhere (more information can be found in~\cite{Gregorie:professionalcpp},~p.~305); no zero at all. It considers a strongly typed null pointer and can be passed as a null pointer to a function without ambiguity (see~\ref{NullPointer}). 
 
 % Enumerations
-\section{Strongly Typed Enumerations}
+\section{Strongly typed enumerations}
 \label{section: Strongly typed enumerations}
 Enumerations of traditional C++ are not type-safe, and have some problems may cause catastrophic when used in life-critical software. One of these problems is implicit conversion between types. Although enumerations in C++ have some type safety features including preventing directly assign from one enumeration type to another and not implicit conversion from an integer to enumeration type, but the value or object of an enumerator is allowed to convert implicitly to integer (\cite{Overland:2011:CWF}, p.265). Another problem is that, the underlying type of an enum cannot be specified explicitly by programmers. Therefore, it cannot be determined how much space will be used by the representation of an enumeration variable. Finally, enumerations in C++ are not strongly scoped and could raise some issues (\cite{Stroustrup:2012:Cpp11}) such as conflict can happen when two enumerations have enumerators with the same name in the same cope.
 
 C++11 provides a new form of enumeration which combining enum with class and is declared by using keyword "enum class" and is used to handle the problems that existed in traditional C++ (\cite{Gregorie:professionalcpp},~p.~14).  Implicit conversions to or from an integer is not allowed in this type and any attempt doing that cause a compiler-error (see~\ref{EnumerationClass_Implicit}). The underlying type of enum class is clearly specified, by default is integer. A programmer can explicitly specify another type by writing type following the enumeration name (see~\ref{EnumerationClass_Explicit}) (\cite{Gregorie:professionalcpp},~p.~15). C++11 Enumerations have class scope for their enumerators. This eliminates a possible source of name conflicts between enumerators from different enum definitions (see~\ref{EnumerationClass_Conflict}).
 
-
-\section{Explicit Conversion Operators}
+\section{Explicit conversion operators}
 \label{section: Explicit Conversion Operators}
 C++ introduced the explicit keyword to inhibit single argument constructors from being applied implicitly as conversion operators (\cite{Gregorie:professionalcpp},~p.~199). Thus, C++ supports implicit and explicit constructor, which give the author of class to control over constructors conversion (see~\ref{Explicit_Constructor}). However, a constructor is not the only mechanism for performing an implicit conversion; conversion operator cans also run this implicit conversion. This can be done when assigning object to variable (\cite{Gregorie:professionalcpp},~p.~306). Thus, the variable will gain the value of that object(see~\ref{Explicit_Operator}). It is obvious that C++ has no explicit way to inhibit implicit conversion that can happen by conversion operator.
 
 C++11 extends the semantics of explicit keyword to be used for all conversion operators (\cite{Stroustrup:2012:Cpp11},~p.~306). Therefore, a conversion operator that marks explicitly will not do any implicit conversion, and performing such that will cause a compile-error (see~\ref{Explicit_Operator}). The explicit conversion operators have are used to prevent implicit conversions which could happen accidentally.
 
 % Alias templates:
-\section{Alias Templates}
+\section{Alias templates}
 \label{section: Alias templates}
 The type alias is mechanism that allows a programmer to create an alias, or synonym, for an existing data type, without creating new type (\cite{Gregorie:professionalcpp},~p.~292). This technique is useful to simplify declarations that could be widely used in a program and documenting it. Traditional C++ supports this technique by using typedef keyword, which has syntax as follows:
 \begin{lstlisting}
@@ -490,7 +589,7 @@ C++ came with features that are suitable to create modern applications by adding
 
 The topics of this chapter include new character types (char16\_t and char32\_t), raw string literals, user-defined literals, explicitly defaulted special member functions, explicitly deleted special member functions, unsigned long long, long long, static assertion and variadic template.
 
-\section{New Character Types : Char16\_t and Char32\_t}
+\section{New character types : char16\_t and char32\_t}
 \label{section: char16_t and char32_t}
 The C++ language has extended a support character set over the last years and included wide character \texttt{(wchar\_t)}, which is a significant step forward (\cite{Gregorie:professionalcpp},~p.~519) because it has led to raise the amount of space usable to define a single character. In wide character sets, available space is used exactly as ASCII, each a number represents a special glyph, but the difference is that each number does not represent in 8 bits. The form of characters to numbers (now dubbed code points) is larger than it was, because it deals with lots of different sets in addition to the characters that are familiar by native English programmers. Both of Unicode Consortium and the Universal Character Set (UCS) that defined by the International Standard ISO10646, are standardized sets of characters. They include approximately 100000 abstract characters, and each defined by special name and an integer number named its code point (for further details see \cite{Gregorie:professionalcpp},~p.~519). Both standards contain the same characters and their associated numbers and have particular encodings that could use by programmers. For instance, UTF-8 (which is stands for Unicode Transformation Format-8) is an example of a Unicode encoding, which use 8-bit blocks to encode a character. The number of blocks required to encode a character varies from one to four bits. UTF-16 and UTF-32 encoded Unicode characters as one or two 16-bit values, and as exactly 32 bits, respectively. Different encodings could be used by different applications. Unfortunately, wide character (wchar\_t) that introduced by C++ (\cite{Gregorie:professionalcpp},~p.~519) was not enough, because the size of wchar\_t can change from one implementation to another. For example, on Windows it is 16 bits, whereas on other operating system could be 32 bits.
 
@@ -500,14 +599,14 @@ In these types of strings, adjacent string literals concatenate if they have the
 
 
 % Raw string literals
-\section{Raw String Literals}
+\section{Raw string literals}
 \label{section: Raw string literals}
 Recently, C++ gained popularity through dealing with mark-up languages including XML and HTML as well as regular expressions that introduced by C++11 to the standard library to express patterns to be matched against strings (\cite{Stroustrup:2012:Cpp11}). However, this has raised several problems for programmers including a difficulty to writing plethora of backslashes correctly and impenetrable to read, because the same backslash escape sequence is used by regular expressions and C++ in string literals (\cite{Stroustrup:2012:Cpp11}). Additionally, quotation marks and newlines are widely used by mark-up languages, leading escape sequences in string literals are difficult to process, error-prone and cumbersome as well as breaking a string into multiple lines of code is not allowed in C++.
 
 C++11 comes with new concept called raw string literals that does not process escape sequences like \texttt{$\backslash$t} and \texttt{$\backslash$n} as C++ does (\cite{Stroustrup:2012:Cpp11},~p.~516), instead, as normal text. Raw literal is a string literal with R prefix and has format R "d-char-sequence(r-char-sequence) d-char-sequence" (\cite{ISO:2011:Cpplanguage},~p.~33). Meaning that, d-char-sequence (delimiter sequence) could be any symbol such as \texttt{(-, "(), \~{})} or text (delimiter) and it is considered optionally. Delimiter sequence must be the same at the starting and at the end of the raw string and can be up to 16 characters (\cite{ISO:2011:Cpplanguage},~p.~33). The r-char-sequence is the actual raw string, which can represent text, symbols, escape sequences and quotation marks easily. Raw string is significantly useful in terms of regular expressions. It offers sophisticated and easy way to represent backslashes and other symbols that could use to express specific patterns against sequences of characters (see~\ref{RawString_Backslash}). Raw string is also used to represent easily quotation marks and escape sequence, which are massively used by XML and HTML languages (see~\ref{RawString_EscapeSequence}). Thus, it allows for much more sophisticated string handling with less error-prone such as representing whole code of HTML, without any restriction (see~\ref{RawString_HTML}). Raw string literals can be combined with Unicode literal prefixes (\cite{Gregorie:professionalcpp},~p.~520) ("u8","u" and "U") to represent the content of raw string in 16 and 32-bits (see~\ref{RawString_UnicodeliteralPrefix}).
 
 % user-defined literals
-\section{User-Defined Literals}
+\section{User-defined literals}
 \label{section: User-defined literals}
 C++ has a number of standard literals such as hexadecimal (0xabc), floating point value (3.14f) and string literals (zero-terminated array of character in C-style string) (\cite{Overland:2011:CWF},~p.~357), which can be used to achieve specific purpose by a user. For example, literal \texttt{"f"} in \texttt{"12.2f"} is used to converts the double value to float. The problem is that, these literals are not very flexible to manipulate, on the contrary, they fairly fixed because they are built-in types in C++. Therefore, the user cannot change them to other ones or create new ones to achieve everything that he wants.
 
@@ -524,7 +623,7 @@ The user-defined literals can create either built-in type (e.g. float and int) o
 
 
 % default keyword
-\section{Explicitly Defaulted Special Member Functions}
+\section{Explicitly defaulted special member functions}
 \label{section: Defaulted special member functions}
 By default, C++ provides special member functions if they are not declared explicitly (\cite{ISO:2011:Cpplanguage}), p.255] namely, default constructor, copy constructor, copy assignment operator, move constructor, move assignment operator, and destructor. The management of special member functions that provided by C++ raise some problems and difficulty, including the default version of these functions are suppressed, when declaring any of which by a programmer, and the default destructor is not suitable to polymorphic classes (\cite{Stroustrup:2012:Cpp11}), which used as abstract classes for many derived classes. Thus, they require explicit definition and appropriate control to achieve their purposes. On the other hand, in some cases, a programmer may want to disable default copies of special member functions and prevent C++ compiler to generate them. With traditional C++ such troubles could face the programmer and there is no appropriate way to control default implementations and manage them efficiently.
 
@@ -535,21 +634,21 @@ The default keyword offers more facilities to control functions that should be u
 The default keyword can also be used to change the accessibility of special member functions (\cite{Williams:2012:CCA},~p.~321) because a compiler defines them by default as public. Hence, a programmer may want to change them to protected or even private in sometimes depending on purpose of program (see~\ref{DefaultKeyword_ClassAccessibility}). As a result, the default keyword is used to force a compiler to provide default implementation for special member functions anyway and declare them clearly. Disabled these copies is also possible by C++11, which will explain in following topic.
 
 % delete keyword
-\section{Explicitly Deleted Special Member Functions}
+\section{Explicitly deleted special member functions}
 \label{section: Deleted special member functions}
 The explicitly deleted functions is also supported by C++11 (\cite{Horstmann:2008:BC},~p.~815). This can be done by prototyping the function and using the "delete" keyword. The delete keyword has significant role to control of implementation without causing compile error. In C++, standard way for preventing copies of constructor and assignment operator is placing them in the private section of a class without providing an implementation (\cite{Williams:2012:CCA},~p.~319). This could leads to compiler error or link time-error by trying to copy an instance from outside the class or even using the class's member functions. Moreover, it could be not obvious the purpose of doing that. An alternative way to accomplish that is to use the delete keyword to explicitly disable functions of a class and even the associated function cannot be invoked, nor using a default implementation. The benefit of that can be gained by defining explicitly class that has move concept only (\cite{Williams:2012:CCA},~p.~320). This can be done by defining explicitly move constructor and move assignment operator, without copy constructor and copy-assignment operator. Thus, the class becomes move-only (see~\ref{DeleteKeyword_ClassMove}).
 
 The delete keyword is also used to prevent the compiler from using particular methods, for instance, a programmer can use delete keyword to prevent use of a class in certain new expressions (\cite{ISO:2011:Cpplanguage},~p.~200), and attempting to create object using new expressions, will lead to compiler error (see~\ref{DeleteKeyword_NewExpression}). The usage of delete keyword has useful role to address overloading issues including calling a member function with certain parameters.  For instance, suppose that programmer define function called \texttt{f()} that takes integer value. When calling this function with double value, a compiler will convert the double value to an integer value and then call function \texttt{f(int i)}. As a result, implicit conversion is executed by the compiler. To avoid this issue, the keyword delete can be followed a double instance of function \texttt{f()} to explicitly deleted overloaded functions (for more details see \cite{Gregorie:professionalcpp},~p.~150), and then a compiler will be flagged as an error by calling \texttt{f()} with double value (see~\ref{DeleteKeyword_Overload}).
 
 % long long int 
-\section{Unsigned Long Long and Long Long}
+\section{Unsigned long long and long long}
 \label{section: Unsigned and long long (int)}
 In traditional C++, the largest integral type is long int type which guarantees to have at least as many usable bits as int. This type was necessary exist to address the limitation of short type, which ensures 16-bit integers (\cite{Overland:2011:CWF},~p.~244). However, long type cannot always guarantees 64 bits in each implementation such as 32-bit systems, and also cannot store big numbers with absolute precision.
 
 Due to these limitations, C++11 introduces the types long long and unsigned long long to overcome these issues. These new data types are guaranteed to be at least 64-bits, regardless of the platform. Hence, they able to store astronomical values far beyond of long int type. The declaration of unsigned and long long integers is similar to long int type, except using new "LL" and "ULL" suffixes with long long and unsigned long long respectively (\cite{Overland:2011:CWF},~p.~244), to ensure that big numbers can be stored effectively (see~\ref{Long}~and~\ref{UnsignedLong}).
 
 % static assertion
-\section{Static Assertion}
+\section{Static assertion}
 \label{section: Static assertion}
 The traditional C++ provides two facilities for testing software assertions namely, the \texttt{\#error} preprocessor directive and the assert macro. Both of which are inappropriate for use in template libraries (\cite{Stroustrup:2012:Cpp11}). To impose a template parameter constraint, for instance, writing assertion must be possible for testing when the associated template is instantiated. The processing of the \texttt{\#error} preprocessor directive comes ahead of time to be of a good use in this regard. In particular, the \texttt{\#error} directive is processed before templates are instantiated (\cite{Stroustrup:2012:Cpp11}), and thus cannot be used to test assertions involving template arguments. In addition to that, preprocessor is unable to recognize the sizeof operator during the processing until after preprocessor directives have executed. The assert macro, on the other hand, tests assertions at runtime, which considers far later than would be required by the user of a template library (\cite{Stroustrup:2012:Cpp11}), and which involves a runtime performance cost.
 
@@ -565,13 +664,13 @@ The static\_assert has significant support for library development by letting li
 Using static\_assert has benefit over type traits, which has added to the library of C++11. Type traits also allow making decisions based on relations and types at compile time, and the combination of both are pretty powerful (\cite{Gregorie:professionalcpp},~p.~944). For instance, static\_assert is used with type traits to ensure type of the relation between two classes, whether is based on relation or is same relation (see~\ref{StaticAssert_TypeTraitSame}). It also used to assert whether a variable is float point or not (see~\ref{StaticAssert_TypeTraitFloat}).
 
 % variadic template
-\section{Variadic Template}
+\section{Variadic template}
 \label{section: Variadic template}
 Templates are one of the most powerful features that use as essential tools for generic programming in C++ language. Templates are widely used with functions and classes to avoid duplicated code that could be rewritten for each specific purpose. In traditional C++, using templates to implement generic functions and classes are quite restricted (\cite{Stroustrup:2012:Cpp11}), because they require specifying a fixed number of type parameters in the declaration. Implementing these with extra parameters, require corresponding code to be repeated several times as well as overloaded functions. However, generic functions and classes that take a variable number of template parameters are very useful (\cite{Gregor:2007:VTC}), for example, to construct classes and functions with indefinite number of parameters, and without duplicate code. Additionally, constructing \texttt{std::tuple} (which added to C++11 for storing any number of values with their types), require providing different numbers and types of values in each implementation (\cite{Gregor:2007:VTC}), and then resulting a code must be rewritten according to numbers and type of values that provided.
 
 C++11 bring in the notion of variadic templates, which has the ability to create template classes and functions that take a variable number of template parameters (\cite{Prata:2012:Cpp},~p.~1197). This can be achieved by using a parameter called parameter pack which also introduced by C++11.
 
-\subsection{Parameter Pack}
+\subsection{Parameter pack}
 \label{subsection: Parameter pack}
 parameter pack is not the same as previous parameters for C++ templates, which has the ability to only bind to a single argument. On the contrary, it can pack multiple parameters into a single parameter by placing ellipsis meta-operator after the keyword typename (\cite{Prata:2012:Cpp},~p.~333), indicating that a parameter can represent a list of types as follows syntax:
 \begin{lstlisting}
@@ -596,7 +695,7 @@ Variadic template allows a programmer to define function parameter pack and temp
 
 \end{enumerate}
 
-\subsection{Type-safe Variadic Functions}
+\subsection{Type-safe variadic functions}
 Variadic templates are used with functions templates to provide type-safe variadic functions, which are one of the most significant uses of variadic template parameters. This can be achieved through combining variadic templates with template parameter (\cite{Gregor:2007:VTC}) to achieve such safe type. For instance, a variadic template can be used with function template to define a function called \texttt{f()} that takes multiple arguments with different types in a type-safe way. The function \texttt{f()} will process each value that provide as arguments and will invoke a function called \texttt{ specify\_type()} to handle each individual argument (\cite{Gregorie:professionalcpp},~p.~743). This requires to provide the function \texttt{specify\_type() } for each type that exist in a program such as int, char and double (see~\ref{VariadicTemplate_Function}).
 
 
@@ -607,7 +706,7 @@ The facilities that provided by variadic template to function template, allow to
 
 
 % Variadic Mix-In Classes 
-\subsection{Variadic Templates and Mix-In Classes}
+\subsection{Variadic templates and mix-in classes}
 \label{subsection: Variadic Templates and Mix-In Classes}
 A Mix-in is class that refers to as template class, which provides a certain functionality to be inherited or just reused by derived classes. It allows implementing different implementation concerns in different classes and then composing a final class which has the whole, composed interface. Mix-in class is implemented by having an inherited template parameter, which specifies a base class that will be used as well as arguments numbers of constructors that are not known. Using variadic template is significantly useful with mix-in class because its parameter pack can be used as inheriting template parameter for mix-in class (\cite{Gregor:2007:VTC}). Thus, it possible to provide variable number of base classes that is going to be inherited by mix-in class (see~\ref{VariadicTemplate_Class}) (\cite{Gregorie:professionalcpp},~p.~745). As a result, variadic template offers new facilities that have significant impact to address some limitations in the current implementations of C++.
 
@@ -615,7 +714,7 @@ A Mix-in is class that refers to as template class, which provides a certain fun
 \label{section1: Summary}
 This chapter demonstrated how features that introduced by C++11 extend the functionality of language as well as introducing new ones that make language more effectively. They also give programmers unique style of programming to build software that accompanies modern applications.
 
-\chapter{Basic Tools for the Project Development}
+\chapter{Basic tools for the project development}
 \label{cha: tools}
 Managing such project, requires powerful software tools that able to organize and compile all pieces of programs efficiently. Therefore, two helpful tools are used to accomplish this project successfully namely, Git and Make. Git is a tool that used to keep tracking of developing project and record every change over project's files. Make is significant tool that allows programmers to compile source files in easy way as well as allowing compiling files that have been only changed, instead of compiling all source files. Make is not work without file called Makefile, which says Make what to do. This file contains all instructions that are needed by Make to compile all pieces of small programs that exist in this project.
 
@@ -624,7 +723,7 @@ Managing such project, requires powerful software tools that able to organize an
 Git is "a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.\footnote{Git, \url{http://git-scm.com/}}"  Working with Git requires a server where it stores files and the meta-data for a project. However, this server is treated separately from Git.  Git is used to create database (repository) through server called Github \footnote{GitHub, is a social network for programmers and is used as hosted Git repository.[Wikipedia]}, which used to check the stages of existing files and give a control to a user to manage these data efficiently. Git offers simple way to track and deal with a collection of files through plenty command sets that give full access to internals. Git is available to install as a free version from  \url{http://git-scm.com/}.
 
 
-\subsection{Command for Using Git}
+\subsection{Command for using Git}
 \label{subsec: Command for using Git}
 Managing this project required some Git commands that made handling a source code much easier and more efficient. Here are as follows:
 
@@ -661,33 +760,44 @@ git gui
 GUI is graphical tools that used for keeping track of changes that could be done to files in specific repository as well as used to visualize history of repository. When modifications over files have been done, a user must follow some instructions to deal with. Firstly, a user must go to git GUI and use scan to show those modifications (see figure \ref{fig:gitscan}). Secondly, writing appropriate command to report the modification (see figure \ref{fig:gitcommand}). Thirdly, stage the modification (see figure \ref{fig:gitstage}). Finally, commit the modification to be ready for pushing to repository (see figure \ref{fig:gitcommit}). Therefore, these steps must be taken by the user to handles any changes and making a history clear.
 \begin{figure}[h]
 \begin{center}
-\subfigure[Scan the modification.]{
-\includegraphics[scale=0.28]{../GitPhotos/GitScan.jpg}
-\label{fig:gitscan}}
-\subfigure[Write a command for the modification.]{
-\includegraphics[scale=0.28]{../GitPhotos/GitCommand.jpg}
-\label{fig:gitcommand}}
-\subfigure[Stage the modification.]{
-\includegraphics[scale=0.28]{../GitPhotos/GitStage.jpg}
-\label{fig:gitstage}}
-\subfigure[Commit the modification.]{
-\includegraphics[scale=0.28]{../GitPhotos/GitCommit.jpg}
-\label{fig:gitcommit}}
+\includegraphics[scale=0.50]{../GitPhotos/GitScan.jpg}
+\caption{Scan the modification.}
+\label{fig:gitscan}
+\end{center}
+\end{figure}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.50]{../GitPhotos/GitCommand.jpg}
+\caption{Write a command for the modification.}
+\label{fig:gitcommand}
+\end{center}
+\end{figure}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.50]{../GitPhotos/GitStage.jpg}
+\caption{Stage the modification.}
+\label{fig:gitstage}
+\end{center}
+\end{figure}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.50]{../GitPhotos/GitCommit.jpg}
+\caption{Commit the modification.}
+\label{fig:gitcommit}
 \end{center}
 \end{figure}
 
-
-\subsection{Why is Git Used?}
+\subsection{Why is Git used?}
 \label{subsec: why git}
-Developing such the large project requires a great tool for managing source code efficiently as well as allowed other contributors to work on project simultaneously to being developed faster. Git offers such mechanism that making contributions possible on repositories. Therefore, Git is used by Dr.~Kullmann and I to follow this project over period of allowed time. It was very helpful to me to get correction and guidance from Dr.~Kullmann about what must I do to finish this project successfully.
+Developing such the large project requires a great tool for managing source code efficiently as well as allowed other contributors to work on project simultaneously to being developed faster. Git offers such mechanism that making contributions possible on repositories. Therefore, Git is used by Dr.~Kullmann and I to follow this project over period of allowed time. It was very helpful to me to get corrections, suggestions and guidance from Dr.~Kullmann about the right way to achieve this project successfully.
 
-\section{Make Utility}
+\section{Make utility}
 \label{sec: Make}
 The traditional mechanics of compiling the source file into an executable file that used by several programmers could be useful, when program is fairly simple. However, the situation is not when a program contains a lot of small pieces of programs and need to be compiled, because programmers face difficult to deal with modification of files when are done to fix the bug. Thus, handling many files need a great tool that offer facilities to create executable file in such easy way as well as compiling only modified files instead of all source files. Therefore, Make utility is used as solution for such situation.
 
 The Make utility is " a tool automatically determines which pieces of a large program need to be recompiled, and issues commands to recompile them " (\cite{Stallman:2000:GnuMake},~p.~5). Make is designed to allow programmers to efficiently compile large complex programs with many components easily. It provides mechanism to compile and turn source code into executable program with minimum effort. This is done by writing only "make" command in the UNIX shell. Make utility is especially helpful to manage and organizing projects that comprised of many source files and it reduces the probability of human error and difficulty of compilation.
 
-\subsection{How does Make Work?}
+\subsection{How does Make work?}
 \label{subsec: how make work}
 In UNIX, when "make" command is typed; the operating system looks at file called "makefile" which residents in the directory of where programs reside. Makefile contains a series of directives and knowledge that tell "make" how to compile source files and in what order. Make goes through a makefile commencing with the target which going to create and it also looks at dependencies of each target to find whether they are also considered as targets.  Make traces the chain of dependencies till it attains the end of the chain. At that time, it starts returning out to execute the commands that have been found in each target's rule (for further details see \cite{Stallman:2000:GnuMake},~p.~18). Building executable files by make, commences with building object files from the source files, and then links those objects files to create executable files. if any of source files is modified, the make utility compile only its object file and then linked into executable file, rather than recompiling all the source files. Therefore, running make utility is only possible if Makefile is provided within same directory and its contain all descriptions are required for directing make.
 
@@ -808,15 +918,15 @@ C++11 simplify the syntax of language and make it more usable and much easier to
 
 However, C++11 is not able to cover all limitations of traditional C++, but will not bring new loopholes that making programming unsafe.
 
-\section{Future Work}
+\section{Future work}
 \label{sec: future work}
-Development of this project was only restricted on investigation of core language which has been classified according to features that belong to. This project can be extended to become holistic by investigating features that added to libraries such as Standard Library (including thread library), and STL container, STL algorithms and Boost library, and present them as reference library to support programmers who have knowledge in C++ and want to program in  C++11 style. Doing that, will give programmers an idea of the aims of the ISO C++ standards effort and actual capability of C++11 in real-time.
+Development of this project was only restricted on investigation of core language which has been classified according to features that belong to. This project can be extended to become holistic by investigating features that added to libraries such as Standard Library (including thread library), and STL container, STL algorithms and Boost library, and present them as reference library to support programmers who have knowledge in C++ and want to program in C++11 style. Doing that, will give programmers an idea of the aims of the ISO C++ standards effort and actual capability of C++11 in real-time.
 
-\section{Personal Experience}
+\section{Personal experience}
 \label{sec: personal experience}
-Developing this project successfully overcame three major challenges.  Each of which raised some difficulties during investigation of this project.  The first challenge was finding resource related to this project, due to that fact that the project was commencing in the early  2012 and new standard C++11 was released in late  2011. The second challenge was dealing with unfamiliar functionality and syntax that existed in some features such as variadic template and lambda expression. Because of my experience is only restricted in C++, nor do other modern languages and seeing such things extraordinary require thinking in depth. The final challenge was demonstrating all cases of each feature in simple way to become understandable for programmer from first glance, this require to make program neglects some aspect and focus on the others.
+Developing this project successfully overcame three major challenges.  Each of which raised some difficulties during investigation of this project. The first challenge was finding resource related to this project, due to that fact that the project was commencing in the early  2012 and new standard C++11 was released in late  2011. The second challenge was dealing with unfamiliar functionality and syntax that existed in some features such as variadic template and lambda expression. Because of my experience is only restricted in C++, nor do other modern languages and seeing such things extraordinary require thinking in depth. The final challenge was demonstrating all cases of each feature in simple way to become understandable for programmer from first glance, this require to make program neglects some aspect and focus on the others.
 
-Overall this project has given me unique chance to learn new style of programming with new language that could change the world. It has also provided me the opportunity to practice my knowledge in C++ and discover strength and weakness of it. Furthermore, I learnt Git and Make tools that make me able to manage and evolve large projects in near future. My greatest achievement during developing this project was knowing the possibility of each feature and when should be applied to write elegant and efficient code. I have learnt many worthwhile skills from this project which will have significant influence over my future.
+Overall this project has given me unique chance to learn new style of programming with new language that could change the world. It has also provided me the opportunity to practice my knowledge in C++ and discover strength and weakness of it. Furthermore, I learnt Git and Make tools that make me able to manage and evolve large projects in the near future. My greatest achievement during developing this project was knowing the possibility of each feature and when should be applied to write elegant and efficient code. This makes me able to build some application that fit my purposes. I have learnt many worthwhile skills from this project which will have significant influence over my future.
 
 % References
 \addcontentsline{toc}{section}{Bibliography}
@@ -836,7 +946,6 @@ Overall this project has given me unique chance to learn new style of programmin
 \Make
 
 %\lstinputlisting{../Makefile}
-\newpage
 
 
 % Core language Runtime Performance Enhancements
