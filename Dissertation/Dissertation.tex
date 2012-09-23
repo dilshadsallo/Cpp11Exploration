@@ -64,6 +64,9 @@ September 2012.
 
 \chapter{Introduction}
 \label{cha:intro}
+C++ is most popular language which has important role in the industry, since it use for just about everything such as building compilers and run-times for competing languages, and operating systems like Windows. In addition, it uses in many social web applications such as browse Google’s Chrome and face book \cite{ISO:2011:Cpplanguage}.
+check citation
+
 C++ is general-purpose programming language that is in widespread use for building small programs and substantial applications. C++ is designed to fully support three major concepts namely, object-oriented programming, data abstraction and generic programming which they have significant impact over evolution of programming. C++ has gained popularity and has become the choice of most programmers from around the world because it is extremely flexible, powerful and adaptable language. However, due to complexity of applications that required in a various fields and evolution of programming that accompanied by modern technology, some limitations and bugs have been discovered in C++ language that have significant impact on programmers of all backgrounds.  What is more, traditional C++ has lacking diverse functionalities which smoothly compatible with modern applications and has complicated syntax somehow that increases error-prone when attempting to write elegant and efficient code.  These deficiencies have negative influence over newcomers to language, and may encourage abandoning C++ towards other competition language. 
 
 As responsibility of the ISO C++ standards committee to address these issues, new standard was released dubbed C++11, which is represented by new language features that have been added to core language, standard library and Standard Template Library. C++11 represents the effort of expert programmers who have Involved in C++ standard committee to develop the language abilities. C++11 has primarily existed to overcome some limitations that make traditional C++  undesirable in both educational and industrial fields, and also introduce new facilities to make programming more effective to its users. 
@@ -95,11 +98,16 @@ The key to robust and sophisticated code is type safety using an appropriate typ
 
 \section{What has been achieved}
 \label{what has been achieved}
-
-
+To learn any programming language rightly, it must firstly know what full capabilities offered by this language and how they can be properly used in different stages (states, situations or cases). As C++11 introduces many features to the core of language, the achievement of this project can be showed by many simple examples that have been written carefully to represent capabilities(functionality cases) of each feature in the form of complete programs to make programmers who have sufficient knowledge in C++ understand basic idea behind these features. For example consider the piece of code that used decltype keyword, which able to deduce the type of data from initialization:
+\begin{lstlisting}
+  int i = 0;
+  decltype(i) x;
+  decltype((i)) y;
+\end{lstlisting}
+Without clear and complete example, it may seem that they are similar; but in fact each line has different meaning. decltype~(i) x; make x as the same as i which is int. Whereas decltype~((i)) y; make y int \&.
 \section{Why small and many programs?}
 \label{sec:small and many programs}
-knowing the syntax of C++11 language is not enough to learn and understand the correct way to use the language efficiently, unless providing  simple  programs that give idea to programmers from first glance. These programs represent features of core language and their cases which could differ from usage to other. As C++11 provides capabilities and new style of programming, it become much easier to represent each feature in real example and give elementary idea to programmers to become able to build complex software as final target.
+knowing the syntax of C++11 language is not enough to learn and understand the correct way to use the language efficiently, unless providing  simple  programs that give idea to programmers from first glance. These programs represent features of core language and their cases which could differ from usage to other. As C++11 provides capabilities and new style of programming, it become much easier to represent each feature in example and gives elementary idea to programmers to become able to build complex software as final target.
 
 % Boost 
 \section{Boost C++ libraries}
@@ -727,7 +735,7 @@ C++11 comes with new concept called raw string literals that does not process es
 \label{section: User-defined literals}
 C++ has a number of standard literals such as hexadecimal \texttt{(0xabc)}, floating point value \texttt{(3.14f)} and string literals ("zero-terminated array of character in C-style string"), which can be used to achieve specific purpose by a user (for more information see~\cite{Overland:2011:CWF},~p.~357). For example, literal \texttt{"f"} in \texttt{"12.2f"} is used to converts the double value to float. The problem is that, these literals are not very flexible to manipulate, on the contrary, they fairly fixed because they are built-in types in C++. Therefore, the user cannot change them to other ones or create new ones to achieve everything that he wants.
 
-C++11 overcomes this situation by introducing new concept called "user-defined literals", which gives the user the ability to create new custom literal modifiers (see~\cite{Overland:2011:CWF},~p.~357 for more information). User defined literals should start with an underscore to specify a fixed value and are implemented by the compiler according to literal operators. Literals operators are restricted to be one of these types (see~\cite{Gregorie:professionalcpp},~p.~309) namely, char const*, unsigned long long, long double, \texttt{(char const*, std::size\_t)},~\texttt{(wchar\_t const*, std::size\_t)},~\texttt{(char16\_t const*, std::size\_t)}, and \texttt{(char32\_t const*, std::size\_t)}. Literals operators can be used to invoke functions when a program contains more than one user-defined literal with same fixed value (see~\ref{UserLiterals_LiteralOperators}).
+C++11 overcomes this situation by introducing new concept called "user-defined literals", which gives the user the ability to create new custom literal modifiers (see~\cite{Overland:2011:CWF},~p.~357 for more information). User defined literals should start with an underscore to specify a fixed value and are implemented by the compiler according to literal operators. Literals operators are restricted to be one of these types (see~\cite{Gregorie:professionalcpp},~p.~309) namely, char const*, unsigned long long, long double, \texttt{(char const*, std::size\_t)},~\texttt{(wchar\_t const*, std::size\_t)}, \texttt{(char16\_t const*, std::size\_t)}, and \texttt{(char32\_t const*, std::size\_t)}.\linebreak Literals operators can be used to invoke functions when a program contains more than one user-defined literal with same fixed value (see~\ref{UserLiterals_LiteralOperators}).
 
 Literal operators can be classified to raw or cooked style. In raw style, literal operator receives data as a sequence of characters for processing, for instance , C++ literal "345" will receive as a sequence of characters '3', '4', '5' (for main information see~\cite{Gregorie:professionalcpp},~p.~309), which can be only represented by type of  const char*. Raw style has the syntax:
 \begin{lstlisting}
