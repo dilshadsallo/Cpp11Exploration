@@ -60,7 +60,6 @@ September 2012.
 \end{flushright}
 
 \tableofcontents
-\listoffigures
 
 \chapter{Introduction}
 \label{cha:intro}
@@ -145,31 +144,31 @@ The list below show the organization of the chapters which constitute this disse
 % chapter Core Language Runtime Performance Enhancements
 \chapter{Core Language Runtime Performance Enhancements}
 \label{chapter: Runtime Performance Enhancements}
-C++ is one of the most powerful programming languages that use to create reliable and robust large scale applications (for overview of C++ see~\cite{Stroustrup:2012:Cpp11}). It is widely used in application that requires high performance due to its nature to create software that is efficient in time and space. However, there are some aspects which have substantial effect every time a program is run and leading to slow the performance of entire program.  These could happen when needing to create deep copy of temporary object that use to copy from source object to target object. Thus, two exactly copies of object are existed at a runtime. Another reason is that, all initialization of objects and built-in types are took place at runtime, and if any computation is happened during compile-time, it is also repeated at run time and leading to slow performance of program and make it costly. To overcome these issues, C++11 introduces several features that have significant impact over runtime performance and they provide control to a programmer to increase a runtime performance.
+C++ is one of the most powerful programming languages that use to create reliable and robust large scale applications (for overview of C++ see~\cite{Stroustrup:2012:Cpp11}). It is widely used in application that requires high performance due to its nature to create software that is efficient in time and space. However, there are some aspects that have substantial effect every time a program is run and lead to slow the performance of overall program. These could happen when needing to create deep copy of temporary objects that use to copy from source objects to target objects. Thus, two exactly copies of objects are existed at a runtime. Another reason is that, all initialization of objects and built-in types are took place at runtime, and if any computation is happened during compile-time, it is also repeated at run time, leading to slow performance of program and make it costly. To overcome these issues, C++11 introduces several features that have significant impact over runtime performance and they able to increase a runtime performance clearly.
 
-In this chapter we explain how C++11 able to increase the performance of overall programs by providing some important features such as rvalue and move semantic which used to prevent deep copies by moving temporary objects instead of creating them; generalized constant expressions which ensure that when some computation or initialization of object and fundamental types are happened at compile time and will not repeat at runtime, and new style of POD for allocating memory from free store without runtime overhead.
+In this chapter we explain how C++11 able to increase the performance of overall programs by providing some important features such as rvalue and move semantic which used to prevent deep copies by moving temporary objects instead of creating them; generalized constant expressions which ensure that any computation is happened at compile time and will not repeat at runtime as well as making initialization of object and fundamental type possible at compile-time, and new style of POD for allocating memory from free store without runtime overhead.
 
 The topics of this chapter include rvalue references, move semantic, generalized constant expressions and Modification of the definition of plain old data.
 
 
 \section{Rvalue references}
 \label{section: Rvalue references}
-A reference in C++ is an alias or alternative name for an existing object, and any modification could be done through this reference, will affect the original (for addition information see~\cite{Gregorie:professionalcpp},~p.~286). Traditional C++ supports lvalue references, which are used to reference to lvalues. Lvalues can be represented by single variable or persistent object that located on the left-hand side of an assignment operator. All variables, including~(const) variables are Ivalue. On the other hand, rvalue defined as anything is not lvalue, such as temporary object and constant value that appeared on the right- hand side of an assignment operator (for further information see~\cite{Gregorie:professionalcpp},~p.~277). Lvalues can be used as rvalues, but not vice versa. In traditional C++, non-const references can bind to lvalues, and const references can bind to either lvalues or rvalues. However, there is nothing that can bind to a non-const rvalue (see~\cite{Stroustrup:2012:Cpp11} for more details). Therefore, a reference to a temporary and a constant are not supported in traditional C++.
+A reference in C++ is an alias or alternative name for an existing object, and any modification could be done through this reference, will affect the original (for addition information see~\cite{Gregorie:professionalcpp},~p.~286). Traditional C++ supports lvalue references, which are used to reference to lvalues. Lvalues can be represented by single variable or persistent object that located on the left-hand side of an assignment operator, and all variables including~(const) variables are Ivalue. On the other hand, rvalue defined as anything is not lvalue, such as temporary object and constant value that appeared on the right- hand side of an assignment operator (for further information see~\cite{Gregorie:professionalcpp},~p.~277). Lvalues can be used as rvalues, but not vice versa. In traditional C++, non-const references can bind to lvalues, and const references can bind to either lvalues or rvalues. However, there is nothing that can bind to a non-const rvalue (see~\cite{Stroustrup:2012:Cpp11} for more details). Therefore, a reference to a temporary and a constant are not supported in traditional C++.
 
-C++11 brings new concept called an rvalue reference, which bind only to rvalues but not to lvalues. Rvalue references use two ampersands (\&\&) rather than one (\&), and can be const and non-const (see~\ref{RvalueReference_Basic}), the same as lvalue references  (for main information see~\cite{Gregorie:professionalcpp},~p.~277). Rvalue references can be used as a parameter to function by using two ampersands as part of the parameter specification such as type \&\& name. Then, this function can be only invoked when a parameter is a temporary object or constant value (more information can be found in~\cite{Gregorie:professionalcpp},~p.~277). Otherwise, function that takes lvalue references will be invoked by lvalue (see~\ref{RvalueReference_Parameter}). However, while rvalue reference will never be bound to an lvalue, it is possible by a programmer to force a compiler to convert an lvalue into an rvalue (see~\cite{Gregorie:professionalcpp},~p.~278). This can be done by using new feature called \texttt{std::move()}, which added by C++11 (see~\ref{RvalueReference_Move}).
+C++11 brings new concept called an rvalue reference that bind only to rvalues but not to lvalues. Rvalue references use two ampersands \texttt{(\&\&)} rather than one \texttt{(\&)}, and can be const and non-const (see~\ref{RvalueReference_Basic}), the same as lvalue references  (for main information see~\cite{Gregorie:professionalcpp},~p.~277). Rvalue references can be used as a parameter to function by using two ampersands as part of the parameter specification such as type \texttt{\&\&} name. This function can be invoked when a argument is a temporary object or constant value (see~\cite{Gregorie:professionalcpp},~p.~277). Otherwise, a function that overloaded and takes lvalue references will be invoked (see~\ref{RvalueReference_Parameter}). As rvalue reference will never be bound to an lvalue, it is possible by a programmer to force a compiler to convert an lvalue into an rvalue (see~\cite{Gregorie:professionalcpp},~p.~278). This can be done by using new feature called \texttt{std::move()}, which added by C++11 (see~\ref{RvalueReference_Move}).
 
-Rvalue references can also be used as a parameter to a function template but with nuance in terms of implementation. Calling the function with rvalue, leading the type parameter is deduced to be value. However, if an lvalue is passed to the function, then the type parameter is deduced to be an lvalue reference (for more details see~\cite{Williams:2012:CCA},~p.~318). Due to the function parameter is declared as rvalue reference (type \&\& name), that is, it treats as a reference to a reference for original reference type. Thus, a single function is able to accept both rvalue and lvalue parameters (see~\ref{RvalueReference_Template}). This is pretty useful to execute perfect forwarding, which means that a function template able to pass its arguments by to another functions while keeping the rvalue and lvalue nature of the function arguments (see\cite{Williams:2012:CCA},~p.~319 for more information). This avoids excessive copying and avoids the template author having to write multiple overloads for rvalue and lvalue references. Therefore, this concept is essential for library features such as \texttt{std::thread} and \texttt{std::function} which pass arguments to another function (see~\ref{RvalueReference_Forwarding}).
+Rvalue references can also be used as a parameter to a function template but with nuance in terms of implementation. Calling the function with rvalue, leading the type parameter is deduced to be a value. However, if a lvalue is passed to the function, then the type parameter is deduced to be a lvalue reference. Due to the function parameter is declared as rvalue reference (type \texttt{\&\&} name), that is, it treats as a reference to a reference for original reference type (for main information see~\cite{Williams:2012:CCA},~p.~318). Thus, a single function is able to accept both rvalue and lvalue parameters (see~\ref{RvalueReference_Template}). This is pretty useful to execute perfect forwarding, which means that a function template able to pass its arguments by to another functions while keeping the rvalue and lvalue nature of the function arguments (see\cite{Williams:2012:CCA},~p.~319 for more information). This avoids excessive copying and avoids the template author having to write multiple overloads for rvalue and lvalue references. Therefore, this concept is essential for library features such as \texttt{std::thread} and \texttt{std::function} which pass arguments to another function (see~\ref{RvalueReference_Forwarding}).
 
 One of the main reasons for introducing the rvalue reference is to implement move semantics, the next topic in this chapter.
 
 % Move semantic
 \section{Move semantic}
 \label{section: Move semantic}
-C++ is always used to create fast and robust programs that be trusted in different areas. However, one of the cases that lead to slow down the performance of many C++ programs is the creation of temporary objects. Usually, these temporary objects are created by copy constructor and assignment operator because they need a second object (temporary object) that should be equal to the original to accomplish operation (for addition information see~\cite{Stroustrup:2012:Cpp11}); therefore, once the operation is done a program has two objects with the same value that resulting in expensive object copies.
+C++ is always used to create fast and robust programs that be trusted in different areas (see~\cite{Stroustrup:2012:Cpp11}). However, one of the cases that lead to slow down the performance of many C++ programs is the creation of temporary objects. Usually, these temporary objects are created by copy constructor and assignment operator because they need a second object (temporary object) that should be equal to the original to accomplish operation (for addition information see~\cite{Stroustrup:2012:Cpp11}); therefore, once the operation is done a program has two objects with the same data and resulting in expensive object copies.
 
-C++11 introduces the concept of move semantic, which allows an object to be implemented by a move constructor and a move assignment operator (see~\cite{Gregorie:professionalcpp},~p.~278). These concepts are used by a compiler when the second object is temporary object and is going to be destroyed after the copy or assignment. Both the move constructor and the move assignment operator transfers resources such as variables and pointers from the source object that is temporary object, to the new object (target object) and then reset the variables and pointers of the source object to null values. This would be similar to moving a file from one directory to another. By doing this, the ownership of the memory will be move from the source object (temporary object) to the new object (target object). In fact, move constructor and move assignment operator do a shallow copy of the resources and switch ownership of allocated memory (for more details see~\cite{Gregorie:professionalcpp},~p.~280) to prevent memory leaks or dangling pointers. Thus, move semantic is a significant concept to increase the performance of programs by avoiding unnecessary copies that used in temporary objects.
+C++11 introduces the concept of move semantic, which allows an object to be implemented by a move constructor and a move assignment operator (see~\cite{Gregorie:professionalcpp},~p.~278). These concepts are used by a compiler when the second object is temporary and is going to be destroyed after the copy or assignment. Both the move constructor and the move assignment operator transfers resources such as variables and pointers from the source object (temporary object) to the new object (target object) and then reset the variables and pointers of the source object to null values. This would be similar to moving a file from one directory to another instead of creating copy. By applying these concepts, the ownership of the memory will be move from the source object to the new object. In fact, move constructor and move assignment operator do a shallow copy of the resources and switch ownership of allocated memory to prevent memory leaks or dangling pointers (for main information see~\cite{Gregorie:professionalcpp},~p.~280). Thus, move semantic is a significant concept to increase the performance of programs through avoiding unnecessary copies that used by temporary objects.
 
-The implementation of move semantics is supported by rvalue references, which should be added to class to implement move constructor and move assignment operator. Move constructor is pretty useful, and its purpose is to steal as many resources as it can from the original object, as fast as possible, because the original does not need to have a meaningful value any more. Thus, it is going to be destroyed. Move constructor can be tested with class C that contains copy constructor and move constructor as follows:
+The implementation of move semantics is supported by rvalue references, which should be added to class to implement move constructor and move assignment operator. Move constructor's purpose is to steal as many resources as it can from the original object, as fast as possible, because the original does not need to have a meaningful value any more. Move constructor can be tested with class C that contains copy constructor and move constructor as follows:
 
 \begin{lstlisting}
 class C {
@@ -192,7 +191,6 @@ C::C(C&& c) : n(c.n), p(c.p)  {
   c.p = nullptr;
 }
 \end{lstlisting}
-
 The move constructor will be invoked by a vector to move old vector to the new one and bigger vector as follows:
 \begin{lstlisting}
 int main() {
@@ -201,7 +199,6 @@ int main() {
   v.push_back(C(20));
 }
 \end{lstlisting}
-
 Therefore, the output of class C will be as follows:
 \begin{enumerate}
 \item Constructor called.
@@ -210,18 +207,15 @@ Therefore, the output of class C will be as follows:
 \item Move constructor called.
 \item Move constructor called.
 \end{enumerate}
-
 In the beginning, the vector is created and still empty, until first line of code will be executed:
 \begin{lstlisting}
 v.push_back(C(10));
 \end{lstlisting}
-
 Then, a new C object is created by invoking the normal constructor~(1); after that, a vector will resize itself to accommodate a new object, which is going to push in. The C object that created will move into the vector by calling the move constructor~(2). When the second line of code is executed:
 \begin{lstlisting}
 v.push_back(C(20));
 \end{lstlisting}
-
-A second C object is also created by calling the normal constructor~(3). At this point, the vector can store one element, so once again it is resized to accommodate a second object. When the resizing is done by the vector, the objects that previously have added require to be moved from the old vector to the new and larger vector, so this will require invoking the move constructor for objects that previously have added~(4). And then, the new C object is moved into the vector by invoke move constructor~(5) (see~\ref{MoveSemantic_Constructor} for complete example)(for main information see~\cite{Gregorie:professionalcpp},~p.~281). As a result, the move semantics is efficiently performed the insertion operation for vector by moving the elements rather than copying them.
+A second C object is also created by calling the normal constructor~(3). At this point, the vector can store one element, so once again it is resized to accommodate a second object. When the resizing is done by the vector, the objects that previously have added require to be moved from the old vector to the new and larger vector, so this will require invoking the move constructor for objects that previously have added~(4) (for main information see~\cite{Gregorie:professionalcpp},~p.~281). And then, the new C object is moved into the vector by invoke move constructor~(5) (see~\ref{MoveSemantic_Constructor} for complete example). As a result, the move semantics is efficiently performed the insertion operation for vector by moving the elements rather than copying them.
 
 The move assignment operator can also be tested by another class C which contains copy assignment and move assignment as follows:
 \begin{lstlisting}
@@ -252,33 +246,30 @@ C createObject() {
  // Remaining code omitted for brevity
 }
 \end{lstlisting}
-
-Class C has function called createObject() that create temporary C object ("as a return type is always rvalue") and assign it to another object called c1 as follows:
+Class C has function called createObject() that create temporary C object (as a return type is always rvalue) and assign it to another object called c1 as follows:
 \begin{lstlisting}
 c1 = createObject();
 \end{lstlisting}
-
-Resulting to invoke the move assignment operator (for more details see \cite{Gregorie:professionalcpp},~p.~282). The move assignment operator is also invoked by using \texttt{std::move()} ("which converts from lvalue to rvalue") to assign one object that consider temporary object to a target object, as follow:
+This result to invoke the move assignment operator (see~\cite{Gregorie:professionalcpp},~p.~282). The move assignment operator is also invoked by using \texttt{std::move()} (which converts from lvalue to rvalue) to assign one object that consider temporary object to a target object, as follow:
 \begin{lstlisting}
 c2 = (std::move(c1)); // call move assignment operator
 \end{lstlisting}
+However, the assignment \texttt{(c3 = c1)} will invoke the copy assignment operator because the object c1 is not temporary object, but a named object (see~\ref{MoveSemantic_AssignmentOperator} for complete example).
 
-On the other hand, the assignment \texttt{(c3 = c1)} will invoke the copy assignment operator because the object c1 is not temporary object, but a named object (see~\ref{MoveSemantic_AssignmentOperator} for complete example).
-
-Another situation that uses move semantic to increase the performance, when swap of elements are required. This can be done by using \texttt{std::move()}, which is the C++11 way to use move semantics explicitly and can be used to transfer the content of an object somewhere else, without doing a copy (for addition information see~\cite{Gregorie:professionalcpp},~p.~282). This will lead to raise the performance of programs that require a lot of swaps (see~\ref{MoveSemantic_Swap}).
+Another situation that can uses move semantic to increase the performance is when swap of elements are required. This can be done by using \texttt{std::move()}, which is the C++11 way to use move semantics explicitly and transfer the content of an object somewhere else, without doing a copy (for addition information see~\cite{Gregorie:professionalcpp},~p.~282). Thus, this will lead to raise the performance of programs that require a lot of swaps by avoiding creating temporary elements (see~\ref{MoveSemantic_Swap}).
 
 % Generalized constant expressions
 \section{Generalized constant expressions}
 \label{section: Generalized constant expressions}
-C++ had the notion of constant expressions such as 1+2, that always yield the same results at compile-time and at run-time. Such these expressions are improvement opportunities for a compiler to execute them at compile-time and gain the results in a program rapidly. Constant expressions required in some circumstance that should meet C++ specification, including enumeration values and specifying the bounds of an array. Currently, they can be expressed in C++ by using the keyword const, which could appear with variables, indicating that cannot be altered.
+C++ had the notion of constant expressions such as 1+2, that always yield the same results at compile-time and at run-time. Such these expressions are improvement opportunities for a compiler to execute them at compile-time and gain the results in a program rapidly. Constant expressions required in some circumstance that should meet C++ specification, including enumeration values and specifying the bounds of an array. Currently, they can be expressed in C++ by using the keyword const that could appear with variables, indicating that cannot be altered.
 
-However, the C++ rules concerning constant expressions are overly restrictive. They obligate some usage such as macros or template meta-programming instead of inline functions to guarantee the compile-time evaluation of constant expressions (for more details see~\cite{Stroustrup:2012:Cpp11}). This could happen for example when using class template \texttt{std::numeric\_limit<>::max}. Seemingly, they should be used as an integral constant but in fact it is functionally equivalent to the macro INT\_MAX. Thus, they are not integral constant. Therefore, this encourages users to favour macros when values require to be known at compile time. Another restriction could be found in C++, when return type of function is used for specifying the bounds of an array (for further information see~\cite{Stroustrup:2012:Cpp11}). This causes compilation error because a compiler has no way of knowing the return function will be constant at runtime.
+However, the C++ rules concerning constant expressions are overly restrictive. They obligate some usage such as macros or template meta-programming instead of inline functions to guarantee the compile-time evaluation of constant expressions (for more details see~\cite{Stroustrup:2012:Cpp11}). This could happen for example when using class template \texttt{std::numeric\_limit<>::max}. Seemingly, it should be used as an integral constant but in fact its functionally equivalent to the macro INT\_MAX. Thus, they are not integral constant. Therefore, this encourages users to favour macros when values require to be known at compile time. Another restriction could be found in C++, when return type of function is used for specifying the bounds of an array (for further information see~\cite{Stroustrup:2012:Cpp11}). This causes compilation error because a compiler has no way of knowing the return function will be constant at runtime.
 
-Due to these restriction, C++11 has extended the constant expressions by introducing the "constexpr" keyword that dubbed generalized constant expression. The constexpr keyword allows certain computations happen at compile-time instead of run-time when the program itself is run (for addition information see~\cite{Williams:2012:CCA},~p.~324). This has apparent benefit in terms of performance, due to anything could be done at a compiler-time, will be done once, and instead of every time the program runs. Hence, a program takes the advantage of compile-time, and leading to increase performance of a program.
+Due to these restriction, C++11 has extended the constant expressions by introducing the "constexpr" keyword that dubbed generalized constant expression. The constexpr keyword allows certain computations happen at compile-time instead of run-time when the program itself is run (for addition information see~\cite{Williams:2012:CCA},~p.~324). This has apparent benefit in terms of performance, due to anything could be done at a compiler-time, will be done once, and instead of every time the program runs. Hence, a program takes the advantage of compile-time, and leading to increase runtime performance.
 
 \subsection{Constant-expression data}
 \label{subsection: constant-expression data}
-The constexpr keyword can be applied to variables and data members. Variables or data members that are declared with this keyword are named a constant-expression value, and they only allowed initializing with constant expressions (for main information see~\cite{Williams:2012:CCA},~p.~324). Variables and data members that declared with constexpr keyword have the same behaviour as if they were declared const. However, there is one difference namely, they need initialization before they are used and should be a constant-expression to guarantee that constexpr variables and data members can always be used as a constant expression (see~\ref{Constexpr_Data}). 
+The constexpr keyword can be applied to variables and data members and make their evaluation happen at compile-time. Variables or data members that are declared with this keyword are named a constant-expression value, and they only allowed initializing with constant expressions (for further information see~\cite{Williams:2012:CCA},~p.~324). They also have the same behaviour as if they were declared const except one difference, namely they need initialization before they are used and should be a constant-expression to guarantee that constexpr variables and data members can always be used as a constant expression (see~\ref{Constexpr_Data}). 
 
 \subsection{Constant-expression functions}
 \label{Constant Expression Functions}
@@ -922,11 +913,11 @@ This chapter demonstrated how features that introduced by C++11 extend the funct
 
 \chapter{Basic tools for the project development}
 \label{cha: tools}
-Managing such project, requires powerful software tools that able to organize and compile all pieces of programs efficiently. Therefore, two helpful tools are used to accomplish this project successfully namely, Git and Make. Git is a tool that used to keep tracking of developing project and record every change over project's files. Make is significant tool that allows programmers to compile source files in easy way as well as allowing compiling files that have been only changed, instead of compiling all source files. Make is not work without file called Makefile, which says Make what to do. This file contains all instructions that are needed by Make to compile all pieces of small programs that exist in this project.
+Managing such project, requires powerful software tools that able to organize and compile all pieces of programs efficiently. Therefore, two helpful tools are used to accomplish this project successfully, namely Git and Make. Git is a tool that used to keep tracking of developing project and record every change over project's files. Make is significant tool that allows programmers to compile source files in easy way as well as allowing compiling files that have been only changed, instead of compiling all source files. Make cannot be worked without file called Makefile, which says Make what to do. This file contains all instructions that are needed by Make to compile all pieces of small programs that exist in this project.
 
 \section{Git}
 \label{sec: Git}
-Git is "a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.\footnote{Git, \url{http://git-scm.com/}}"  Working with Git requires a server where it stores files and the meta-data for a project. However, this server is treated separately from Git.  Git is used to create database (repository) through server called Github \footnote{GitHub, is a social network for programmers and is used as hosted Git repository.[Wikipedia]}, which used to check the stages of existing files and give a control to a user to manage these data efficiently. Git offers simple way to track and deal with a collection of files through plenty command sets that give full access to internals. Git is available to install as a free version from  \url{http://git-scm.com/}.
+Git is "a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.\footnote{Git, \url{http://git-scm.com/}}"  Working with Git requires a server where it stores files and the meta-data for a project. However, this server is treated separately from Git.  Git is used to create database (repository) through server called Github \footnote{GitHub, is a social network for programmers and is used as hosted Git repository.[Wikipedia]}, which used to check the stages of existing files in repository and give a control to a user to manage these files efficiently. Git offers simple way to track and deal with a collection of files through plenty command sets that give full access to internals. Git is available to install as a free version from  \url{http://git-scm.com/}.
 
 
 \subsection{Command for using Git}
@@ -963,59 +954,46 @@ git gui
 
 \subsection{Git Gui}
 \label{subsec: gitgui}
-GUI is graphical tools that used for keeping track of changes that could be done to files in specific repository as well as used to visualize history of repository. When modifications over files have been done, a user must follow some instructions to deal with. Firstly, a user must go to git GUI and use scan to show those modifications (see figure \ref{fig:gitscan}). Secondly, writing appropriate command to report the modification (see figure \ref{fig:gitcommand}). Thirdly, stage the modification (see figure \ref{fig:gitstage}). Finally, commit the modification to be ready for pushing to repository (see figure \ref{fig:gitcommit}). Therefore, these steps must be taken by the user to handles any changes and making a history clear.
+GUI is graphical tools that used for keeping track of changes that could be done to files in specific repository as well as used to visualize history of repository. When modifications over files have been done, a user must follow some instructions to deal with them. Firstly, a user must go to git GUI and use scan to show those modifications (see figure \ref{fig:gitscan}). Secondly, writing appropriate command to report the modification (see figure \ref{fig:gitcommand}). Thirdly, stage the modification (see figure \ref{fig:gitstage}). Finally, commit the modification to be ready for pushing to repository (see figure \ref{fig:gitcommit}). Therefore, these steps must be taken by the user to handles any changes when happen.
 \begin{figure}[h]
 \begin{center}
-\includegraphics[scale=0.50]{../GitPhotos/GitScan.jpg}
-\caption{Scan the modification.}
-\label{fig:gitscan}
-\end{center}
-\end{figure}
-\begin{figure}[h]
-\begin{center}
-\includegraphics[scale=0.50]{../GitPhotos/GitCommand.jpg}
-\caption{Write a command for the modification.}
-\label{fig:gitcommand}
-\end{center}
-\end{figure}
-\begin{figure}[h]
-\begin{center}
-\includegraphics[scale=0.50]{../GitPhotos/GitStage.jpg}
-\caption{Stage the modification.}
-\label{fig:gitstage}
-\end{center}
-\end{figure}
-\begin{figure}[h]
-\begin{center}
-\includegraphics[scale=0.50]{../GitPhotos/GitCommit.jpg}
-\caption{Commit the modification.}
-\label{fig:gitcommit}
+\subfigure[Scan the modification.]{
+\includegraphics[scale=0.23]{../GitPhotos/GitScan.jpg}
+\label{fig:gitscan}}
+\subfigure[Write a command for the modification.]{
+\includegraphics[scale=0.23]{../GitPhotos/GitCommand.jpg}
+\label{fig:gitcommand}}
+\subfigure[Stage the modification.]{
+\includegraphics[scale=0.23]{../GitPhotos/GitStage.jpg}
+\label{fig:gitstage}}
+\subfigure[Commit the modification.]{
+\includegraphics[scale=0.23]{../GitPhotos/GitCommit.jpg}
+\label{fig:gitcommit}}
 \end{center}
 \end{figure}
 
 \subsection{Why is Git used?}
 \label{subsec: why git}
-Developing such the large project requires a great tool for managing source code efficiently as well as allowed other contributors to work on project simultaneously to being developed faster. Git offers such mechanism that making contributions possible on repositories. Therefore, Git is used by Dr.~Kullmann and I to follow this project over period of allowed time. It was very helpful to me to get corrections, suggestions and guidance from Dr.~Kullmann about the right way to achieve this project successfully.
+Developing such the large project requires a great tool for managing source code efficiently as well as allowed other contributors to work on project simultaneously to being developed faster. Git offers such mechanism that making contributions possible on repository (\emph{repository in our project is Cpp11Exploration which contains all C++11 programs}). Therefore, Git is used by Dr.~Kullmann and I to follow this project over period of allowed time. It was very helpful to me to get corrections, suggestions and guidance from Dr.~Kullmann about the right way to achieve this project successfully.
 
 \section{Make utility}
 \label{sec: Make}
-The traditional mechanics of compiling the source file into an executable file that used by several programmers could be useful, when program is fairly simple. However, the situation is not when a program contains a lot of small pieces of programs and need to be compiled, because programmers face difficult to deal with modification of files when are done to fix the bug. Thus, handling many files need a great tool that offer facilities to create executable file in such easy way as well as compiling only modified files instead of all source files. Therefore, Make utility is used as solution for such situation.
+The traditional mechanics of compiling the source files into an executable files that used by several programmers could be useful, when project is fairly simple. However, the situation is not when a project contains a lot of small pieces of programs and need to be compiled at the same time, because programmers face difficult to deal with modification of program files when are done to fix the bug. Thus, handling many program files need a great tool that offer facilities to create executable files in such easy way as well as compiling only modified program files instead of all sources. Therefore, Make utility is used as solution for such situation.
 
-The Make utility is "a tool automatically determines which pieces of a large program need to be recompiled, and issues commands to recompile them " (for further information see~\cite{Stallman:2000:GnuMake},~p.~5). Make is designed to allow programmers to efficiently compile large complex programs with many components easily. It provides mechanism to compile and turn source code into executable program with minimum effort. This is done by writing only "make" command in the UNIX shell. Make utility is especially helpful to manage and organizing projects that comprised of many source files and it reduces the probability of human error and difficulty of compilation.
+The Make utility is "a tool automatically determines which pieces of a large program need to be recompiled, and issues commands to recompile them " (for further information see~\cite{Stallman:2000:GnuMake},~p.~5). Make is designed to allow programmers to efficiently compile large complex programs with many components easily. It provides mechanism to compile and turn source code into executable program with minimum effort. This is done by writing only "make" command (\emph{which compile all C++11 programs that exist in Cpp11Exploration repository}) in the UNIX shell. Make utility is especially helpful to manage and organizing projects that comprised of many source files and it reduces the probability of human error and difficulty of compilation.
 
 \subsection{How does Make work?}
 \label{subsec: how make work}
-In UNIX, when "make" command is typed; the operating system looks at file called "makefile" which residents in the directory of where programs reside. Makefile contains a series of directives and knowledge that tell "make" how to compile source files and in what order. Make goes through a makefile commencing with the target which going to create and it also looks at dependencies of each target to find whether they are also considered as targets.  Make traces the chain of dependencies till it attains the end of the chain. At that time, it starts returning out to execute the commands that have been found in each target's rule (for addition information see~\cite{Stallman:2000:GnuMake},~p.~18). Building executable files by make, commences with building object files from the source files, and then links those objects files to create executable files. if any of source files is modified, the make utility compile only its object file and then linked into executable file, rather than recompiling all the source files. Therefore, running make utility is only possible if Makefile is provided within same directory and its contain all descriptions are required for directing make.
+In UNIX, when "make" command is typed; the operating system looks at file called "Makefile" (for more information about Makefile see~\ref{subsec: makefile}) which residents in the directory of where programs reside. Makefile contains a series of directives and knowledge that tell Make how to compile source files and in what order. Make goes through a Makefile commencing with the target which going to create and it looks at dependencies of each target to find whether they are also considered as targets.  Make traces the chain of dependencies until it attains the end of the chain. At that time, it starts returning out to execute the commands that have been found in each target's rules (for addition information see~\cite{Stallman:2000:GnuMake},~p.~18). Building executable files by Make, commences with building object files from the source files, and then links those objects files to create executable files. if any of source files is modified, the Make utility compile only its object file and then linked into executable file, rather than recompiling all the source files. Therefore, running Make utility is only possible if Makefile is provided within same directory and contains all descriptions that required for directing Make.
 
 \subsection{Makefile}
 \label{subsec: makefile}
-Makefile is file that contains full directive of the commands (for more details see~\cite{Mecklenburg:2004:MakeGun},~p.~3) used by make to decide how to build and execute the programs. It specifies the relationships between the component and target files of project by listing the needed files for each target file. In general, Makefile contains at least two basic components macros and rules, and both are included in the Makefile that used in this project(see~\ref{Makefile}).
+Makefile is file that contains full directive of the commands used by Make to decide how to build and execute the programs (for more details see~\cite{Mecklenburg:2004:MakeGun},~p.~3). It specifies the relationships between the component and target files of project by listing the needed files for each target file. In general, Makefile contains at least two basic components macros and rules, and both of which are included in the Makefile that used in this project(for full code of Makefile see~\ref{Makefile}).
 
 \begin{enumerate}
-\item \textbf{Macro} Basically macro is a name or alias that is used to represent a string or instruction which could use frequently within the Makefile. It is considered a very helpful way to simplify contains of Makefile. Macro is defined in Makefile by a programmer through using (=) operator just like variables in C++ and convert it into its value in a target that is used for, require enclosing it within \$~( ). Furthermore, there are internal macros that predefined in make to do specific purpose. These internal macros are very helpful to avoid code duplication. Macros that used by programmer in Makefile for this project are:
+\item \textbf{Macro} Basically macro is a name or alias that is used to represent a string or instruction which could use frequently within the Makefile. It is considered a very helpful way to simplify contains of Makefile. Macro is defined in Makefile by a programmer through using (=) operator just like variables in C++ and convert it into its value in a target that is used for, require enclosing it within \$~( ). Furthermore, there are internal macros that predefined in make to do specific purpose. These internal macros are very helpful to avoid code duplication. Macros that used in Makefile for this project are:
 
 \begin{enumerate}
-
 
 \item \begin{verbatim}
 CXX = g++ 
@@ -1043,7 +1021,7 @@ core_runtime = CoreLanguage/RunTime
 core_functionality = CoreLanguage/FunctionalityImprovements
 core_usability = CoreLanguage/UsabilityEnhancements
 \end{verbatim}
-Assign path of directories, to macros core\_runtime, core\_functionality and core\_usability which contain all programs of project.
+Assign path of directories, to macros core\_runtime, core\_functionality and core\_usability that contain all programs of project.
 
 \item \begin{verbatim}
 compilation_units = $(wildcard $(source_dir)/*.cpp)
@@ -1071,7 +1049,7 @@ target ... : Prerequisites....
 \begin{enumerate}
 \item \textbf{Targets} Targets are the core of what a Makefile does. They represent the name of required files that must be generated by a program such as executable or object files. They can also represent the name of an action to accomplish such as "clean".
 
-\item \textbf{Prerequisites} Prerequisites (also called dependence) are files that are used as input to generate the targets.
+\item \textbf{Prerequisites} Prerequisites ("also called dependence") are files that are used as input to generate the targets.
 
 \item \textbf{Commands} Commands are action that will generate the targets from the prerequisites. The rule may contain more than command and each has its own line as showed above.
 \end{enumerate}
@@ -1080,12 +1058,12 @@ Rules can be classified into explicit and implicit rules.
 \begin{enumerate}
 \item \textbf{Explicit rules} Explicit rules are used to specify particular files as targets and prerequisites. In this type, a specific target will be updated whenever it is out of date, regarding to any of its prerequisites.
 
-Explicit rules are used in our Makefile to do some purposes as follows:
+Explicit rules are used in our Makefile to do specific purposes as follows:
 \begin{enumerate}
 \item \begin{verbatim}
 .PHONY : all cleanall
 \end{verbatim}
-A phony is explicit target that used to avoid a conflict with a file of the same name, and to improve performance. Phony target is not really the name of file but it just use as recipe to be executed when there is an explicit request. By using phony target in this Makefile, make will run (all cleanall) regardless of whether there are files named (all cleanall).
+A phony is explicit target that used to avoid a conflict with a file of the same name, and to improve performance. Phony target is not really the name of file but it just use as recipe to be executed when there is an explicit request. By using phony target in this Makefile, Make will run (all cleanall) regardless of whether there are files named (all cleanall).
 
 \item \begin{verbatim}
 cleanall :
@@ -1093,7 +1071,7 @@ cleanall :
 Cleanall is explicit target that used to delete all the object files and executable files but here it defined in the beginning as phony target.
 \end{enumerate}
 
-\item \textbf{Implicit rules} Implicit rules are general rule that tell make utility when and how to build files that has specific file extensions. Implicit rules begin with either a period or path and can be either suffix rules or pattern rules. Suffix rules are built into make and used as default rules to deal with C language.  Pattern rules are defined by using \% character and are used for matching common targets and prerequisites and built into make as well.
+\item \textbf{Implicit rules} Implicit rules are general rule that tell Make utility when and how to build files that has specific file extensions. Implicit rules begin with either a period or path and can be either suffix rules or pattern rules. Suffix rules are built into Make and used as default rules to deal with C language.  Pattern rules are defined by using \texttt{\%} character and are used for matching common targets and prerequisites ,and built into Make as well.
 
 Implicit rules are used in our Makefile to achieve specific purpose:
 \begin{enumerate}
@@ -1115,7 +1093,7 @@ Pattern rules are used for match specific files. Thus, we build our pattern rule
 % conclsion
 \chapter{Conclusion}
 \label{chapter: conclusion}
-
+In this chapter we will provide summary of this project and suggestion for further development for the project to be more supportive as well as discussing my personal experience about this project.
 \section{Summary}
 \label{se : summary}
 This project has investigated the features that introduced to core language by C++11, which offers much more than (old) C++. C++11 provide new style of programming that able to avoid inherently vulnerable facilities. It also offers significant features that improve the performance of programs in real-time.
@@ -1126,11 +1104,11 @@ However, C++11 is not able to cover all limitations of traditional C++, but will
 
 \section{Future work}
 \label{sec: future work}
-Development of this project was only restricted on investigation of core language which has been classified according to features that belong to. This project can be extended to become holistic by investigating features that added to libraries such as Standard Library (including thread library), and STL container, STL algorithms and Boost library, and present them as reference library to support programmers who have knowledge in C++ and want to program in C++11 style. Doing that, will give programmers an idea of the aims of the ISO C++ standards effort and actual capability of C++11 in real-time.
+Development of this project was only restricted on investigation of the core language which has been classified into three sections according to features that belong to. This project can be extended to become holistic by investigating features that added to libraries such as standard library (including thread library), and STL container, STL algorithms and Boost libraries, and present them as nice library to support all programmers who have knowledge in C++ and want to program in C++11 style. Doing that, will give programmers an idea of the aims of the ISO C++ standards effort and actual capability of C++11 in real-time.
 
 \section{Personal experience}
 \label{sec: personal experience}
-Developing this project successfully overcame three major challenges.  Each of which raised some difficulties during investigation of this project. The first challenge was finding resource related to this project, due to that fact that the project was commencing in the early  2012 and new standard C++11 was released in late  2011. The second challenge was dealing with unfamiliar functionality and syntax that existed in some features such as variadic template and lambda expression. Because of my experience is only restricted in C++, nor do other modern languages and seeing such things extraordinary require thinking in depth. The final challenge was demonstrating all cases of each feature in simple way to become understandable for programmer from first glance, this require to make program neglects some aspect and focus on the others.
+Developing this project successfully overcame three major challenges. Each of which raised some difficulties during investigation of this project. The first challenge was finding resource related to this project, due to that fact that the project was commencing in the early 2012 and new standard C++11 was released in late 2011. The second challenge was dealing with unfamiliar functionality and syntax that existed in some features such as variadic template and lambda expression. Because of my experience is only restricted in C++, nor do other modern languages and seeing such things extraordinary require thinking in depth. The final challenge was demonstrating all cases of each feature in simple way to become understandable for programmer from first glance, this require to make program neglects some aspect and focus on the others.
 
 Overall this project has given me unique chance to learn new style of programming with new language that could change the world. It has also provided me the opportunity to practice my knowledge in C++ and discover strength and weakness of it. Furthermore, I learnt Git and Make tools that make me able to manage and evolve large projects in the near future. My greatest achievement during developing this project was knowing the possibility of each feature and when should be applied to write elegant and efficient code. This makes me able to build some application that fit my purposes. I have learnt many worthwhile skills from this project which will have significant influence over my future.
 
