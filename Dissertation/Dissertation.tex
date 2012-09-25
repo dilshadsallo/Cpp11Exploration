@@ -80,19 +80,19 @@ This project gives unique opportunity for experienced C++ programmers for learni
 
 \section{C++11}
 \label{sec: C++11}
-C++11 is the new standard of C++ language. It was known as C++0x until 2011, and then formally published as ISO/IEC 14882:2011(for main information see~\cite{Josuttis:2012:CppStandard},~p.~7) representative the effort of ISO C++ standards.  According to Bjarne (\cite{Stroustrup:2012:Cpp11}), "C++11 feels like a new language — the pieces just fit together better than they used to". C++11 provides new style of programming much more effective than before. C++11 is mainly existed to overcome the restriction and loopholes that make C++ inappropriate to build reliable and safe software.  C++11 introduces new facilities (features) which help programmers to think differently about system design and implementation (see~\cite{Stroustrup:2012:Cpp11}). This helping is not only restricted to C++ programmers but also for programmers who used to programming with other modern languages in general field. 
+C++11 is the new standard of C++ language. It was known as C++0x until 2011, and then formally published as ISO/IEC 14882:2011(for main information see~\cite{Josuttis:2012:CppStandard},~p.~7) representative the effort of ISO C++ standards.  According to Bjarne (\cite{Stroustrup:2012:Cpp11}), "C++11 feels like a new language -- the pieces just fit together better than they used to". C++11 provides new style of programming much more effective than before and is mainly existed to overcome the restriction and loopholes that make C++ inappropriate to build reliable and safe software.  C++11 introduces new facilities (features) which help programmers to think differently about system design and implementation (see~\cite{Stroustrup:2012:Cpp11}). This helping is not only restricted to C++ programmers but also for programmers who used to programming with other modern languages in general field. 
 
-Features that introduced by C++11, extend the powerful of traditional C++ in terms of functionality, syntax and efficiency as well as enabling programmers to write robust code in high-level style. Moreover, the improvement of general abstraction mechanisms are also supported (for more information see~\cite{Stroustrup:2012:Cpp11}) and can be more flexible and safe by combining some features together. C++11 able to cover some limitations that existed in C++ and reduces the overall verbosity through providing new concepts such as lambda expressions and auto keyword, which increase its overall expressiveness, clarity and  reduce amount of codes and make C++ more usable language.
+Features that introduced by C++11, extend the powerful of traditional C++ in terms of functionality, syntax and efficiency as well as enabling programmers to write robust code in high-level style. The improvement of general abstraction mechanisms are supported by this language and can be more flexible and safe by combining some features together (for more information see~\cite{Stroustrup:2012:Cpp11}). C++11 able to cover some limitations that existed in C++ and reduces the overall verbosity through providing new concepts such as lambda expressions and auto keyword, which increase its overall expressiveness, clarity and  reduce amount of codes and make C++ more usable language.
 
-C++11 adds some significant features such as rvalue references and move semantic (for more details see~\cite{Gregorie:professionalcpp},~p.~278) that improves the basic efficiency of the language and allow developers to implement faster code. Last but not least, C++11 bring new features to standard library which never existed in any previous versions and they have significant impact to support generic programming (see~\cite{Stroustrup:2012:Cpp11}), including multi-threading support directly into C++ and smart pointers that will simplify memory management.
+C++11 adds some significant features such as rvalue references and move semantic that improves the basic efficiency of the language and allow developers to implement faster code. Finally, it bring new features to standard library which never existed in any previous versions and they have significant impact to support generic programming (see~\cite{Stroustrup:2012:Cpp11}), including multi-threading support directly into C++ and smart pointers that will simplify memory management.
 
 \section{Why C++11?}
 \label{sec: why C++11}
-According to Bjarne (\cite{Stroustrup:2005:Cpp}), the nature of C++ focuses on supporting general features (especially classes) to demonstrate its primary strength, whereas it has main weakness that represents the deficiency of specialized features (such as thread). C++11 is not  only  support specialized features, contrariwise it offers new features that reinforce both sides simultaneously, because C++ is a general purpose language and is not just designed to build "windows applications" or "web languages". C++11 will be compatible with C++, and will provide new features that are neglected clearly by existing Standard C++. This includes supporting for distributed and parallel programming, a concurrency which gains obvious popularity these days.
+According to Bjarne (\cite{Stroustrup:2005:Cpp}), the nature of C++ focuses on supporting general features (especially classes) to demonstrate its primary strength, whereas it has main weakness that represents the deficiency of specialized features (such as thread). C++11 is not  only existed to support specialized features, contrariwise it offers new features that reinforce both sides simultaneously, because C++ is a general purpose language and is not just designed to build "windows applications" or "web languages". C++11 will be compatible with C++, and will provide new features that are neglected clearly by existing Standard C++. This includes supporting for distributed and parallel programming, a concurrency which gains obvious popularity these days.
 
-C++ is almost becoming favourite language for expert programmers to build sophisticated software that are required by modern technology. However, it do not provide enough supportive libraries that assist novice programmers because language itself not able to support everything. C++11 provide diversity of separate libraries that have significant impact to support programmers of all backgrounds (for addition information see~\cite{Stroustrup:2005:Design}). Furthermore, standard library and language (core language) are also extended to contain various features that make programming much easier to understand and with less error-prone.
+C++ is almost becoming favourite language for expert programmers to build sophisticated software that are required by modern technology. However, it do not provide enough supportive libraries that assist novice programmers because language itself not able to support everything. C++11 provide diversity of separate libraries that have significant impact to support programmers of all backgrounds (for main information see~\cite{Stroustrup:2005:Design}). Furthermore, standard library and language (the core language) are also extended to contain various features that make programming much easier to understand and with less error-prone.
 
-The key to robust and sophisticated code is type safety using an appropriate type system, which ensures that errors are not propagated within programs. C++ does not consider completely a type safe system, because many implicit conversions and narrowing conversions could happen during some operations that lead to incorrect behaviour of programs. C++11 cannot make C++ entirely type safe, but it will not bring new loopholes that make system unsafe (for main information see~\cite{Stroustrup:2005:Cpp}). In addition, it introduces new facilities that used to inhibit ambiguity behaviour by alternative mechanism to current insecure practices.
+The key to robust and sophisticated code is type safety using an appropriate type system, which ensures that errors are not propagated within programs ( see~\cite{Stroustrup:2005:Cpp}). C++ does not consider completely a type safe system, because many implicit conversions and narrowing conversions could happen during some operations that lead to incorrect behaviour of programs. C++11 cannot make C++ entirely type safe, but it will not bring new loopholes that make system unsafe (for main information see~\cite{Stroustrup:2005:Cpp}). In addition, it introduces new facilities that used to inhibit ambiguity behaviour by alternative mechanism to current insecure practices.
 
 
 \section{What has been achieved}
@@ -104,16 +104,11 @@ To learn any programming language rightly, it must firstly know what full capabi
   decltype((i)) y;
 \end{lstlisting}
 Without clear and complete example, it may seem that they are similar; but in fact each line has different meaning. decltype~(i) x; make x as the same as i which is int. Whereas decltype~((i)) y; make y int \&.
-\section{Why small and many programs?}
-\label{sec:small and many programs}
-knowing the syntax of C++11 language is not enough to learn and understand the correct way to use the language efficiently, unless providing  simple  programs that give idea to programmers from first glance. These programs represent features of core language and their cases which could differ from usage to other. As C++11 provides capabilities and new style of programming, it become much easier to represent each feature in example and gives elementary idea to programmers to become able to build complex software as final target.
 
 % Boost 
 \section{Boost C++ libraries}
 \label{sec: Boost}
-The Boost C++ libraries "are free, open-source libraries" (see~\cite{Deitel:2012:CPP},~p.~31) created by the very same developers who designed and build the C++ standard libraries. They are designed to extend the functionality of C++ language in an efficient and commercial-grade, universally applicable style. Boost C++ libraries introduces helpful and well-designed libraries that regard compatible with C++ Standard Library (for more information see~\cite{Deitel:2012:CPP},~p.~937) and majority of which have been accepted in the C++ Standards Committee's Library Technical Report (TR1). In addition, parts of Boost library are currently being accepted into the Standard library for C++11 (see~\cite{Boost:2007:Cpp}) and they are regarded as one of the top libraries with a high industry acceptance. These libraries are Boost.Array, Boost.Bind, Boost.Function, Boost.Random, Boost.Regex, Boost.Smart\_ptr, Boost.Tuple and Boost.Type\_traits.
-
-As a result, the current C++11 Standard libraries include several more Boost libraries in addition to those from TR1 and they provide many features that making Standard Library powerful and more effective in both industrial and educational fields.
+The Boost C++ libraries "are free, open-source libraries" (see~\cite{Deitel:2012:CPP},~p.~31) created by the very same developers who designed and build the C++ standard libraries. They are designed to extend the functionality of C++ language in an efficient and commercial-grade, universally applicable style. Boost C++ libraries introduces helpful and well-designed libraries that regard compatible with C++ standard library and majority of which have been accepted in the C++ Standards Committee's Library Technical Report (TR1) (for more information see~\cite{Deitel:2012:CPP},~p.~937). In addition, parts of Boost library are currently being accepted into the standard library for C++11 (see~\cite{Boost:2007:Cpp}) and they are regarded as one of the top libraries with a high industry acceptance. These libraries are Boost.Array, Boost.Bind, Boost.Function, Boost.Random, Boost.Regex, Boost.Smart\_ptr, Boost.Tuple and Boost.Type\_traits. Therefore, the current C++11 standard library include several more Boost libraries in addition to those from TR1 and they provide many features that making standard library powerful and more effective in both industrial and educational fields.
 
 \section{A brief history of C++}
 \label{sec: History of C++}
@@ -273,7 +268,7 @@ The constexpr keyword can be applied to variables and data members and make thei
 
 \subsection{Constant-expression functions}
 \label{Constant Expression Functions}
-A constant expression function is a function that can be performed at compile time by means of inlining and assessing the result at compile-time. Declaring a function as constexpr enforces a few requirements that must be followed regarding as a constant-expression function (see~\cite{Gregorie:professionalcpp},~p.~287 for further information); otherwise, declaring it constexpr is a compilation error. The requirement necessary for a constexpr function are as follows:
+A constant expression function is a function that can be performed at compile time by means of inlining, and assessing the result at compile-time. Declaring a function as constexpr enforces few requirements that must be followed regarding as a constant-expression function; otherwise, declaring it constexpr is a compilation error. The requirement necessary for a constexpr function are as follows:
 
 \begin{enumerate}
 \item The body of function must consist of single return statement and must be in form {return expression ;} where expression must evaluate to a constant expression after substitution.
@@ -286,8 +281,7 @@ A constant expression function is a function that can be performed at compile ti
 
 \item If the constexpr function is defined as member of a class, the function cannot be virtual.
 \end{enumerate}
-
-Applying these requirement enable a compiler to evaluate a constexpr function at compile time. Thus, it becomes possible as follows to use the return type of constexpr function to specifying the size of an array (see~\ref{Constexpr_ArraySize} for complete example).
+Applying these requirement enable a compiler to evaluate a constexpr function at compile time (for main information see~\cite{Gregorie:professionalcpp},~p.~287). Thus, it becomes possible as follows to use the return type of constexpr function to specifying the size of an array (see~\ref{Constexpr_ArraySize} for complete example).
 \begin{lstlisting}
 constexpr int getsize (int i) { return i * i;}
 int main() {
@@ -295,19 +289,17 @@ int main() {
   // Remaining code omitted for brevity
 }
 \end{lstlisting}
-
-However, recursion in this type of function is not restricted and can be applied ("evaluate at compile-time") by using the ternary operator (? :)(for main information see~\cite{Allain:2011:FutureCpp}) as a single return statement as follows:
+However, recursion in this type of function is not restricted and can be applied by using the ternary operator (? :) as a single return statement as follows:
 \begin{lstlisting}
 constexpr int fact (int n) {
   return n > 0 ? n * fact( n - 1 ) : 1; // recursion function
 }
 \end{lstlisting}
-
-Hence, a compiler can optimize away the call and make the computation all at runtime. In this case, by permitting more complex computation, constexpr acts differently than a just in-line function, because an in-line recursive function is not possible, lead to consider function argument is itself a constexpr and be computed at compile time (see~\ref{Constexpr_Recursion} for complete example). Last but not least, constexpr function can also be involved at runtime (for further information see~\cite{Allain:2011:FutureCpp}). This can be done when the arguments to the function are declared as non-constant. Therefore, there is not required for creating separate functions to be executed at compile time and run time as long as it offers a convenient way to define function that work at compile time as well as runtime (see~\ref{Constexpr_FunctionRuntime}).
+Hence, a compiler can optimize away the call and make the computation all at runtime. In this case, by permitting more complex computation, constexpr acts differently than a just in-line function, because an in-line recursive function is not possible, lead to consider function argument is itself a constexpr and be computed at compile time (for complete example see~\ref{Constexpr_Recursion}) and (for main information see~\cite{Allain:2011:FutureCpp}). Last but not least, constexpr function can be involved at runtime. This can be done when the arguments to the function are declared as non-constant (see~\cite{Allain:2011:FutureCpp}). Therefore, there is not required for creating separate functions to be executed at compile time and run time as long as it offers a convenient way to define function that work at compile time as well as runtime (see~\ref{Constexpr_FunctionRuntime}).
 
 \subsection{Constant-expression constructors}
 \label{subsection: Constant Expression Constructors}
-A constant expression constructor allows creating user-defined types (such class) as constant expression (\cite{Gregorie:professionalcpp},~p.~287). This can be done by defining a constructor with constexpr keyword as follows:
+A constant expression constructor allows creating user-defined types (such class) as constant expression (see~\cite{Gregorie:professionalcpp},~p.~287). This can be done by defining a constructor with constexpr keyword as follows:
 \begin{lstlisting}
 class Rectangle {
 public:
@@ -317,8 +309,7 @@ public:
   // Remaining code omitted for brevity
 }
 \end{lstlisting}
- Defining constexpr constructor must also meet following criteria:
- 
+Defining constexpr constructor must meet following criteria:
 \begin{enumerate}
 \item	The body of constructor must be empty.
 \item	All arguments of constructor must be literal types or references to literal types.
@@ -326,31 +317,30 @@ public:
 \item	The body of constructor cannot be a function-try-block.
 \item	All data members must be initialized with constant expressions.
 \end{enumerate}
-The constant expression evaluation happens in the member initializations which must fit the requirement ("arguments must be constants") to evaluate as constants. An object that construct with a constant-expression constructor and constant expression arguments, is named as user-defined literal and can be used at compile time to specify the bound of array via its methods as follows:
+The constant expression evaluation happens in the member initializations which must fit the requirement (arguments must be constants) to evaluate as constants. An object that construct with a constant-expression constructor and constant expression arguments, is named as user-defined literal and can be used at compile time (for more information see~\cite{Gregorie:professionalcpp},~p.~287), for example to specify the bound of array via its methods as follows:
 \begin{lstlisting}
 constexpr Rectangle rect(2,3);
 constexpr int multidimensional[rect.get_width()][rect.get_height()] = {{0}};
 \end{lstlisting}
-For complete example about constant expression constructors (see~\ref{Constexpr_ConstantConstructor}).
+Thus, it becomes  possible to use object at compile-time as long as it has constexpr constructor (for complete example see~\ref{Constexpr_ConstantConstructor}).
 
 % modification of the definition of POD
 \section{Modification of the definition of plain old data}
 \label{section: Modification of the definition of plain old data}
-Plain old data~(POD) is a data structure that represented with fundamental types, without using the object oriented features, to suggest areas of essential compatibility between comparable data types in C and C++ (for addition information see~\cite{Stroustrup:2012:Cpp11}). A POD type in C++ is classified as either a scalar type or a POD class. The scalar type collectively refers to the fundamental types of C++ such integral types (int, char), floating types (float, double), enumeration types and pointer types. Whereas the POD class has no non-static data (including arrays) of any pointer-to-member type, no non-static data~(including arrays) of any non-POD class type, no user-defined copy assignment operator, nor user-defined destructor (see~\cite{MSDN:2012:CppModern} for more details). In addition, a POD class has to be an aggregate, meaning it has no private or protected not static data members, no user-declared constructors, no base classes and no virtual functions.
+Plain old data~(POD) is a data structure that represented with fundamental types, without using the object oriented features to suggest areas of essential compatibility between comparable data types in C and C++ (for addition information see~\cite{Stroustrup:2012:Cpp11}). A POD type in C++ is classified as either a scalar type or a POD class. The scalar type collectively refers to the fundamental types of C++ such integral types (int, char), floating types (float, double), enumeration types and pointer types. Whereas the POD class has no non-static data (including arrays) of any pointer-to-member type, no non-static data~(including arrays) of any non-POD class type, no user-defined copy assignment operator, nor user-defined destructor (see~\cite{MSDN:2012:CppModern} for more details). In addition, a POD class has to be an aggregate, meaning it has no private or protected not static data members, no user-declared constructors, no base classes and no virtual functions.
 
-In the traditional C++, the actual definition of POD is based on a set of restrictions that should be satisfied for defining POD class or structure; otherwise, it is not POD type. Therefore, C++ able to distinguish between POD types and non-POD types. However, in some situations, this distinction is limited, because some non-POD types have similar properties as POD types. Thus, they have the same behaviour.
+In the traditional C++, the actual definition of POD is based on a set of restrictions that should be satisfied for defining POD class or structure; otherwise, it is not POD type. Therefore, C++ able to distinguish between POD types and non-POD types. However, in some situations, this distinction is limited, because some non-POD types have similar properties as POD types and have the same behaviour (see~\cite{Stroustrup:2012:Cpp11}).
 
-C++11 relaxed some of the POD rules by dividing the POD concept into new type categories: trivial classes and standard layout classes and their definition no longer depends on the definition of aggregate (for more information see~\cite{MSDN:2012:CppModern}). A trivial class can be statically initialized and can be copied via \texttt{memcpy()}, instead of having to use a copy constructor. The lifetime of a trivial type begins when its storage is defined, not when a constructor completes. The trivial class is a class that:
+C++11 relaxed some of the POD rules to become more clear by dividing the POD concept into new type categories: trivial classes and standard layout classes and their definition no longer depends on the definition of aggregate (for more information see~\cite{MSDN:2012:CppModern}). A trivial class can be statically initialized and can be copied via \texttt{memcpy()}, instead of having to use a copy constructor. The lifetime of a trivial type begins when its storage is defined, not when a constructor completes. The trivial class is a class that:
 \begin{enumerate}
 \item	Has a trivial default constructor. 
 \item	Has a trivial copy and move constructor.
 \item	Has a trivial copy and move assignment operator.
 \item	Has a trivial destructor.
 \end{enumerate}
+Additionally, trivial class has no virtual member functions of the class and no virtual base classes (for main information see~\cite{ISO:2011:Cpplanguage},~p.~215). Hence, it can have user-defined constructors as long as above requirements are available (see~\ref{POD_TrivialClass}).
 
-Additionally, trivial class has no virtual member functions of the class and no virtual base classes (see \cite{ISO:2011:Cpplanguage},~p.~215 for further information). Hence, it can have user-defined constructors as long as above requirements are available (see~\ref{POD_TrivialClass}).
-
-Standard layout is intended to capture the first intent by creating something with a layout the same as getting in C. A standard layout class is a class (for more information\cite{ISO:2011:Cpplanguage},~p.~216) that has follows requirements:
+Standard layout is intended to capture the first intent by creating something with a layout as the same as getting in C. A standard layout class is a class (for more information\cite{ISO:2011:Cpplanguage},~p.~216) that has follows requirements:
 
 \begin{enumerate}
 \item	Has no virtual functions and no virtual base classes.
@@ -358,12 +348,11 @@ Standard layout is intended to capture the first intent by creating something wi
 \item	All its non-static data members have the same access control (public, private, protected).
 \item	It has no base classes of the same type as the first defined non-static data member (see~\ref{POD_StandardLayoutClass}).
 \end{enumerate}
-
 A class or structure is considered POD type if it is trivial, standard-layout, and all of its non-static data members and base classes are PODs (see~\ref{POD_StandardLayoutandTrivialClass}). By separating trivial and standard-layout concepts, it becomes possible to give up one without omitting other (see~\cite{Stroustrup:2012:Cpp11} for more details). A class that has copy  and move constructors could not be trivial, but it may be may be standard-layout and hence interrupt with C. Likewise, a class that has  public and private non-static data members may not be standard-layout, but it could be trivial and hence, can be copied via \texttt{memcpy()}.
 
 \section{Summary}
 \label{sec: Summary}
-This chapter explained how a runtime can be improved by using several features that added by C++11.  These features provide new mechanism that make program faster than before through avoiding duplicate copies, providing new concepts that allows some computation and initialization to be done in compile time rather than runtime and using new POD structure to allocate memory efficiently.Providing such features make the language suitable for applications that require high performance and running operations fast.
+This chapter explained how a runtime can be improved by using several features that introduced by C++11.  These features provide new mechanism that make program faster than before through avoiding duplicate copies, providing new concepts that allows some computation and initialization to be done in compile time rather than runtime and using new POD structure to allocate memory efficiently. Providing such features making the language suitable for different applications that require high performance computing
 
 % chapter Core Language Usability Enhancements
 \chapter{Core Language Usability Enhancements}
