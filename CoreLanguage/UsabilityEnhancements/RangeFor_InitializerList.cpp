@@ -1,5 +1,9 @@
-// Dilshad Sall, 5.7.2012
-// Using range-based for statement to iterate over the elements of initializer_list. 
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/5
+ * \class C
+ * \brief Using range-based for statement to iterate over the elements of initializer_list.
+ */
 
 #include <iostream>
 #include <initializer_list>
