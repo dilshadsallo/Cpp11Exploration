@@ -1,6 +1,11 @@
-// Dilshad Sallo, 20.07.2012
-// using "auto" keyword to deduce the type of iterator, within range-based for syntax
-// to print the the title of books and years of publication.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/20
+ * \brief Using "auto" keyword to deduce the type of complicated syntax.
+ *
+ * Using "auto" keyword to deduce the type of iterator, within range-based for syntax
+ * to print the the title of books and years of publication.
+ */
 
 #include <iostream>
 #include <string>
