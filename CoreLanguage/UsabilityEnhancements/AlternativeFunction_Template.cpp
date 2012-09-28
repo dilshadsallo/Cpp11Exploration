@@ -1,5 +1,8 @@
-// Dilshad Sallo, 22.7.2012
-// Using alternative function syntax and decltype keyword within template.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/22
+ * \brief Using alternative function syntax and decltype keyword within template.
+ */
 
 #include <iostream>
 #include <typeinfo>
