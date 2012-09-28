@@ -1,5 +1,9 @@
-// Dilshad Sallo, 23.6.2012
-// Using char16_t  to concatenate string literals and store them in 16 bits.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/23
+ * \brief Using char16_t  to concatenate string literals and store them in 16 bits.
+ *
+ */
 
 #include <cassert>
 
