@@ -1,5 +1,10 @@
-// Dilshad Sallo, 12.8.2012
-// Using variadic template parameters with function template to provide type-safe variadic function.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/12
+ *
+ * Using variadic template parameters with function template
+ * to provide type-safe variadic function.
+ */
 
 #include <cassert>
 #include <string>
