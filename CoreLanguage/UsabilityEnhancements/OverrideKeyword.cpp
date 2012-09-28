@@ -1,5 +1,9 @@
-// Dilshad Sallo, 02.04.2012
-// Using "override" keyword to mark functions explicitly as override.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/4/2
+ * \class Derived1, Derived2
+ * \brief Using "override" keyword to mark functions explicitly as override.
+ */
 
 #include <cassert>
 
