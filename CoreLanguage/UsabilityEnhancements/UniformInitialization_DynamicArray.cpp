@@ -1,5 +1,10 @@
-// Dilshad Sallo, 3.7.2012
-// Using uniform initialization (brace-initialization) to initialize dynamically allocated arrays.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/3
+ *
+ * Using uniform initialization (brace-initialization)
+ * to initialize dynamically allocated arrays.
+ */
 
 #include <cassert>
 
