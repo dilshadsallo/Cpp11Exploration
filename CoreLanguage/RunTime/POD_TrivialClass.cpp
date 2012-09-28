@@ -1,5 +1,11 @@
-// Dilshad Sallo, 16.8.2012
-// Defining trivial class "C" but is not standard-layout class and leading to be not POD type.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/16
+ * \class C
+ * \brief defining class C as trivial.
+ *
+ * Defining trivial class C but is not standard-layout class and leading to be not POD type.
+ */
 
 #include <type_traits>
 
