@@ -1,5 +1,9 @@
-// Dilshad Sallo,30.06.2012
-// Using "static_assert" with type traits(is_same and is_base relations).
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/30
+ * \brief Using "static_assert" with type traits(is_same and is_base relations).
+ */
+
 
 #include <type_traits>
 
