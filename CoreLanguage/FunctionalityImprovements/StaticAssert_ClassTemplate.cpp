@@ -1,5 +1,9 @@
-// Dilshad Sallo, 1.7.2012
-// Using "static_assert" to assert template parameter before using inside class.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/1
+ * \class C
+ * \brief Using "static_assert" to assert template parameter before using inside class.
+ */
 
 #include <iostream>
 #include <type_traits>
