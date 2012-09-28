@@ -1,5 +1,12 @@
-// Dilshad Sallo, 4.7.2012
-// Using uniform initialization to initialize vector implicitly via template class "initializer_list".
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/4
+ * \class C
+ * \brief Using uniform initialization with standard library containers.
+ *
+ *  Using uniform initialization to initialize vector implicitly
+ *  via template class "initializer_list".
+ */
 
 #include <string>
 #include <cassert>
