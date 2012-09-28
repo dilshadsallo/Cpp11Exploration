@@ -1,5 +1,10 @@
-// Dilshad Sallo, 6.8.2012
-// Using template alias "using" keyword with template, and without specifying explicit types. 
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/6
+ *
+ * Using template alias "using" keyword with template,
+ * and without specifying explicit types.
+ */
 
 #include <map>
 #include <string>
