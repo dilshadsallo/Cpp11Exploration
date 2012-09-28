@@ -1,5 +1,8 @@
-// Dilshad Sallo, 1.8.2012
-// Using rvalue-reference to bind to rvalues.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/1
+ * \brief Using rvalue-reference to bind to rvalues.
+ */
 
 #include <cassert>
 
