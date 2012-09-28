@@ -1,5 +1,9 @@
-// Dilshad Sallo, 26.8.2012
-// Implementing move constructor by using rvalue references.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/26
+ * \class C
+ * \brief Implementing move constructor by using rvalue references.
+ */
 
 #include <iostream>
 #include <vector>
