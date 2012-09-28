@@ -1,5 +1,8 @@
-// Dilshad Sallo, 3.7.2012
-// Using uniform initialization (brace-initialization) to prevent narrowing.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/3
+ * \brief Using uniform initialization (brace-initialization) to prevent narrowing.
+ */
 
 #include <cassert>
 
