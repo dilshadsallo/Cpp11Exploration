@@ -1,5 +1,9 @@
-// Dilshad Sallo, 29.7.2012
-// Using "explicit" keyword with operator to prevent implicit conversion from object to int.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/29
+ * \class B
+ * \brief Using "explicit" keyword with operator to prevent implicit conversion from object to int.
+ */
 
 #include <cassert>
 
