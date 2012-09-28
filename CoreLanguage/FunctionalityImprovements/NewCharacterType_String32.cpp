@@ -1,5 +1,8 @@
-// Dilshad Sallo, 23.6.2012
-// Using char32_t  to concatenate string literals and store them in 32 bits.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/23
+ * \brief Using char32_t to concatenate string literals and store them in 32 bits.
+ */
 
 #include <cassert>
 
