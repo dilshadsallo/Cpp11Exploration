@@ -1,5 +1,8 @@
-// Dilshad Sallo, 22.8.2012
-// Using "auto" keyword to declare initializer_list.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/22
+ * \brief Using "auto" keyword to declare initializer_list.
+ */
 
 #include <initializer_list>
 #include <cassert>
