@@ -1,6 +1,14 @@
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/26
+ *
+ * Using lambda expression with mutable option that allows to modify
+ * values that are captured by value from enclosing scope.
+ */
+
 // Dilshad Sallo, 26.7.2012
-// Using lambda expression with mutable option,
-// which allows to modify values that are captured by value from enclosing scope.
+// 
+// 
 
 #include <cassert>
 #include <functional>
