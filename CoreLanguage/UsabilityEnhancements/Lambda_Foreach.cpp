@@ -1,6 +1,10 @@
-// Dilshad Sallo, 26.7.2012
-// Using lambda expression as a third parameter for Standard Library algorithm such as for_each,
-// to account a number and sum of odd numbers.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/26
+ *
+ * Using lambda expression as a third parameter for Standard Library algorithm 
+ * such as for_each, to account a number and sum of odd numbers.
+ */
 
 #include <cassert>
 #include <algorithm>
