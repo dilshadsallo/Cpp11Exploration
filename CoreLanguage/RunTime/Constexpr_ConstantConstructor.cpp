@@ -1,5 +1,12 @@
-// Dilshad Sallo, 25.8.2012
-// Defining Constant Expression Constructor and then defining object that is used at compile time to compute perimeter and specify the size of array.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/25
+ * \class Rectangle
+ * \brief Using "constexpr" keyword to define constant expression constructor.
+ *
+ * Defining Constant Expression Constructor and then defining object that is used 
+ * at compile time to compute perimeter and specify the size of array.
+ */
 
 #include <cassert>
 
