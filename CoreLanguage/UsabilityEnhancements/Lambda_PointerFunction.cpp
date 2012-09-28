@@ -1,5 +1,8 @@
-// Dilshad Sallo, 26.7.2012
-// storing pointer to lambda expression that is used to invoke it.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/26
+ * \brief Storing pointer to lambda expression that is used to invoke it.
+ */
 
 #include <cassert>
 #include <string>
