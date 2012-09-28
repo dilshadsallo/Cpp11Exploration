@@ -1,5 +1,8 @@
-// Dilshad Sallo, 22.7.2012
-// Using "decltype" keyword with template class to deduce the type.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/22
+ * \brief Using "decltype" keyword with template class to deduce the type.
+ */
 
 #include <iostream>
 #include <typeinfo>
