@@ -1,5 +1,8 @@
-// Dilshad Sallo, 5.7.2012
-// Using range-based for statment with STL container (vector).
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/5
+ * \brief Using range-based for statement with STL container (vector).
+ */
 
 #include <iostream>
 #include <vector>
