@@ -1,5 +1,8 @@
-// Dilshad Sallo, 18.3.2012
-// Using the "auto" keyword with const and volatile qualifiers.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/3/18
+ * \brief Using the "auto" keyword with const and volatile qualifiers.
+ */
 
 #include <iostream>
 #include <typeinfo>
