@@ -1,5 +1,8 @@
-// Dilshad Sallo, 17.6.2012
-// Using char32_t to store character literal in 32-bits (UTF-32).
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/17
+ * \brief Using char32_t to store character literal in 32-bits (UTF-32).
+ */
 
 #include <cassert>
 
