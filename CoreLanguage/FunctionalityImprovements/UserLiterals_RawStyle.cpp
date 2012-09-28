@@ -1,5 +1,8 @@
-// Dilshad Sallo ,28.06.2012
-// Defining user Raw literals to convert from binary to decimal and versa versa.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/28
+ * \brief Defining user Raw literals to convert from binary to decimal and versa versa.
+ */
 
 #include<iostream>
 #include <cassert>
