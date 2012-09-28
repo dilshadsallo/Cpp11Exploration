@@ -1,5 +1,9 @@
-// Dilshad Sallo, 01.04.2012
-// Defining explicit default constructor with user defined constructor.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/4/1
+ * \class C
+ * \brief Defining explicit default constructor with user defined constructor.
+ */
 
 #include <cassert>
 
