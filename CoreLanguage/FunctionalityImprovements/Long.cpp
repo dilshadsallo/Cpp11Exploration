@@ -1,5 +1,8 @@
-// Dilshad Sallo, 18.3.2012
-// Long long (int) takes at least 8 bytes.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/3/18
+ * \brief Long long (int) takes at least 8 bytes.
+ */
 
 #include <iostream>
 #include <typeinfo>
