@@ -1,6 +1,10 @@
-// Dilshad Sallo, 8.8.2012
-// Using the "constexpr" keyword to make return function as constant at compile-time
-// , and then used to specifying the bounds of an array.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/8
+ * 
+ * Using the "constexpr" keyword to make return function as constant
+ * at compile-time, and then used to specifying the bounds of an array.
+ */
 
 #include <cassert>
 
