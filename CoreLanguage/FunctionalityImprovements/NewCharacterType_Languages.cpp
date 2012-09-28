@@ -1,6 +1,10 @@
-// Dilshad Sallo, 21.8.2012
-// Using new character types ( char16_t and char32_t)
-// to represent Unicode Characters for "hello" word  in Arabic language.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/21
+ * 
+ * Using new character types ( char16_t and char32_t)
+ * to represent Unicode Characters for "hello" word  in Arabic language.
+ */
 
 #include <string.h>
 #include <cassert>
