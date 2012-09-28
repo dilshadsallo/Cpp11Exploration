@@ -1,5 +1,8 @@
-// Dilshad Sallo, 26.7.2012
-// Lambda expression that have implicit return type.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/26
+ * \brief Lambda expression that have implicit return type.
+ */
 
 #include <iostream>
 #include <typeinfo>
