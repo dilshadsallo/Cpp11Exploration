@@ -1,5 +1,8 @@
-// Dilshad Sallo, 17.6.2012
-// Using char16_t to store character literal in 16-bits (UTF-16).
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/17
+ * \brief Using char16_t to store character literal in 16-bits (UTF-16).
+ */
 
 #include <cassert>
 
