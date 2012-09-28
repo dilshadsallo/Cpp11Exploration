@@ -1,5 +1,8 @@
-// Dilshad Sallo,30.06.2012
-// Using "static_assert" with type traits (float type).
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/30
+ * \brief Using "static_assert" with type traits (float type).
+ */
 
 #include <type_traits>
 
