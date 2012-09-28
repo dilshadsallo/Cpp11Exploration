@@ -1,5 +1,11 @@
-// Dilshad Sallo,16.8.2012
-// Defining standard layout classes "C" and "A", but are not trivial classes and leading to be not POD type.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/16
+ * \class C
+ * \brief defining class C as standard layout.
+ * Defining standard layout classes C and A,
+ * but are not trivial classes and leading to be not POD type.
+ */
 
 #include <type_traits>
 
