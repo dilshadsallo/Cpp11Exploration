@@ -1,5 +1,8 @@
-// Dilshad Sallo, 6.8.2012
-// Using template alias "using" keyword with varialbes
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/6
+ * \brief Using template alias "using" keyword with variables.
+ */
 
 #include <iostream>
 #include <typeinfo>
