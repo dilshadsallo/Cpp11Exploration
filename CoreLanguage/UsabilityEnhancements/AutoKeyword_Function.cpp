@@ -1,5 +1,8 @@
-// Dilshad Sallo, 20.7.2012
-// Using "auto" keyword to deduce a function return type, which is pointer to pointer.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/20
+ * \brief Using "auto" keyword to deduce a function return type, which is pointer to pointer.
+ */
 
 #include <iostream>
 #include <typeinfo>
