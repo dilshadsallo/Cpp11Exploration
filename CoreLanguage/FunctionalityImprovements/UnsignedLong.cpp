@@ -1,5 +1,8 @@
-// Dilshad Sallo, 18.3.2012
-//  unsigned long long (int) takes at least 8 bytes but minimum value is zero.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/3/18
+ * \brief Unsigned long long (int) takes at least 8 bytes but minimum value is zero.
+ */
 
 #include <iostream>
 #include <typeinfo>
