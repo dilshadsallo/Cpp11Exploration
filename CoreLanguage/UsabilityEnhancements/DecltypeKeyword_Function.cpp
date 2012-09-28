@@ -1,5 +1,8 @@
-// Dilshad Sallo, 22.7.2012
-// Using "decltype" keyword to create data type as the same as function return type.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/22
+ * \brief Using "decltype" keyword to create data type as the same as function return type.
+ */
 
 #include <iostream>
 #include <typeinfo>
