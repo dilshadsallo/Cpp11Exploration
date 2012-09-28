@@ -1,5 +1,8 @@
-// Dilshad Sallo, 1.7.2012
-// Calling user-defined literals depending on literal operator.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/1
+ * \brief Calling user-defined literals depending on literal operator.
+ */
 
 #include <iostream>
 
