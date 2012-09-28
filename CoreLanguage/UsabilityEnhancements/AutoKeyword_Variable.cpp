@@ -1,5 +1,8 @@
-// Dilshad Sallo, 20.7.2012
-// Using "auto" keyword to deduce the types of variables from their initializer expressions.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/20
+ * \brief Using "auto" keyword to deduce the types of variables from their initializer expressions.
+ */
 
 #include <iostream>
 #include <typeinfo>
