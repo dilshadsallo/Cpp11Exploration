@@ -1,6 +1,10 @@
-// Dilshad Sallo, 11.8.2012
-// Using variadic template to define function called "user_make_tuple" that work exactly as
-// the same as std::make_tuple, which is supported by std::tuple.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/11
+ *
+ * Using variadic template to define function called "user_make_tuple"
+ * that work exactly as the same as std::make_tuple, which is supported by std::tuple.
+ */
 
 #include <cassert>
 #include <tuple>
