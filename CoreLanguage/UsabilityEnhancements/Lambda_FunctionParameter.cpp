@@ -1,5 +1,8 @@
-// Dilshad Sallo, 26.7.2012
-// Using lambda expression as parameter with std::function.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/26
+ * \brief Using lambda expression as parameter with std::function.
+ */
 
 #include <functional>
 #include <initializer_list>
