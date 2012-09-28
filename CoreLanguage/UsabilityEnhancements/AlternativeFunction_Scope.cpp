@@ -1,10 +1,14 @@
-// Dilshad Sallo, 22.7.2012
-// With alternative function syntax , the scope to define return type is not required.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/22
+ * \class Student
+ * \brief With alternative function syntax, the scope to define return type is not required.
+ */
 
 #include <cassert>
 class Student {
 public:
-  enum StudentType { UNDERGRADUATE, POSTGRADUATE};
+  enum StudentType {UNDERGRADUATE, POSTGRADUATE};
   StudentType getStudentType() const;
   void setStudentType (StudentType s_type) {
     student_type = s_type;
