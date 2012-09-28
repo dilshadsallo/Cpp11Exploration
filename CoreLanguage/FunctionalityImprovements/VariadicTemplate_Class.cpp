@@ -1,6 +1,13 @@
-// Dilshad Sallo, 12.8.2012
-// Using variadic template with class called "Generic" that except
-// a varialbe number of template parameter and mix classed according to that variable.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/12
+ * \class Generic
+ * \brief Using "initializer-list" explicitly within constructor.
+ *
+ * This class has user-defined constructor that takes template
+ * class "initializer_list" to initializer data members (array) of class C.
+ */
+
 
 #include <cassert>
 #include <iostream>
