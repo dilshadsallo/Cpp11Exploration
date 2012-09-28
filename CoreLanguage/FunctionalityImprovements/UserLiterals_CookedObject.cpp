@@ -1,5 +1,9 @@
-// Dilshad Sallo, 29.6.2012
-// Using User-defined literals to return object instead of primitive type.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/4
+ * \class C
+ * \brief Using User-defined literals to return object instead of primitive type.
+ */
 
 #include <string>
 #include <string.h>
