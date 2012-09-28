@@ -1,5 +1,8 @@
-// Dilshad Sallo, 28.6.2012
-// Using user defined cooked literals to convert string from C-style to C++ style.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/28
+ * \brief Using user defined cooked literals to convert string from C-style to C++ style.
+ */
 
 #include <string>
 #include <string.h>
