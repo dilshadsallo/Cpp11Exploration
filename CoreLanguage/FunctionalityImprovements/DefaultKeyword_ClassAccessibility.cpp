@@ -1,5 +1,12 @@
-// Dilshad Sallo, 27.06.2012
-// Using "default" keyword to change accessibility of special member functions.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/27
+ * \class A
+ * \brief Using "default" within special member functions.
+ *
+ * Using "default" keyword in class A to change accessibility
+ * of special member functions.
+ */
 
 #include <cassert>
 
