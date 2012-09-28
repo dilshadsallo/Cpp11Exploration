@@ -1,6 +1,12 @@
-// Dilshad Sallo, 27.6.2012
-// Using "delete" keyword to disable copies of copy constructor and
-// assignment operator to make class move only.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/27
+ * \class T
+ * \brief Using "delete" keyword to with special member functions.
+ *
+ * Using "delete" keyword to disable copies of copy constructor and
+ * assignment operator to make class move only.
+ */
 
 #include <iostream>
 
