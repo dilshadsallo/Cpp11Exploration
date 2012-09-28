@@ -1,5 +1,10 @@
-// Dilshad Sallo, 22.7.2012
-// Using alternative function syntax to multiply two integer numbers and return double type as result.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/22
+ *
+ * Using alternative function syntax to multiply two integer numbers
+ * and return double type as result.
+ */
 
 #include <iostream>
 #include <typeinfo>
