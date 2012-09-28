@@ -1,5 +1,8 @@
-// Dilshad Sallo, 5.7.2012
-// Using range-based for statement with uniform initialization.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/5
+ * \brief Using range-based for statement with uniform initialization.
+ */
 
 #include <iostream>
 
