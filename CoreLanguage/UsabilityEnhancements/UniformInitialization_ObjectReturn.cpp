@@ -1,5 +1,9 @@
-// Dilshad Sallo, 3.7.2012
-// Using Uniform initialization (brace-initialization) to implicitly initialize object return.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/3
+ * \class C
+ * \brief Using Uniform initialization to implicitly initialize object return.
+ */
 
 #include <cassert>
 
