@@ -1,5 +1,9 @@
-// Dilshad Sallo, 26.04.2012
-// Using final keyword to mark function as non-overridable
+/**
+ * \author Dilshad Sallo
+ * \date 2012/4/26
+ * \class Base
+ * \brief Using final keyword to mark function as non-overridable
+ */
 
 #include <cassert>
 
