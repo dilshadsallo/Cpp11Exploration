@@ -1,5 +1,9 @@
-// Dilshad Sallo, 24.04.2012
-// using "delete" keyword to explicit deleting overloading method.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/4/24
+ * \class C
+ * \brief Using "delete" keyword to explicit deleting overloading method.
+ */
 
 #include <iostream>
 #include <typeinfo>
