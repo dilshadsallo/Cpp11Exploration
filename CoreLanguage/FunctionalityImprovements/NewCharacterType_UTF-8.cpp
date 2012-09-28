@@ -1,5 +1,8 @@
-// Dilshad Sallo,
-// Using prefix "u8" to store the contents of strings in 8-bit form(UTF-8).
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/25
+ * \brief Using prefix "u8" to store the contents of strings in 8-bit form(UTF-8).
+ */
 
 #include <cassert>
 #include <string.h>
