@@ -1,5 +1,8 @@
-// Dilshad Sallo, 19.6.2012
-// Using raw string literal to represent backslashes and text easily.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/19
+ * \brief Using raw string literal to represent backslashes and text easily.
+ */
 
 #include <cassert>
 #include <string.h>
