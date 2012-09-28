@@ -1,5 +1,9 @@
-// Dilshad Sallo, 8.7.2012
-// Using delegating constructor to call target constructor.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/8
+ * \class C
+ * \brief Using delegating constructor to call target constructor.
+ */
 
 #include <cassert>
 
