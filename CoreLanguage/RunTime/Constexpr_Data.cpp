@@ -1,5 +1,8 @@
-// Dilshad Sallo, 25.8.2012
-// Declare variables as constexpr and initialize them at compile-time.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/25
+ * \brief Declare variables as constexpr and initialize them at compile-time.
+ */
 
 #include <cassert>
 
