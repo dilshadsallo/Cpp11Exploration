@@ -1,5 +1,9 @@
-// Dilshad Sallo, 24.04.2012
-// Using rvalue-reference to make non-const references to temporary values.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/4/24
+ * \class C
+ * \brief Using rvalue-reference to make non-const references to temporary values.
+ */
 
 #include <iostream>
 #include <cassert>
