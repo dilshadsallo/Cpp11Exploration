@@ -1,5 +1,10 @@
-// Dilshad Sallo, 27.7.2012
-// Using lambda expression with Standard Library algorithm (std::sort) to sort elements of vector.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/27
+ *
+ * Using lambda expression with Standard Library algorithm 
+ * (std::sort) to sort elements of vector.
+ */
 
 #include <cassert>
 #include <vector>
