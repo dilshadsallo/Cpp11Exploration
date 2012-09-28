@@ -1,5 +1,9 @@
-// Dilshad Sallo, 22.7.2012
-// Using alternative function syntax to return this pointer.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/22
+ * \class S
+ * \brief Using alternative function syntax to return this pointer.
+ */
 
 #include <cassert>
 #include <vector>
