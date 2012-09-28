@@ -1,5 +1,8 @@
-// Dilshad Sallo, 9.7.2012
-// Enumeration class prevent conversion to or from integer.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/9
+ * \brief Enumeration class prevent conversion to or from integer.
+ */
 
 #include <cassert>
 
