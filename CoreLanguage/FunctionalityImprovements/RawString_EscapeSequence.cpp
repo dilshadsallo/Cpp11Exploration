@@ -1,6 +1,10 @@
-// Dilshad Sallo, 19.6.2012
-// Using raw string literal to represent escape sequence and
-// quotation marks as normal text.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/19
+ * 
+ * Using raw string literal to represent escape sequence and
+ * quotation marks as normal text.
+ */
 
 #include <iostream>
 #include <string.h>
