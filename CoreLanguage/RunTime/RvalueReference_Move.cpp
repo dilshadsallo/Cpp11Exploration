@@ -1,7 +1,8 @@
-// Dilshad Sallo, 24.04.2012
-// Using "move" keyword to force a compiler to convert from Ivalue into an rvalue.
-
-// C++ primer p.1174
+/**
+ * \author Dilshad Sallo
+ * \date 2012/4/24
+ * \brief Using "move" keyword to force a compiler to convert from Ivalue into an rvalue.
+ */
 
 #include <iostream>
 #include <cassert>
