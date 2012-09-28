@@ -1,5 +1,8 @@
-// Dilshad Sallo, 9.7.2012
-// Enumeration class provide explicit scope to avoid conflicts.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/9
+ * \brief Enumeration class provide explicit scope to avoid conflicts.
+ */
 
 #include <cassert>
 
