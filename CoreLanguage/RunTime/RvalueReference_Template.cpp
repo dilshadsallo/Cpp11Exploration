@@ -1,5 +1,8 @@
-// Dilshad Sallo, 1.8.2012
-// Using rvalue reference as parameter for function template.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/1
+ * \brief Using rvalue reference as parameter for function template.
+ */
 
 #include <cassert>
 
