@@ -1,5 +1,8 @@
-// Dilshad Sallo, 20.7.2012
-// Using "auto" keyword with new expression to direct initialization syntax.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/20
+ * \brief Using "auto" keyword with new expression to direct initialization syntax.
+ */
 
 #include <iostream>
 #include <typeinfo>
