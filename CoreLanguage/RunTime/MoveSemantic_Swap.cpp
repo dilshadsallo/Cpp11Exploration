@@ -1,5 +1,8 @@
-// Dilshad Sallo, 3.8.2012
-// Using move semantic to swap elements without duplicate copy.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/3
+ * \brief Using move semantic to swap elements without duplicate copy.
+ */
 
 #include <iostream>
 #include <cassert>
