@@ -1,5 +1,8 @@
-// Dilshad Sallo, 5.7.2012
-// Using range-based for statement with C-style array to change its contents.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/5
+ * \brief Using range-based for statement with C-style array to change its contents.
+ */
 
 #include <iostream>
 #include <cassert>
