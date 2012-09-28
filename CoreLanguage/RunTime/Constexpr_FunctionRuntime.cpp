@@ -1,5 +1,8 @@
-// Dilshad Sallo, 25.8.2012
-// Using constexpr function "multiply" at runtime to compute a value of two numbers.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/25
+ * \brief Using constexpr function "multiply" at runtime to compute a value of two numbers.
+ */
 
 #include <iostream>
 
