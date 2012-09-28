@@ -1,6 +1,10 @@
-// Dilshad Sallo, 25.8.2012
-// Applying recursion with constexpr function, and using constexpr function "call_fun"
-// to call recursion  constexpr function .
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/25
+ *
+ * Applying recursion with constexpr function, and using constexpr function "call_fun"
+ * to call recursion  constexpr function .
+ */
 
 #include <cassert>
 
