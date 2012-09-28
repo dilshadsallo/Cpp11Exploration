@@ -1,6 +1,11 @@
-// Dilshad Sallo, 12.8.2012
-//Using variadic template parameters with function template to provide type-safe variadic function
-// that receive a variable number of parameters and store them according to their type.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/12
+ *
+ * Using variadic template parameters with function template to provide 
+ * type-safe variadic function that receive a variable number of parameters
+ * and store them according to their type.
+ */
 
 #include <iostream>
 
