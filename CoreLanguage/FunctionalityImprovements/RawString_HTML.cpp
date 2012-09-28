@@ -1,5 +1,8 @@
-// Dilshad Sallo, 18.8.2012
-// Representing HTML code by using raw string literals.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/18
+ * \brief Representing HTML code by using raw string literals.
+ */
 
 #include <iostream>
 #include <string>
