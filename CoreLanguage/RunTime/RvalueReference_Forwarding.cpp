@@ -1,6 +1,12 @@
-// Dilshad Sallo, 26.8.2012
-// Using rvalue reference to execute perfect forwarding,
-// which pass arguments to another function.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/26
+ * \class C
+ * \brief Using perfect forwarding.
+ *
+ * Using rvalue reference to execute perfect forwarding,
+ * which pass arguments to another function with keeping a nature of type.
+ */
 
 #include <iostream>
 
