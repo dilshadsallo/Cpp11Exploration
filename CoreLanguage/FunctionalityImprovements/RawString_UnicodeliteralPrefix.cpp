@@ -1,6 +1,10 @@
-// Dilshad Sallo, 19.6.2012
-// Using raw string literals with unicode literal Prefixes ("u8", u" and "U")
-// to store the content of raw string in 8,16 and 32 bits.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/19
+ * 
+ * Using raw string literals with Unicode literal Prefixes ("u8", u" and "U")
+ * to store the content of raw string in 8,16 and 32 bits.
+ */
 
 #include <cassert>
 
