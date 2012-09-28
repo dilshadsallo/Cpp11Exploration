@@ -1,5 +1,9 @@
-// Dilshad Sallo, 3.7.2012
-// Using uniform initialization (brace-initialization) to Initialize array member variables.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/3
+ * \class C
+ * \brief Using uniform initialization (brace-initialization) to Initialize array member variables.
+ */
 
 #include <cassert>
 
