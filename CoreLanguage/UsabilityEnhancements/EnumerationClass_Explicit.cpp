@@ -1,5 +1,8 @@
-// Dilshad Sallo,  18.3.2012
-// Enumeration class allow to define explicitly underlying type.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/3/18
+ * \brief Enumeration class allow to define explicitly underlying type.
+ */
 
 #include <cassert>
 
