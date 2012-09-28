@@ -1,5 +1,8 @@
-// Dilshad Sallo, 29.6.2012
-// Using user defined cooked literals to convert kilometer to mile and versa.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/28
+ * \brief Using user defined cooked literals to convert string from C-style to C++ style.
+ */
 
 #include <cassert>
 
