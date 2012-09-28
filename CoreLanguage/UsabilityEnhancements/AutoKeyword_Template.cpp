@@ -1,5 +1,8 @@
-// Dilshad Sallo, 22.8.2012
-// Using "auto" keyword with templates to deduce the type.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/8/22
+ * \brief Using "auto" keyword with templates to deduce the type.
+ */
 
 #include <iostream>
 #include <typeinfo>
