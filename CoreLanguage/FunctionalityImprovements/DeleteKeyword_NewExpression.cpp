@@ -1,6 +1,9 @@
-// Dilshad Sallo  27.6.2012
-// Using "delete" keyword to prevent compiler
-// from using operator new.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/6/27
+ * \class C
+ * \brief Using "delete" keyword to prevent compiler from using operator new.
+ */
 
 #include <iostream>
 
