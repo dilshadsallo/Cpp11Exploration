@@ -1,5 +1,8 @@
-// Dilshad Sallo, 26.7.2012
-// Using lambda expression without parameters and return type to print string.
+/**
+ * \author Dilshad Sallo
+ * \date 2012/7/26
+ * \brief Using lambda expression without parameters and return type to print string.
+ */
 
 #include <iostream>
 
