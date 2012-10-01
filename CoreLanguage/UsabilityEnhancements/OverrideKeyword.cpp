@@ -1,7 +1,7 @@
 /**
  * \author Dilshad Sallo
  * \date 2012/4/2
- * \class Derived1, Derived2
+ * \class Derived1
  * \brief Using "override" keyword to mark functions explicitly as override.
  */
 
